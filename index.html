@@ -788,6 +788,64 @@
             padding: 6rem 2rem;
         }
         
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .team-member {
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+        
+        .team-photo {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        
+        .team-member:hover .team-photo {
+            filter: grayscale(0%);
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1d1d1f;
+            letter-spacing: -0.015em;
+        }
+        
+        .team-role {
+            font-size: 1rem;
+            color: #86868b;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .team-bio {
+            font-size: 0.875rem;
+            color: #1d1d1f;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+        
         .form-container {
             max-width: 600px;
             margin: 0 auto;
@@ -933,6 +991,7 @@
                     <a href="#home" class="nav-link">მთავარი</a>
                     <a href="#about" class="nav-link">ჩვენ შესახებ</a>
                     <a href="#courses" class="nav-link">კურსები</a>
+                    <a href="#team" class="nav-link">გუნდი</a>
                     <a href="#contact" class="nav-link">კონტაქტი</a>
                 </nav>
             </div>
@@ -1022,6 +1081,70 @@
                             <span class="duration">8 თვე</span>
                             <button class="course-btn">დეტალები</button>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section" id="team">
+            <div class="section">
+                <h2>ჩვენი გუნდი</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="./images/Gela.JPG" alt="გელა" class="team-photo">
+                        <h3 class="team-name">გელა</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Giorgi.JPG" alt="გიორგი" class="team-photo">
+                        <h3 class="team-name">გიორგი</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Joe.JPG" alt="ჯო" class="team-photo">
+                        <h3 class="team-name">ჯო</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Levan.JPG" alt="ლევან" class="team-photo">
+                        <h3 class="team-name">ლევან</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Mindia.JPG" alt="მინდია" class="team-photo">
+                        <h3 class="team-name">მინდია</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Nikoloz.JPG" alt="ნიკოლოზ" class="team-photo">
+                        <h3 class="team-name">ნიკოლოზ</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Teo.JPG" alt="თეო" class="team-photo">
+                        <h3 class="team-name">თეო</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Vakho.JPG" alt="ვახო" class="team-photo">
+                        <h3 class="team-name">ვახო</h3>
+                        <p class="team-role">ლექტორი</p>
+                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
                     </div>
                 </div>
             </div>
