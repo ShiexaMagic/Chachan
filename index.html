@@ -782,6 +782,88 @@
             font-size: 1.1rem;
         }
         
+        /* Student Registration Form */
+        .registration-section {
+            background: #f5f5f7;
+            padding: 6rem 2rem;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            letter-spacing: -0.01em;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #d2d2d7;
+            font-size: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', sans-serif;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #000;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: #000;
+            color: #fff;
+            border: none;
+            font-size: 1rem;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+        
+        .form-submit:hover {
+            background: #1d1d1f;
+        }
+        
+        .footer {
+            background: #f5f5f7;
+            color: var(--film-black);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            border-top: 1px solid #d2d2d7;
+        }
+        
+        .footer p {
+            margin: 0;
+            color: #666666;
+            font-size: 1.1rem;
+        }
+        
         /* Responsive */
         @media (max-width: 768px) {
             .title {
@@ -945,6 +1027,58 @@
             </div>
         </section>
 
+        <!-- Student Registration Form -->
+        <section class="registration-section" id="contact">
+            <div class="section">
+                <h2>სტუდენტის რეგისტრაცია</h2>
+                <div class="form-container">
+                    <form id="studentForm">
+                        <div class="form-group">
+                            <label for="fullName">სახელი და გვარი *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">ელფოსტა *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">ტელეფონი *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">ასაკი *</label>
+                            <input type="number" id="age" name="age" min="16" max="99" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course">არჩეული კურსი *</label>
+                            <select id="course" name="course" required>
+                                <option value="">აირჩიეთ კურსი</option>
+                                <option value="კინორეჟისურა">კინორეჟისურა</option>
+                                <option value="ოპერატორობა">ოპერატორობა</option>
+                                <option value="სცენარისტიკა">სცენარისტიკა</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">წინა გამოცდილება</label>
+                            <textarea id="experience" name="experience" placeholder="აღწერეთ თქვენი წინა გამოცდილება კინოს სფეროში..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="motivation">რა განათლებთ თქვენთ კინოხელოვნებას?</label>
+                            <textarea id="motivation" name="motivation" placeholder="გაუზიარეთ თქვენი მოტივაცია..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit">რეგისტრაციის გაგზავნა</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2024 შუქი. ყველა უფლება დაცულია.</p>
@@ -1013,6 +1147,29 @@
             });
             
             console.log('შუქის ჩამრთველი მზადაა');
+        });
+        
+        // Student registration form handler
+        document.getElementById('studentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                age: document.getElementById('age').value,
+                course: document.getElementById('course').value,
+                experience: document.getElementById('experience').value,
+                motivation: document.getElementById('motivation').value
+            };
+            
+            console.log('სტუდენტის რეგისტრაცია:', formData);
+            
+            // Show success message
+            alert('გმადლობთ რეგისტრაციისთვის! ჩვენ მალე დაგიკავშირდებით.');
+            
+            // Reset form
+            this.reset();
         });
     </script>
 </body>
