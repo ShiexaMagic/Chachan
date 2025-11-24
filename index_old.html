@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <    <!-- Main Website Content     <!-- Main Website Content (Initially Hidden) -->
+    <div id="mainWebsite" class="hidden min-h-screen bg-white" style="background-color: white; color: black; min-height: 100vh;">`nitially Hidden) -->
+    <div id="mainWebsite" class="hidden min-h-screen bg-white" style="background-color: white;">tle>Light Film School - შუქი</title>
+    <meta name="description" content="Light Film School - Georgian Film Education">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a202c",
+                        secondary: "#2d3748",
+                        accent: "#e53e3e",
+                        gold: "#d4af37",
+                        switch: {
+                            plate: "#f0f0f0",
+                            toggle: "#ffffff",
+                            shadow: "#8b8b8b"
+                        }
+                    },
+                    fontFamily: {
+                        'georgian': ['Noto Sans Georgian', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans Georgian', sans-serif;
+        }
+        
+        .light-switch-container {
+            perspective: 1000px;
+        }
+        
+        .light-switch {
+            background: linear-gradient(145deg, #e8e8e8, #c5c5c5);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 
+                5px 5px 15px rgba(0, 0, 0, 0.3),
+                -5px -5px 15px rgba(255, 255, 255, 0.2),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        
+        .light-switch:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                8px 8px 20px rgba(0, 0, 0, 0.4),
+                -8px -8px 20px rgba(255, 255, 255, 0.25),
+                inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .light-switch:active {
+            transform: translateY(0);
+            box-shadow: 
+                2px 2px 10px rgba(0, 0, 0, 0.2),
+                -2px -2px 10px rgba(255, 255, 255, 0.15),
+                inset 3px 3px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .switch-toggle {
+            width: 60px;
+            height: 100px;
+            background: linear-gradient(145deg, #f5f5f5, #d9d9d9);
+            border-radius: 30px;
+            position: relative;
+            box-shadow: 
+                inset 3px 3px 8px rgba(0, 0, 0, 0.1),
+                inset -3px -3px 8px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .switch-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(145deg, #8b8b8b, #666666);
+            border-radius: 50%;
+            box-shadow: 
+                2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .switch-toggle.on::before {
+            top: 10px;
+            background: linear-gradient(145deg, #d4af37, #b8941f);
+            background: linear-gradient(145deg, #4a5568, #2d3748);
+        }
+        
+        .switch-screw {
+            width: 6px;
+            height: 6px;
+            background: #8b8b8b;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 
+                1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-transition {
+            transition: opacity 0.8s ease-in-out;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        body {
+            transition: background-color 0.5s ease;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #mainWebsite {
+            transition: opacity 0.8s ease-in-out;
+            background-color: white !important;
+            color: black !important;
+        }
+        
+        #mainWebsite.hidden {
+            display: none !important;
+        }
+        
+        #mainWebsite:not(.hidden) {
+            display: block !important;
+            background-color: white !important;
+        }
+        
+        #lightSwitchScreen {
+            display: flex !important;
+            visibility: visible !important;
+            position: relative;
+            z-index: 1;
+        }
+        
+        #lightSwitchScreen.hidden {
+            display: none !important;
+        }
+        
+        .text-gold {
+            color: #d4af37 !important;
+        }
+        
+        .text-gray-400 {
+            color: #9ca3af !important;
+        }
+        
+        .text-gray-500 {
+            color: #6b7280 !important;
+        }
+        
+        .text-gray-600 {
+            color: #4b5563 !important;
+        }
+        
+        /* Ensure body background stays white after transition */
+        body.white-mode {
+            background-color: white !important;
+            color: black !important;
+        }
+        
+        .light-beam {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .light-beam.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="min-h-screen" style="background-color: black; color: white;">
+    <!-- Light Switch Home Screen -->
+    <div id="lightSwitchScreen" class="min-h-screen flex flex-col items-center justify-center bg-black text-white p-8 relative" style="background-color: #000000; color: #ffffff;">
+        <div class="light-beam" id="lightBeam"></div>
+        
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-gold" style="color: #d4af37;">Light Film School</h1>
+            <p class="text-2xl md:text-3xl text-gray-400" style="color: #9ca3af;">შუქი - ქართული კინოსკოლა</p>
+        </div>
+        
+        <div class="light-switch-container mb-12">
+            <div class="light-switch" id="lightSwitch">
+                <div class="relative">
+                    <!-- Switch Plate -->
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-inner">
+                        <!-- Screws -->
+                        <div class="absolute top-2 left-2 switch-screw"></div>
+                    <div class="absolute top-2 right-2 switch-screw"></div>
+                    <div class="absolute bottom-2 left-2 switch-screw"></div>
+                    <div class="absolute bottom-2 right-2 switch-screw"></div>
+                    
+                    <!-- Toggle Switch -->
+                    <div class="switch-toggle mx-auto" id="switchToggle"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <p class="text-gray-500 text-lg mb-2" style="color: #6b7280;">დააჭირეთ შუქის გასანათებლად</p>
+            <p class="text-gray-600" style="color: #4b5563;">"შუქი" - განათება კინოხელოვნებაში</p>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Initially Hidden) -->
+    <div id="mainWebsite" class="hidden min-h-screen bg-white">
+        <!-- Header -->
+        <header class="bg-primary text-white shadow-lg">
+            <nav class="container mx-auto px-4 py-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                        <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-lg text-primary"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">Light Film School</h1>
+                            <p class="text-gray-300 text-sm">შუქი</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                        <a href="#home" class="nav-link hover:text-gold transition-colors">მთავარი</a>
+                        <a href="#about" class="nav-link hover:text-gold transition-colors">ჩვენ შესახებ</a>
+                        <a href="#courses" class="nav-link hover:text-gold transition-colors">კურსები</a>
+                        <a href="#gallery" class="nav-link hover:text-gold transition-colors">გალერეა</a>
+                        <a href="#contact" class="nav-link hover:text-gold transition-colors">კონტაქტი</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section id="home" class="bg-gradient-to-r from-primary to-secondary text-white py-20">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-6">მოგვიანებით შუქზე</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-300">კინოხელოვნების განათება საქართველოში</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-gold text-primary px-8 py-3 rounded-lg font-bold hover:bg-yellow-500 transition-colors">
+                            დარეგისტრირდი
+                        </button>
+                        <button class="border-2 border-gold text-gold px-8 py-3 rounded-lg font-bold hover:bg-gold hover:text-primary transition-colors">
+                            გაიგე მეტი
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-16 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">ჩვენ შესახებ</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img 
+                                src="https://picsum.photos/600/400?random=1" 
+                                alt="Light Film School building and facilities" 
+                                class="w-full rounded-lg shadow-lg"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-4 text-secondary">Light Film School - შუქი</h3>
+                            <p class="text-gray-700 mb-6 text-lg">
+                                ჩვენი კინოსკოლა "შუქი" ეძღვნება კინოხელოვნების განათებასა და განვითარებას საქართველოში. 
+                                ჩვენ ვმუშაობთ, რომ აღვზარდოთ ახალი თაობის კინორეჟისორები, ოპერატორები და სცენარისტები.
+                            </p>
+                            <p class="text-gray-700 mb-6 text-lg">
+                                ჩვენი სახელწოდება "შუქი" სიმბოლურად გამოხატავს კინოხელოვნებაში განათების მნიშვნელობას 
+                                და ცოდნის გავრცელებას მომავალი კინემატოგრაფისტებისთვის.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 mt-8">
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gold">50+</div>
+                                    <div class="text-gray-600">სტუდენტი</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gold">15</div>
+                                    <div class="text-gray-600">ლექტორი</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gold">5</div>
+                                    <div class="text-gray-600">კურსი</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-3xl font-bold text-gold">3</div>
+                                    <div class="text-gray-600">წელი</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses" class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">კურსები</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <img 
+                                src="https://picsum.photos/400/250?random=2" 
+                                alt="Film Directing Course" 
+                                class="w-full h-48 object-cover"
+                                loading="lazy"
+                            />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3 text-secondary">კინორეჟისურა</h3>
+                                <p class="text-gray-600 mb-4">
+                                    სრული კურსი კინორეჟისურაში: სცენარიდან მონტაჟამდე.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gold font-bold">12 თვე</span>
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition-colors">
+                                        დეტალები
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <img 
+                                src="https://picsum.photos/400/250?random=3" 
+                                alt="Cinematography Course" 
+                                class="w-full h-48 object-cover"
+                                loading="lazy"
+                            />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3 text-secondary">ოპერატორობა</h3>
+                                <p class="text-gray-600 mb-4">
+                                    განათებისა და კადრის კომპოზიციის ხელოვნება.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gold font-bold">10 თვე</span>
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition-colors">
+                                        დეტალები
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                            <img 
+                                src="https://picsum.photos/400/250?random=4" 
+                                alt="Screenwriting Course" 
+                                class="w-full h-48 object-cover"
+                                loading="lazy"
+                            />
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-3 text-secondary">სცენარისტიკა</h3>
+                                <p class="text-gray-600 mb-4">
+                                    სცენარის წერა და დრამატურგიის საფუძვლები.
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gold font-bold">8 თვე</span>
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-secondary transition-colors">
+                                        დეტალები
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="py-16 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">გალერეა</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <img 
+                            src="https://picsum.photos/400/300?random=5" 
+                            alt="Student film production" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                        <img 
+                            src="https://picsum.photos/400/300?random=6" 
+                            alt="Film equipment workshop" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                        <img 
+                            src="https://picsum.photos/400/300?random=7" 
+                            alt="Student collaboration" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                        <img 
+                            src="https://picsum.photos/400/300?random=8" 
+                            alt="Film screening event" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                        <img 
+                            src="https://picsum.photos/400/300?random=9" 
+                            alt="Lighting techniques demonstration" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                        <img 
+                            src="https://picsum.photos/400/300?random=10" 
+                            alt="Graduation ceremony" 
+                            class="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-16 bg-white">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">კონტაქტი</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-secondary">დაგვიკავშირდით</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-map-marker-alt text-gold text-xl"></i>
+                                    <div>
+                                        <p class="font-semibold">მისამართი</p>
+                                        <p class="text-gray-600">თბილისი, საქართველო</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-phone text-gold text-xl"></i>
+                                    <div>
+                                        <p class="font-semibold">ტელეფონი</p>
+                                        <p class="text-gray-600">+995 32 123 4567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-gold text-xl"></i>
+                                    <div>
+                                        <p class="font-semibold">Email</p>
+                                        <p class="text-gray-600">info@lightfilmschool.ge</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <h4 class="text-xl font-bold mb-4">მოგვწერეთ სოციალურ ქსელებში</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                            <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white hover:bg-secondary transition-colors">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <form class="space-y-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">სახელი</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">შეტყობინება</label>
+                                    <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-gold text-primary py-3 rounded-lg font-bold hover:bg-yellow-500 transition-colors">
+                                    გაგზავნა
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-primary text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-lg text-primary"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold">Light Film School</h3>
+                                <p class="text-gray-300 text-sm">შუქი</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300">
+                            კინოხელოვნების განათება საქართველოში. ჩვენ ვქმნით მომავალ კინემატოგრაფისტებს.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">კურსები</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><a href="#" class="hover:text-gold transition-colors">კინორეჟისურა</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">ოპერატორობა</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">სცენარისტიკა</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">მონტაჟი</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">რესურსები</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><a href="#" class="hover:text-gold transition-colors">ბლოგი</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">">გალერეა</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">შეხვედრები</a></li>
+                            <li><a href="#" class="hover:text-gold transition-colors">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">კონტაქტი</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-map-marker-alt text-gold"></i>
+                                <span>თბილისი, საქართველო</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-phone text-gold"></i>
+                                <span>+995 32 123 4567</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-envelope text-gold"></i>
+                                <span>info@lightfilmschool.ge</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                    <p>&copy; 2024 Light Film School - შუქი. ყველა უფლება დაცულია.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Light switch functionality
+        const lightSwitch = document.getElementById('lightSwitch');
+        const switchToggle = document.getElementById('switchToggle');
+        const lightBeam = document.getElementById('lightBeam');
+        const lightSwitchScreen = document.getElementById('lightSwitchScreen');
+        const mainWebsite = document.getElementById('mainWebsite');
+        let isSwitchedOn = false;
+        
+        // Ensure initial state is OFF
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM Content Loaded');
+            
+            // Force show the light switch screen
+            const body = document.body;
+            const lightSwitchScreen = document.getElementById('lightSwitchScreen');
+            const mainWebsite = document.getElementById('mainWebsite');
+            const switchToggle = document.getElementById('switchToggle');
+            const lightBeam = document.getElementById('lightBeam');
+            
+            // Set initial styles
+            body.style.backgroundColor = 'black';
+            body.style.color = 'white';
+            
+            // Make sure the light switch screen is visible
+            lightSwitchScreen.style.display = 'flex';
+            lightSwitchScreen.style.opacity = '1';
+            lightSwitchScreen.style.visibility = 'visible';
+            lightSwitchScreen.classList.remove('hidden');
+            
+            // Make sure main website is hidden
+            mainWebsite.classList.add('hidden');
+            mainWebsite.style.display = 'none';
+            
+            // Set switch to OFF state
+            if (switchToggle) switchToggle.classList.remove('on');
+            if (lightBeam) lightBeam.classList.remove('active');
+            isSwitchedOn = false;
+            
+            console.log('Initial state set - light switch should be visible now');
+        });
+        
+        lightSwitch.addEventListener('click', function() {
+            console.log('Light switch clicked, isSwitchedOn:', isSwitchedOn);
+            if (!isSwitchedOn) {
+                // Turn on the light
+                switchToggle.classList.add('on');
+                lightBeam.classList.add('active');
+                
+                setTimeout(() => {
+                    // Add fade out animation
+                    lightSwitchScreen.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        // Hide light switch screen completely
+                        lightSwitchScreen.style.display = 'none';
+                        lightSwitchScreen.classList.add('hidden');
+                        
+                        // Change body and show main website
+                        document.body.style.backgroundColor = 'white';
+                        document.body.style.color = 'black';
+                        document.body.className = 'min-h-screen white-mode';
+                        
+                        // Show main website
+                        mainWebsite.classList.remove('hidden');
+                        mainWebsite.style.display = 'block';
+                        mainWebsite.style.backgroundColor = 'white';
+                        mainWebsite.style.color = 'black';
+                        mainWebsite.style.minHeight = '100vh';
+                        mainWebsite.style.opacity = '1';
+                        mainWebsite.style.position = 'relative';
+                        mainWebsite.style.zIndex = '10';
+                        
+                        isSwitchedOn = true;
+                        console.log('Transition complete, website should be visible');
+                    }, 800);
+                }, 300);
+            }
+        });
+
+        // Navigation smooth scroll
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('თქვენი შეტყობინება გაგზავნილია! მადლობა Light Film School-თან დაკავშირებისთვის.');
+            this.reset();
+        });
+
+        // Define navigation items data
+        const navItems = [
+            { "id": 1, "label": "მთავარი", "href": "#home" },
+            { "id": 2, "label": "ჩვენ შესახებ", "href": "#about" },
+            { "id": 3, "label": "კურსები", "href": "#courses" },
+            { "id": 4, "label": "გალერეა", "href": "#gallery" },
+            { "id": 5, "label": "კონტაქტი", "href": "#contact" }
+        ];
+
+        // Define courses data
+        const courses = [
+            {
+                "id": 1,
+                "title": "კინორეჟისურა",
+                "description": "სრული კურსი კინორეჟისურაში: სცენარიდან მონტაჟამდე.",
+                "duration": "12 თვე",
+                "image": "https://picsum.photos/400/250?random=2"
+            },
+            {
+                "id": 2,
+                "title": "ოპერატორობა",
+                "description": "განათებისა და კადრის კომპოზიციის ხელოვნება.",
+                "duration": "10 თვე",
+                "image": "https://picsum.photos/400/250?random=3"
+            },
+            {
+                "id": 3,
+                "title": "სცენარისტიკა",
+                "description": "სცენარის წერა და დრამატურგიის საფუძვლები.",
+                "duration": "8 თვე",
+                "image": "https://picsum.photos/400/250?random=4"
+            }
+        ];
+    </script>
+</body>
+</html>
