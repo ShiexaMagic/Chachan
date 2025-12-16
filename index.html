@@ -226,10 +226,41 @@
             border: 2px solid var(--film-dark);
         }
         
+        .switch-toggle-area::before {
+            content: 'OFF';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--film-silver);
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+        
+        .switch-toggle-area::after {
+            content: 'ON';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--film-silver);
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .switch-toggle-area.revealed::after {
+            opacity: 0.7;
+        }
+        
         /* Clean Toggle */
         .switch-toggle {
             position: absolute;
-            top: 75px; /* OFF position */
+            top: 10px; /* OFF position - top */
             left: 50%;
             transform: translateX(-50%);
             width: 60px;
@@ -247,7 +278,7 @@
         }
         
         .switch-toggle.on {
-            top: 10px; /* ON position */
+            top: 75px; /* ON position - bottom */
             background: var(--secondary-accent);
             box-shadow: 
                 0 4px 8px rgba(0, 0, 0, 0.3),
@@ -1460,6 +1491,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const lightSwitch = document.getElementById('lightSwitch');
             const switchToggle = document.getElementById('switchToggle');
+            const switchToggleArea = document.querySelector('.switch-toggle-area');
             const lightSwitchScreen = document.getElementById('lightSwitchScreen');
             const mainWebsite = document.getElementById('mainWebsite');
             const flashOverlay = document.getElementById('flashOverlay');
@@ -1469,8 +1501,9 @@
                 if (!isSwitchedOn) {
                     console.log('შუქის ჩართვა დაწყებულია');
                     
-                    // Step 1: Animate switch toggle to ON position
+                    // Step 1: Animate switch toggle to ON position and reveal ON text
                     switchToggle.classList.add('on');
+                    switchToggleArea.classList.add('revealed');
                     
                     // Step 2: Trigger overexposure flash effect after short delay
                     setTimeout(() => {
