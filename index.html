@@ -87,6 +87,34 @@
             position: relative;
         }
         
+        .light-switch-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                /* Paper texture */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .light-switch-screen > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .opening-logo {
+            max-width: 320px;
+            height: auto;
+            margin-bottom: 3rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+        
         .title {
             color: var(--primary-accent);
             font-size: 5rem;
@@ -111,7 +139,7 @@
         /* Film Strip Light Switch */
         .realistic-switch-container {
             perspective: 1000px;
-            margin: 2rem 0;
+            margin: 3rem 0;
             z-index: 2;
             position: relative;
         }
@@ -386,13 +414,13 @@
         
         .instruction {
             color: var(--film-silver);
-            font-size: 1.3rem;
-            margin-top: 3rem;
+            font-size: 1.2rem;
+            margin-top: 2.5rem;
             text-align: center;
             z-index: 2;
             position: relative;
             font-weight: 300;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         /* Main Website - Light Theme (After Switch) */
@@ -401,6 +429,32 @@
             background: var(--film-white);
             color: var(--film-black);
             min-height: 100vh;
+            position: relative;
+        }
+        
+        .main-website::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                /* Paper texture */
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+                /* Subtle gradient for aged look */
+                linear-gradient(180deg, 
+                    rgba(245, 235, 220, 0.3) 0%, 
+                    rgba(255, 253, 248, 0.2) 50%, 
+                    rgba(240, 230, 215, 0.3) 100%);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .main-website > * {
+            position: relative;
+            z-index: 1;
         }
         
         /* Clean Film Header - Light Theme */
@@ -429,6 +483,13 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            z-index: 1001;
+        }
+        
+        .header-logo {
+            height: 28px;
+            width: auto;
+            filter: brightness(0);
         }
         
         .logo h1 {
@@ -443,6 +504,38 @@
             content: '';
             font-size: 2.5rem;
             filter: none;
+        }
+        
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 8px;
+        }
+        
+        .menu-toggle span {
+            width: 22px;
+            height: 2px;
+            background: #1d1d1f;
+            transition: all 0.3s ease;
+            display: block;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
         
         /* Light Theme Navigation */
@@ -566,15 +659,15 @@
         }
         
         .btn-primary {
-            background: var(--yellow-orange-700);
+            background: var(--film-white);
             color: var(--film-black);
-            border-color: var(--yellow-orange-700);
+            border-color: var(--film-white);
             box-shadow: none;
         }
         
         .btn-primary:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
         
         .btn-secondary {
@@ -617,31 +710,35 @@
             align-items: center;
         }
         
+        .about-image {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-img {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+        
+        .about-image:hover .about-img {
+            filter: grayscale(0%);
+        }
+        
         .film-frame {
             position: relative;
-            background: var(--film-gradient);
+            background: transparent;
             border-radius: 0;
-            padding: 2rem;
-            border: 4px solid var(--secondary-accent);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            border: none;
+            box-shadow: none;
         }
         
         .film-frame::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: 
-                /* Film perforations */
-                radial-gradient(circle at 20px 20px, transparent 3px, var(--secondary-accent) 3px, var(--secondary-accent) 5px, transparent 5px),
-                radial-gradient(circle at 20px 60px, transparent 3px, var(--secondary-accent) 3px, var(--secondary-accent) 5px, transparent 5px),
-                radial-gradient(circle at 20px 100px, transparent 3px, var(--secondary-accent) 3px, var(--secondary-accent) 5px, transparent 5px);
-            background-size: 40px 120px;
-            background-repeat: repeat-y;
-            border-radius: 0;
-            z-index: -1;
+            display: none;
         }
         
         .about-text h3 {
@@ -786,12 +883,69 @@
         .registration-section {
             background: #f5f5f7;
             padding: 3.9rem 2rem;
+            position: relative;
+        }
+        
+        .registration-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, 
+                    rgba(245, 235, 220, 0.3) 0%, 
+                    rgba(255, 253, 248, 0.2) 50%, 
+                    rgba(240, 230, 215, 0.3) 100%);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .registration-section > * {
+            position: relative;
+            z-index: 1;
         }
         
         /* Team Section */
         .team-section {
             padding: 3.9rem 2rem;
             background: white;
+            position: relative;
+        }
+        
+        .team-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, 
+                    rgba(245, 235, 220, 0.3) 0%, 
+                    rgba(255, 253, 248, 0.2) 50%, 
+                    rgba(240, 230, 215, 0.3) 100%);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .team-section > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .team-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #86868b;
+            margin-top: -2.5rem;
+            margin-bottom: 3rem;
+            letter-spacing: -0.01em;
         }
         
         .team-grid {
@@ -800,6 +954,42 @@
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        /* What We Do Section */
+        .what-we-do-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .what-we-do-item {
+            padding: 2rem;
+            background: #f5f5f7;
+            border: 1px solid #d2d2d7;
+        }
+        
+        .what-we-do-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+            letter-spacing: -0.015em;
+        }
+        
+        .what-we-do-item p {
+            font-size: 1rem;
+            color: #1d1d1f;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+        
+        /* Course tagline */
+        .course-tagline {
+            font-size: 1.1rem;
+            color: #86868b;
+            font-style: italic;
+            margin-bottom: 1.5rem;
         }
         
         .team-member {
@@ -945,8 +1135,43 @@
             }
             
             .nav-container {
+                height: 48px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 48px;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: saturate(180%) blur(20px);
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+                border-bottom: 1px solid #d2d2d7;
+            }
+            
+            .nav-links.active {
+                max-height: 300px;
+            }
+            
+            .nav-link {
+                padding: 16px 22px;
+                width: 100%;
+                text-align: left;
+                font-size: 1rem;
+                border-bottom: 1px solid #f5f5f7;
+            }
+            
+            .nav-link:last-child {
+                border-bottom: none;
             }
         }
     </style>
@@ -954,8 +1179,7 @@
 <body>
     <!-- Light Switch Screen -->
     <div id="lightSwitchScreen" class="light-switch-screen">
-        <h1 class="title">შუქი</h1>
-        <p class="subtitle">ქართული კინოსკოლა</p>
+        <img src="./images/shuqi-logo.png" alt="შუქი ლოგო" class="opening-logo">
         
         <!-- Realistic Light Switch -->
         <div class="realistic-switch-container">
@@ -973,7 +1197,7 @@
             </div>
         </div>
         
-        <p class="instruction">დააჭირეთ შუქის ჩასართავად</p>
+        <p class="instruction">შუქის ასანთებად, დააჭირე ღილაკს!</p>
     </div>
     
     <!-- Flash Overlay for overexposure effect -->
@@ -985,12 +1209,17 @@
         <header class="header">
             <div class="nav-container">
                 <div class="logo">
-                    <h1>შუქი</h1>
+                    <img src="./images/shuqi-logo.png" alt="შუქი" class="header-logo">
                 </div>
-                <nav class="nav-links">
+                <button class="menu-toggle" id="menuToggle" aria-label="მენიუ">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav-links" id="navLinks">
                     <a href="#home" class="nav-link">მთავარი</a>
                     <a href="#about" class="nav-link">ჩვენ შესახებ</a>
-                    <a href="#courses" class="nav-link">კურსები</a>
+                    <a href="#courses" class="nav-link">რას გთავაზობთ</a>
                     <a href="#team" class="nav-link">გუნდი</a>
                     <a href="#contact" class="nav-link">კონტაქტი</a>
                 </nav>
@@ -1005,8 +1234,7 @@
             </video>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h2>მოგვიანებით შუქზე</h2>
-                <p>კინოხელოვნების განათება საქართველოში</p>
+                <h2>სადაც სინათლე ამბად გარდაიქმნება</h2>
                 <div class="hero-buttons">
                     <a href="#courses" class="btn btn-primary">დარეგისტრირდი</a>
                     <a href="#about" class="btn btn-secondary">გაიგე მეტი</a>
@@ -1018,46 +1246,72 @@
         <section class="section" id="about">
             <h2>ჩვენ შესახებ</h2>
             <div class="about-content">
-                <div class="film-frame">
-                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=400&fit=crop" alt="კინოსკოლა" style="width: 100%; height: 300px; object-fit: cover; border-radius: 0;">
+                <div class="about-image">
+                    <img src="./images/web.png" alt="კინოსკოლა" class="about-img">
                 </div>
                 <div class="about-text">
-                    <h3>შუქი</h3>
-                    <p>ჩვენი კინოსკოლა "შუქი" ეძღვნება კინოხელოვნების განათებასა და განვითარებას საქართველოში. ჩვენ ვმუშაობთ, რომ აღვზარდოთ ახალი თაობის კინორეჟისორები, ოპერატორები და სცენარისტები.</p>
-                    <p>ჩვენი სახელწოდება "შუქი" სიმბოლურად გამოხატავს კინოხელოვნებაში განათების მნიშვნელობას და ცოდნის გავრცელებას მომავალი კინემატოგრაფისტებისთვის.</p>
+                    <h3>შუქი პროდაქშენი</h3>
+                    <p>შუქი პროდაქშენი ეძღვნება კინოხელოვნების განვითარებას და დემოკრატიზაციას საქართველოში. ჩვენ ვმუშაობთ მეტი შესაძლებლობების შესაქმნელად ახალი თაობის კინო ხელოვანებისთვის.</p>
+                    <p>ჩვენი მისია კინოგანათლების მნიშვნელობის გაზრდა და ცოდნის გავრცელებაა. ეს გულისხმობს ხელმისაწვდომი პრაქტიკული სწავლების შეთავაზებას და კინოწარმოების განვითარებას კრეატიულობის, თანამშრომლობისა და ავთენტურობის პრინციპებზე დაყრდნობით.</p>
                     
                     <div class="stats">
                         <div class="stat">
-                            <span class="stat-number">50+</span>
+                            <span class="stat-number">30+</span>
                             <span class="stat-label">სტუდენტი</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">15</span>
+                            <span class="stat-number">20+</span>
                             <span class="stat-label">ლექტორი</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">5</span>
+                            <span class="stat-number">2</span>
                             <span class="stat-label">კურსი</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">წელი</span>
+                            <span class="stat-number">13</span>
+                            <span class="stat-label">კვირა სწავლა</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- What We Do Section -->
+        <section class="section" id="what-we-do">
+            <h2>რას ვაკეთებთ</h2>
+            <div class="what-we-do-grid">
+                <div class="what-we-do-item">
+                    <h3>შემოქმედებითი პოტენციალის გამოვლენა</h3>
+                    <p>თითოეულ სტუდენტში ინდივიდუალური ხედვისა და მთხრობელობის თავდაჯერებულობის განვითარება, სინათლისა და კინოს ენის გამოყენებით.</p>
+                </div>
+                <div class="what-we-do-item">
+                    <h3>პრაქტიკული კინემატოგრაფიული განათლება</h3>
+                    <p>ინდივიდუალურ პროექტებზე დაფუძნებული ტრენინგები კინემატოგრაფიაში, მონტაჟში, რეჟისურასა და კინო-წარმოებაში.</p>
+                </div>
+                <div class="what-we-do-item">
+                    <h3>ერთიანი შემოქმედებითი საზოგადოების შექმნა</h3>
+                    <p>თანამშრომლობითი სივრცის ხელშეწყობა, სადაც სტუდენტები და მენტორები ერთად განავითარებენ შემოქმედებით ეკოსისტემას.</p>
+                </div>
+                <div class="what-we-do-item">
+                    <h3>დამოუკიდებელი კინოს ხელშეწყობა</h3>
+                    <p>რეჟისორების ინსპირაცია, რათა გააცოცხლონ ავთენტური ისტორიები, რომლებიც ფესვგადგმულია მათ კულტურაში, გარემოსა და ცხოვრებისეულ გამოცდილებაში.</p>
+                </div>
+                <div class="what-we-do-item">
+                    <h3>მეტი წვდომა რესურსებზე</h3>
+                    <p>ხელმისაწვდომი, ან დაფინანსებული სასწავლო შესაძლებლობების შეთავაზება ნიჭიერი და მონდომებული ახალგაზრდებისთვის.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Courses Section -->
         <section class="section" id="courses">
-            <h2>კურსები</h2>
+            <h2>რას გთავაზობთ</h2>
             <div class="courses-grid">
                 <div class="course-card">
                     <div class="course-content">
-                        <h3>კინორეჟისურა</h3>
-                        <p>სრული კურსი კინორეჟისურაში: სცენარიდან მონტაჟამდე.</p>
+                        <h3>კინოსამსახიობო კურსი</h3>
+                        <p class="course-tagline">„პორტფოლიო"</p>
                         <div class="course-footer">
-                            <span class="duration">12 თვე</span>
                             <button class="course-btn">დეტალები</button>
                         </div>
                     </div>
@@ -1065,21 +1319,9 @@
                 
                 <div class="course-card">
                     <div class="course-content">
-                        <h3>ოპერატორობა</h3>
-                        <p>განათებისა და კადრის კომპოზიციის ხელოვნება.</p>
+                        <h3>კინოსარეჟისორო კურსი</h3>
+                        <p class="course-tagline">„გადაიღე საავტორო ფილმი"</p>
                         <div class="course-footer">
-                            <span class="duration">10 თვე</span>
-                            <button class="course-btn">დეტალები</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-content">
-                        <h3>სცენარისტიკა</h3>
-                        <p>სცენარის წერა და დრამატურგიის საფუძვლები.</p>
-                        <div class="course-footer">
-                            <span class="duration">8 თვე</span>
                             <button class="course-btn">დეტალები</button>
                         </div>
                     </div>
@@ -1090,62 +1332,67 @@
         <!-- Team Section -->
         <section class="team-section" id="team">
             <div class="section">
-                <h2>ჩვენი გუნდი</h2>
+                <h2>ვინ ვართ ჩვენ</h2>
+                <p class="team-subtitle">გუნდის წევრები</p>
                 <div class="team-grid">
                     <div class="team-member">
-                        <img src="./images/Gela.JPG" alt="გელა" class="team-photo">
-                        <h3 class="team-name">გელა</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Gela.JPG" alt="გელა ჩინჩალაძე" class="team-photo">
+                        <h3 class="team-name">გელა ჩინჩალაძე</h3>
+                        <p class="team-role">ოპერატორი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Giorgi.JPG" alt="გიორგი" class="team-photo">
-                        <h3 class="team-name">გიორგი</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Giorgi.JPG" alt="გიორგი თავართქილაძე" class="team-photo">
+                        <h3 class="team-name">გიორგი თავართქილაძე</h3>
+                        <p class="team-role">რეჟისორი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Vano.JPG" alt="ჯო" class="team-photo">
-                        <h3 class="team-name">ჯო</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Vakho.JPG" alt="ვახო ჩაჩანიძე" class="team-photo">
+                        <h3 class="team-name">ვახო ჩაჩანიძე</h3>
+                        <p class="team-role">მსახიობი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Levan.JPG" alt="ლევან" class="team-photo">
-                        <h3 class="team-name">ლევან</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Imeda.JPG" alt="იმედა თეთრაძე" class="team-photo">
+                        <h3 class="team-name">იმედა თეთრაძე</h3>
+                        <p class="team-role">ოპერატორი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Mindia.JPG" alt="მინდია" class="team-photo">
-                        <h3 class="team-name">მინდია</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Teo.JPG" alt="თეო ბარამიძე" class="team-photo">
+                        <h3 class="team-name">თეო ბარამიძე</h3>
+                        <p class="team-role">კინომხატვარი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Nikoloz.JPG" alt="ნიკოლოზ" class="team-photo">
-                        <h3 class="team-name">ნიკოლოზ</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Levan.JPG" alt="ლევან კუხაშვილი" class="team-photo">
+                        <h3 class="team-name">ლევან კუხაშვილი</h3>
+                        <p class="team-role">მონტაჟი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Teo.JPG" alt="თეო" class="team-photo">
-                        <h3 class="team-name">თეო</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Ivane.JPG" alt="ივანე გვარაძე" class="team-photo">
+                        <h3 class="team-name">ივანე გვარაძე</h3>
+                        <p class="team-role">ხმის რეჟისორი</p>
                     </div>
                     
                     <div class="team-member">
-                        <img src="./images/Vakho.JPG" alt="ვახო" class="team-photo">
-                        <h3 class="team-name">ვახო</h3>
-                        <p class="team-role">ლექტორი</p>
-                        <p class="team-bio">კინოხელოვნების პროფესიონალი</p>
+                        <img src="./images/Nikoloz.JPG" alt="ნიკოლოზ მდივანი" class="team-photo">
+                        <h3 class="team-name">ნიკოლოზ მდივანი</h3>
+                        <p class="team-role">სცენარი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Aleko.JPG" alt="ალეკო ცაბაძე" class="team-photo">
+                        <h3 class="team-name">ალეკო ცაბაძე</h3>
+                        <p class="team-role">რეჟისორი</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <img src="./images/Shio.JPG" alt="შიო ხიდაშელი" class="team-photo">
+                        <h3 class="team-name">შიო ხიდაშელი</h3>
+                        <p class="team-role">მონტაჟი</p>
                     </div>
                 </div>
             </div>
@@ -1181,9 +1428,8 @@
                             <label for="course">არჩეული კურსი *</label>
                             <select id="course" name="course" required>
                                 <option value="">აირჩიეთ კურსი</option>
-                                <option value="კინორეჟისურა">კინორეჟისურა</option>
-                                <option value="ოპერატორობა">ოპერატორობა</option>
-                                <option value="სცენარისტიკა">სცენარისტიკა</option>
+                                <option value="კინოსამსახიობო კურსი - პორტფოლიო">კინოსამსახიობო კურსი - „პორტფოლიო"</option>
+                                <option value="კინოსარეჟისორო კურსი - გადაიღე საავტორო ფილმი">კინოსარეჟისორო კურსი - „გადაიღე საავტორო ფილმი"</option>
                             </select>
                         </div>
                         
@@ -1272,6 +1518,34 @@
             
             console.log('შუქის ჩამრთველი მზადაა');
         });
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            const links = navLinks.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-container')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
         
         // Student registration form handler
         document.getElementById('studentForm').addEventListener('submit', function(e) {
