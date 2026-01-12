@@ -942,6 +942,246 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
+
+        /* Course Details Modal */
+        .course-modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 10000;
+            overflow-y: auto;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-modal-overlay.active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            opacity: 1;
+        }
+
+        .course-modal {
+            background: #fff;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 0;
+            position: relative;
+            margin: 2rem auto;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .course-modal-overlay.active .course-modal {
+            transform: translateY(0);
+        }
+
+        .course-modal-header {
+            background: var(--film-black);
+            color: #fff;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .course-modal-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 700;
+        }
+
+        .course-modal-header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        .course-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .course-modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .course-modal-body {
+            padding: 2.5rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .course-modal-body h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary-accent);
+            margin: 2rem 0 1rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .course-modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .course-modal-body p {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .course-modal-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .course-modal-body ul li {
+            padding: 0.7rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .course-modal-body ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-accent);
+            font-weight: bold;
+        }
+
+        .course-highlight {
+            background: #f8f8f8;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .course-highlight p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .course-team-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .course-team-list li {
+            padding: 0.5rem 0 0.5rem 1.5rem !important;
+        }
+
+        .course-info-box {
+            background: var(--film-black);
+            color: #fff;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .course-info-box h4 {
+            font-family: 'Orbitron', sans-serif;
+            margin: 0 0 1.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .course-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-info-item .label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .course-info-item .value {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .course-info-item a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .course-info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .course-cta {
+            text-align: center;
+            padding: 2rem;
+            background: #f5f5f7;
+        }
+
+        .course-cta p {
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+            color: var(--primary-accent);
+        }
+
+        .course-cta-btn {
+            display: inline-block;
+            background: var(--film-black);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .course-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .course-modal-overlay.active {
+                padding: 1rem;
+            }
+
+            .course-modal-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .course-modal-body {
+                padding: 1.5rem;
+            }
+
+            .course-team-list {
+                grid-template-columns: 1fr;
+            }
+        }
         
         /* Light Theme Footer */
         .footer {
@@ -1615,6 +1855,106 @@
             </div>
         </section>
 
+        <!-- Course Details Modal -->
+        <div class="course-modal-overlay" id="portfolioModal">
+            <div class="course-modal">
+                <div class="course-modal-header">
+                    <h2>კინოსამსახიობო კურსი</h2>
+                    <p class="tagline">„პორტფოლიო"</p>
+                    <button class="course-modal-close" id="closePortfolioModal">&times;</button>
+                </div>
+                <div class="course-modal-body">
+                    <div class="course-highlight">
+                        <p>ნიუ ვიჟენი და შუქი პროდაქშენი წარმოგიდგენთ კინოსამსახიობო კურსს „პორტფოლიო"</p>
+                    </div>
+
+                    <p style="font-size: 1.2rem; text-align: center; margin: 2rem 0;">
+                        <strong>ითამაშე მთავარი გმირი და<br>გადაიღე სცენა შენი<br>პორტფოლიოსთვის</strong>
+                    </p>
+
+                    <p>ეს არის უპრეცენდენტო შესაძლებლობა როგორც მსახიობებისთვის, ისე ყველა იმ ადამიანისთვის, ვისაც სურს საკუთარი ძალების კამერის წინ მოსინჯვა.</p>
+
+                    <p>„პორტფოლიო"-ზე მიღება მოხდება გასაუბრების საფუძველზე, რომლის მიზანია კანდიდატის ელემენტარული სამსახიობო უნარების და მეტყველების შეფასება. გასაუბრება მოიცავს წინასწარ მომზადებული ტექსტის (მოთხრობა, ლექსი, ნაწყვეტი პიესიდან ან სხვა) წაკითხვას და მის შეფასებას.</p>
+
+                    <h3>რას გთავაზობთ კურსის ფარგლებში:</h3>
+                    <ul>
+                        <li>კინოინდუსტრიის პროფესიონალების მიერ ჩატარებულ ინდივიდუალურ მენტორინგსა და მასტერკლასებს, რომელიც დაგეხმარებათ კინოსამსახიობო უნარების განვითარებასა და თქვენი პოტენციალის მაქსიმალურად გამოვლენაში.</li>
+                        <li>პროფესიონალი ფოტოგრაფის ინდივიდუალურ ფოტოსესიებს.</li>
+                        <li>საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიოს შექმნას.</li>
+                        <li>ცნობილი კინორეჟისორების ხელმძღვანელობით, რომელიმე ცნობილი ან თქვენთვის სასურველი პერსონაჟის სცენის (ეპიზოდის) მომზადებას, ერთ ან ორ პარტნიორთან ერთად.</li>
+                        <li>მომზადებული სცენის კინოფორმატით გადაღებას და ფოტოებთან ერთად თქვენ პორტფოლიოში განთავსებას.</li>
+                        <li>თქვენი პორტფოლიოს ნიუ ვიჟენისა და შუქი პროდაქშენის ვებგვერდებზე ატვირთვას, ასევე მის გაზიარებას ადგილობრივ და საერთაშორისო სააგენტოებსა და ქასთინგ-მენეჯერებთან.</li>
+                    </ul>
+
+                    <h3>ვისთვის არის განკუთვნილი კურსი:</h3>
+                    <ul>
+                        <li>სტუდენტებისთვის, რომელთაც სურთ კინოსამსახიობო უნარების გაუმჯობესება.</li>
+                        <li>მსახიობებისთვის, რომელთაც აინტერესებთ კინოპრაქტიკის მიღება და საკუთარი შემოქმედებითი პოტენციალის წარმოჩენა.</li>
+                        <li>მსახიობებისა და სტუდენტებისთვის, რომელთაც სჭირდებათ საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიო.</li>
+                        <li>მსახიობებისთვის, რომელთაც ესაჭიროებათ მაღალი ხარისხის ფოტო და ვიდეო მასალა პორტფოლიოს გასამდიდრებლად.</li>
+                    </ul>
+
+                    <h3>ჩვენი გუნდის წევრები:</h3>
+                    <ul class="course-team-list">
+                        <li>რეჟისორები - გიორგი თავართქილაძე და ალეკო ცაბაძე</li>
+                        <li>მსახიობი - ვახო ჩაჩანიძე</li>
+                        <li>სცენარისტი - ნიკოლოზ მდივანი</li>
+                        <li>ოპერატორი - გელა ჩინჩალაძე</li>
+                        <li>კამერა - იმედა თეთრაძე</li>
+                        <li>ხმის რეჟისორი - ივანე გვარაძე</li>
+                        <li>კინო-მხატვარი - თეო ბარამიძე</li>
+                        <li>მონტაჟი - ლევან კუხაშვილი</li>
+                        <li>ფერის კორექცია - შიო ხიდაშელი</li>
+                    </ul>
+
+                    <h3>რას მიიღებთ შედეგად, პროექტის დასრულების შემდეგ:</h3>
+                    <ul>
+                        <li>შეძლებთ კამერის წინ პროფესიონალურად მუშაობას.</li>
+                        <li>გექნებათ კინოფორმატით გადაღებული სცენა პორტფოლიოსთვის ორ ან სამ პარტნიორთან ერთად.</li>
+                        <li>თქვენი კონკრეტული ვიდეოეპიზოდები ცალკე ამოიჭრება და დამუშავდება პორტფოლიოსთვის.</li>
+                        <li>პორტფოლიოს ფარგლებში მიიღებთ პროფესიონალი ფოტოგრაფის მიერ გადაღებულ მაღალხარისხიან პერსონალურ ფოტოებს.</li>
+                        <li>დაეუფლებით კინოქასთინგებში მონაწილეობის ძირითად პრინციპებსა და მნიშვნელოვან ნიუანსებს.</li>
+                        <li>გაეცნობით კინოგადაღების პროცესში ჩართული ძირითადი პროფესიების სპეციფიკას.</li>
+                        <li>ინდივიდუალურად თქვენთვის შექმნილი პორტფოლიო განთავსდება შუქი პროდაქშენისა და ნიუ ვიჟენის ოფიციალურ ვებგვერდებზე.</li>
+                        <li>სურვილის შემთხვევაში, პორტფოლიოს ადგილობრივ ქასთინგ-მენეჯერებს და საერთაშორისო სააგენტოებს გავუზიარებთ.</li>
+                    </ul>
+
+                    <p><strong>პროექტი ხორციელდება „ნიუ ვიჟენის" უნივერსიტეტის ბაზაზე.</strong></p>
+
+                    <div class="course-info-box">
+                        <h4>პროექტის დეტალები</h4>
+                        <div class="course-info-grid">
+                            <div class="course-info-item">
+                                <span class="label">ხანგრძლივობა</span>
+                                <span class="value">13 კვირა</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">ღირებულება</span>
+                                <span class="value">2900 ლარი</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">ტელეფონი</span>
+                                <span class="value"><a href="tel:+995597333929">+995 597333929</a></span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">ელფოსტა</span>
+                                <span class="value"><a href="mailto:info@shuqi.ge">info@shuqi.ge</a></span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">მისამართი</span>
+                                <span class="value">თბილისი, ლუბლიანას ქუჩა 15</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-cta">
+                        <p>მონაწილეთა რაოდენობა შეზღუდულია</p>
+                        <a href="#registration" class="course-cta-btn" onclick="document.getElementById('portfolioModal').classList.remove('active'); document.body.style.overflow = '';">შეავსეთ განაცხადის ფორმა</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 შუქი. ყველა უფლება დაცულია.</p>
@@ -1734,6 +2074,40 @@
             });
         }
         
+        // Portfolio Course Modal functionality
+        const portfolioModal = document.getElementById('portfolioModal');
+        const closePortfolioModal = document.getElementById('closePortfolioModal');
+        
+        // Get the first course button (პორტფოლიო)
+        const courseButtons = document.querySelectorAll('.course-btn');
+        if (courseButtons.length > 0) {
+            courseButtons[0].addEventListener('click', function() {
+                portfolioModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Close modal handlers
+        closePortfolioModal.addEventListener('click', function() {
+            portfolioModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        portfolioModal.addEventListener('click', function(e) {
+            if (e.target === portfolioModal) {
+                portfolioModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && portfolioModal.classList.contains('active')) {
+                portfolioModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
         // Student registration form handler
         document.getElementById('studentForm').addEventListener('submit', function(e) {
             e.preventDefault();
