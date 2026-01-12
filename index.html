@@ -2410,33 +2410,60 @@
         const portfolioModal = document.getElementById('portfolioModal');
         const closePortfolioModal = document.getElementById('closePortfolioModal');
         
+        // Function to open portfolio modal
+        function openPortfolioModal() {
+            portfolioModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState(null, '', '#portfolio-details');
+        }
+        
+        // Function to close portfolio modal
+        function closePortfolioModalFn() {
+            portfolioModal.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState(null, '', window.location.pathname);
+        }
+        
+        // Check URL hash on page load to open modal if needed
+        function checkHashForModal() {
+            if (window.location.hash === '#portfolio-details') {
+                // Wait for page to be ready then open modal
+                setTimeout(openPortfolioModal, 500);
+            }
+        }
+        
+        // Check on page load
+        checkHashForModal();
+        
+        // Listen for hash changes (back/forward browser buttons)
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash === '#portfolio-details') {
+                openPortfolioModal();
+            } else if (portfolioModal.classList.contains('active')) {
+                portfolioModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
         // Get the first course button (პორტფოლიო)
         const courseButtons = document.querySelectorAll('.course-btn');
         if (courseButtons.length > 0) {
-            courseButtons[0].addEventListener('click', function() {
-                portfolioModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
+            courseButtons[0].addEventListener('click', openPortfolioModal);
         }
         
         // Close modal handlers
-        closePortfolioModal.addEventListener('click', function() {
-            portfolioModal.classList.remove('active');
-            document.body.style.overflow = '';
-        });
+        closePortfolioModal.addEventListener('click', closePortfolioModalFn);
         
         portfolioModal.addEventListener('click', function(e) {
             if (e.target === portfolioModal) {
-                portfolioModal.classList.remove('active');
-                document.body.style.overflow = '';
+                closePortfolioModalFn();
             }
         });
         
         // Close with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && portfolioModal.classList.contains('active')) {
-                portfolioModal.classList.remove('active');
-                document.body.style.overflow = '';
+                closePortfolioModalFn();
             }
         });
 
