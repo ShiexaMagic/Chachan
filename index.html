@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>შუქი - ქართული კინოსკოლა</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -1182,6 +1183,289 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Gallery Section - Modern Masonry Style */
+        .gallery-section {
+            padding: 5rem 2rem;
+            background: #f5f5f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+                linear-gradient(180deg, 
+                    rgba(245, 235, 220, 0.3) 0%, 
+                    rgba(255, 253, 248, 0.2) 50%, 
+                    rgba(240, 230, 215, 0.3) 100%);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .gallery-section h2 {
+            text-align: center;
+            color: var(--primary-accent);
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            color: #666666;
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 4/3;
+            background: #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:nth-child(5n+1) {
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item:nth-child(7n+3) {
+            grid-column: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.4s ease;
+            filter: grayscale(30%);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                transparent 0%,
+                transparent 60%,
+                rgba(0,0,0,0.8) 100%
+            );
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item::after {
+            content: '⊕';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 3rem;
+            color: #fff;
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.97);
+            z-index: 20000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            animation: lightboxZoom 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: opacity 0.15s ease;
+        }
+
+        @keyframes lightboxZoom {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-item:nth-child(5n+1) {
+                grid-row: span 1;
+            }
+            .gallery-item:nth-child(7n+3) {
+                grid-column: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-section {
+                padding: 3rem 1rem;
+            }
+            
+            .gallery-section h2 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+
+            .gallery-item {
+                aspect-ratio: 1;
+            }
+
+            .lightbox-nav {
+                width: 45px;
+                height: 45px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
         
         /* Light Theme Footer */
         .footer {
@@ -1597,6 +1881,7 @@
                     <a href="#about" class="nav-link">ჩვენ შესახებ</a>
                     <a href="#courses" class="nav-link">რას გთავაზობთ</a>
                     <a href="#team" class="nav-link">გუნდი</a>
+                    <a href="#gallery" class="nav-link">გალერეა</a>
                     <a href="#registration" class="nav-link">რეგისტრაცია</a>
                     <a href="#contact" class="nav-link">კონტაქტი</a>
                 </nav>
@@ -1776,6 +2061,53 @@
                 </div>
             </div>
         </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <h2>გალერეა</h2>
+            <p class="gallery-subtitle">კადრები გადასაღები მოედნიდან</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="./gallery/F8480012.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/F8480025.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/F8940001.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/F8950004.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/F8960013.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/F8960026.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00001.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00002.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00003.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00004.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00005.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00006.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/image00007.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_0231.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1591.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1594.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1621.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1630.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1863.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1907.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_1978.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_2188.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_2961.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_3280.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_9663.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_9903.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_9980.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/000008.BMP" alt="გადაღების კადრი" loading="lazy"></div>
+            </div>
+        </section>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <button class="lightbox-close" id="lightboxClose">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+            <div class="lightbox-content">
+                <img src="" alt="Gallery Image" id="lightboxImg">
+            </div>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+            <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">28</span></div>
+        </div>
 
         <!-- Student Registration Form -->
         <section class="registration-section" id="registration">
@@ -2105,6 +2437,77 @@
             if (e.key === 'Escape' && portfolioModal.classList.contains('active')) {
                 portfolioModal.classList.remove('active');
                 document.body.style.overflow = '';
+            }
+        });
+
+        // Gallery Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        const lightboxCurrent = document.getElementById('lightboxCurrent');
+        const lightboxTotal = document.getElementById('lightboxTotal');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        // Update total count
+        lightboxTotal.textContent = galleryItems.length;
+
+        // Open lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentIndex = index;
+                const imgSrc = this.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightboxCurrent.textContent = currentIndex + 1;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close lightbox
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Navigate lightbox
+        lightboxPrev.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightboxImage();
+        });
+
+        lightboxNext.addEventListener('click', function(e) {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightboxImage();
+        });
+
+        function updateLightboxImage() {
+            const imgSrc = galleryItems[currentIndex].querySelector('img').src;
+            lightboxImg.style.opacity = '0';
+            setTimeout(() => {
+                lightboxImg.src = imgSrc;
+                lightboxImg.style.opacity = '1';
+                lightboxCurrent.textContent = currentIndex + 1;
+            }, 150);
+        }
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') lightboxPrev.click();
+                if (e.key === 'ArrowRight') lightboxNext.click();
             }
         });
 
