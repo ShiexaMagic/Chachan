@@ -3,7 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>შუქი - ქართული კინოსკოლა</title>
+    <title>shuQi Production</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="shuQi Production">
+    <meta property="og:description" content="Georgian Film School - Learn, Act and Film">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./images/shuqi-logo.png">
+    <meta property="og:locale" content="ka_GE">
+    <meta property="og:locale:alternate" content="en_US">
+    
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -638,6 +647,25 @@
             color: var(--primary-accent);
         }
         
+        /* Language Switch Button */
+        .lang-switch {
+            background: #1d1d1f;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 8px;
+        }
+        
+        .lang-switch:hover {
+            background: #000;
+            transform: scale(1.05);
+        }
+
         /* Light Theme Hero Section */
         .hero {
             position: relative;
@@ -1828,8 +1856,13 @@
                 border-bottom: 1px solid #f5f5f7;
             }
             
-            .nav-link:last-child {
+            .nav-link:last-of-type {
                 border-bottom: none;
+            }
+            
+            .lang-switch {
+                margin: 16px 22px;
+                width: calc(100% - 44px);
             }
         }
     </style>
@@ -1877,13 +1910,14 @@
                     <span></span>
                 </button>
                 <nav class="nav-links" id="navLinks">
-                    <a href="#home" class="nav-link">მთავარი</a>
-                    <a href="#about" class="nav-link">ჩვენ შესახებ</a>
-                    <a href="#courses" class="nav-link">რას გთავაზობთ</a>
-                    <a href="#team" class="nav-link">გუნდი</a>
-                    <a href="#gallery" class="nav-link">გალერეა</a>
-                    <a href="#registration" class="nav-link">რეგისტრაცია</a>
-                    <a href="#contact" class="nav-link">კონტაქტი</a>
+                    <a href="#home" class="nav-link" data-ka="მთავარი" data-en="Home">მთავარი</a>
+                    <a href="#about" class="nav-link" data-ka="ჩვენ შესახებ" data-en="About Us">ჩვენ შესახებ</a>
+                    <a href="#courses" class="nav-link" data-ka="რას გთავაზობთ" data-en="Services">რას გთავაზობთ</a>
+                    <a href="#team" class="nav-link" data-ka="გუნდი" data-en="Team">გუნდი</a>
+                    <a href="#gallery" class="nav-link" data-ka="გალერეა" data-en="Gallery">გალერეა</a>
+                    <a href="#registration" class="nav-link" data-ka="რეგისტრაცია" data-en="Registration">რეგისტრაცია</a>
+                    <a href="#contact" class="nav-link" data-ka="კონტაქტი" data-en="Contact">კონტაქტი</a>
+                    <button class="lang-switch" id="langSwitch" title="Switch to English">EN</button>
                 </nav>
             </div>
         </header>
@@ -2559,6 +2593,176 @@
             
             // Reset form
             this.reset();
+        });
+
+        // Language Translation System
+        let currentLang = 'ka';
+        const langSwitch = document.getElementById('langSwitch');
+        
+        const translations = {
+            // Navigation
+            'მთავარი': 'Home',
+            'ჩვენ შესახებ': 'About Us',
+            'რას გთავაზობთ': 'Services',
+            'გუნდი': 'Team',
+            'გალერეა': 'Gallery',
+            'რეგისტრაცია': 'Registration',
+            'კონტაქტი': 'Contact',
+            
+            // Hero
+            'ისწავლე, ითამაშე და გადაიღე': 'Learn, Act and Film',
+            'დარეგისტრირდი': 'Register',
+            'გაიგე მეტი': 'Learn More',
+            
+            // About Section
+            'შუქი პროდაქშენი': 'shuQi Production',
+            'შუქი პროდაქშენი ეძღვნება კინოხელოვნების განვითარებას და დემოკრატიზაციას საქართველოში. ჩვენ ვმუშაობთ მეტი შესაძლებლობების შესაქმნელად ახალი თაობის კინო ხელოვანებისთვის.': 'shuQi Production is dedicated to the development and democratization of film art in Georgia. We work to create more opportunities for the new generation of filmmakers.',
+            'ჩვენი მისია კინოგანათლების მნიშვნელობის გაზრდა და ცოდნის გავრცელებაა. ეს გულისხმობს ხელმისაწვდომი პრაქტიკული სწავლების შეთავაზებას და კინოწარმოების განვითარებას კრეატიულობის, თანამშრომლობისა და ავთენტურობის პრინციპებზე დაყრდნობით.': 'Our mission is to increase the importance of film education and spread knowledge. This means offering accessible practical training and developing film production based on the principles of creativity, collaboration, and authenticity.',
+            'სტუდენტი': 'Students',
+            'ლექტორი': 'Lecturers',
+            'კურსი': 'Courses',
+            'კვირა სწავლა': 'Weeks of Learning',
+            
+            // What We Do Section
+            'რას ვაკეთებთ': 'What We Do',
+            'შემოქმედებითი პოტენციალის გამოვლენა': 'Discovering Creative Potential',
+            'თითოეულ სტუდენტში ინდივიდუალური ხედვისა და მთხრობელობის თავდაჯერებულობის განვითარება, სინათლისა და კინოს ენის გამოყენებით.': 'Developing individual vision and storytelling confidence in each student, using the language of light and cinema.',
+            'პრაქტიკული კინემატოგრაფიული განათლება': 'Practical Cinematographic Education',
+            'ინდივიდუალურ პროექტებზე დაფუძნებული ტრენინგები კინემატოგრაფიაში, მონტაჟში, რეჟისურასა და კინო-წარმოებაში.': 'Project-based training in cinematography, editing, directing and film production.',
+            'ერთიანი შემოქმედებითი საზოგადოების შექმნა': 'Building a Creative Community',
+            'თანამშრომლობითი სივრცის ხელშეწყობა, სადაც სტუდენტები და მენტორები ერთად განავითარებენ შემოქმედებით ეკოსისტემას.': 'Fostering a collaborative space where students and mentors together develop a creative ecosystem.',
+            'დამოუკიდებელი კინოს ხელშეწყობა': 'Supporting Independent Cinema',
+            'რეჟისორების ინსპირაცია, რათა გააცოცხლონ ავთენტური ისტორიები, რომლებიც ფესვგადგმულია მათ კულტურაში, გარემოსა და ცხოვრებისეულ გამოცდილებაში.': 'Inspiring directors to bring authentic stories to life, rooted in their culture, environment and life experiences.',
+            'მეტი წვდომა რესურსებზე': 'Greater Access to Resources',
+            'ხელმისაწვდომი, ან დაფინანსებული სასწავლო შესაძლებლობების შეთავაზება ნიჭიერი და მონდომებული ახალგაზრდებისთვის.': 'Offering accessible or funded learning opportunities for talented and motivated young people.',
+            
+            // Courses Section
+            'კინოსამსახიობო კურსი': 'Film Acting Course',
+            '„პორტფოლიო"': '"Portfolio"',
+            'კინოსარეჟისორო კურსი': 'Film Directing Course',
+            '„გადაიღე საავტორო ფილმი"': '"Create Your Own Film"',
+            'დეტალები': 'Details',
+            
+            // Team Section
+            'ვინ ვართ ჩვენ': 'Who We Are',
+            'გუნდის წევრები': 'Team Members',
+            'ოპერატორი': 'Cinematographer',
+            'რეჟისორი': 'Director',
+            'მსახიობი': 'Actor',
+            'კინომხატვარი': 'Production Designer',
+            'მონტაჟი': 'Editor',
+            'ხმის რეჟისორი': 'Sound Director',
+            'სცენარი': 'Screenwriter',
+            
+            // Team Member Names
+            'გელა ჩინჩალაძე': 'Gela Chinchaladze',
+            'გიორგი თავართქილაძე': 'Giorgi Tavartkiladze',
+            'ვახო ჩაჩანიძე': 'Vakho Chachanidze',
+            'იმედა თეთრაძე': 'Imeda Tetradze',
+            'თეო ბარამიძე': 'Teo Baramidze',
+            'ლევან კუხაშვილი': 'Levan Kukhashvili',
+            'ივანე გვარაძე': 'Ivane Gvaradze',
+            'ნიკოლოზ მდივანი': 'Nikoloz Mdivani',
+            'ალეკო ცაბაძე': 'Aleko Tsabadze',
+            'შიო ხიდაშელი': 'Shio Khidasheli',
+            
+            // Gallery Section
+            'კადრები გადასაღები მოედნიდან': 'Behind the Scenes',
+            
+            // Registration Section
+            'სტუდენტის რეგისტრაცია': 'Student Registration',
+            'სახელი და გვარი *': 'Full Name *',
+            'ელფოსტა *': 'Email *',
+            'ტელეფონი *': 'Phone *',
+            'ასაკი *': 'Age *',
+            'არჩეული კურსი *': 'Select Course *',
+            'აირჩიეთ კურსი': 'Choose a Course',
+            'კინოსამსახიობო კურსი - „პორტფოლიო"': 'Film Acting Course - "Portfolio"',
+            'კინოსარეჟისორო კურსი - „გადაიღე საავტორო ფილმი"': 'Film Directing Course - "Create Your Own Film"',
+            'რეგისტრაციის გაგზავნა': 'Submit Registration',
+            
+            // Contact Section
+            'საკონტაქტო ინფორმაცია': 'Contact Information',
+            'მისამართი:': 'Address:',
+            '15 ლუბლიანას ქუჩა, თბილისი': '15 Ljubljana Street, Tbilisi',
+            'ტელეფონი:': 'Phone:',
+            'ელფოსტა:': 'Email:',
+            'გამოგვყევით:': 'Follow Us:',
+            
+            // Light Switch Screen
+            'ჩართე შუქი': 'Turn On The Light',
+            'ქართული კინოსკოლა': 'Georgian Film School'
+        };
+        
+        // Create reverse translations
+        const reverseTranslations = {};
+        for (const [ka, en] of Object.entries(translations)) {
+            reverseTranslations[en] = ka;
+        }
+        
+        function translatePage(toLang) {
+            const dict = toLang === 'en' ? translations : reverseTranslations;
+            
+            // Translate nav links using data attributes
+            document.querySelectorAll('.nav-link[data-ka][data-en]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + toLang);
+            });
+            
+            // Translate all text content
+            const walker = document.createTreeWalker(
+                document.body,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+            
+            textNodes.forEach(node => {
+                const text = node.textContent.trim();
+                if (dict[text]) {
+                    node.textContent = node.textContent.replace(text, dict[text]);
+                }
+            });
+            
+            // Translate placeholders and labels
+            document.querySelectorAll('label').forEach(el => {
+                const text = el.textContent.trim();
+                if (dict[text]) {
+                    el.textContent = dict[text];
+                }
+            });
+            
+            document.querySelectorAll('option').forEach(el => {
+                const text = el.textContent.trim();
+                if (dict[text]) {
+                    el.textContent = dict[text];
+                }
+            });
+            
+            document.querySelectorAll('button[type="submit"]').forEach(el => {
+                const text = el.textContent.trim();
+                if (dict[text]) {
+                    el.textContent = dict[text];
+                }
+            });
+            
+            // Update language switch button
+            langSwitch.textContent = toLang === 'en' ? 'KA' : 'EN';
+            langSwitch.title = toLang === 'en' ? 'Switch to Georgian' : 'Switch to English';
+            
+            // Update html lang attribute
+            document.documentElement.lang = toLang === 'en' ? 'en' : 'ka';
+            
+            currentLang = toLang;
+        }
+        
+        langSwitch.addEventListener('click', function() {
+            const newLang = currentLang === 'ka' ? 'en' : 'ka';
+            translatePage(newLang);
         });
     </script>
 </body>
