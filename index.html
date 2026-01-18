@@ -15,6 +15,13 @@
     
     <link rel="icon" type="image/png" href="./images/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("XaAtBi0SFuSSfneO8");
+        })();
+    </script>
     <style>
         :root {
             /* Black and White Palette */
@@ -972,6 +979,18 @@
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
 
+        .course-btn.coming-soon {
+            background: #ccc;
+            color: #888;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .course-btn.coming-soon:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
         /* Course Details Modal */
         .course-modal-overlay {
             display: none;
@@ -1192,6 +1211,25 @@
         .course-cta-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .course-modal-logo {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1.5rem 2rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+        }
+
+        .course-modal-logo img {
+            height: 60px;
+            width: auto;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .course-modal-logo img:hover {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -2019,7 +2057,7 @@
                         <h3>კინოსარეჟისორო კურსი</h3>
                         <p class="course-tagline">„გადაიღე საავტორო ფილმი"</p>
                         <div class="course-footer">
-                            <button class="course-btn">დეტალები</button>
+                            <span class="course-btn coming-soon">მალე</span>
                         </div>
                     </div>
                 </div>
@@ -2126,9 +2164,14 @@
                 <div class="gallery-item"><img src="./gallery/IMG_2188.JPG" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/IMG_2961.JPG" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/IMG_3280.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_5249.jpg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_6216.jpg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_6387.jpg" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/IMG_6720.jpg" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/IMG_9663.JPG" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/IMG_9903.JPG" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/IMG_9980.JPG" alt="გადაღების კადრი" loading="lazy"></div>
+                <div class="gallery-item"><img src="./gallery/opera-paris.jpg" alt="გადაღების კადრი" loading="lazy"></div>
                 <div class="gallery-item"><img src="./gallery/000008.BMP" alt="გადაღების კადრი" loading="lazy"></div>
             </div>
         </section>
@@ -2141,7 +2184,7 @@
                 <img src="" alt="Gallery Image" id="lightboxImg">
             </div>
             <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
-            <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">28</span></div>
+            <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">33</span></div>
         </div>
 
         <!-- Student Registration Form -->
@@ -2241,30 +2284,30 @@
 
                     <p>ეს არის უპრეცენდენტო შესაძლებლობა როგორც მსახიობებისთვის, ისე ყველა იმ ადამიანისთვის, ვისაც სურს საკუთარი ძალების კამერის წინ მოსინჯვა.</p>
 
-                    <p>„პორტფოლიო"-ზე მიღება მოხდება გასაუბრების საფუძველზე, რომლის მიზანია კანდიდატის ელემენტარული სამსახიობო უნარების და მეტყველების შეფასება. გასაუბრება მოიცავს წინასწარ მომზადებული ტექსტის (მოთხრობა, ლექსი, ნაწყვეტი პიესიდან ან სხვა) წაკითხვას და მის შეფასებას.</p>
+                    <p>„პორტფოლიო"-ზე მიღება მოხდება გასაუბრების საფუძველზე, რომლის მიზანია კანდიდატის ელემენტარული სამსახიობო უნარების და მეტყველების შემოწმება. გასაუბრება მოიცავს წინასწარ მომზადებული ტექსტის (მოთხრობა, ლექსი, ნაწყვეტი პიესიდან ან სხვა) წაკითხვას და მის შეფასებას.</p>
 
                     <h3>რას გთავაზობთ კურსის ფარგლებში:</h3>
                     <ul>
                         <li>კინოინდუსტრიის პროფესიონალების მიერ ჩატარებულ ინდივიდუალურ მენტორინგსა და მასტერკლასებს, რომელიც დაგეხმარებათ კინოსამსახიობო უნარების განვითარებასა და თქვენი პოტენციალის მაქსიმალურად გამოვლენაში.</li>
                         <li>პროფესიონალი ფოტოგრაფის ინდივიდუალურ ფოტოსესიებს.</li>
                         <li>საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიოს შექმნას.</li>
-                        <li>ცნობილი კინორეჟისორების ხელმძღვანელობით, რომელიმე ცნობილი ან თქვენთვის სასურველი პერსონაჟის სცენის (ეპიზოდის) მომზადებას, ერთ ან ორ პარტნიორთან ერთად.</li>
+                        <li>ცნობილი კინორეჟისორების ხელმძღვანელობით, რომელიმე პოპულარული ან თქვენთვის სასურველი პერსონაჟის სცენის (ეპიზოდის) მომზადებას, ერთ ან ორ პარტნიორთან ერთად.</li>
                         <li>მომზადებული სცენის კინოფორმატით გადაღებას და ფოტოებთან ერთად თქვენ პორტფოლიოში განთავსებას.</li>
                         <li>თქვენი პორტფოლიოს ნიუ ვიჟენისა და შუქი პროდაქშენის ვებგვერდებზე ატვირთვას, ასევე მის გაზიარებას ადგილობრივ და საერთაშორისო სააგენტოებსა და ქასთინგ-მენეჯერებთან.</li>
                     </ul>
 
                     <h3>ვისთვის არის განკუთვნილი კურსი:</h3>
                     <ul>
-                        <li>სტუდენტებისთვის, რომელთაც სურთ კინოსამსახიობო უნარების გაუმჯობესება.</li>
-                        <li>მსახიობებისთვის, რომელთაც აინტერესებთ კინოპრაქტიკის მიღება და საკუთარი შემოქმედებითი პოტენციალის წარმოჩენა.</li>
-                        <li>მსახიობებისა და სტუდენტებისთვის, რომელთაც სჭირდებათ საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიო.</li>
-                        <li>მსახიობებისთვის, რომელთაც ესაჭიროებათ მაღალი ხარისხის ფოტო და ვიდეო მასალა პორტფოლიოს გასამდიდრებლად.</li>
+                        <li>სტუდენტებისა და აბიტურიენტებისთვის, რომლებიც დაინტერესებულნი არიან კინოსამსახიობო უნარების განვითარებითა და კამერის წინ მუშაობის პროფესიონალურ დონეზე შესწავლით.</li>
+                        <li>მსახიობებისთვის და ყველა მათთვის, ვისაც სურს კინოგადაღების პრაქტიკული გამოცდილების მიღება და საკუთარი შემოქმედებითი შესაძლებლობების გაღრმავება.</li>
+                        <li>დამწყები და მოქმედი მსახიობებისთვის, რომელთაც ესაჭიროებათ საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიო.</li>
+                        <li>მათთვის, ვისაც სჭირდება მაღალი ხარისხის ფოტო და ვიდეო მასალა კარიერული წინსვლისა და პროფესიული წარმოჩენისთვის.</li>
                     </ul>
 
                     <h3>ჩვენი გუნდის წევრები:</h3>
                     <ul class="course-team-list">
                         <li>რეჟისორები - გიორგი თავართქილაძე და ალეკო ცაბაძე</li>
-                        <li>მსახიობი - ვახო ჩაჩანიძე</li>
+                        <li>მსახიობი - ვახტანგ ჩაჩანიძე</li>
                         <li>სცენარისტი - ნიკოლოზ მდივანი</li>
                         <li>ოპერატორი - გელა ჩინჩალაძე</li>
                         <li>კამერა - იმედა თეთრაძე</li>
@@ -2288,6 +2331,10 @@
 
                     <p><strong>პროექტი ხორციელდება „ნიუ ვიჟენის" უნივერსიტეტის ბაზაზე.</strong></p>
 
+                    <ul>
+                        <li>გადმოგეცემათ ნიუ ვიჟენის უნივერსიტეტის სერთიფიკატი.</li>
+                    </ul>
+
                     <div class="course-info-box">
                         <h4>პროექტის დეტალები</h4>
                         <div class="course-info-grid">
@@ -2301,7 +2348,7 @@
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ტელეფონი</span>
-                                <span class="value"><a href="tel:+995597333929">+995 597333929</a></span>
+                                <span class="value"><a href="tel:+995511175317">+995 511175317</a></span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ელფოსტა</span>
@@ -2318,6 +2365,9 @@
                         <p>მონაწილეთა რაოდენობა შეზღუდულია</p>
                         <a href="#registration" class="course-cta-btn" onclick="document.getElementById('portfolioModal').classList.remove('active'); document.body.style.overflow = '';">შეავსეთ განაცხადის ფორმა</a>
                     </div>
+                </div>
+                <div class="course-modal-logo">
+                    <img src="./images/shuqi-logo.png" alt="shuQi Logo">
                 </div>
             </div>
         </div>
@@ -2573,27 +2623,46 @@
             }
         });
 
-        // Student registration form handler
-        document.getElementById('studentForm').addEventListener('submit', function(e) {
+        // Student registration form handler with EmailJS
+        document.getElementById('studentForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = {
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'იგზავნება...';
+            
+            // Prepare template parameters
+            const templateParams = {
                 fullName: document.getElementById('fullName').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
                 age: document.getElementById('age').value,
-                course: document.getElementById('course').value,
-                experience: document.getElementById('experience').value,
-                motivation: document.getElementById('motivation').value
+                course: document.getElementById('course').value
             };
             
-            console.log('სტუდენტის რეგისტრაცია:', formData);
-            
-            // Show success message
-            alert('გმადლობთ რეგისტრაციისთვის! ჩვენ მალე დაგიკავშირდებით.');
-            
-            // Reset form
-            this.reset();
+            try {
+                // Send email using EmailJS
+                // EmailJS send
+                const response = await emailjs.send('service_9q0d7il', 'template_x6swsvd', templateParams);
+                
+                console.log('Email sent successfully:', response);
+                // Show success message
+                alert('გმადლობთ რეგისტრაციისთვის! ჩვენ მალე დაგიკავშირდებით.');
+                // Reset form
+                form.reset();
+            } catch (error) {
+                console.error('EmailJS Error:', error);
+                console.error('Error text:', error.text);
+                alert('დაფიქსირდა შეცდომა: ' + (error.text || error.message || 'უცნობი შეცდომა') + '. გთხოვთ სცადოთ მოგვიანებით.');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
         });
 
         // Language Translation System
@@ -2643,6 +2712,59 @@
             'კინოსარეჟისორო კურსი': 'Film Directing Course',
             '„გადაიღე საავტორო ფილმი"': '"Create Your Own Film"',
             'დეტალები': 'Details',
+            'მალე': 'Coming Soon',
+            
+            // Course Details Modal
+            'ნიუ ვიჟენი და შუქი პროდაქშენი წარმოგიდგენთ კინოსამსახიობო კურსს „პორტფოლიო"': 'New Vision and shuQi Production present the Film Acting Course "Portfolio"',
+            'ითამაშე მთავარი გმირი და': 'Play the main character and',
+            'გადაიღე სცენა შენი': 'film a scene for your',
+            'პორტფოლიოსთვის': 'portfolio',
+            'ეს არის უპრეცენდენტო შესაძლებლობა როგორც მსახიობებისთვის, ისე ყველა იმ ადამიანისთვის, ვისაც სურს საკუთარი ძალების კამერის წინ მოსინჯვა.': 'This is an unprecedented opportunity for both actors and anyone who wants to test their abilities in front of the camera.',
+            '„პორტფოლიო"-ზე მიღება მოხდება გასაუბრების საფუძველზე, რომლის მიზანია კანდიდატის ელემენტარული სამსახიობო უნარების და მეტყველების შემოწმება. გასაუბრება მოიცავს წინასწარ მომზადებული ტექსტის (მოთხრობა, ლექსი, ნაწყვეტი პიესიდან ან სხვა) წაკითხვას და მის შეფასებას.': 'Admission to "Portfolio" will be based on an interview, which aims to assess the candidate\'s basic acting skills and speech. The interview includes reading and evaluating a pre-prepared text (story, poem, excerpt from a play, or other).',
+            'რას გთავაზობთ კურსის ფარგლებში:': 'What we offer within the course:',
+            'კინოინდუსტრიის პროფესიონალების მიერ ჩატარებულ ინდივიდუალურ მენტორინგსა და მასტერკლასებს, რომელიც დაგეხმარებათ კინოსამსახიობო უნარების განვითარებასა და თქვენი პოტენციალის მაქსიმალურად გამოვლენაში.': 'Individual mentoring and masterclasses conducted by film industry professionals, which will help you develop film acting skills and maximize your potential.',
+            'პროფესიონალი ფოტოგრაფის ინდივიდუალურ ფოტოსესიებს.': 'Individual photo sessions with a professional photographer.',
+            'საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიოს შექმნას.': 'Creation of a professional portfolio meeting international standards.',
+            'ცნობილი კინორეჟისორების ხელმძღვანელობით, რომელიმე პოპულარული ან თქვენთვის სასურველი პერსონაჟის სცენის (ეპიზოდის) მომზადებას, ერთ ან ორ პარტნიორთან ერთად.': 'Under the guidance of renowned film directors, preparation of a scene (episode) of a popular or your preferred character, with one or two partners.',
+            'მომზადებული სცენის კინოფორმატით გადაღებას და ფოტოებთან ერთად თქვენ პორტფოლიოში განთავსებას.': 'Filming the prepared scene in cinema format and placing it in your portfolio along with photos.',
+            'თქვენი პორტფოლიოს ნიუ ვიჟენისა და შუქი პროდაქშენის ვებგვერდებზე ატვირთვას, ასევე მის გაზიარებას ადგილობრივ და საერთაშორისო სააგენტოებსა და ქასთინგ-მენეჯერებთან.': 'Uploading your portfolio to New Vision and shuQi Production websites, as well as sharing it with local and international agencies and casting managers.',
+            'ვისთვის არის განკუთვნილი კურსი:': 'Who is this course for:',
+            'სტუდენტებისა და აბიტურიენტებისთვის, რომლებიც დაინტერესებულნი არიან კინოსამსახიობო უნარების განვითარებითა და კამერის წინ მუშაობის პროფესიონალურ დონეზე შესწავლით.': 'For students and graduates interested in developing film acting skills and learning to work professionally in front of the camera.',
+            'მსახიობებისთვის და ყველა მათთვის, ვისაც სურს კინოგადაღების პრაქტიკული გამოცდილების მიღება და საკუთარი შემოქმედებითი შესაძლებლობების გაღრმავება.': 'For actors and everyone who wants to gain practical filmmaking experience and deepen their creative abilities.',
+            'დამწყები და მოქმედი მსახიობებისთვის, რომელთაც ესაჭიროებათ საერთაშორისო სტანდარტების შესაბამისი პროფესიონალური პორტფოლიო.': 'For beginner and working actors who need a professional portfolio meeting international standards.',
+            'მათთვის, ვისაც სჭირდება მაღალი ხარისხის ფოტო და ვიდეო მასალა კარიერული წინსვლისა და პროფესიული წარმოჩენისთვის.': 'For those who need high-quality photo and video material for career advancement and professional presentation.',
+            'ჩვენი გუნდის წევრები:': 'Our team members:',
+            'რეჟისორები - გიორგი თავართქილაძე და ალეკო ცაბაძე': 'Directors - Giorgi Tavartkiladze and Aleko Tsabadze',
+            'მსახიობი - ვახტანგ ჩაჩანიძე': 'Actor - Vakhtang Chachanidze',
+            'სცენარისტი - ნიკოლოზ მდივანი': 'Screenwriter - Nikoloz Mdivani',
+            'ოპერატორი - გელა ჩინჩალაძე': 'Cinematographer - Gela Chinchaladze',
+            'კამერა - იმედა თეთრაძე': 'Camera - Imeda Tetradze',
+            'ხმის რეჟისორი - ივანე გვარაძე': 'Sound Director - Ivane Gvaradze',
+            'კინო-მხატვარი - თეო ბარამიძე': 'Production Designer - Teo Baramidze',
+            'მონტაჟი - ლევან კუხაშვილი': 'Editor - Levan Kukhashvili',
+            'ფერის კორექცია - შიო ხიდაშელი': 'Color Correction - Shio Khidasheli',
+            'რას მიიღებთ შედეგად, პროექტის დასრულების შემდეგ:': 'What you will get as a result, after completing the project:',
+            'შეძლებთ კამერის წინ პროფესიონალურად მუშაობას.': 'You will be able to work professionally in front of the camera.',
+            'გექნებათ კინოფორმატით გადაღებული სცენა პორტფოლიოსთვის ორ ან სამ პარტნიორთან ერთად.': 'You will have a scene filmed in cinema format for your portfolio with two or three partners.',
+            'თქვენი კონკრეტული ვიდეოეპიზოდები ცალკე ამოიჭრება და დამუშავდება პორტფოლიოსთვის.': 'Your specific video episodes will be cut separately and processed for your portfolio.',
+            'პორტფოლიოს ფარგლებში მიიღებთ პროფესიონალი ფოტოგრაფის მიერ გადაღებულ მაღალხარისხიან პერსონალურ ფოტოებს.': 'Within the portfolio, you will receive high-quality personal photos taken by a professional photographer.',
+            'დაეუფლებით კინოქასთინგებში მონაწილეობის ძირითად პრინციპებსა და მნიშვნელოვან ნიუანსებს.': 'You will master the basic principles and important nuances of participating in film castings.',
+            'გაეცნობით კინოგადაღების პროცესში ჩართული ძირითადი პროფესიების სპეციფიკას.': 'You will learn about the specifics of the main professions involved in filmmaking.',
+            'ინდივიდუალურად თქვენთვის შექმნილი პორტფოლიო განთავსდება შუქი პროდაქშენისა და ნიუ ვიჟენის ოფიციალურ ვებგვერდებზე.': 'A portfolio created individually for you will be posted on the official websites of shuQi Production and New Vision.',
+            'სურვილის შემთხვევაში, პორტფოლიოს ადგილობრივ ქასთინგ-მენეჯერებს და საერთაშორისო სააგენტოებს გავუზიარებთ.': 'If desired, we will share the portfolio with local casting managers and international agencies.',
+            'პროექტი ხორციელდება „ნიუ ვიჟენის" უნივერსიტეტის ბაზაზე.': 'The project is implemented at New Vision University.',
+            'გადმოგეცემათ ნიუ ვიჟენის უნივერსიტეტის სერთიფიკატი.': 'You will receive a New Vision University certificate.',
+            'პროექტის დეტალები': 'Project Details',
+            'ხანგრძლივობა': 'Duration',
+            '13 კვირა': '13 weeks',
+            'ღირებულება': 'Price',
+            '2900 ლარი': '2900 GEL',
+            'ტელეფონი': 'Phone',
+            'ელფოსტა': 'Email',
+            'მისამართი': 'Address',
+            'თბილისი, ლუბლიანას ქუჩა 15': '15 Ljubljana Street, Tbilisi',
+            'მონაწილეთა რაოდენობა შეზღუდულია': 'Number of participants is limited',
+            'შეავსეთ განაცხადის ფორმა': 'Fill out the application form',
             
             // Team Section
             'ვინ ვართ ჩვენ': 'Who We Are',
