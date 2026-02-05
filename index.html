@@ -2229,6 +2229,9 @@
                             </select>
                         </div>
                         
+                        <!-- Honeypot field to catch bots - hidden from real users -->
+                        <input type="text" name="website" id="honeypot" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
+                        
                         <button type="submit" class="form-submit">რეგისტრაციის გაგზავნა</button>
                     </form>
                 </div>
@@ -2339,8 +2342,7 @@
 
                     <p><strong>პროექტი ხორციელდება „ნიუ ვიჟენის" უნივერსიტეტის ბაზაზე.</strong></p>
                     <p><strong>პროექტის ხანგრძლივობა — 13 კვირა.</strong></p>
-                    <p><strong>დღე/საათი:</strong> სამშაბათი, ხუთშაბათი 20:00 – 22:00 საათი, შაბათი - 16:00 – 19:00 საათი</p>
-                    <p><strong>ღირებულება — 2900 ლარი</strong> (შესაძლებელია განვადება)</p>
+                    <p><strong>დღე/საათი:</strong> სამშაბათი, ხუთშაბათი 20:00 – 22:00 საათი, შაბათი - 15:00 – 18:00 საათი</p>
 
                     <ul>
                         <li>იჩქარეთ, რეგისტრაცია კინოსამსახიობო კურსზე „პორტფოლიო" დაიწყო!</li>
@@ -2358,7 +2360,7 @@
                                 <span class="value">13 კვირა</span>
                             </div>
                             <div class="course-info-item">
-                                <span class="label">ღირებულება</span>
+                                <span class="label">ღირებულება (განვადება შესაძლებელია)</span>
                                 <span class="value">2900 ლარი</span>
                             </div>
                             <div class="course-info-item">
@@ -2638,13 +2640,26 @@
             }
         });
 
-        // Student registration form handler with EmailJS
+        // Student registration form handler with EmailJS + Google Sheets tracking
+        // ⚠️ SETUP REQUIRED: Replace YOUR_GOOGLE_SCRIPT_URL with your deployed Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL';
+        const SHEETS_SECRET_KEY = 'shuqi_reg_2026'; // Change this to your own secret key
+        
         document.getElementById('studentForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const form = this;
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.textContent;
+            
+            // Check honeypot - if filled, it's a bot
+            const honeypot = document.getElementById('honeypot').value;
+            if (honeypot) {
+                console.warn('Bot detected via honeypot');
+                alert('გმადლობთ რეგისტრაციისთვის!');
+                form.reset();
+                return;
+            }
             
             // Disable button and show loading
             submitBtn.disabled = true;
@@ -2659,9 +2674,24 @@
                 course: document.getElementById('course').value
             };
             
+            // Data for Google Sheets (includes secret key)
+            const sheetsData = {
+                ...templateParams,
+                secretKey: SHEETS_SECRET_KEY
+            };
+            
             try {
+                // Send to Google Sheets (fire and forget - don't block on this)
+                if (GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_SCRIPT_URL') {
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(sheetsData)
+                    }).catch(err => console.warn('Sheets logging failed:', err));
+                }
+                
                 // Send email using EmailJS
-                // EmailJS send
                 const response = await emailjs.send('service_9q0d7il', 'template_x6swsvd', templateParams);
                 
                 console.log('Email sent successfully:', response);
