@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>პორტფოლიო - shuQi Production</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="პორტფოლიო - shuQi Production">
+    <meta property="og:description" content="მსახიობების მონაცემთა ბაზა - shuQi Production">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./images/web.png">
+    <meta property="og:locale" content="ka_GE">
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pure-black: #000000;
+            --dark-gray: #1d1d1f;
+            --medium-gray: #86868b;
+            --light-gray: #d2d2d7;
+            --off-white: #f5f5f7;
+            --pure-white: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-shadow: rgba(0, 0, 0, 0.06);
+            --accent-color: #1d1d1f;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 50px;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f7;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .portfolio-header {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: 0 4px 30px var(--glass-shadow);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-logo {
+            height: 40px;
+        }
+        
+        .header-logo img {
+            height: 100%;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .header-nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .header-nav a:hover {
+            color: var(--pure-black);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--medium-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s;
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        .back-btn:hover {
+            color: var(--dark-gray);
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .lang-switch {
+            background: var(--dark-gray);
+            color: var(--pure-white);
+            border: none;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s;
+            border-radius: var(--radius-full);
+        }
+        
+        .lang-switch:hover {
+            background: var(--pure-black);
+            transform: scale(1.05);
+        }
+        
+        /* Main Content */
+        .talent-section {
+            padding: 80px 20px;
+            background: transparent;
+            min-height: calc(100vh - 60px);
+        }
+        
+        .talent-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.015em;
+        }
+        
+        .talent-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #86868b;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+        
+        .talent-admin-btn {
+            display: block;
+            margin: 0 auto 2rem;
+            padding: 10px 24px;
+            background: #1d1d1f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            border-radius: var(--radius-full);
+        }
+        
+        .talent-admin-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .talent-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .talent-filter-input {
+            padding: 12px 18px;
+            border: 1px solid var(--light-gray);
+            font-size: 0.875rem;
+            min-width: 150px;
+            font-family: inherit;
+            border-radius: var(--radius-md);
+            background: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px var(--glass-shadow);
+        }
+        
+        .talent-filter-input:focus {
+            outline: none;
+            border-color: var(--dark-gray);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .talent-card {
+            background: #fff;
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px var(--glass-shadow);
+        }
+        
+        .talent-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+            border-color: var(--light-gray);
+        }
+        
+        .talent-photo-container {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        
+        .talent-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .talent-card:hover .talent-photo {
+            transform: scale(1.05);
+        }
+        
+        .talent-video-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 8px 12px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: var(--radius-full);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .talent-video-badge svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+        
+        .talent-info {
+            padding: 1.5rem;
+        }
+        
+        .talent-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .talent-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: #86868b;
+            margin-bottom: 1rem;
+        }
+        
+        .talent-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .talent-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .talent-skill-tag {
+            background: var(--off-white);
+            color: #1d1d1f;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius-full);
+            transition: all 0.3s ease;
+        }
+        
+        .talent-skill-tag:hover {
+            background: var(--light-gray);
+            transform: scale(1.05);
+        }
+        
+        .no-talents-message {
+            text-align: center;
+            color: var(--medium-gray);
+            font-size: 1rem;
+            padding: 3rem 0;
+            grid-column: 1 / -1;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px var(--glass-shadow);
+        }
+        
+        /* Talent Detail Modal */
+        .talent-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .talent-modal.active {
+            display: flex;
+        }
+        
+        .talent-modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+        
+        .talent-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            color: #1d1d1f;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .talent-modal-close:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .talent-modal-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .talent-modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 0;
+        }
+        
+        .talent-modal-photo {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        }
+        
+        .talent-modal-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .talent-photo-gallery {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .talent-main-photo {
+            width: 100%;
+            flex: 1;
+            object-fit: cover;
+        }
+        
+        .talent-photo-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            overflow-x: auto;
+            background: var(--off-white);
+            border-top: 1px solid var(--glass-border);
+        }
+        
+        .talent-photo-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: var(--radius-sm);
+            flex-shrink: 0;
+        }
+        
+        .talent-photo-thumb:hover,
+        .talent-photo-thumb.active {
+            border-color: var(--dark-gray);
+            transform: scale(1.05);
+        }
+        
+        .talent-modal-details {
+            padding: 2rem;
+        }
+        
+        .talent-modal-name {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+        
+        .talent-modal-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .talent-stat {
+            background: var(--off-white);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        
+        .talent-stat:hover {
+            background: #eee;
+            transform: translateY(-2px);
+        }
+        
+        .talent-stat-label {
+            font-size: 0.75rem;
+            color: #86868b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .talent-stat-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1d1d1f;
+        }
+        
+        .talent-modal-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .talent-modal-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .talent-modal-section p {
+            font-size: 1rem;
+            color: #1d1d1f;
+            line-height: 1.6;
+        }
+        
+        .talent-videos-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .talent-videos-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        .talent-video-item {
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .talent-video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .talent-video-embed {
+            aspect-ratio: 16/9;
+            background: #000;
+            margin-bottom: 1.5rem;
+        }
+        
+        .talent-video-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .talent-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: #1d1d1f;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            border-radius: var(--radius-full);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .talent-contact-btn:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+        }
+        
+        .talent-contact-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* Admin Panel Modal */
+        .admin-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .admin-modal.active {
+            display: flex;
+        }
+        
+        .admin-modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            max-width: 700px;
+            width: 100%;
+            margin: 40px 0;
+            position: relative;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+        }
+        
+        .admin-modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        }
+        
+        .admin-modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin: 0;
+        }
+        
+        .admin-modal-close {
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            cursor: pointer;
+            color: #86868b;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-modal-close:hover {
+            color: #1d1d1f;
+            background: rgba(0, 0, 0, 0.15);
+            transform: rotate(90deg);
+        }
+        
+        .admin-modal-close svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .admin-modal-body {
+            padding: 2rem;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .admin-form-group {
+            margin-bottom: 1.25rem;
+        }
+        
+        .admin-form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+        }
+        
+        .admin-form-group input,
+        .admin-form-group select,
+        .admin-form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.875rem;
+            font-family: inherit;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-form-group input:focus,
+        .admin-form-group select:focus,
+        .admin-form-group textarea:focus {
+            outline: none;
+            border-color: var(--dark-gray);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.1);
+        }
+        
+        .admin-form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .admin-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .admin-form-actions {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+        }
+        
+        .admin-btn {
+            padding: 10px 20px;
+            font-size: 0.875rem;
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .admin-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        .admin-btn-primary {
+            background: #1d1d1f;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .admin-btn-primary:hover {
+            background: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .admin-btn-secondary {
+            background: rgba(0, 0, 0, 0.08);
+            color: #1d1d1f;
+        }
+        
+        .admin-btn-secondary:hover {
+            background: rgba(0, 0, 0, 0.15);
+        }
+        
+        .admin-btn-danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(255, 59, 48, 0.4);
+        }
+        
+        .admin-btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 59, 48, 0.5);
+        }
+        
+        .admin-talent-list {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .admin-talent-list h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 1rem;
+        }
+        
+        .admin-talent-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--off-white);
+            margin-bottom: 0.5rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+        
+        .admin-talent-item:hover {
+            background: #eee;
+        }
+        
+        .admin-talent-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+        
+        .admin-talent-item-info {
+            flex: 1;
+        }
+        
+        .admin-talent-item-name {
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+        
+        .admin-talent-item-meta {
+            font-size: 0.75rem;
+            color: #86868b;
+        }
+        
+        .admin-talent-item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .admin-talent-item-actions .admin-btn {
+            padding: 6px 12px;
+            font-size: 0.75rem;
+        }
+        
+        /* Photo Upload */
+        .photo-upload-area {
+            border: 2px dashed var(--light-gray);
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: var(--radius-md);
+            background: var(--off-white);
+        }
+        
+        .photo-upload-area:hover,
+        .photo-upload-area.dragover {
+            border-color: var(--dark-gray);
+            background: #eee;
+        }
+        
+        .photo-upload-icon {
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .photo-upload-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--medium-gray);
+            stroke-width: 1.5;
+            fill: none;
+        }
+        
+        .photo-upload-text {
+            color: #86868b;
+            font-size: 0.875rem;
+        }
+        
+        .photo-upload-text span {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+        
+        .uploaded-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .uploaded-photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        
+        .uploaded-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .uploaded-photo-item.main-photo {
+            outline: 3px solid var(--dark-gray);
+            outline-offset: 2px;
+        }
+        
+        .photo-remove-btn {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(255, 59, 48, 0.9);
+            color: #fff;
+            border: none;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .photo-remove-btn:hover {
+            transform: scale(1.1);
+            background: #ff3b30;
+        }
+        
+        .photo-remove-btn svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+        }
+        
+        .photo-set-main-btn {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: rgba(29, 29, 31, 0.9);
+            color: #fff;
+            border: none;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+        
+        .photo-set-main-btn:hover {
+            transform: scale(1.1);
+            background: #1d1d1f;
+        }
+        
+        .photo-set-main-btn svg {
+            width: 12px;
+            height: 12px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+        }
+        
+        /* Video Links */
+        .video-links-container {
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-link-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .video-link-input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            font-size: 0.875rem;
+            font-family: inherit;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .video-link-input:focus {
+            outline: none;
+            border-color: var(--dark-gray);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(29, 29, 31, 0.1);
+        }
+        
+        .remove-video-btn {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff3b30 100%);
+            color: #fff;
+            border: none;
+            padding: 0 14px;
+            cursor: pointer;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .remove-video-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+        }
+        
+        .remove-video-btn svg {
+            width: 14px;
+            height: 14px;
+        }
+        
+        .add-video-btn {
+            background: none;
+            border: 1px dashed var(--light-gray);
+            color: var(--medium-gray);
+            padding: 10px 18px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-family: inherit;
+            transition: all 0.3s;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .add-video-btn:hover {
+            border-color: var(--dark-gray);
+            color: var(--dark-gray);
+            background: var(--off-white);
+        }
+        
+        .add-video-btn svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+        }
+        
+        /* Footer */
+        .portfolio-footer {
+            background: rgba(29, 29, 31, 0.95);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.875rem;
+        }
+        
+        .portfolio-footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .talent-section h2 {
+                font-size: 2rem;
+            }
+            
+            .talent-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+            
+            .talent-modal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .talent-modal-photo {
+                aspect-ratio: 4/3;
+                border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            }
+            
+            .admin-form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="portfolio-header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <img src="./images/logo_4_page.png" alt="shuQi Production">
+            </a>
+            <nav class="header-nav">
+                <a href="index.html" class="back-btn" data-ka="მთავარი" data-en="Home"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>მთავარი</span></a>
+                <button class="lang-switch" id="langSwitch" title="Switch to English">EN</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Talent Database Section -->
+    <section class="talent-section" id="talents">
+        <h2 data-ka="პორტფოლიო" data-en="Portfolio">პორტფოლიო</h2>
+        <p class="talent-subtitle" data-ka="მსახიობების მონაცემთა ბაზა" data-en="Actor Database">მსახიობების მონაცემთა ბაზა</p>
+        
+        <!-- Hidden admin link - triple click on subtitle to open -->
+        <button class="talent-admin-btn" id="openAdminPanel" style="display: none;" data-ka="ადმინ პანელი" data-en="Admin Panel">ადმინ პანელი</button>
+        
+        <div class="talent-filters">
+            <input type="text" class="talent-filter-input" id="talentSearchName" placeholder="სახელით ძებნა..." data-placeholder-ka="სახელით ძებნა..." data-placeholder-en="Search by name...">
+            <select class="talent-filter-input" id="talentFilterGender">
+                <option value="">ყველა სქესი</option>
+                <option value="male">მამრობითი</option>
+                <option value="female">მდედრობითი</option>
+            </select>
+            <select class="talent-filter-input" id="talentFilterAge">
+                <option value="">ყველა ასაკი</option>
+                <option value="18-25">18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36-45">36-45</option>
+                <option value="46-55">46-55</option>
+                <option value="56+">56+</option>
+            </select>
+        </div>
+        
+        <div class="talent-grid" id="talentGrid">
+            <!-- Talents will be dynamically loaded here -->
+            <div class="no-talents-message" id="noTalentsMessage">
+            </div>
+        </div>
+    </section>
+
+    <!-- Talent Detail Modal -->
+    <div class="talent-modal" id="talentDetailModal">
+        <div class="talent-modal-content">
+            <button class="talent-modal-close" id="closeTalentDetail"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            <div class="talent-modal-grid">
+                <div class="talent-modal-photo">
+                    <div class="talent-photo-gallery">
+                        <img src="" alt="" id="talentDetailPhoto" class="talent-main-photo">
+                        <div class="talent-photo-thumbnails" id="talentPhotoThumbnails">
+                            <!-- Thumbnails will be dynamically loaded -->
+                        </div>
+                    </div>
+                </div>
+                <div class="talent-modal-details">
+                    <h3 class="talent-modal-name" id="talentDetailName"></h3>
+                    
+                    <div class="talent-modal-stats" id="talentDetailStats">
+                        <!-- Stats will be dynamically loaded -->
+                    </div>
+                    
+                    <div class="talent-videos-section" id="talentVideosSection" style="display: none;">
+                        <h4 data-ka="ვიდეოები" data-en="Videos">ვიდეოები</h4>
+                        <div class="talent-videos-grid" id="talentVideosGrid">
+                            <!-- Videos will be dynamically loaded -->
+                        </div>
+                    </div>
+                    
+                    <div class="talent-video-embed" id="talentVideoEmbed" style="display: none;">
+                        <!-- YouTube embed will be loaded here -->
+                    </div>
+                    
+                    <div class="talent-modal-section" id="talentSkillsSection">
+                        <h4 data-ka="უნარები" data-en="Skills">უნარები</h4>
+                        <div class="talent-skills" id="talentDetailSkills"></div>
+                    </div>
+                    
+                    <div class="talent-modal-section" id="talentExperienceSection">
+                        <h4 data-ka="გამოცდილება" data-en="Experience">გამოცდილება</h4>
+                        <p id="talentDetailExperience"></p>
+                    </div>
+                    
+                    <div class="talent-modal-section" id="talentBioSection">
+                        <h4 data-ka="ბიოგრაფია" data-en="Biography">ბიოგრაფია</h4>
+                        <p id="talentDetailBio"></p>
+                    </div>
+                    
+                    <a href="" class="talent-contact-btn" id="talentContactBtn" data-ka="დაუკავშირდი" data-en="Contact"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg><span>დაუკავშირდი</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="admin-modal" id="adminModal">
+        <div class="admin-modal-content">
+            <div class="admin-modal-header">
+                <h3 id="adminModalTitle">პროფილის დამატება</h3>
+                <button class="admin-modal-close" id="closeAdminModal"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            <div class="admin-modal-body">
+                <form id="talentForm">
+                    <input type="hidden" id="talentId" value="">
+                    
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="talentName">სახელი და გვარი *</label>
+                            <input type="text" id="talentName" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="talentSlug">URL სახელი (ავტომატური)</label>
+                            <input type="text" id="talentSlug" placeholder="მაგ: giorgi-kiknadze" style="font-family: monospace;">
+                            <small style="color: #aaa; font-size: 11px;">shuqi.ge/talent.html?id=<span id="slugPreview">...</span></small>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="talentGender">სქესი *</label>
+                            <select id="talentGender" required>
+                                <option value="">აირჩიეთ</option>
+                                <option value="male">მამრობითი</option>
+                                <option value="female">მდედრობითი</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="talentAge">ასაკი *</label>
+                            <input type="number" id="talentAge" min="1" max="120" required>
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="talentHeight">სიმაღლე (სმ)</label>
+                            <input type="number" id="talentHeight" min="100" max="250">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="talentWeight">წონა (კგ)</label>
+                            <input type="number" id="talentWeight" min="30" max="300">
+                        </div>
+                    </div>
+                    
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="talentEyeColor">თვალის ფერი</label>
+                            <input type="text" id="talentEyeColor" placeholder="მაგ: ყავისფერი">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="talentHairColor">თმის ფერი</label>
+                            <input type="text" id="talentHairColor" placeholder="მაგ: შავი">
+                        </div>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentCity">ქალაქი</label>
+                        <input type="text" id="talentCity" placeholder="მაგ: თბილისი">
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label>ფოტოები *</label>
+                        <div class="photo-upload-area" id="photoUploadArea">
+                            <div class="photo-upload-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                            <div class="photo-upload-text">გადმოათრიეთ ფოტოები ან <span>აირჩიეთ ფაილები</span></div>
+                            <input type="file" id="photoFileInput" accept="image/*" multiple style="display: none;">
+                        </div>
+                        <div class="uploaded-photos-grid" id="uploadedPhotosGrid">
+                            <!-- Uploaded photos will appear here -->
+                        </div>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label>YouTube ვიდეოები (შოურილი)</label>
+                        <div class="video-links-container" id="videoLinksContainer">
+                            <div class="video-link-row">
+                                <input type="url" class="video-link-input" placeholder="https://youtube.com/watch?v=...">
+                                <button type="button" class="remove-video-btn" onclick="this.parentElement.remove()"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-video-btn" id="addVideoBtn"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M12 5v14M5 12h14"/></svg>ვიდეოს დამატება</button>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentSkills">უნარები (მძიმით გამოყოფილი)</label>
+                        <input type="text" id="talentSkills" placeholder="მაგ: მსახიობობა, ცეკვა, სიმღერა, სპორტი">
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentExperience">გამოცდილება</label>
+                        <textarea id="talentExperience" placeholder="ფილმები, თეატრი, სერიალები..."></textarea>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentBio">ბიოგრაფია</label>
+                        <textarea id="talentBio" placeholder="მოკლე ბიოგრაფია..."></textarea>
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentEmail">ელფოსტა</label>
+                        <input type="email" id="talentEmail" placeholder="email@example.com">
+                    </div>
+                    
+                    <div class="admin-form-group">
+                        <label for="talentPhone">ტელეფონი</label>
+                        <input type="tel" id="talentPhone" placeholder="+995...">
+                    </div>
+                </form>
+                
+                <div class="admin-talent-list" id="adminTalentList">
+                    <h4>დამატებული პროფილები</h4>
+                    <div id="adminTalentListItems">
+                        <!-- List of existing talents for editing/deleting -->
+                    </div>
+                </div>
+            </div>
+            <div class="admin-form-actions">
+                <button type="button" class="admin-btn admin-btn-primary" id="saveTalentBtn">შენახვა</button>
+                <button type="button" class="admin-btn admin-btn-secondary" id="clearFormBtn">გასუფთავება</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="portfolio-footer">
+        <p>© 2026 <a href="index.html">shuQi Production</a>. ყველა უფლება დაცულია.</p>
+    </footer>
+
+    <script>
+        // ========================================
+        // LANGUAGE SWITCHING
+        // ========================================
+        let currentLang = localStorage.getItem('shuqi_lang') || 'ka';
+        
+        function updateLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('shuqi_lang', lang);
+            
+            document.querySelectorAll('[data-ka]').forEach(el => {
+                el.textContent = el.getAttribute('data-' + lang);
+            });
+            
+            document.querySelectorAll('[data-placeholder-ka]').forEach(el => {
+                el.placeholder = el.getAttribute('data-placeholder-' + lang);
+            });
+            
+            document.getElementById('langSwitch').textContent = lang === 'ka' ? 'EN' : 'ქარ';
+        }
+        
+        document.getElementById('langSwitch').addEventListener('click', () => {
+            updateLanguage(currentLang === 'ka' ? 'en' : 'ka');
+        });
+        
+        // Initialize language
+        updateLanguage(currentLang);
+        
+        // ========================================
+        // TALENT DATABASE FUNCTIONALITY
+        // ========================================
+        
+        // Talent data storage (localStorage)
+        const TALENT_STORAGE_KEY = 'shuqi_talents';
+        let uploadedPhotos = [];
+        
+        function getTalents() {
+            const data = localStorage.getItem(TALENT_STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+        
+        function saveTalents(talents) {
+            localStorage.setItem(TALENT_STORAGE_KEY, JSON.stringify(talents));
+        }
+        
+        function generateId() {
+            return 'talent_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+        
+        // YouTube URL to embed URL converter
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            if (match && match[2].length === 11) {
+                return 'https://www.youtube.com/embed/' + match[2];
+            }
+            return null;
+        }
+        
+        // Convert file to base64
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+        
+        // Render uploaded photos in admin form
+        function renderUploadedPhotos() {
+            const grid = document.getElementById('uploadedPhotosGrid');
+            if (uploadedPhotos.length === 0) {
+                grid.innerHTML = '';
+                return;
+            }
+            
+            grid.innerHTML = uploadedPhotos.map((photo, index) => `
+                <div class="uploaded-photo-item ${photo.isMain ? 'main-photo' : ''}" data-index="${index}">
+                    <img src="${photo.data}" alt="Photo ${index + 1}">
+                    <button type="button" class="photo-remove-btn" onclick="removeUploadedPhoto(${index})"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                    ${!photo.isMain ? `<button type="button" class="photo-set-main-btn" onclick="setMainPhoto(${index})" title="მთავარი ფოტო"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>` : ''}
+                </div>
+            `).join('');
+        }
+        
+        // Remove uploaded photo
+        window.removeUploadedPhoto = function(index) {
+            const wasMain = uploadedPhotos[index].isMain;
+            uploadedPhotos.splice(index, 1);
+            if (wasMain && uploadedPhotos.length > 0) {
+                uploadedPhotos[0].isMain = true;
+            }
+            renderUploadedPhotos();
+        };
+        
+        // Set main photo
+        window.setMainPhoto = function(index) {
+            uploadedPhotos.forEach((p, i) => p.isMain = (i === index));
+            renderUploadedPhotos();
+        };
+        
+        // Handle file uploads
+        async function handlePhotoUpload(files) {
+            for (const file of files) {
+                if (!file.type.startsWith('image/')) continue;
+                
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('ფოტო ძალიან დიდია. მაქსიმალური ზომა: 2MB');
+                    continue;
+                }
+                
+                try {
+                    const base64 = await fileToBase64(file);
+                    uploadedPhotos.push({
+                        data: base64,
+                        isMain: uploadedPhotos.length === 0
+                    });
+                } catch (err) {
+                    console.error('Error uploading photo:', err);
+                }
+            }
+            renderUploadedPhotos();
+        }
+        
+        // Auto-generate slug from name
+        const talentNameInput = document.getElementById('talentName');
+        const talentSlugInput = document.getElementById('talentSlug');
+        const slugPreview = document.getElementById('slugPreview');
+        
+        talentNameInput.addEventListener('input', () => {
+            const slug = createSlug(talentNameInput.value);
+            if (!talentSlugInput.dataset.manual) {
+                talentSlugInput.value = slug;
+            }
+            slugPreview.textContent = slug || '...';
+        });
+        
+        talentSlugInput.addEventListener('input', () => {
+            talentSlugInput.dataset.manual = talentSlugInput.value ? 'true' : '';
+            slugPreview.textContent = talentSlugInput.value || createSlug(talentNameInput.value) || '...';
+        });
+        
+        // Photo upload area events
+        const photoUploadArea = document.getElementById('photoUploadArea');
+        const photoFileInput = document.getElementById('photoFileInput');
+        
+        photoUploadArea.addEventListener('click', () => photoFileInput.click());
+        
+        photoUploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            photoUploadArea.classList.add('dragover');
+        });
+        
+        photoUploadArea.addEventListener('dragleave', () => {
+            photoUploadArea.classList.remove('dragover');
+        });
+        
+        photoUploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            photoUploadArea.classList.remove('dragover');
+            handlePhotoUpload(e.dataTransfer.files);
+        });
+        
+        photoFileInput.addEventListener('change', (e) => {
+            handlePhotoUpload(e.target.files);
+            e.target.value = '';
+        });
+        
+        // Add video link button
+        document.getElementById('addVideoBtn').addEventListener('click', () => {
+            const container = document.getElementById('videoLinksContainer');
+            const row = document.createElement('div');
+            row.className = 'video-link-row';
+            row.innerHTML = `
+                <input type="url" class="video-link-input" placeholder="https://youtube.com/watch?v=...">
+                <button type="button" class="remove-video-btn" onclick="this.parentElement.remove()"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            `;
+            container.appendChild(row);
+        });
+        
+        // Get all video links from form
+        function getVideoLinks() {
+            const inputs = document.querySelectorAll('.video-link-input');
+            return Array.from(inputs).map(input => input.value.trim()).filter(url => url);
+        }
+        
+        // Create URL slug from Georgian name
+        function createSlug(name) {
+            const georgianToLatin = {
+                'ა': 'a', 'ბ': 'b', 'გ': 'g', 'დ': 'd', 'ე': 'e', 'ვ': 'v', 'ზ': 'z',
+                'თ': 't', 'ი': 'i', 'კ': 'k', 'ლ': 'l', 'მ': 'm', 'ნ': 'n', 'ო': 'o',
+                'პ': 'p', 'ჟ': 'zh', 'რ': 'r', 'ს': 's', 'ტ': 't', 'უ': 'u', 'ფ': 'f',
+                'ქ': 'q', 'ღ': 'gh', 'ყ': 'y', 'შ': 'sh', 'ჩ': 'ch', 'ც': 'ts', 'ძ': 'dz',
+                'წ': 'ts', 'ჭ': 'ch', 'ხ': 'kh', 'ჯ': 'j', 'ჰ': 'h'
+            };
+            
+            return name
+                .toLowerCase()
+                .split('')
+                .map(char => georgianToLatin[char] || char)
+                .join('')
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9-]/g, '')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+        }
+        
+        // Set video links in form
+        function setVideoLinks(videos) {
+            const container = document.getElementById('videoLinksContainer');
+            container.innerHTML = '';
+            
+            if (!videos || videos.length === 0) {
+                const row = document.createElement('div');
+                row.className = 'video-link-row';
+                row.innerHTML = `
+                    <input type="url" class="video-link-input" placeholder="https://youtube.com/watch?v=...">
+                    <button type="button" class="remove-video-btn" onclick="this.parentElement.remove()"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                `;
+                container.appendChild(row);
+                return;
+            }
+            
+            videos.forEach(url => {
+                const row = document.createElement('div');
+                row.className = 'video-link-row';
+                row.innerHTML = `
+                    <input type="url" class="video-link-input" placeholder="https://youtube.com/watch?v=..." value="${url}">
+                    <button type="button" class="remove-video-btn" onclick="this.parentElement.remove()"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                `;
+                container.appendChild(row);
+            });
+        }
+        
+        // Render talent cards
+        function renderTalentGrid() {
+            const grid = document.getElementById('talentGrid');
+            const noTalentsMsg = document.getElementById('noTalentsMessage');
+            const talents = getTalents();
+            
+            // Get filter values
+            const searchName = document.getElementById('talentSearchName').value.toLowerCase();
+            const filterGender = document.getElementById('talentFilterGender').value;
+            const filterAge = document.getElementById('talentFilterAge').value;
+            
+            // Filter talents
+            const filteredTalents = talents.filter(talent => {
+                if (searchName && !talent.name.toLowerCase().includes(searchName)) {
+                    return false;
+                }
+                if (filterGender && talent.gender !== filterGender) {
+                    return false;
+                }
+                if (filterAge) {
+                    const age = parseInt(talent.age);
+                    if (filterAge === '18-25' && (age < 18 || age > 25)) return false;
+                    if (filterAge === '26-35' && (age < 26 || age > 35)) return false;
+                    if (filterAge === '36-45' && (age < 36 || age > 45)) return false;
+                    if (filterAge === '46-55' && (age < 46 || age > 55)) return false;
+                    if (filterAge === '56+' && age < 56) return false;
+                }
+                return true;
+            });
+            
+            // Clear existing cards
+            grid.querySelectorAll('.talent-card').forEach(card => card.remove());
+            
+            if (filteredTalents.length === 0) {
+                noTalentsMsg.style.display = 'block';
+                if (talents.length > 0) {
+                    noTalentsMsg.textContent = 'არ მოიძებნა შესაბამისი პროფილი';
+                } else {
+                    noTalentsMsg.textContent = '';
+                }
+            } else {
+                noTalentsMsg.style.display = 'none';
+                
+                filteredTalents.forEach(talent => {
+                    const card = document.createElement('div');
+                    card.className = 'talent-card';
+                    card.setAttribute('data-talent-id', talent.id);
+                    
+                    const skills = talent.skills ? talent.skills.split(',').slice(0, 3) : [];
+                    const mainPhoto = talent.photos && talent.photos.length > 0 
+                        ? (talent.photos.find(p => p.isMain) || talent.photos[0]).data 
+                        : (talent.photo || './images/web.png');
+                    const hasVideos = talent.videos && talent.videos.length > 0 && talent.videos.some(v => getYouTubeEmbedUrl(v));
+                    const photoCount = talent.photos ? talent.photos.length : 0;
+                    
+                    card.innerHTML = `
+                        <div class="talent-photo-container">
+                            <img src="${mainPhoto}" alt="${talent.name}" class="talent-photo" onerror="this.src='./images/web.png'">
+                            ${hasVideos ? '<span class="talent-video-badge"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>ვიდეო</span>' : ''}
+                            ${photoCount > 1 ? `<span class="talent-video-badge" style="left: 12px; right: auto;"><svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>${photoCount}</span>` : ''}
+                        </div>
+                        <div class="talent-info">
+                            <h3 class="talent-name">${talent.name}</h3>
+                            <div class="talent-meta">
+                                <span>${talent.age} წლის</span>
+                                ${talent.height ? '<span>' + talent.height + ' სმ</span>' : ''}
+                                ${talent.city ? '<span>' + talent.city + '</span>' : ''}
+                            </div>
+                            <div class="talent-skills">
+                                ${skills.map(skill => '<span class="talent-skill-tag">' + skill.trim() + '</span>').join('')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    const talentSlug = talent.slug || createSlug(talent.name);
+                    card.addEventListener('click', () => {
+                        window.location.href = 'talent.html?id=' + talentSlug;
+                    });
+                    grid.appendChild(card);
+                });
+            }
+        }
+        
+        // Open talent detail modal
+        function openTalentDetail(talentId) {
+            const talents = getTalents();
+            const talent = talents.find(t => t.id === talentId);
+            if (!talent) return;
+            
+            const modal = document.getElementById('talentDetailModal');
+            
+            const photos = talent.photos && talent.photos.length > 0 ? talent.photos : 
+                (talent.photo ? [{ data: talent.photo, isMain: true }] : []);
+            
+            const mainPhoto = photos.find(p => p.isMain) || photos[0] || { data: './images/web.png' };
+            document.getElementById('talentDetailPhoto').src = mainPhoto.data;
+            document.getElementById('talentDetailPhoto').alt = talent.name;
+            
+            const thumbsContainer = document.getElementById('talentPhotoThumbnails');
+            if (photos.length > 1) {
+                thumbsContainer.innerHTML = photos.map((photo, index) => `
+                    <img src="${photo.data}" alt="Photo ${index + 1}" class="talent-photo-thumb ${photo.isMain ? 'active' : ''}" 
+                         onclick="document.getElementById('talentDetailPhoto').src='${photo.data}'; 
+                                  document.querySelectorAll('.talent-photo-thumb').forEach(t=>t.classList.remove('active')); 
+                                  this.classList.add('active');">
+                `).join('');
+                thumbsContainer.style.display = 'flex';
+            } else {
+                thumbsContainer.innerHTML = '';
+                thumbsContainer.style.display = 'none';
+            }
+            
+            document.getElementById('talentDetailName').textContent = talent.name;
+            
+            const statsContainer = document.getElementById('talentDetailStats');
+            statsContainer.innerHTML = `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">ასაკი</div>
+                    <div class="talent-stat-value">${talent.age} წლის</div>
+                </div>
+                <div class="talent-stat">
+                    <div class="talent-stat-label">სქესი</div>
+                    <div class="talent-stat-value">${talent.gender === 'male' ? 'მამრობითი' : 'მდედრობითი'}</div>
+                </div>
+                ${talent.height ? `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">სიმაღლე</div>
+                    <div class="talent-stat-value">${talent.height} სმ</div>
+                </div>
+                ` : ''}
+                ${talent.weight ? `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">წონა</div>
+                    <div class="talent-stat-value">${talent.weight} კგ</div>
+                </div>
+                ` : ''}
+                ${talent.eyeColor ? `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">თვალის ფერი</div>
+                    <div class="talent-stat-value">${talent.eyeColor}</div>
+                </div>
+                ` : ''}
+                ${talent.hairColor ? `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">თმის ფერი</div>
+                    <div class="talent-stat-value">${talent.hairColor}</div>
+                </div>
+                ` : ''}
+                ${talent.city ? `
+                <div class="talent-stat">
+                    <div class="talent-stat-label">ქალაქი</div>
+                    <div class="talent-stat-value">${talent.city}</div>
+                </div>
+                ` : ''}
+            `;
+            
+            const videosSection = document.getElementById('talentVideosSection');
+            const videosGrid = document.getElementById('talentVideosGrid');
+            const videos = talent.videos && talent.videos.length > 0 ? talent.videos : 
+                (talent.youtube ? [talent.youtube] : []);
+            
+            const validVideos = videos.filter(url => getYouTubeEmbedUrl(url));
+            if (validVideos.length > 0) {
+                videosGrid.innerHTML = validVideos.map(url => `
+                    <div class="talent-video-item">
+                        <iframe src="${getYouTubeEmbedUrl(url)}" allowfullscreen></iframe>
+                    </div>
+                `).join('');
+                videosSection.style.display = 'block';
+            } else {
+                videosGrid.innerHTML = '';
+                videosSection.style.display = 'none';
+            }
+            
+            document.getElementById('talentVideoEmbed').style.display = 'none';
+            
+            const skillsSection = document.getElementById('talentSkillsSection');
+            const skillsContainer = document.getElementById('talentDetailSkills');
+            if (talent.skills) {
+                skillsContainer.innerHTML = talent.skills.split(',').map(skill => 
+                    '<span class="talent-skill-tag">' + skill.trim() + '</span>'
+                ).join('');
+                skillsSection.style.display = 'block';
+            } else {
+                skillsSection.style.display = 'none';
+            }
+            
+            const expSection = document.getElementById('talentExperienceSection');
+            const expContainer = document.getElementById('talentDetailExperience');
+            if (talent.experience) {
+                expContainer.textContent = talent.experience;
+                expSection.style.display = 'block';
+            } else {
+                expSection.style.display = 'none';
+            }
+            
+            const bioSection = document.getElementById('talentBioSection');
+            const bioContainer = document.getElementById('talentDetailBio');
+            if (talent.bio) {
+                bioContainer.textContent = talent.bio;
+                bioSection.style.display = 'block';
+            } else {
+                bioSection.style.display = 'none';
+            }
+            
+            const contactBtn = document.getElementById('talentContactBtn');
+            if (talent.email) {
+                contactBtn.href = 'mailto:' + talent.email;
+                contactBtn.style.display = 'inline-block';
+            } else if (talent.phone) {
+                contactBtn.href = 'tel:' + talent.phone;
+                contactBtn.style.display = 'inline-block';
+            } else {
+                contactBtn.style.display = 'none';
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close talent detail modal
+        document.getElementById('closeTalentDetail').addEventListener('click', () => {
+            document.getElementById('talentDetailModal').classList.remove('active');
+            document.body.style.overflow = '';
+            document.getElementById('talentVideosGrid').innerHTML = '';
+        });
+        
+        document.getElementById('talentDetailModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('talentDetailModal')) {
+                document.getElementById('talentDetailModal').classList.remove('active');
+                document.body.style.overflow = '';
+                document.getElementById('talentVideosGrid').innerHTML = '';
+            }
+        });
+        
+        // Admin Panel
+        const adminModal = document.getElementById('adminModal');
+        const openAdminBtn = document.getElementById('openAdminPanel');
+        const closeAdminBtn = document.getElementById('closeAdminModal');
+        const saveTalentBtn = document.getElementById('saveTalentBtn');
+        const clearFormBtn = document.getElementById('clearFormBtn');
+        
+        function renderAdminTalentList() {
+            const container = document.getElementById('adminTalentListItems');
+            const talents = getTalents();
+            
+            if (talents.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            
+            container.innerHTML = talents.map(talent => {
+                const mainPhoto = talent.photos && talent.photos.length > 0 
+                    ? (talent.photos.find(p => p.isMain) || talent.photos[0]).data 
+                    : (talent.photo || './images/web.png');
+                return `
+                <div class="admin-talent-item">
+                    <img src="${mainPhoto}" alt="${talent.name}" onerror="this.src='./images/web.png'">
+                    <div class="admin-talent-item-info">
+                        <div class="admin-talent-item-name">${talent.name}</div>
+                        <div class="admin-talent-item-meta">${talent.age} წლის • ${talent.gender === 'male' ? 'მამრობითი' : 'მდედრობითი'} • ${talent.photos ? talent.photos.length : 0} ფოტო</div>
+                    </div>
+                    <div class="admin-talent-item-actions">
+                        <button class="admin-btn admin-btn-secondary" onclick="editTalent('${talent.id}')">რედაქტირება</button>
+                        <button class="admin-btn admin-btn-danger" onclick="deleteTalent('${talent.id}')">წაშლა</button>
+                    </div>
+                </div>
+            `}).join('');
+        }
+        
+        function clearTalentForm() {
+            document.getElementById('talentId').value = '';
+            document.getElementById('talentName').value = '';
+            document.getElementById('talentSlug').value = '';
+            document.getElementById('talentSlug').dataset.manual = '';
+            document.getElementById('slugPreview').textContent = '...';
+            document.getElementById('talentGender').value = '';
+            document.getElementById('talentAge').value = '';
+            document.getElementById('talentHeight').value = '';
+            document.getElementById('talentWeight').value = '';
+            document.getElementById('talentEyeColor').value = '';
+            document.getElementById('talentHairColor').value = '';
+            document.getElementById('talentCity').value = '';
+            document.getElementById('talentSkills').value = '';
+            document.getElementById('talentExperience').value = '';
+            document.getElementById('talentBio').value = '';
+            document.getElementById('talentEmail').value = '';
+            document.getElementById('talentPhone').value = '';
+            document.getElementById('adminModalTitle').textContent = 'პროფილის დამატება';
+            
+            uploadedPhotos = [];
+            renderUploadedPhotos();
+            setVideoLinks([]);
+        }
+        
+        window.editTalent = function(talentId) {
+            const talents = getTalents();
+            const talent = talents.find(t => t.id === talentId);
+            if (!talent) return;
+            
+            document.getElementById('talentId').value = talent.id;
+            document.getElementById('talentName').value = talent.name || '';
+            document.getElementById('talentSlug').value = talent.slug || '';
+            document.getElementById('talentSlug').dataset.manual = talent.slug ? 'true' : '';
+            document.getElementById('slugPreview').textContent = talent.slug || createSlug(talent.name) || '...';
+            document.getElementById('talentGender').value = talent.gender || '';
+            document.getElementById('talentAge').value = talent.age || '';
+            document.getElementById('talentHeight').value = talent.height || '';
+            document.getElementById('talentWeight').value = talent.weight || '';
+            document.getElementById('talentEyeColor').value = talent.eyeColor || '';
+            document.getElementById('talentHairColor').value = talent.hairColor || '';
+            document.getElementById('talentCity').value = talent.city || '';
+            document.getElementById('talentSkills').value = talent.skills || '';
+            document.getElementById('talentExperience').value = talent.experience || '';
+            document.getElementById('talentBio').value = talent.bio || '';
+            document.getElementById('talentEmail').value = talent.email || '';
+            document.getElementById('talentPhone').value = talent.phone || '';
+            document.getElementById('adminModalTitle').textContent = 'პროფილის რედაქტირება';
+            
+            uploadedPhotos = talent.photos ? [...talent.photos] : 
+                (talent.photo ? [{ data: talent.photo, isMain: true }] : []);
+            renderUploadedPhotos();
+            
+            const videos = talent.videos || (talent.youtube ? [talent.youtube] : []);
+            setVideoLinks(videos);
+            
+            document.querySelector('.admin-modal-body').scrollTop = 0;
+        };
+        
+        window.deleteTalent = function(talentId) {
+            if (confirm('დარწმუნებული ხართ, რომ გსურთ ამ პროფილის წაშლა?')) {
+                let talents = getTalents();
+                talents = talents.filter(t => t.id !== talentId);
+                saveTalents(talents);
+                renderAdminTalentList();
+                renderTalentGrid();
+            }
+        };
+        
+        // Hidden admin access - triple click on subtitle or press Ctrl+Shift+A
+        const talentSubtitle = document.querySelector('.talent-subtitle');
+        let clickCount = 0;
+        let clickTimer = null;
+        
+        talentSubtitle.addEventListener('click', () => {
+            clickCount++;
+            if (clickCount === 3) {
+                openAdminPanel();
+                clickCount = 0;
+                clearTimeout(clickTimer);
+            } else {
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => { clickCount = 0; }, 500);
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+                e.preventDefault();
+                openAdminPanel();
+            }
+        });
+        
+        function openAdminPanel() {
+            renderAdminTalentList();
+            adminModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        openAdminBtn.addEventListener('click', openAdminPanel);
+        
+        closeAdminBtn.addEventListener('click', () => {
+            adminModal.classList.remove('active');
+            document.body.style.overflow = '';
+            clearTalentForm();
+        });
+        
+        adminModal.addEventListener('click', (e) => {
+            if (e.target === adminModal) {
+                adminModal.classList.remove('active');
+                document.body.style.overflow = '';
+                clearTalentForm();
+            }
+        });
+        
+        clearFormBtn.addEventListener('click', clearTalentForm);
+        
+        saveTalentBtn.addEventListener('click', () => {
+            const name = document.getElementById('talentName').value;
+            const gender = document.getElementById('talentGender').value;
+            const age = document.getElementById('talentAge').value;
+            
+            if (!name || !gender || !age) {
+                alert('გთხოვთ შეავსოთ სავალდებულო ველები: სახელი, სქესი, ასაკი');
+                return;
+            }
+            
+            if (uploadedPhotos.length === 0) {
+                alert('გთხოვთ ატვირთოთ მინიმუმ ერთი ფოტო');
+                return;
+            }
+            
+            const talentId = document.getElementById('talentId').value;
+            const slug = document.getElementById('talentSlug').value || createSlug(name);
+            const talentData = {
+                id: talentId || generateId(),
+                name: name,
+                slug: slug,
+                gender: gender,
+                age: age,
+                height: document.getElementById('talentHeight').value,
+                weight: document.getElementById('talentWeight').value,
+                eyeColor: document.getElementById('talentEyeColor').value,
+                hairColor: document.getElementById('talentHairColor').value,
+                city: document.getElementById('talentCity').value,
+                photos: [...uploadedPhotos],
+                videos: getVideoLinks(),
+                skills: document.getElementById('talentSkills').value,
+                experience: document.getElementById('talentExperience').value,
+                bio: document.getElementById('talentBio').value,
+                email: document.getElementById('talentEmail').value,
+                phone: document.getElementById('talentPhone').value
+            };
+            
+            let talents = getTalents();
+            
+            if (talentId) {
+                const index = talents.findIndex(t => t.id === talentId);
+                if (index !== -1) {
+                    talents[index] = talentData;
+                }
+            } else {
+                talents.push(talentData);
+            }
+            
+            try {
+                saveTalents(talents);
+                clearTalentForm();
+                renderAdminTalentList();
+                renderTalentGrid();
+                alert(talentId ? 'პროფილი წარმატებით განახლდა!' : 'პროფილი წარმატებით დაემატა!');
+            } catch (e) {
+                if (e.name === 'QuotaExceededError') {
+                    alert('მეხსიერება სავსეა! გთხოვთ წაშალოთ ზოგიერთი პროფილი ან გამოიყენოთ უფრო მცირე ზომის ფოტოები.');
+                } else {
+                    alert('შეცდომა: ' + e.message);
+                }
+            }
+        });
+        
+        // Filter event listeners
+        document.getElementById('talentSearchName').addEventListener('input', renderTalentGrid);
+        document.getElementById('talentFilterGender').addEventListener('change', renderTalentGrid);
+        document.getElementById('talentFilterAge').addEventListener('change', renderTalentGrid);
+        
+        // Initial render
+        renderTalentGrid();
+    </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>დაამატე ვახო ჭაჭანიძის პროფილი</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #1d1d1f;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        p {
+            color: #86868b;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background: #333;
+        }
+        .success {
+            color: #4ade80;
+            margin-top: 20px;
+        }
+        .info {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .info h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        .info ul {
+            color: #d2d2d7;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ვახო ჭაჭანიძე</h1>
+        <p>etalenta.me-დან გადმოტანილი სანიმუშო პროფილი</p>
+        
+        <button class="btn" onclick="addSampleProfile()">დაამატე პროფილი</button>
+        <button class="btn btn-secondary" onclick="window.location.href='index.html#talents'">დაბრუნება</button>
+        
+        <div id="result"></div>
+        
+        <div class="info">
+            <h3>პროფილის დეტალები:</h3>
+            <ul>
+                <li><strong>სახელი:</strong> Vakho Chachanidze (ვახო ჭაჭანიძე)</li>
+                <li><strong>ასაკი:</strong> 47 წლის (დაბ. 1978)</li>
+                <li><strong>სიმაღლე:</strong> 180 სმ</li>
+                <li><strong>თვალის ფერი:</strong> ყავისფერი</li>
+                <li><strong>თმის ფერი:</strong> შავი</li>
+                <li><strong>ქალაქი:</strong> თბილისი</li>
+                <li><strong>ენები:</strong> ქართული, რუსული, ინგლისური, გერმანული</li>
+                <li><strong>უნარები:</strong> მსახიობობა, სიმღერა, ცეკვა, გიტარა, პიანინო</li>
+            </ul>
+            <h3>ჯილდოები:</h3>
+            <ul>
+                <li>🏆 Best Film - FEDEORA AWARD, KVIFF (2021)</li>
+                <li>🏆 Best Male Role - redline IFF, Canada (2019)</li>
+                <li>🏆 Honorable Mention - Wiesbaden (2014)</li>
+                <li>🏆 Best Male Role - Georgian Theatre Days (2013)</li>
+            </ul>
+            <p style="color: #f59e0b; margin-top: 20px;">⚠️ ფოტოები ვერ გადმოვიტანე etalenta-დან (დაცულია). გთხოვთ ხელით ატვირთოთ ადმინ პანელიდან.</p>
+        </div>
+    </div>
+
+    <script>
+        function addSampleProfile() {
+            const TALENT_STORAGE_KEY = 'shuqi_talents';
+            
+            // Get existing talents
+            const existingData = localStorage.getItem(TALENT_STORAGE_KEY);
+            const talents = existingData ? JSON.parse(existingData) : [];
+            
+            // Check if already exists
+            const exists = talents.find(t => t.slug === 'vakho-chachanidze');
+            if (exists) {
+                document.getElementById('result').innerHTML = '<p class="success" style="color: #f59e0b;">⚠️ ეს პროფილი უკვე არსებობს!</p>';
+                return;
+            }
+            
+            // Sample profile data from etalenta.me/vakho-chachanidze
+            const sampleProfile = {
+                id: 'talent_' + Date.now() + '_vakho',
+                name: 'Vakho Chachanidze',
+                slug: 'vakho-chachanidze',
+                gender: 'male',
+                age: '47',
+                height: '180',
+                weight: '',
+                eyeColor: 'ყავისფერი',
+                hairColor: 'შავი',
+                city: 'თბილისი',
+                photos: [], // Photos need to be uploaded manually
+                videos: [
+                    // These are placeholder YouTube links - replace with actual showreel links if available
+                ],
+                skills: 'მსახიობობა, სიმღერა (ბალადა, ბლუზი, ჯაზი, როკი), ცეკვა (კლასიკური, მოდერნი, ვალსი), გიტარა, პიანინო, ცხენზე ჯირითი, ცურვა, სროლა, თხილამური',
+                experience: `🎬 ფილმოგრაფია:
+• "Petlya" (Loop) - Netflix Mini Series (2021-2022) - Shotik
+• "Pirveli Dge" (The First Day) - GPB (2016) - Kokinich (Lead)
+• "Wataha" (The Border) - HBO Poland (2016-2017) - Doctor
+• "Chemi Colis Daqalebi" - Rustavi 2 (2014-2019)
+
+🏆 ჯილდოები:
+• Best Film - FEDEORA AWARD, Karlovy Vary IFF (2021) - "Otar's Death"
+• Best Male Role - redline IFF, Canada (2019) - "Bad People"
+• Nomination - mo.BILE Festival, Germany (2019) - "The Matches"
+• Honorable Mention - Wiesbaden Festival (2014) - "Blind Dates"
+• Best Male Role - Georgian Theatre Days (2013) - "Acide Sulfurique"
+
+🌍 ენები: ქართული (მშობლიური), რუსული (თავისუფლად), ინგლისური (კარგად), გერმანული (კარგად)
+
+🎭 სხვა უნარები: პანტომიმა, მართვის მოწმობა (მანქანა, მოტოციკლი)`,
+                bio: 'ვახო ჭაჭანიძე - გამოცდილი ქართველი მსახიობი, რომელიც მოღვაწეობს როგორც საქართველოში, ასევე საერთაშორისო პროექტებში (Netflix, HBO). მრავალი საერთაშორისო ჯილდოს მფლობელი.',
+                email: '',
+                phone: ''
+            };
+            
+            // Add to talents
+            talents.push(sampleProfile);
+            
+            // Save
+            try {
+                localStorage.setItem(TALENT_STORAGE_KEY, JSON.stringify(talents));
+                document.getElementById('result').innerHTML = `
+                    <p class="success">✓ პროფილი წარმატებით დაემატა!</p>
+                    <p style="color: #86868b;">ახლა შეგიძლიათ ადმინ პანელიდან ატვირთოთ ფოტოები.</p>
+                    <button class="btn" onclick="window.location.href='index.html#talents'" style="margin-top: 20px;">ნახე პორტფოლიო</button>
+                `;
+            } catch (e) {
+                document.getElementById('result').innerHTML = '<p style="color: #ef4444;">შეცდომა: ' + e.message + '</p>';
+            }
+        }
+    </script>
+</body>
+</html>

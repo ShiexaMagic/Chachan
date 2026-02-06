@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ტალანტი - shuQi Production</title>
+    
+    <!-- Open Graph Meta Tags - will be updated dynamically -->
+    <meta property="og:title" content="shuQi Production - Talent">
+    <meta property="og:description" content="Actor Profile - shuQi Production">
+    <meta property="og:type" content="profile">
+    <meta property="og:image" content="./images/web.png">
+    <meta property="og:locale" content="ka_GE">
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --pure-black: #000000;
+            --dark-gray: #1d1d1f;
+            --medium-gray: #86868b;
+            --light-gray: #d2d2d7;
+            --off-white: #f5f5f7;
+            --pure-white: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', 'Segoe UI', 'Roboto', sans-serif;
+            background: #fff;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .talent-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-logo {
+            height: 40px;
+        }
+        
+        .header-logo img {
+            height: 100%;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .header-nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .header-nav a:hover {
+            color: var(--pure-black);
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--medium-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+        
+        .back-btn:hover {
+            color: var(--dark-gray);
+        }
+        
+        /* Hero Section */
+        .talent-hero {
+            background: linear-gradient(135deg, #1d1d1f 0%, #000 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+        
+        .talent-hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .talent-hero-photo {
+            position: relative;
+        }
+        
+        .talent-main-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.1);
+        }
+        
+        .talent-photo-gallery {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .talent-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .talent-thumb:hover,
+        .talent-thumb.active {
+            border-color: white;
+        }
+        
+        .talent-hero-info {
+            padding-top: 1rem;
+        }
+        
+        .talent-name {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .talent-role {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 2rem;
+        }
+        
+        .talent-quick-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .quick-stat {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-left: 3px solid rgba(255,255,255,0.3);
+        }
+        
+        .quick-stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .quick-stat-value {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .talent-contact-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            padding: 12px 28px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn-primary {
+            background: white;
+            color: var(--dark-gray);
+        }
+        
+        .contact-btn-primary:hover {
+            background: var(--off-white);
+        }
+        
+        .contact-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .contact-btn-secondary:hover {
+            border-color: white;
+        }
+        
+        /* Navigation Tabs */
+        .talent-nav {
+            background: var(--off-white);
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 60px;
+            z-index: 999;
+        }
+        
+        .talent-nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+        }
+        
+        .talent-nav-link {
+            padding: 1rem 1.5rem;
+            color: var(--medium-gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        
+        .talent-nav-link:hover,
+        .talent-nav-link.active {
+            color: var(--dark-gray);
+            border-bottom-color: var(--dark-gray);
+        }
+        
+        /* Main Content */
+        .talent-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .talent-section {
+            margin-bottom: 60px;
+            scroll-margin-top: 140px;
+        }
+        
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        /* Personal Details & Appearance */
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .details-card {
+            background: var(--off-white);
+            padding: 1.5rem;
+        }
+        
+        .details-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .detail-label {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+        }
+        
+        .detail-value {
+            font-weight: 500;
+            text-align: right;
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-category {
+            background: var(--off-white);
+            padding: 1.5rem;
+        }
+        
+        .skill-category h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .skill-category h4::before {
+            content: '';
+            width: 4px;
+            height: 1rem;
+            background: var(--dark-gray);
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+        }
+        
+        .skill-name {
+            color: var(--dark-gray);
+        }
+        
+        .skill-level {
+            color: var(--medium-gray);
+            font-size: 0.75rem;
+        }
+        
+        .skill-level.high {
+            color: #34c759;
+        }
+        
+        .skill-level.medium {
+            color: #ff9500;
+        }
+        
+        /* Videos/Showreels */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .video-card {
+            background: var(--off-white);
+            overflow: hidden;
+        }
+        
+        .video-embed {
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        
+        .video-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 1rem;
+        }
+        
+        .video-title {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .video-meta {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+        }
+        
+        /* CV Section */
+        .cv-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+            overflow-x: auto;
+        }
+        
+        .cv-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        
+        .cv-tab:hover,
+        .cv-tab.active {
+            color: var(--dark-gray);
+            border-bottom-color: var(--dark-gray);
+        }
+        
+        .cv-content {
+            display: none;
+        }
+        
+        .cv-content.active {
+            display: block;
+        }
+        
+        .cv-entry {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .cv-year {
+            font-weight: 600;
+            color: var(--medium-gray);
+        }
+        
+        .cv-details h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cv-details p {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .cv-role {
+            display: inline-block;
+            background: var(--dark-gray);
+            color: white;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Photo Gallery Section */
+        .photos-section {
+            margin-bottom: 60px;
+        }
+        
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .photo-item {
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--off-white);
+            padding: 2rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--dark-gray);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .contact-info h5 {
+            font-size: 0.75rem;
+            color: var(--medium-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .contact-info a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .talent-footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .talent-footer p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.875rem;
+        }
+        
+        .talent-footer a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Lightbox */
+        .photo-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            padding: 1rem;
+            cursor: pointer;
+        }
+        
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        
+        /* Not Found */
+        .not-found {
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .not-found h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .not-found p {
+            color: var(--medium-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .not-found a {
+            color: var(--dark-gray);
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .talent-hero-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .talent-hero-photo {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .talent-name {
+                font-size: 2.5rem;
+            }
+            
+            .cv-entry {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-nav {
+                display: none;
+            }
+            
+            .talent-quick-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="talent-header">
+        <div class="header-container">
+            <a href="index.html" class="header-logo">
+                <img src="./images/shuqi-logo.png" alt="shuQi">
+            </a>
+            <nav class="header-nav">
+                <a href="index.html#home">მთავარი</a>
+                <a href="index.html#talents">ტალანტები</a>
+                <a href="index.html#contact">კონტაქტი</a>
+            </nav>
+            <a href="index.html#talents" class="back-btn">← უკან</a>
+        </div>
+    </header>
+    
+    <!-- Main Content - Loaded Dynamically -->
+    <div id="talentPageContent">
+        <!-- Loading state -->
+        <div class="not-found" id="loadingState">
+            <h1>იტვირთება...</h1>
+            <p>გთხოვთ დაელოდოთ</p>
+        </div>
+    </div>
+    
+    <!-- Photo Lightbox -->
+    <div class="photo-lightbox" id="photoLightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#10094;</button>
+        <img src="" alt="" class="lightbox-image" id="lightboxImage">
+        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#10095;</button>
+    </div>
+    
+    <script>
+        // Get talent ID from URL
+        function getTalentSlug() {
+            // Check for ?id= parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+            if (id) return id;
+            
+            // Check for path after talent.html/
+            const path = window.location.pathname;
+            const match = path.match(/\/talent\/([^\/]+)/);
+            if (match) return match[1];
+            
+            // Check hash
+            const hash = window.location.hash;
+            if (hash.startsWith('#')) return hash.substring(1);
+            
+            return null;
+        }
+        
+        // Create URL-friendly slug from name
+        function createSlug(name) {
+            return name.toLowerCase()
+                .replace(/[აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ]/g, char => {
+                    const map = {
+                        'ა': 'a', 'ბ': 'b', 'გ': 'g', 'დ': 'd', 'ე': 'e', 'ვ': 'v',
+                        'ზ': 'z', 'თ': 't', 'ი': 'i', 'კ': 'k', 'ლ': 'l', 'მ': 'm',
+                        'ნ': 'n', 'ო': 'o', 'პ': 'p', 'ჟ': 'zh', 'რ': 'r', 'ს': 's',
+                        'ტ': 't', 'უ': 'u', 'ფ': 'f', 'ქ': 'q', 'ღ': 'gh', 'ყ': 'y',
+                        'შ': 'sh', 'ჩ': 'ch', 'ც': 'ts', 'ძ': 'dz', 'წ': 'ts', 'ჭ': 'ch',
+                        'ხ': 'kh', 'ჯ': 'j', 'ჰ': 'h'
+                    };
+                    return map[char] || char;
+                })
+                .replace(/\s+/g, '-')
+                .replace(/[^a-z0-9-]/g, '')
+                .replace(/-+/g, '-');
+        }
+        
+        // Get talents from localStorage
+        function getTalents() {
+            const data = localStorage.getItem('shuqi_talents');
+            return data ? JSON.parse(data) : [];
+        }
+        
+        // Find talent by slug or ID
+        function findTalent(slug) {
+            const talents = getTalents();
+            return talents.find(t => {
+                const talentSlug = createSlug(t.name);
+                return t.id === slug || talentSlug === slug || t.slug === slug;
+            });
+        }
+        
+        // YouTube URL to embed
+        function getYouTubeEmbedUrl(url) {
+            if (!url) return null;
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            if (match && match[2].length === 11) {
+                return 'https://www.youtube.com/embed/' + match[2];
+            }
+            return null;
+        }
+        
+        // Render talent page
+        function renderTalentPage(talent) {
+            const container = document.getElementById('talentPageContent');
+            
+            // Get main photo
+            const photos = talent.photos && talent.photos.length > 0 ? talent.photos : 
+                (talent.photo ? [{ data: talent.photo, isMain: true }] : []);
+            const mainPhoto = photos.find(p => p.isMain) || photos[0] || { data: './images/web.png' };
+            
+            // Get videos
+            const videos = talent.videos && talent.videos.length > 0 ? talent.videos : 
+                (talent.youtube ? [talent.youtube] : []);
+            
+            // Parse skills
+            const skillsArray = talent.skills ? talent.skills.split(',').map(s => s.trim()) : [];
+            
+            // Parse languages if available
+            const languages = talent.languages ? talent.languages.split(',').map(s => s.trim()) : [];
+            
+            // Update page title
+            document.title = talent.name + ' - shuQi Production';
+            
+            container.innerHTML = `
+                <!-- Hero Section -->
+                <section class="talent-hero">
+                    <div class="talent-hero-content">
+                        <div class="talent-hero-photo">
+                            <img src="${mainPhoto.data}" alt="${talent.name}" class="talent-main-image" id="heroMainPhoto" onerror="this.src='./images/web.png'">
+                            ${photos.length > 1 ? `
+                            <div class="talent-photo-gallery">
+                                ${photos.map((photo, i) => `
+                                    <img src="${photo.data}" alt="Photo ${i+1}" class="talent-thumb ${photo.isMain ? 'active' : ''}" 
+                                         onclick="changeHeroPhoto('${photo.data.replace(/'/g, "\\'")}', this)">
+                                `).join('')}
+                            </div>
+                            ` : ''}
+                        </div>
+                        <div class="talent-hero-info">
+                            <h1 class="talent-name">${talent.name}</h1>
+                            <p class="talent-role">მსახიობი</p>
+                            
+                            <div class="talent-quick-stats">
+                                <div class="quick-stat">
+                                    <div class="quick-stat-label">ასაკი</div>
+                                    <div class="quick-stat-value">${talent.age} წლის</div>
+                                </div>
+                                ${talent.height ? `
+                                <div class="quick-stat">
+                                    <div class="quick-stat-label">სიმაღლე</div>
+                                    <div class="quick-stat-value">${talent.height} სმ</div>
+                                </div>
+                                ` : ''}
+                                ${talent.city ? `
+                                <div class="quick-stat">
+                                    <div class="quick-stat-label">მდებარეობა</div>
+                                    <div class="quick-stat-value">${talent.city}</div>
+                                </div>
+                                ` : ''}
+                                <div class="quick-stat">
+                                    <div class="quick-stat-label">სქესი</div>
+                                    <div class="quick-stat-value">${talent.gender === 'male' ? 'მამაკაცი' : 'ქალი'}</div>
+                                </div>
+                            </div>
+                            
+                            <div class="talent-contact-buttons">
+                                ${talent.email ? `<a href="mailto:${talent.email}" class="contact-btn contact-btn-primary">📧 დაუკავშირდი</a>` : ''}
+                                ${talent.phone ? `<a href="tel:${talent.phone}" class="contact-btn contact-btn-secondary">📞 ${talent.phone}</a>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Navigation Tabs -->
+                <nav class="talent-nav">
+                    <div class="talent-nav-container">
+                        <a href="#overview" class="talent-nav-link active">მიმოხილვა</a>
+                        ${photos.length > 1 ? '<a href="#photos" class="talent-nav-link">ფოტოები</a>' : ''}
+                        ${videos.length > 0 ? '<a href="#showreels" class="talent-nav-link">შოურილი</a>' : ''}
+                        ${talent.experience ? '<a href="#cv" class="talent-nav-link">CV</a>' : ''}
+                        <a href="#contact" class="talent-nav-link">კონტაქტი</a>
+                    </div>
+                </nav>
+                
+                <!-- Main Content -->
+                <main class="talent-main">
+                    <!-- Overview Section -->
+                    <section class="talent-section" id="overview">
+                        <h2 class="section-title">მიმოხილვა</h2>
+                        <div class="details-grid">
+                            <div class="details-card">
+                                <h4>პირადი მონაცემები</h4>
+                                <div class="details-list">
+                                    <div class="detail-item">
+                                        <span class="detail-label">ასაკი</span>
+                                        <span class="detail-value">${talent.age} წლის</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">სქესი</span>
+                                        <span class="detail-value">${talent.gender === 'male' ? 'მამაკაცი' : 'ქალი'}</span>
+                                    </div>
+                                    ${talent.city ? `
+                                    <div class="detail-item">
+                                        <span class="detail-label">ქალაქი</span>
+                                        <span class="detail-value">${talent.city}</span>
+                                    </div>
+                                    ` : ''}
+                                    <div class="detail-item">
+                                        <span class="detail-label">ეროვნება</span>
+                                        <span class="detail-value">საქართველო</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="details-card">
+                                <h4>გარეგნობა</h4>
+                                <div class="details-list">
+                                    ${talent.height ? `
+                                    <div class="detail-item">
+                                        <span class="detail-label">სიმაღლე</span>
+                                        <span class="detail-value">${talent.height} სმ</span>
+                                    </div>
+                                    ` : ''}
+                                    ${talent.weight ? `
+                                    <div class="detail-item">
+                                        <span class="detail-label">წონა</span>
+                                        <span class="detail-value">${talent.weight} კგ</span>
+                                    </div>
+                                    ` : ''}
+                                    ${talent.eyeColor ? `
+                                    <div class="detail-item">
+                                        <span class="detail-label">თვალის ფერი</span>
+                                        <span class="detail-value">${talent.eyeColor}</span>
+                                    </div>
+                                    ` : ''}
+                                    ${talent.hairColor ? `
+                                    <div class="detail-item">
+                                        <span class="detail-label">თმის ფერი</span>
+                                        <span class="detail-value">${talent.hairColor}</span>
+                                    </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        ${talent.bio ? `
+                        <div style="margin-top: 2rem;">
+                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">ბიოგრაფია</h3>
+                            <p style="color: var(--medium-gray); line-height: 1.8;">${talent.bio}</p>
+                        </div>
+                        ` : ''}
+                        
+                        ${skillsArray.length > 0 ? `
+                        <div style="margin-top: 2rem;">
+                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">უნარები</h3>
+                            <div class="skills-grid">
+                                <div class="skill-category">
+                                    <h4>უნარ-ჩვევები</h4>
+                                    <div class="skill-list">
+                                        ${skillsArray.map(skill => `
+                                        <div class="skill-item">
+                                            <span class="skill-name">${skill}</span>
+                                        </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
+                    </section>
+                    
+                    ${photos.length > 1 ? `
+                    <!-- Photos Section -->
+                    <section class="talent-section" id="photos">
+                        <h2 class="section-title">ფოტო გალერეა</h2>
+                        <div class="photos-grid">
+                            ${photos.map((photo, i) => `
+                            <div class="photo-item" onclick="openLightbox(${i})">
+                                <img src="${photo.data}" alt="Photo ${i+1}">
+                            </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                    ` : ''}
+                    
+                    ${videos.length > 0 ? `
+                    <!-- Showreels Section -->
+                    <section class="talent-section" id="showreels">
+                        <h2 class="section-title">შოურილი / ვიდეოები</h2>
+                        <div class="videos-grid">
+                            ${videos.map((url, i) => {
+                                const embedUrl = getYouTubeEmbedUrl(url);
+                                if (!embedUrl) return '';
+                                return `
+                                <div class="video-card">
+                                    <div class="video-embed">
+                                        <iframe src="${embedUrl}" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="video-info">
+                                        <div class="video-title">ვიდეო ${i + 1}</div>
+                                    </div>
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </section>
+                    ` : ''}
+                    
+                    ${talent.experience ? `
+                    <!-- CV Section -->
+                    <section class="talent-section" id="cv">
+                        <h2 class="section-title">CV / გამოცდილება</h2>
+                        <div style="background: var(--off-white); padding: 2rem;">
+                            <p style="white-space: pre-wrap; line-height: 1.8;">${talent.experience}</p>
+                        </div>
+                    </section>
+                    ` : ''}
+                    
+                    <!-- Contact Section -->
+                    <section class="talent-section" id="contact">
+                        <h2 class="section-title">კონტაქტი</h2>
+                        <div class="contact-section">
+                            <div class="contact-grid">
+                                ${talent.email ? `
+                                <div class="contact-method">
+                                    <div class="contact-icon">📧</div>
+                                    <div class="contact-info">
+                                        <h5>ელფოსტა</h5>
+                                        <a href="mailto:${talent.email}">${talent.email}</a>
+                                    </div>
+                                </div>
+                                ` : ''}
+                                ${talent.phone ? `
+                                <div class="contact-method">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-info">
+                                        <h5>ტელეფონი</h5>
+                                        <a href="tel:${talent.phone}">${talent.phone}</a>
+                                    </div>
+                                </div>
+                                ` : ''}
+                                <div class="contact-method">
+                                    <div class="contact-icon">🎬</div>
+                                    <div class="contact-info">
+                                        <h5>წარმომადგენელი</h5>
+                                        <a href="mailto:info@shuqi.ge">shuQi Production</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                
+                <!-- Footer -->
+                <footer class="talent-footer">
+                    <p>© 2026 <a href="index.html">shuQi Production</a>. ყველა უფლება დაცულია.</p>
+                </footer>
+            `;
+            
+            // Store photos for lightbox
+            window.currentPhotos = photos;
+            
+            // Setup navigation active state
+            setupNavigation();
+        }
+        
+        // Show not found
+        function showNotFound() {
+            const container = document.getElementById('talentPageContent');
+            container.innerHTML = `
+                <div class="not-found">
+                    <h1>ტალანტი ვერ მოიძებნა</h1>
+                    <p>სამწუხაროდ, მოთხოვნილი გვერდი არ არსებობს.</p>
+                    <a href="index.html#talents">← დაბრუნდი ტალანტების გვერდზე</a>
+                </div>
+            `;
+        }
+        
+        // Change hero photo
+        window.changeHeroPhoto = function(src, thumb) {
+            document.getElementById('heroMainPhoto').src = src;
+            document.querySelectorAll('.talent-thumb').forEach(t => t.classList.remove('active'));
+            thumb.classList.add('active');
+        };
+        
+        // Lightbox functions
+        let currentLightboxIndex = 0;
+        
+        window.openLightbox = function(index) {
+            currentLightboxIndex = index;
+            const lightbox = document.getElementById('photoLightbox');
+            const img = document.getElementById('lightboxImage');
+            img.src = window.currentPhotos[index].data;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        };
+        
+        window.closeLightbox = function() {
+            document.getElementById('photoLightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        };
+        
+        window.navigateLightbox = function(dir) {
+            const photos = window.currentPhotos;
+            currentLightboxIndex = (currentLightboxIndex + dir + photos.length) % photos.length;
+            document.getElementById('lightboxImage').src = photos[currentLightboxIndex].data;
+        };
+        
+        // Close lightbox on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+        });
+        
+        // Setup navigation scroll spy
+        function setupNavigation() {
+            const navLinks = document.querySelectorAll('.talent-nav-link');
+            const sections = document.querySelectorAll('.talent-section');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 150;
+                    if (window.scrollY >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Initialize
+        const slug = getTalentSlug();
+        if (slug) {
+            const talent = findTalent(slug);
+            if (talent) {
+                renderTalentPage(talent);
+            } else {
+                showNotFound();
+            }
+        } else {
+            showNotFound();
+        }
+    </script>
+</body>
+</html>

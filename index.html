@@ -2214,6 +2214,207 @@
             font-size: 1.1rem;
         }
         
+        /* Photo Upload Styles */
+        .photo-upload-area {
+            border: 2px dashed #d2d2d7;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .photo-upload-area:hover {
+            border-color: #86868b;
+            background: #f9f9f9;
+        }
+        
+        .photo-upload-area.dragover {
+            border-color: #000;
+            background: #f0f0f0;
+        }
+        
+        .photo-upload-icon {
+            font-size: 2rem;
+            color: #86868b;
+            margin-bottom: 0.5rem;
+        }
+        
+        .photo-upload-text {
+            font-size: 0.875rem;
+            color: #86868b;
+        }
+        
+        .photo-upload-text span {
+            color: #1d1d1f;
+            text-decoration: underline;
+        }
+        
+        .uploaded-photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .uploaded-photo-item {
+            position: relative;
+            aspect-ratio: 1;
+            border: 1px solid #d2d2d7;
+            overflow: hidden;
+        }
+        
+        .uploaded-photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .uploaded-photo-item.main-photo {
+            border: 2px solid #000;
+        }
+        
+        .uploaded-photo-item.main-photo::after {
+            content: 'მთავარი';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000;
+            color: #fff;
+            font-size: 0.625rem;
+            padding: 2px;
+            text-align: center;
+        }
+        
+        .photo-remove-btn {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 59, 48, 0.9);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-set-main-btn {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .video-link-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .video-link-row input {
+            flex: 1;
+        }
+        
+        .video-link-row button {
+            padding: 8px 12px;
+            background: #ff3b30;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 0.875rem;
+        }
+        
+        .add-video-btn {
+            padding: 8px 16px;
+            background: #f5f5f7;
+            border: 1px solid #d2d2d7;
+            cursor: pointer;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+        
+        .add-video-btn:hover {
+            background: #e5e5e5;
+        }
+        
+        /* Photo Gallery in Modal */
+        .talent-photo-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .talent-main-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+        }
+        
+        .talent-photo-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .talent-photo-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .talent-photo-thumb:hover,
+        .talent-photo-thumb.active {
+            border-color: #000;
+        }
+        
+        /* Video Gallery */
+        .talent-videos-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .talent-videos-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .talent-video-item {
+            aspect-ratio: 16/9;
+            background: #000;
+        }
+        
+        .talent-video-item iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         @media (max-width: 768px) {
             .talent-modal-grid {
                 grid-template-columns: 1fr;
@@ -2485,7 +2686,8 @@
                     <a href="#courses" class="nav-link" data-ka="რას გთავაზობთ" data-en="Services">რას გთავაზობთ</a>
                     <a href="#team" class="nav-link" data-ka="გუნდი" data-en="Team">გუნდი</a>
                     <a href="#gallery" class="nav-link" data-ka="გალერეა" data-en="Gallery">გალერეა</a>
-                    <a href="#talents" class="nav-link" data-ka="ტალანტები" data-en="Talents">ტალანტები</a>
+                    <!-- Portfolio link hidden for now -->
+                    <!-- <a href="portfolio.html" class="nav-link" data-ka="პორტფოლიო" data-en="Portfolio">პორტფოლიო</a> -->
                     <a href="#registration" class="nav-link" data-ka="რეგისტრაცია" data-en="Registration">რეგისტრაცია</a>
                     <a href="#contact" class="nav-link" data-ka="კონტაქტი" data-en="Contact">კონტაქტი</a>
                     <button class="lang-switch" id="langSwitch" title="Switch to English">EN</button>
@@ -2719,187 +2921,6 @@
             <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">33</span></div>
         </div>
 
-        <!-- Talent Database Section -->
-        <section class="talent-section" id="talents">
-            <h2 data-ka="ტალანტები" data-en="Talents">ტალანტები</h2>
-            <p class="talent-subtitle" data-ka="მსახიობების მონაცემთა ბაზა" data-en="Actor Database">მსახიობების მონაცემთა ბაზა</p>
-            
-            <button class="talent-admin-btn" id="openAdminPanel" data-ka="ადმინ პანელი" data-en="Admin Panel">ადმინ პანელი</button>
-            
-            <div class="talent-filters">
-                <input type="text" class="talent-filter-input" id="talentSearchName" placeholder="სახელით ძებნა..." data-placeholder-ka="სახელით ძებნა..." data-placeholder-en="Search by name...">
-                <select class="talent-filter-input" id="talentFilterGender">
-                    <option value="">ყველა სქესი</option>
-                    <option value="male">მამრობითი</option>
-                    <option value="female">მდედრობითი</option>
-                </select>
-                <select class="talent-filter-input" id="talentFilterAge">
-                    <option value="">ყველა ასაკი</option>
-                    <option value="18-25">18-25</option>
-                    <option value="26-35">26-35</option>
-                    <option value="36-45">36-45</option>
-                    <option value="46-55">46-55</option>
-                    <option value="56+">56+</option>
-                </select>
-            </div>
-            
-            <div class="talent-grid" id="talentGrid">
-                <!-- Talents will be dynamically loaded here -->
-                <div class="no-talents-message" id="noTalentsMessage">
-                    ჯერ არ არის დამატებული ტალანტი. გამოიყენეთ ადმინ პანელი მსახიობების დასამატებლად.
-                </div>
-            </div>
-        </section>
-
-        <!-- Talent Detail Modal -->
-        <div class="talent-modal" id="talentDetailModal">
-            <div class="talent-modal-content">
-                <button class="talent-modal-close" id="closeTalentDetail">&times;</button>
-                <div class="talent-modal-grid">
-                    <div class="talent-modal-photo">
-                        <img src="" alt="" id="talentDetailPhoto">
-                    </div>
-                    <div class="talent-modal-details">
-                        <h3 class="talent-modal-name" id="talentDetailName"></h3>
-                        
-                        <div class="talent-modal-stats" id="talentDetailStats">
-                            <!-- Stats will be dynamically loaded -->
-                        </div>
-                        
-                        <div class="talent-video-embed" id="talentVideoEmbed" style="display: none;">
-                            <!-- YouTube embed will be loaded here -->
-                        </div>
-                        
-                        <div class="talent-modal-section" id="talentSkillsSection">
-                            <h4 data-ka="უნარები" data-en="Skills">უნარები</h4>
-                            <div class="talent-skills" id="talentDetailSkills"></div>
-                        </div>
-                        
-                        <div class="talent-modal-section" id="talentExperienceSection">
-                            <h4 data-ka="გამოცდილება" data-en="Experience">გამოცდილება</h4>
-                            <p id="talentDetailExperience"></p>
-                        </div>
-                        
-                        <div class="talent-modal-section" id="talentBioSection">
-                            <h4 data-ka="ბიოგრაფია" data-en="Biography">ბიოგრაფია</h4>
-                            <p id="talentDetailBio"></p>
-                        </div>
-                        
-                        <a href="" class="talent-contact-btn" id="talentContactBtn" data-ka="დაუკავშირდი" data-en="Contact">დაუკავშირდი</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Admin Panel Modal -->
-        <div class="admin-modal" id="adminModal">
-            <div class="admin-modal-content">
-                <div class="admin-modal-header">
-                    <h3 id="adminModalTitle">ტალანტის დამატება</h3>
-                    <button class="admin-modal-close" id="closeAdminModal">&times;</button>
-                </div>
-                <div class="admin-modal-body">
-                    <form id="talentForm">
-                        <input type="hidden" id="talentId" value="">
-                        
-                        <div class="admin-form-row">
-                            <div class="admin-form-group">
-                                <label for="talentName">სახელი და გვარი *</label>
-                                <input type="text" id="talentName" required>
-                            </div>
-                            <div class="admin-form-group">
-                                <label for="talentGender">სქესი *</label>
-                                <select id="talentGender" required>
-                                    <option value="">აირჩიეთ</option>
-                                    <option value="male">მამრობითი</option>
-                                    <option value="female">მდედრობითი</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="admin-form-row">
-                            <div class="admin-form-group">
-                                <label for="talentAge">ასაკი *</label>
-                                <input type="number" id="talentAge" min="1" max="120" required>
-                            </div>
-                            <div class="admin-form-group">
-                                <label for="talentHeight">სიმაღლე (სმ)</label>
-                                <input type="number" id="talentHeight" min="100" max="250">
-                            </div>
-                        </div>
-                        
-                        <div class="admin-form-row">
-                            <div class="admin-form-group">
-                                <label for="talentWeight">წონა (კგ)</label>
-                                <input type="number" id="talentWeight" min="30" max="300">
-                            </div>
-                            <div class="admin-form-group">
-                                <label for="talentEyeColor">თვალის ფერი</label>
-                                <input type="text" id="talentEyeColor" placeholder="მაგ: ყავისფერი">
-                            </div>
-                        </div>
-                        
-                        <div class="admin-form-row">
-                            <div class="admin-form-group">
-                                <label for="talentHairColor">თმის ფერი</label>
-                                <input type="text" id="talentHairColor" placeholder="მაგ: შავი">
-                            </div>
-                            <div class="admin-form-group">
-                                <label for="talentCity">ქალაქი</label>
-                                <input type="text" id="talentCity" placeholder="მაგ: თბილისი">
-                            </div>
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentPhoto">ფოტოს ლინკი *</label>
-                            <input type="url" id="talentPhoto" placeholder="https://..." required>
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentYoutube">YouTube ვიდეოს ლინკი (შოურილი)</label>
-                            <input type="url" id="talentYoutube" placeholder="https://youtube.com/watch?v=...">
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentSkills">უნარები (მძიმით გამოყოფილი)</label>
-                            <input type="text" id="talentSkills" placeholder="მაგ: მსახიობობა, ცეკვა, სიმღერა, სპორტი">
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentExperience">გამოცდილება</label>
-                            <textarea id="talentExperience" placeholder="ფილმები, თეატრი, სერიალები..."></textarea>
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentBio">ბიოგრაფია</label>
-                            <textarea id="talentBio" placeholder="მოკლე ბიოგრაფია..."></textarea>
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentEmail">ელფოსტა</label>
-                            <input type="email" id="talentEmail" placeholder="email@example.com">
-                        </div>
-                        
-                        <div class="admin-form-group">
-                            <label for="talentPhone">ტელეფონი</label>
-                            <input type="tel" id="talentPhone" placeholder="+995...">
-                        </div>
-                    </form>
-                    
-                    <div class="admin-talent-list" id="adminTalentList">
-                        <h4>დამატებული ტალანტები</h4>
-                        <div id="adminTalentListItems">
-                            <!-- List of existing talents for editing/deleting -->
-                        </div>
-                    </div>
-                </div>
-                <div class="admin-form-actions">
-                    <button type="button" class="admin-btn admin-btn-primary" id="saveTalentBtn">შენახვა</button>
-                    <button type="button" class="admin-btn admin-btn-secondary" id="clearFormBtn">გასუფთავება</button>
-                </div>
-            </div>
-        </div>
-
         <!-- Student Registration Form -->
         <section class="registration-section" id="registration">
             <div class="section">
@@ -2919,6 +2940,11 @@
                         <div class="form-group">
                             <label for="phone">ტელეფონი *</label>
                             <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="profession">პროფესია</label>
+                            <input type="text" id="profession" name="profession" placeholder="თქვენი პროფესია">
                         </div>
                         
                         <div class="form-group">
@@ -3172,17 +3198,23 @@
         // Navigation smooth scroll
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
+                const href = this.getAttribute('href');
                 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                // Only handle anchor links (starting with #), let external links work normally
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
+                // External links like portfolio.html will navigate normally
             });
         });
 
@@ -3646,421 +3678,6 @@
             const newLang = currentLang === 'ka' ? 'en' : 'ka';
             translatePage(newLang);
         });
-        
-        // ========================================
-        // TALENT DATABASE FUNCTIONALITY
-        // ========================================
-        
-        // Talent data storage (localStorage)
-        const TALENT_STORAGE_KEY = 'shuqi_talents';
-        
-        function getTalents() {
-            const data = localStorage.getItem(TALENT_STORAGE_KEY);
-            return data ? JSON.parse(data) : [];
-        }
-        
-        function saveTalents(talents) {
-            localStorage.setItem(TALENT_STORAGE_KEY, JSON.stringify(talents));
-        }
-        
-        function generateId() {
-            return 'talent_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-        }
-        
-        // YouTube URL to embed URL converter
-        function getYouTubeEmbedUrl(url) {
-            if (!url) return null;
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-            const match = url.match(regExp);
-            if (match && match[2].length === 11) {
-                return 'https://www.youtube.com/embed/' + match[2];
-            }
-            return null;
-        }
-        
-        // Render talent cards
-        function renderTalentGrid() {
-            const grid = document.getElementById('talentGrid');
-            const noTalentsMsg = document.getElementById('noTalentsMessage');
-            const talents = getTalents();
-            
-            // Get filter values
-            const searchName = document.getElementById('talentSearchName').value.toLowerCase();
-            const filterGender = document.getElementById('talentFilterGender').value;
-            const filterAge = document.getElementById('talentFilterAge').value;
-            
-            // Filter talents
-            const filteredTalents = talents.filter(talent => {
-                // Name filter
-                if (searchName && !talent.name.toLowerCase().includes(searchName)) {
-                    return false;
-                }
-                
-                // Gender filter
-                if (filterGender && talent.gender !== filterGender) {
-                    return false;
-                }
-                
-                // Age filter
-                if (filterAge) {
-                    const age = parseInt(talent.age);
-                    if (filterAge === '18-25' && (age < 18 || age > 25)) return false;
-                    if (filterAge === '26-35' && (age < 26 || age > 35)) return false;
-                    if (filterAge === '36-45' && (age < 36 || age > 45)) return false;
-                    if (filterAge === '46-55' && (age < 46 || age > 55)) return false;
-                    if (filterAge === '56+' && age < 56) return false;
-                }
-                
-                return true;
-            });
-            
-            // Clear existing cards (except no talents message)
-            grid.querySelectorAll('.talent-card').forEach(card => card.remove());
-            
-            if (filteredTalents.length === 0) {
-                noTalentsMsg.style.display = 'block';
-                if (talents.length > 0) {
-                    noTalentsMsg.textContent = 'არ მოიძებნა შესაბამისი ტალანტი';
-                } else {
-                    noTalentsMsg.textContent = 'ჯერ არ არის დამატებული ტალანტი. გამოიყენეთ ადმინ პანელი მსახიობების დასამატებლად.';
-                }
-            } else {
-                noTalentsMsg.style.display = 'none';
-                
-                filteredTalents.forEach(talent => {
-                    const card = document.createElement('div');
-                    card.className = 'talent-card';
-                    card.setAttribute('data-talent-id', talent.id);
-                    
-                    const skills = talent.skills ? talent.skills.split(',').slice(0, 3) : [];
-                    const hasVideo = talent.youtube && getYouTubeEmbedUrl(talent.youtube);
-                    
-                    card.innerHTML = `
-                        <div class="talent-photo-container">
-                            <img src="${talent.photo}" alt="${talent.name}" class="talent-photo" onerror="this.src='./images/web.png'">
-                            ${hasVideo ? '<span class="talent-video-badge">ვიდეო</span>' : ''}
-                        </div>
-                        <div class="talent-info">
-                            <h3 class="talent-name">${talent.name}</h3>
-                            <div class="talent-meta">
-                                <span>${talent.age} წლის</span>
-                                ${talent.height ? '<span>' + talent.height + ' სმ</span>' : ''}
-                                ${talent.city ? '<span>' + talent.city + '</span>' : ''}
-                            </div>
-                            <div class="talent-skills">
-                                ${skills.map(skill => '<span class="talent-skill-tag">' + skill.trim() + '</span>').join('')}
-                            </div>
-                        </div>
-                    `;
-                    
-                    card.addEventListener('click', () => openTalentDetail(talent.id));
-                    grid.appendChild(card);
-                });
-            }
-        }
-        
-        // Open talent detail modal
-        function openTalentDetail(talentId) {
-            const talents = getTalents();
-            const talent = talents.find(t => t.id === talentId);
-            if (!talent) return;
-            
-            const modal = document.getElementById('talentDetailModal');
-            
-            // Set photo
-            document.getElementById('talentDetailPhoto').src = talent.photo;
-            document.getElementById('talentDetailPhoto').alt = talent.name;
-            
-            // Set name
-            document.getElementById('talentDetailName').textContent = talent.name;
-            
-            // Set stats
-            const statsContainer = document.getElementById('talentDetailStats');
-            statsContainer.innerHTML = `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">ასაკი</div>
-                    <div class="talent-stat-value">${talent.age} წლის</div>
-                </div>
-                <div class="talent-stat">
-                    <div class="talent-stat-label">სქესი</div>
-                    <div class="talent-stat-value">${talent.gender === 'male' ? 'მამრობითი' : 'მდედრობითი'}</div>
-                </div>
-                ${talent.height ? `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">სიმაღლე</div>
-                    <div class="talent-stat-value">${talent.height} სმ</div>
-                </div>
-                ` : ''}
-                ${talent.weight ? `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">წონა</div>
-                    <div class="talent-stat-value">${talent.weight} კგ</div>
-                </div>
-                ` : ''}
-                ${talent.eyeColor ? `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">თვალის ფერი</div>
-                    <div class="talent-stat-value">${talent.eyeColor}</div>
-                </div>
-                ` : ''}
-                ${talent.hairColor ? `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">თმის ფერი</div>
-                    <div class="talent-stat-value">${talent.hairColor}</div>
-                </div>
-                ` : ''}
-                ${talent.city ? `
-                <div class="talent-stat">
-                    <div class="talent-stat-label">ქალაქი</div>
-                    <div class="talent-stat-value">${talent.city}</div>
-                </div>
-                ` : ''}
-            `;
-            
-            // Set video
-            const videoEmbed = document.getElementById('talentVideoEmbed');
-            const embedUrl = getYouTubeEmbedUrl(talent.youtube);
-            if (embedUrl) {
-                videoEmbed.innerHTML = `<iframe src="${embedUrl}" allowfullscreen></iframe>`;
-                videoEmbed.style.display = 'block';
-            } else {
-                videoEmbed.innerHTML = '';
-                videoEmbed.style.display = 'none';
-            }
-            
-            // Set skills
-            const skillsSection = document.getElementById('talentSkillsSection');
-            const skillsContainer = document.getElementById('talentDetailSkills');
-            if (talent.skills) {
-                skillsContainer.innerHTML = talent.skills.split(',').map(skill => 
-                    '<span class="talent-skill-tag">' + skill.trim() + '</span>'
-                ).join('');
-                skillsSection.style.display = 'block';
-            } else {
-                skillsSection.style.display = 'none';
-            }
-            
-            // Set experience
-            const expSection = document.getElementById('talentExperienceSection');
-            const expContainer = document.getElementById('talentDetailExperience');
-            if (talent.experience) {
-                expContainer.textContent = talent.experience;
-                expSection.style.display = 'block';
-            } else {
-                expSection.style.display = 'none';
-            }
-            
-            // Set bio
-            const bioSection = document.getElementById('talentBioSection');
-            const bioContainer = document.getElementById('talentDetailBio');
-            if (talent.bio) {
-                bioContainer.textContent = talent.bio;
-                bioSection.style.display = 'block';
-            } else {
-                bioSection.style.display = 'none';
-            }
-            
-            // Set contact button
-            const contactBtn = document.getElementById('talentContactBtn');
-            if (talent.email) {
-                contactBtn.href = 'mailto:' + talent.email;
-                contactBtn.style.display = 'inline-block';
-            } else if (talent.phone) {
-                contactBtn.href = 'tel:' + talent.phone;
-                contactBtn.style.display = 'inline-block';
-            } else {
-                contactBtn.style.display = 'none';
-            }
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-        
-        // Close talent detail modal
-        document.getElementById('closeTalentDetail').addEventListener('click', () => {
-            document.getElementById('talentDetailModal').classList.remove('active');
-            document.body.style.overflow = '';
-            // Stop video if playing
-            document.getElementById('talentVideoEmbed').innerHTML = '';
-        });
-        
-        document.getElementById('talentDetailModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('talentDetailModal')) {
-                document.getElementById('talentDetailModal').classList.remove('active');
-                document.body.style.overflow = '';
-                document.getElementById('talentVideoEmbed').innerHTML = '';
-            }
-        });
-        
-        // Admin Panel
-        const adminModal = document.getElementById('adminModal');
-        const openAdminBtn = document.getElementById('openAdminPanel');
-        const closeAdminBtn = document.getElementById('closeAdminModal');
-        const saveTalentBtn = document.getElementById('saveTalentBtn');
-        const clearFormBtn = document.getElementById('clearFormBtn');
-        
-        function renderAdminTalentList() {
-            const container = document.getElementById('adminTalentListItems');
-            const talents = getTalents();
-            
-            if (talents.length === 0) {
-                container.innerHTML = '<p style="color: #86868b; text-align: center;">ჯერ არ არის დამატებული ტალანტი</p>';
-                return;
-            }
-            
-            container.innerHTML = talents.map(talent => `
-                <div class="admin-talent-item">
-                    <img src="${talent.photo}" alt="${talent.name}" onerror="this.src='./images/web.png'">
-                    <div class="admin-talent-item-info">
-                        <div class="admin-talent-item-name">${talent.name}</div>
-                        <div class="admin-talent-item-meta">${talent.age} წლის • ${talent.gender === 'male' ? 'მამრობითი' : 'მდედრობითი'}</div>
-                    </div>
-                    <div class="admin-talent-item-actions">
-                        <button class="admin-btn admin-btn-secondary" onclick="editTalent('${talent.id}')">რედაქტირება</button>
-                        <button class="admin-btn admin-btn-danger" onclick="deleteTalent('${talent.id}')">წაშლა</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function clearTalentForm() {
-            document.getElementById('talentId').value = '';
-            document.getElementById('talentName').value = '';
-            document.getElementById('talentGender').value = '';
-            document.getElementById('talentAge').value = '';
-            document.getElementById('talentHeight').value = '';
-            document.getElementById('talentWeight').value = '';
-            document.getElementById('talentEyeColor').value = '';
-            document.getElementById('talentHairColor').value = '';
-            document.getElementById('talentCity').value = '';
-            document.getElementById('talentPhoto').value = '';
-            document.getElementById('talentYoutube').value = '';
-            document.getElementById('talentSkills').value = '';
-            document.getElementById('talentExperience').value = '';
-            document.getElementById('talentBio').value = '';
-            document.getElementById('talentEmail').value = '';
-            document.getElementById('talentPhone').value = '';
-            document.getElementById('adminModalTitle').textContent = 'ტალანტის დამატება';
-        }
-        
-        window.editTalent = function(talentId) {
-            const talents = getTalents();
-            const talent = talents.find(t => t.id === talentId);
-            if (!talent) return;
-            
-            document.getElementById('talentId').value = talent.id;
-            document.getElementById('talentName').value = talent.name || '';
-            document.getElementById('talentGender').value = talent.gender || '';
-            document.getElementById('talentAge').value = talent.age || '';
-            document.getElementById('talentHeight').value = talent.height || '';
-            document.getElementById('talentWeight').value = talent.weight || '';
-            document.getElementById('talentEyeColor').value = talent.eyeColor || '';
-            document.getElementById('talentHairColor').value = talent.hairColor || '';
-            document.getElementById('talentCity').value = talent.city || '';
-            document.getElementById('talentPhoto').value = talent.photo || '';
-            document.getElementById('talentYoutube').value = talent.youtube || '';
-            document.getElementById('talentSkills').value = talent.skills || '';
-            document.getElementById('talentExperience').value = talent.experience || '';
-            document.getElementById('talentBio').value = talent.bio || '';
-            document.getElementById('talentEmail').value = talent.email || '';
-            document.getElementById('talentPhone').value = talent.phone || '';
-            document.getElementById('adminModalTitle').textContent = 'ტალანტის რედაქტირება';
-            
-            // Scroll to top of form
-            document.querySelector('.admin-modal-body').scrollTop = 0;
-        };
-        
-        window.deleteTalent = function(talentId) {
-            if (confirm('დარწმუნებული ხართ, რომ გსურთ ამ ტალანტის წაშლა?')) {
-                let talents = getTalents();
-                talents = talents.filter(t => t.id !== talentId);
-                saveTalents(talents);
-                renderAdminTalentList();
-                renderTalentGrid();
-            }
-        };
-        
-        openAdminBtn.addEventListener('click', () => {
-            renderAdminTalentList();
-            adminModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeAdminBtn.addEventListener('click', () => {
-            adminModal.classList.remove('active');
-            document.body.style.overflow = '';
-            clearTalentForm();
-        });
-        
-        adminModal.addEventListener('click', (e) => {
-            if (e.target === adminModal) {
-                adminModal.classList.remove('active');
-                document.body.style.overflow = '';
-                clearTalentForm();
-            }
-        });
-        
-        clearFormBtn.addEventListener('click', clearTalentForm);
-        
-        saveTalentBtn.addEventListener('click', () => {
-            const form = document.getElementById('talentForm');
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return;
-            }
-            
-            const talentId = document.getElementById('talentId').value;
-            const talentData = {
-                id: talentId || generateId(),
-                name: document.getElementById('talentName').value,
-                gender: document.getElementById('talentGender').value,
-                age: document.getElementById('talentAge').value,
-                height: document.getElementById('talentHeight').value,
-                weight: document.getElementById('talentWeight').value,
-                eyeColor: document.getElementById('talentEyeColor').value,
-                hairColor: document.getElementById('talentHairColor').value,
-                city: document.getElementById('talentCity').value,
-                photo: document.getElementById('talentPhoto').value,
-                youtube: document.getElementById('talentYoutube').value,
-                skills: document.getElementById('talentSkills').value,
-                experience: document.getElementById('talentExperience').value,
-                bio: document.getElementById('talentBio').value,
-                email: document.getElementById('talentEmail').value,
-                phone: document.getElementById('talentPhone').value
-            };
-            
-            let talents = getTalents();
-            
-            if (talentId) {
-                // Update existing
-                const index = talents.findIndex(t => t.id === talentId);
-                if (index !== -1) {
-                    talents[index] = talentData;
-                }
-            } else {
-                // Add new
-                talents.push(talentData);
-            }
-            
-            saveTalents(talents);
-            clearTalentForm();
-            renderAdminTalentList();
-            renderTalentGrid();
-            
-            alert(talentId ? 'ტალანტი წარმატებით განახლდა!' : 'ტალანტი წარმატებით დაემატა!');
-        });
-        
-        // Filter event listeners
-        document.getElementById('talentSearchName').addEventListener('input', renderTalentGrid);
-        document.getElementById('talentFilterGender').addEventListener('change', renderTalentGrid);
-        document.getElementById('talentFilterAge').addEventListener('change', renderTalentGrid);
-        
-        // Initial render
-        renderTalentGrid();
     </script>
 </body>
 </html>
-
-
-
-
