@@ -2733,7 +2733,7 @@
                             <span class="stat-label">ლექტორი</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">2</span>
+                            <span class="stat-number">3</span>
                             <span class="stat-label">კურსი</span>
                         </div>
                         <div class="stat">
@@ -2788,8 +2788,28 @@
                 
                 <div class="course-card">
                     <div class="course-content">
+                        <h3>კურსი „კინოსამზარეულო"</h3>
+                        <p class="course-tagline">18 მაისი – 23 ივლისი</p>
+                        <div class="course-footer">
+                            <button class="course-btn">დეტალები</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-content">
                         <h3>კინოსარეჟისორო კურსი</h3>
                         <p class="course-tagline">„გადაიღე შენი ფილმი"</p>
+                        <div class="course-footer">
+                            <span class="course-btn coming-soon">მალე</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card">
+                    <div class="course-content">
+                        <h3>საზაფხულო სკოლა</h3>
+                        <p class="course-tagline">„Summer School"</p>
                         <div class="course-footer">
                             <span class="course-btn coming-soon">მალე</span>
                         </div>
@@ -2942,7 +2962,9 @@
                             <select id="course" name="course" required>
                                 <option value="">აირჩიეთ კურსი</option>
                                 <option value="კინოსამსახიობო კურსი - პორტფოლიო">კინოსამსახიობო კურსი - „პორტფოლიო"</option>
+                                <option value="კურსი კინოსამზარეულო">კურსი „კინოსამზარეულო"</option>
                                 <option value="" disabled>კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი" (Coming Soon)</option>
+                                <option value="" disabled>საზაფხულო სკოლა - „Summer School" (Coming Soon)</option>
                             </select>
                         </div>
                         
@@ -3098,6 +3120,133 @@
                     <div class="course-cta">
                         <p>მონაწილეთა რაოდენობა შეზღუდულია</p>
                         <a href="#registration" class="course-cta-btn" onclick="document.getElementById('portfolioModal').classList.remove('active'); document.body.style.overflow = '';">შეავსეთ განაცხადის ფორმა</a>
+                    </div>
+                </div>
+                <div class="course-modal-logo">
+                    <img src="./images/shuqi-logo.png" alt="shuQi Logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Cinema Kitchen Course Modal -->
+        <div class="course-modal-overlay" id="kitchenModal">
+            <div class="course-modal">
+                <div class="course-modal-header">
+                    <h2>კურსი „კინოსამზარეულო"</h2>
+                    <p class="tagline">18 მაისი – 23 ივლისი</p>
+                    <button class="course-modal-close" id="closeKitchenModal">&times;</button>
+                </div>
+                <div class="course-modal-body">
+                    <div class="course-highlight">
+                        <p>რეგისტრაციის ბოლო ვადა — 15 მაისი! შემოგვიერთდი დღესვე!</p>
+                    </div>
+
+                    <h3>რას ისწავლი:</h3>
+
+                    <h3>იდეიდან სცენარამდე</h3>
+                    <ul>
+                        <li>თემისა და მთავარი გზავნილის პოვნა</li>
+                        <li>იდეის გარდაქმნა სიუჟეტად და მისი სტრუქტურირება</li>
+                        <li>პერსონაჟის შექმნა და მისი მოტივაცია</li>
+                        <li>კონფლიქტი და დრამატურგიული განვითარება</li>
+                    </ul>
+
+                    <h3>რეჟისორის ხედვა</h3>
+                    <ul>
+                        <li>რა არის რეჟისორული კონცეფცია</li>
+                        <li>კადრი როგორც აზრის გამოხატვის საშუალება</li>
+                        <li>ავტორის ხმა კინოში</li>
+                    </ul>
+
+                    <h3>ვიზუალური ენა და ოპერატორთან მუშაობა</h3>
+                    <ul>
+                        <li>კადრის კომპოზიცია</li>
+                        <li>კამერის მოძრაობა და სტატიკა</li>
+                        <li>ფერი, შუქი და ჩრდილი</li>
+                    </ul>
+
+                    <h3>მსახიობებთან მუშაობა</h3>
+                    <ul>
+                        <li>ქასთინგის პრინციპები</li>
+                        <li>რეპეტიცია და იმპროვიზაცია</li>
+                        <li>მსახიობის მართვა კადრში</li>
+                        <li>არაპროფესიონალ მსახიობებთან მუშაობა</li>
+                    </ul>
+
+                    <h3>გადაღების პროცესი</h3>
+                    <ul>
+                        <li>პრეპროდუქცია (ლოკაცია, სცენარის ჩაშლა)</li>
+                        <li>გადაღების დღის ორგანიზება</li>
+                        <li>გუნდის მართვა</li>
+                        <li>დაბალბიუჯეტიანი გადაღების სტრატეგიები</li>
+                    </ul>
+
+                    <h3>ხმა კინოში</h3>
+                    <ul>
+                        <li>ატმოსფეროს შექმნა და ფონური ხმა</li>
+                        <li>დიალოგის ჩაწერა</li>
+                        <li>სიჩუმის მნიშვნელობა</li>
+                        <li>ხმოვანი დიზაინი</li>
+                    </ul>
+
+                    <h3>მონტაჟი</h3>
+                    <ul>
+                        <li>მონტაჟის რიტმი</li>
+                        <li>სცენის აგება მონტაჟში</li>
+                        <li>დროისა და სივრცის მართვა</li>
+                        <li>რეჟისორის როლი მონტაჟში</li>
+                    </ul>
+
+                    <h3>ფილმის დასრულება</h3>
+                    <ul>
+                        <li>ფერის კორექცია</li>
+                        <li>ხმის დამუშავება</li>
+                        <li>მუსიკის შერჩევა</li>
+                        <li>საბოლოო ვერსიის ფორმირება</li>
+                    </ul>
+
+                    <h3>ფილმი ეკრანებზე</h3>
+                    <ul>
+                        <li>ფესტივალები და სტრატეგია</li>
+                        <li>პროექტის წარდგენა</li>
+                        <li>აუდიტორია და კონტექსტი</li>
+                    </ul>
+
+                    <p><strong>სწავლის დღეები:</strong> ორშაბათი, ხუთშაბათი, 20:00 – 22:00 საათი</p>
+
+                    <div class="course-info-box">
+                        <h4>პროექტის დეტალები</h4>
+                        <div class="course-info-grid">
+                            <div class="course-info-item">
+                                <span class="label">ხანგრძლივობა</span>
+                                <span class="value">18 მაისი – 23 ივლისი</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">სწავლის საფასური</span>
+                                <span class="value">1200 ლარი</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">რეგისტრაციის ბოლო ვადა</span>
+                                <span class="value">15 მაისი</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">ტელეფონი</span>
+                                <span class="value"><a href="tel:+995511175317">+995 511175317</a></span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">ელფოსტა</span>
+                                <span class="value"><a href="mailto:info@shuqi.ge">info@shuqi.ge</a></span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">მისამართი</span>
+                                <span class="value">თბილისი, ლუბლიანას ქუჩა 15-ა</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course-cta">
+                        <p>მონაწილეთა რაოდენობა შეზღუდულია</p>
+                        <a href="#registration" class="course-cta-btn" onclick="document.getElementById('kitchenModal').classList.remove('active'); document.body.style.overflow = '';">დარეგისტრირდი</a>
                     </div>
                 </div>
                 <div class="course-modal-logo">
@@ -3270,25 +3419,65 @@
             }
         });
         
-        // Get the first course button (პორტფოლიო)
-        const courseButtons = document.querySelectorAll('.course-btn');
+        // Cinema Kitchen Course Modal functionality
+        const kitchenModal = document.getElementById('kitchenModal');
+        const closeKitchenModal = document.getElementById('closeKitchenModal');
+
+        function openKitchenModal() {
+            kitchenModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState(null, '', '#kitchen-details');
+        }
+
+        function closeKitchenModalFn() {
+            kitchenModal.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState(null, '', window.location.pathname);
+        }
+
+        if (window.location.hash === '#kitchen-details') {
+            setTimeout(openKitchenModal, 500);
+        }
+
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash === '#kitchen-details') {
+                openKitchenModal();
+            } else if (kitchenModal.classList.contains('active')) {
+                kitchenModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Wire up course buttons: 1st = Portfolio (Acting), 2nd = Cinema Kitchen
+        const courseButtons = document.querySelectorAll('.course-btn:not(.coming-soon)');
         if (courseButtons.length > 0) {
             courseButtons[0].addEventListener('click', openPortfolioModal);
         }
-        
+        if (courseButtons.length > 1) {
+            courseButtons[1].addEventListener('click', openKitchenModal);
+        }
+
         // Close modal handlers
         closePortfolioModal.addEventListener('click', closePortfolioModalFn);
-        
+        closeKitchenModal.addEventListener('click', closeKitchenModalFn);
+
         portfolioModal.addEventListener('click', function(e) {
             if (e.target === portfolioModal) {
                 closePortfolioModalFn();
             }
         });
-        
+
+        kitchenModal.addEventListener('click', function(e) {
+            if (e.target === kitchenModal) {
+                closeKitchenModalFn();
+            }
+        });
+
         // Close with Escape key
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && portfolioModal.classList.contains('active')) {
-                closePortfolioModalFn();
+            if (e.key === 'Escape') {
+                if (portfolioModal.classList.contains('active')) closePortfolioModalFn();
+                if (kitchenModal.classList.contains('active')) closeKitchenModalFn();
             }
         });
 
@@ -3479,6 +3668,12 @@
             '„პორტფოლიო"': '"Portfolio"',
             'კინოსარეჟისორო კურსი': 'Film Directing Course',
             '„გადაიღე შენი ფილმი"': '"Create Your Own Film"',
+            'კურსი „კინოსამზარეულო"': 'Course "Cinema Kitchen"',
+            'კურსი ,,კინოსამზარეულო"': 'Course "Cinema Kitchen"',
+            'საზაფხულო სკოლა': 'Summer School',
+            '„Summer School"': '"Summer School"',
+            '18 მაისი – 23 ივლისი': 'May 18 – July 23',
+            'დარეგისტრირდი': 'Register',
             'დეტალები': 'Details',
             'მალე': 'Coming Soon',
             
@@ -3571,6 +3766,8 @@
             'აირჩიეთ კურსი': 'Choose a Course',
             'კინოსამსახიობო კურსი - „პორტფოლიო"': 'Film Acting Course - "Portfolio"',
             'კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი"': 'Film Directing Course - "Create Your Own Film"',
+            'კურსი „კინოსამზარეულო"': 'Course "Cinema Kitchen"',
+            'საზაფხულო სკოლა - „Summer School"': 'Summer School - "Summer School"',
             'რეგისტრაციის გაგზავნა': 'Submit Registration',
             
             // Contact Section
