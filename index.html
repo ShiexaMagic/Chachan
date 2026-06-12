@@ -2808,10 +2808,10 @@
 
                 <div class="course-card">
                     <div class="course-content">
-                        <h3>საზაფხულო სკოლა</h3>
-                        <p class="course-tagline">„Summer School"</p>
+                        <h3>კინო არდადეგები</h3>
+                        <p class="course-tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს</p>
                         <div class="course-footer">
-                            <span class="course-btn coming-soon">მალე</span>
+                            <button class="course-btn">დეტალები</button>
                         </div>
                     </div>
                 </div>
@@ -2963,8 +2963,8 @@
                                 <option value="">აირჩიეთ კურსი</option>
                                 <option value="კინოსამსახიობო კურსი - პორტფოლიო">კინოსამსახიობო კურსი - „პორტფოლიო"</option>
                                 <option value="კურსი კინოსამზარეულო">კურსი „კინოსამზარეულო"</option>
+                                <option value="კინო არდადეგები">კინო არდადეგები</option>
                                 <option value="" disabled>კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი" (Coming Soon)</option>
-                                <option value="" disabled>საზაფხულო სკოლა - „Summer School" (Coming Soon)</option>
                             </select>
                         </div>
                         
@@ -3255,6 +3255,111 @@
             </div>
         </div>
 
+        <!-- Cinema Holidays Course Modal -->
+        <div class="course-modal-overlay" id="vacationModal">
+            <div class="course-modal">
+                <div class="course-modal-header">
+                    <h2>კინო არდადეგები</h2>
+                    <p class="tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს - “კინოარდადეგები”</p>
+                    <button class="course-modal-close" id="closeVacationModal">&times;</button>
+                </div>
+                <div class="course-modal-body">
+                    <div class="course-highlight">
+                        <p>კურსი განკუთვნილია მოზარდებისთვის და ეფუძნება შემოქმედებით, პრაქტიკულ სწავლებას.</p>
+                    </div>
+
+                    <p>მონაწილეები კინოს სფეროს პროფესიონალების ხელმძღვანელობით შეიძენენ რეალურ კინოსამსახიობო გამოცდილებას, იმუშავებენ გუნდურ გარემოში, განივითარებენ კომუნიკაციისა და თანამშრომლობის უნარებს და ჩაერთვებიან საინტერესო შემოქმედებით პროცესში.</p>
+
+                    <p>კურსის განმავლობაში მათ ექნებათ შესაძლებლობა დროებით მოწყდნენ ტელეფონებსა და სხვა გაჯეტებს, მეტი დრო გაატარონ თანატოლებთან ცოცხალ ურთიერთობაში და იმუშაონ მეგობრულ, ჯანსაღ და ინსპირაციულ გარემოში.</p>
+
+                    <h3>კურსის მიზნები</h3>
+                    <ul>
+                        <li>კინოსამსახიობო უნარების განვითარება (ემოცია, სხეულის ენა, ხმა)</li>
+                        <li>კამერასთან მუშაობის სწავლა</li>
+                        <li>თვითგამოხატვისა და თავდაჯერებულობის გაზრდა</li>
+                        <li>გუნდური მუშაობის უნარების განვითარება</li>
+                    </ul>
+
+                    <h3>ხანგრძლივობა და ფორმატი</h3>
+                    <ul>
+                        <li>ხანგრძლივობა: 4 კვირა</li>
+                        <li>სიხშირე: კვირაში 3 დღე: ორშაბათი, ხუთშაბათი - 19:00, შაბათი - 13:00</li>
+                        <li>დღიური სესია: 3 საათი</li>
+                    </ul>
+
+                    <h3>სასწავლო პროგრამა</h3>
+                    <ul>
+                        <li><strong>კინოსამსახიობო ოსტატობა</strong>
+                            <ul>
+                                <li>ემოციური გახსნა და იმპროვიზაცია</li>
+                                <li>ნდობისა და კონცენტრაციის თამაშები</li>
+                                <li>თვითშეფასების ამაღლება</li>
+                            </ul>
+                        </li>
+                        <li><strong>კამერასთან მუშაობა</strong>
+                            <ul>
+                                <li>ბუნებრივი თამაში კამერის წინ: გადაღება, მასალის განხილვა და განმეორებით გადაღება</li>
+                                <li>კამერის სხვადასხვა ხედების და ობიექტივების შესწავლა</li>
+                                <li>საკუთარი თავის გაცნობა ეკრანზე</li>
+                                <li>სცენების გადაღება მცირე ჯგუფებში</li>
+                            </ul>
+                        </li>
+                        <li><strong>ხმა და მეტყველება</strong>
+                            <ul>
+                                <li>დიქცია და არტიკულაცია</li>
+                                <li>ტექსტის სწორად გადმოცემა</li>
+                                <li>ემოცია ხმაში</li>
+                            </ul>
+                        </li>
+                        <li><strong>იმპროვიზაცია და თამაშები</strong>
+                            <ul>
+                                <li>სწრაფი რეაგირება</li>
+                                <li>კრეატიულობა</li>
+                                <li>ჯგუფური სცენების შექმნა</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3>რას მიიღებ კურსის ბოლოს</h3>
+                    <ul>
+                        <li>გადაღებულ სცენებს/მასალას შენი მონაწილეობით (showreel)</li>
+                        <li>მონაწილეების მშობლებისთვის და მეგობრებისთვის მოეწყობა გადაღებული მასალის ჩვენება</li>
+                        <li>კურსის დასრულების შემდეგ, გადმოგეცემა “შუქის” და “ნიუ ვიჟენის” ერთობლივი სერტიფიკატი</li>
+                    </ul>
+
+                    <div class="course-info-box">
+                        <h4>კურსის ღირებულება</h4>
+                        <div class="course-info-grid">
+                            <div class="course-info-item">
+                                <span class="label">საშუალო ფასის</span>
+                                <span class="value">950 ლარი</span>
+                            </div>
+                            <div class="course-info-item">
+                                <span class="label">პირობა</span>
+                                <span class="value">უსაფრთხო და მხარდაჭერაზე დაფუძნებული გარემო</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>მნიშვნელოვანი დეტალები</h3>
+                    <ul>
+                        <li>უსაფრთხო და მხარდაჭერებზე დაფუძნებული გარემო</li>
+                        <li>მეტი პრაქტიკა, ნაკლები ლექცია</li>
+                        <li>მენტორების მხრიდან ინდივიდუალური უკუკავშირი თითოეულ მონაწილესთან</li>
+                        <li>შესაძლებლობა ისწავლო შენთვის საყვარელ მსახიობებთან</li>
+                    </ul>
+
+                    <div class="course-cta">
+                        <p>მონაწილეთა რაოდენობა შეზღუდულია</p>
+                        <a href="#registration" class="course-cta-btn" onclick="document.getElementById('vacationModal').classList.remove('active'); document.body.style.overflow = '';">დარეგისტრირდი</a>
+                    </div>
+                </div>
+                <div class="course-modal-logo">
+                    <img src="./images/shuqi-logo.png" alt="shuQi Logo">
+                </div>
+            </div>
+        </div>
+
         <!-- Footer -->
         <footer class="footer">
             <p>&copy; 2025 შუქი. ყველა უფლება დაცულია.</p>
@@ -3439,16 +3544,44 @@
             setTimeout(openKitchenModal, 500);
         }
 
+        // Cinema Holidays Course Modal functionality
+        const vacationModal = document.getElementById('vacationModal');
+        const closeVacationModal = document.getElementById('closeVacationModal');
+
+        function openVacationModal() {
+            vacationModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            history.pushState(null, '', '#vacation-details');
+        }
+
+        function closeVacationModalFn() {
+            vacationModal.classList.remove('active');
+            document.body.style.overflow = '';
+            history.pushState(null, '', window.location.pathname);
+        }
+
+        if (window.location.hash === '#vacation-details') {
+            setTimeout(openVacationModal, 500);
+        }
+
         window.addEventListener('hashchange', function() {
             if (window.location.hash === '#kitchen-details') {
                 openKitchenModal();
-            } else if (kitchenModal.classList.contains('active')) {
-                kitchenModal.classList.remove('active');
-                document.body.style.overflow = '';
+            } else if (window.location.hash === '#vacation-details') {
+                openVacationModal();
+            } else {
+                if (kitchenModal.classList.contains('active')) {
+                    kitchenModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+                if (vacationModal.classList.contains('active')) {
+                    vacationModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
         });
 
-        // Wire up course buttons: 1st = Portfolio (Acting), 2nd = Cinema Kitchen
+        // Wire up course buttons: 1st = Portfolio (Acting), 2nd = Cinema Kitchen, 3rd = Cinema Holidays
         const courseButtons = document.querySelectorAll('.course-btn:not(.coming-soon)');
         if (courseButtons.length > 0) {
             courseButtons[0].addEventListener('click', openPortfolioModal);
@@ -3456,10 +3589,14 @@
         if (courseButtons.length > 1) {
             courseButtons[1].addEventListener('click', openKitchenModal);
         }
+        if (courseButtons.length > 2) {
+            courseButtons[2].addEventListener('click', openVacationModal);
+        }
 
         // Close modal handlers
         closePortfolioModal.addEventListener('click', closePortfolioModalFn);
         closeKitchenModal.addEventListener('click', closeKitchenModalFn);
+        closeVacationModal.addEventListener('click', closeVacationModalFn);
 
         portfolioModal.addEventListener('click', function(e) {
             if (e.target === portfolioModal) {
@@ -3473,11 +3610,18 @@
             }
         });
 
+        vacationModal.addEventListener('click', function(e) {
+            if (e.target === vacationModal) {
+                closeVacationModalFn();
+            }
+        });
+
         // Close with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 if (portfolioModal.classList.contains('active')) closePortfolioModalFn();
                 if (kitchenModal.classList.contains('active')) closeKitchenModalFn();
+                if (vacationModal.classList.contains('active')) closeVacationModalFn();
             }
         });
 
@@ -3670,8 +3814,7 @@
             '„გადაიღე შენი ფილმი"': '"Create Your Own Film"',
             'კურსი „კინოსამზარეულო"': 'Course "Cinema Kitchen"',
             'კურსი ,,კინოსამზარეულო"': 'Course "Cinema Kitchen"',
-            'საზაფხულო სკოლა': 'Summer School',
-            '„Summer School"': '"Summer School"',
+            'კინო არდადეგები': 'Cinema Holidays',
             '25 მაისი – 25 ივლისი': 'May 25 – July 25',
             'დარეგისტრირდი': 'Register',
             'დეტალები': 'Details',
@@ -3767,7 +3910,7 @@
             'კინოსამსახიობო კურსი - „პორტფოლიო"': 'Film Acting Course - "Portfolio"',
             'კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი"': 'Film Directing Course - "Create Your Own Film"',
             'კურსი „კინოსამზარეულო"': 'Course "Cinema Kitchen"',
-            'საზაფხულო სკოლა - „Summer School"': 'Summer School - "Summer School"',
+            'კინო არდადეგები': 'Cinema Holidays',
             'რეგისტრაციის გაგზავნა': 'Submit Registration',
             
             // Contact Section
@@ -3800,7 +3943,7 @@
             'პროფესია': 'Profession',
             'თქვენი პროფესია': 'Your profession',
             'კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი" (Coming Soon)': 'Film Directing Course - "Create Your Own Film" (Coming Soon)',
-            'საზაფხულო სკოლა - „Summer School" (Coming Soon)': 'Summer School - "Summer School" (Coming Soon)',
+            'კინო არდადეგები': 'Cinema Holidays',
 
             // Cinema Kitchen Modal
             'რეგისტრაციის ბოლო ვადა — 15 მაისი! შემოგვიერთდი დღესვე!': 'Registration deadline — May 15! Join us today!',
