@@ -3699,9 +3699,10 @@
             if (!courseSelect || !ageInput || !form) return;
 
             function clearAgeConstraints() {
-                ageInput.removeAttribute('min');
+                // Set a permissive minimum so browser won't block typical child ages
+                ageInput.setAttribute('min', '0');
                 ageInput.removeAttribute('max');
-                ageInput.min = '';
+                ageInput.min = 0;
                 ageInput.max = '';
                 ageInput.setCustomValidity('');
             }
