@@ -3699,10 +3699,9 @@
             if (!courseSelect || !ageInput || !form) return;
 
             function clearAgeConstraints() {
-                // Set a permissive minimum so browser won't block typical child ages
-                ageInput.setAttribute('min', '0');
+                ageInput.removeAttribute('min');
                 ageInput.removeAttribute('max');
-                ageInput.min = 0;
+                ageInput.min = '';
                 ageInput.max = '';
                 ageInput.setCustomValidity('');
             }
@@ -3732,8 +3731,7 @@
             });
 
             courseSelect.addEventListener('change', updateAgeConstraints);
-            // Initialize on load in case a course is preselected
-            updateAgeConstraints();
+            // Do NOT initialize on load - let age field be open by default
         })();
 
         // Student registration form handler with EmailJS + Google Sheets tracking
