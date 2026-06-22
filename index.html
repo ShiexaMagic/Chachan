@@ -3718,8 +3718,11 @@
             function updateAgeConstraints() {
                 if (courseSelect.value === 'კინო არდადაგები') {
                     clearAgeConstraints();
+                    // disable native validation for this form so browser won't block submission
+                    form.noValidate = true;
                 } else {
                     setAgeConstraints();
+                    form.noValidate = false;
                 }
             }
 
