@@ -3331,7 +3331,6 @@
                         <h4>კურსის ღირებულება</h4>
                         <div class="course-info-grid">
                             <div class="course-info-item">
-                                <span class="label">საშუალო ფასი</span>
                                 <span class="value"><s>950 ლარი</s> 760 ლარი <span style="color: #e74c3c; font-weight: bold;">(-20%)</span></span>
                             </div>
                         </div>
@@ -3691,6 +3690,27 @@
                 if (e.key === 'ArrowRight') lightboxNext.click();
             }
         });
+
+        // Toggle age constraints based on selected course
+        (function() {
+            const courseSelect = document.getElementById('course');
+            const ageInput = document.getElementById('age');
+            if (!courseSelect || !ageInput) return;
+
+            function updateAgeConstraints() {
+                if (courseSelect.value === 'კინო არდადაგები') {
+                    ageInput.removeAttribute('min');
+                    ageInput.removeAttribute('max');
+                } else {
+                    ageInput.setAttribute('min', '16');
+                    ageInput.setAttribute('max', '99');
+                }
+            }
+
+            courseSelect.addEventListener('change', updateAgeConstraints);
+            // Initialize on load in case a course is preselected
+            updateAgeConstraints();
+        })();
 
         // Student registration form handler with EmailJS + Google Sheets tracking
         // ⚠️ SETUP REQUIRED: Replace YOUR_GOOGLE_SCRIPT_URL with your deployed Apps Script URL
