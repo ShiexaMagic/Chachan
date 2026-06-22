@@ -3695,17 +3695,40 @@
         (function() {
             const courseSelect = document.getElementById('course');
             const ageInput = document.getElementById('age');
-            if (!courseSelect || !ageInput) return;
+            const form = document.getElementById('studentForm');
+            if (!courseSelect || !ageInput || !form) return;
+
+            function clearAgeConstraints() {
+                ageInput.removeAttribute('min');
+                ageInput.removeAttribute('max');
+                ageInput.min = '';
+                ageInput.max = '';
+                ageInput.setCustomValidity('');
+            }
+
+            function setAgeConstraints() {
+                ageInput.setAttribute('min', '16');
+                ageInput.setAttribute('max', '99');
+                ageInput.min = 16;
+                ageInput.max = 99;
+                ageInput.setCustomValidity('');
+            }
 
             function updateAgeConstraints() {
                 if (courseSelect.value === 'კინო არდადაგები') {
-                    ageInput.removeAttribute('min');
-                    ageInput.removeAttribute('max');
+                    clearAgeConstraints();
                 } else {
-                    ageInput.setAttribute('min', '16');
-                    ageInput.setAttribute('max', '99');
+                    setAgeConstraints();
                 }
             }
+
+            // If the browser fires an 'invalid' event for age, suppress it when course allows any age
+            ageInput.addEventListener('invalid', function(e) {
+                if (courseSelect.value === 'კინო არდადაგები') {
+                    e.preventDefault();
+                    ageInput.setCustomValidity('');
+                }
+            });
 
             courseSelect.addEventListener('change', updateAgeConstraints);
             // Initialize on load in case a course is preselected
