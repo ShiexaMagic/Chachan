@@ -3737,6 +3737,32 @@
             courseSelect.addEventListener('change', updateAgeConstraints);
             // Initialize on load in case a course is preselected
             updateAgeConstraints();
+
+            // Ensure native validation is disabled/adjusted before the browser runs it.
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function() {
+                    if (courseSelect.value === 'კინო არდადაგები') {
+                        form.noValidate = true;
+                        ageInput.removeAttribute('min');
+                        ageInput.removeAttribute('max');
+                        ageInput.min = '';
+                        ageInput.max = '';
+                    } else {
+                        form.noValidate = false;
+                        ageInput.setAttribute('min', '16');
+                        ageInput.setAttribute('max', '99');
+                        ageInput.min = 16;
+                        ageInput.max = 99;
+                    }
+                    ageInput.setCustomValidity('');
+                });
+            }
+
+            // Clear any custom validity messages while typing
+            ageInput.addEventListener('input', function() {
+                ageInput.setCustomValidity('');
+            });
         })();
 
         // Student registration form handler with EmailJS + Google Sheets tracking
