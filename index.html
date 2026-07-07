@@ -3373,63 +3373,77 @@
             const flashOverlay = document.getElementById('flashOverlay');
             const flashText = document.getElementById('flashText');
             let isSwitchedOn = false;
-            
-            lightSwitch.addEventListener('click', function() {
-                if (!isSwitchedOn) {
-                    console.log('შუქის ჩართვა დაწყებულია');
-                    
-                    // Step 1: Animate switch toggle to ON position and reveal ON text
-                    switchToggle.classList.add('on');
-                    switchToggleArea.classList.add('revealed');
-                    
-                    // Step 2: Trigger mist emergence effect immediately
-                    setTimeout(() => {
-                        flashOverlay.classList.add('active');
-                        flashText.classList.add('visible');
-                        
-                        // Step 3: Clean up after animation completes
+            const shouldSkipIntro = ['#registration', '#vacation-details'].includes(window.location.hash);
+
+            if (shouldSkipIntro) {
+                if (lightSwitchScreen) {
+                    lightSwitchScreen.style.display = 'none';
+                }
+                if (mainWebsite) {
+                    mainWebsite.style.display = 'block';
+                    mainWebsite.classList.add('zoom-in');
+                }
+                isSwitchedOn = true;
+
+                if (window.location.hash === '#registration') {
+                    requestAnimationFrame(() => {
+                        const targetSection = document.getElementById('registration');
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    });
+                }
+            } else if (lightSwitch) {
+                lightSwitch.addEventListener('click', function() {
+                    if (!isSwitchedOn) {
+                        console.log('შუქის ჩართვა დაწყებულია');
+
+                        switchToggle.classList.add('on');
+                        switchToggleArea.classList.add('revealed');
+
                         setTimeout(() => {
-                            flashOverlay.classList.remove('active');
-                            flashText.classList.remove('visible');
-                            
-                            // Step 4: Hide light switch screen with fade
-                            lightSwitchScreen.style.transition = 'opacity 0.3s linear';
-                            lightSwitchScreen.style.opacity = '0';
-                            
-                            // Step 5: Show website with simple fade
+                            flashOverlay.classList.add('active');
+                            flashText.classList.add('visible');
+
                             setTimeout(() => {
-                                lightSwitchScreen.style.display = 'none';
-                                mainWebsite.style.display = 'block';
-                                
-                                // Trigger fade-in
-                                requestAnimationFrame(() => {
-                                    mainWebsite.classList.add('zoom-in');
-                                });
-                                
-                                isSwitchedOn = true;
-                                console.log('ანიმაცია დასრულებულია');
-                            }, 300);
-                        }, 1200); // Animation duration
-                    }, 10); // Small delay to ensure DOM is ready
-                }
-            });
-            
-            // Add hover sound effect (visual feedback)
-            lightSwitch.addEventListener('mouseenter', function() {
-                if (!isSwitchedOn) {
-                    lightSwitch.style.transform = 'translateY(-2px)';
-                }
-            });
-            
-            lightSwitch.addEventListener('mouseleave', function() {
-                if (!isSwitchedOn) {
-                    lightSwitch.style.transform = 'translateY(0px)';
-                }
-            });
-            
+                                flashOverlay.classList.remove('active');
+                                flashText.classList.remove('visible');
+
+                                lightSwitchScreen.style.transition = 'opacity 0.3s linear';
+                                lightSwitchScreen.style.opacity = '0';
+
+                                setTimeout(() => {
+                                    lightSwitchScreen.style.display = 'none';
+                                    mainWebsite.style.display = 'block';
+
+                                    requestAnimationFrame(() => {
+                                        mainWebsite.classList.add('zoom-in');
+                                    });
+
+                                    isSwitchedOn = true;
+                                    console.log('ანიმაცია დასრულებულია');
+                                }, 300);
+                            }, 1200);
+                        }, 10);
+                    }
+                });
+
+                lightSwitch.addEventListener('mouseenter', function() {
+                    if (!isSwitchedOn) {
+                        lightSwitch.style.transform = 'translateY(-2px)';
+                    }
+                });
+
+                lightSwitch.addEventListener('mouseleave', function() {
+                    if (!isSwitchedOn) {
+                        lightSwitch.style.transform = 'translateY(0px)';
+                    }
+                });
+            }
+
             console.log('შუქის ჩამრთველი მზადაა');
         });
-        
+
         // Navigation smooth scroll
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -3557,7 +3571,9 @@
         }
 
         if (window.location.hash === '#vacation-details') {
-            setTimeout(openVacationModal, 500);
+            setTimeout(() => {
+                openVacationModal();
+            }, 500);
         }
 
         window.addEventListener('hashchange', function() {
