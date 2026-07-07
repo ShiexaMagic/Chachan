@@ -1,0 +1,8 @@
+{
+  "name": "shuqi-production-site",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@vercel/analytics": "^1.3.0"
+  }
+}
