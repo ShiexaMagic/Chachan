@@ -30,6 +30,7 @@ the same data.
     "languages": { "ka": ["ქართული", "ინგლისური"], "en": ["Georgian", "English"] },
     "skills": { "ka": ["ცეკვა", "ცხენოსნობა"], "en": ["Dance", "Horse riding"] },
     "bio": { "ka": "მოკლე ბიოგრაფია...", "en": "Short bio..." },
+    "education": { "ka": "2026 — shuQi Production-ის სამსახიობო კურსი", "en": "2026 — shuQi Production acting course" },
     "experience": { "ka": "2024 — ფილმი „...“, მთავარი როლი\n2023 — თეატრი ...", "en": "..." },
     "photos": [
       "talents/giorgi-beridze/1.jpg",
@@ -49,7 +50,9 @@ If only one language is filled in, that one is shown in both.
 
 - `slug`: lowercase latin letters, digits and dashes. This becomes the link:
   `shuqi.ge/talent.html?id=giorgi-beridze`.
-- `birthYear` keeps the age up to date automatically. `"age": 25` also works.
+- `"birthDate": "2000-02-10"` (or just `"birthYear": 2000`) keeps the age up to
+  date automatically. A fixed `"age": 25` also works but goes stale.
+- `role` (optional) replaces the "Actor" line under the name.
 - `email` / `phone` are shown publicly. Leave them empty to route all enquiries
   through `info@shuqi.ge`, which is always shown.
 - `experience` uses `\n` for line breaks.

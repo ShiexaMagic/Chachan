@@ -36,6 +36,7 @@
             appearance: 'გარეგნობა',
             overview: 'მიმოხილვა',
             bio: 'ბიოგრაფია',
+            education: 'განათლება',
             skills: 'უნარები',
             photos: 'ფოტოები',
             photoGallery: 'ფოტო გალერეა',
@@ -89,6 +90,7 @@
             appearance: 'Appearance',
             overview: 'Overview',
             bio: 'Biography',
+            education: 'Education',
             skills: 'Skills',
             photos: 'Photos',
             photoGallery: 'Photo gallery',
@@ -161,8 +163,16 @@
         return u;
     }
 
-    // birthYear keeps the age current; a fixed "age" is accepted as a fallback.
+    // birthDate/birthYear keep the age current; a fixed "age" is accepted as a fallback.
     function getAge(talent) {
+        const born = /^(\d{4})-(\d{2})-(\d{2})$/.exec(talent.birthDate || '');
+        if (born) {
+            const now = new Date();
+            let age = now.getFullYear() - Number(born[1]);
+            const month = now.getMonth() + 1;
+            if (month < Number(born[2]) || (month === Number(born[2]) && now.getDate() < Number(born[3]))) age--;
+            return age;
+        }
         if (talent.birthYear) return new Date().getFullYear() - Number(talent.birthYear);
         const age = parseInt(talent.age, 10);
         return isNaN(age) ? null : age;

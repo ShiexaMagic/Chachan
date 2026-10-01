@@ -937,6 +937,7 @@
             const weightText = talent.weight ? `${talent.weight} ${T.str('kg', lang)}` : '';
             const city = L(talent.city);
             const bio = L(talent.bio);
+            const education = L(talent.education);
             const experience = L(talent.experience);
             const cvUrl = T.safeUrl(talent.cv);
             const role = L(talent.role) || T.str('actor', lang);
@@ -1025,6 +1026,13 @@
                         </div>
                         ` : ''}
 
+                        ${education ? `
+                        <div class="overview-block">
+                            <h3>${s('education')}</h3>
+                            <p class="bio-text">${esc(education)}</p>
+                        </div>
+                        ` : ''}
+                        
                         ${skills.length ? `
                         <div class="overview-block">
                             <h3>${s('skills')}</h3>
