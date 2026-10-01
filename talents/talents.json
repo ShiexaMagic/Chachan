@@ -1,0 +1,169 @@
+[
+  {
+    "slug": "elene-gogoladze",
+    "name": {
+      "ka": "ელენე გოგოლაძე",
+      "en": "Elene Gogoladze"
+    },
+    "gender": "female",
+    "birthDate": "2000-02-10",
+    "height": 163,
+    "weight": 41,
+    "languages": {
+      "ka": [
+        "ქართული",
+        "ინგლისური"
+      ],
+      "en": [
+        "Georgian",
+        "English"
+      ]
+    },
+    "skills": {
+      "ka": [
+        "სიმღერა",
+        "მანქანის მართვა",
+        "ცურვა",
+        "ველოსიპედი"
+      ],
+      "en": [
+        "Singing",
+        "Driving",
+        "Swimming",
+        "Cycling"
+      ]
+    },
+    "education": {
+      "ka": "2026 — shuQi Production-ის 4-თვიანი სამსახიობო კურსი\n2024 — დრამალაბის 3-თვიანი სამსახიობო კურსი",
+      "en": "2026 — shuQi Production, 4-month acting course\n2024 — DramaLab, 3-month acting course"
+    },
+    "experience": {
+      "ka": "„სამნი სივრცეში“ (სამუშაო სახელი) — მოკლემეტრაჟიანი მხატვრული ფილმი, მთავარი როლი (ლეა)\n„Winter Sun“ — მოკლემეტრაჟიანი მხატვრული ფილმი, მთავარი როლი (ანი)\nკომერციული გადაღებები ქართულ და უცხოურ კომპანიებთან და რეჟისორებთან — მთავარი როლები",
+      "en": "“Three in Space” (working title) — short fiction film, lead role (Lea)\n“Winter Sun” — short fiction film, lead role (Ani)\nCommercials for Georgian and international companies and directors — lead roles"
+    },
+    "photos": [
+      "talents/elene-gogoladze/1.jpg",
+      "talents/elene-gogoladze/2.jpg",
+      "talents/elene-gogoladze/3.jpg",
+      "talents/elene-gogoladze/4.jpg",
+      "talents/elene-gogoladze/5.jpg",
+      "talents/elene-gogoladze/6.jpg",
+      "talents/elene-gogoladze/7.jpg"
+    ]
+  },
+  {
+    "slug": "manana-melkadze",
+    "name": {
+      "ka": "მანანა მელქაძე",
+      "en": "Manana Melkadze"
+    },
+    "gender": "female",
+    "birthYear": 1980,
+    "height": 171,
+    "weight": 60,
+    "languages": {
+      "ka": [
+        "ქართული (მშობლიური)",
+        "რუსული (კარგად)",
+        "ინგლისური (საშუალოდ)",
+        "თურქული (საშუალოდ)"
+      ],
+      "en": [
+        "Georgian (native)",
+        "Russian (good)",
+        "English (intermediate)",
+        "Turkish (intermediate)"
+      ]
+    },
+    "skills": {
+      "ka": [
+        "ცეკვა",
+        "სიმღერა",
+        "ხატვა",
+        "მანქანის მართვა",
+        "ველოსიპედი",
+        "მასაჟი და სხეულთან მუშაობა — 18 წლის პროფესიული გამოცდილება"
+      ],
+      "en": [
+        "Dance",
+        "Singing",
+        "Drawing",
+        "Driving",
+        "Cycling",
+        "Massage and body-work coaching — 18 years professional experience"
+      ]
+    },
+    "education": {
+      "ka": "2026 — shuQi Production-ის კინოსამსახიობო კურსი\n2024 — Moscow Film School",
+      "en": "2026 — shuQi Production, film acting course\n2024 — Moscow Film School"
+    },
+    "experience": {
+      "ka": "მოკლემეტრაჟიანი ფილმი — მთავარი როლი\nსტუდენტური ფილმები\nსადიპლომო ნამუშევარი — კინოცეკვა",
+      "en": "Short film — lead role\nStudent films\nGraduation project — dance film"
+    },
+    "photos": [
+      "talents/manana-melkadze/1.jpg",
+      "talents/manana-melkadze/2.jpg",
+      "talents/manana-melkadze/3.jpg",
+      "talents/manana-melkadze/4.jpg",
+      "talents/manana-melkadze/5.jpg",
+      "talents/manana-melkadze/6.jpg",
+      "talents/manana-melkadze/7.jpg",
+      "talents/manana-melkadze/8.jpg",
+      "talents/manana-melkadze/9.jpg",
+      "talents/manana-melkadze/10.jpg"
+    ]
+  },
+  {
+    "slug": "dachi-kartvelishvili",
+    "name": {
+      "ka": "დაჩი ქართველიშვილი",
+      "en": "Dachi Kartvelishvili"
+    },
+    "role": {
+      "ka": "მსახიობი, სტუდენტი",
+      "en": "Actor, student"
+    },
+    "gender": "male",
+    "birthYear": 2006,
+    "height": 172,
+    "weight": 73,
+    "skills": {
+      "ka": [
+        "ცურვა",
+        "კალათბურთი",
+        "პინგ-პონგი",
+        "ბილიარდი",
+        "კიკბოქსინგი (მოყვარული)",
+        "დრამი (მოყვარული)",
+        "ჭედვა"
+      ],
+      "en": [
+        "Swimming",
+        "Basketball",
+        "Table tennis",
+        "Billiards",
+        "Kickboxing (amateur)",
+        "Drums (amateur)",
+        "Metal chasing"
+      ]
+    },
+    "education": {
+      "ka": "shuQi Production-ის სამსახიობო კურსი",
+      "en": "shuQi Production acting course"
+    },
+    "experience": {
+      "ka": "„სამნი სივრცეში“ — shuQi Production-ის მოკლემეტრაჟიანი ფილმი",
+      "en": "“Three in Space” — short film by shuQi Production"
+    },
+    "photos": [
+      "talents/dachi-kartvelishvili/1.jpg",
+      "talents/dachi-kartvelishvili/2.jpg",
+      "talents/dachi-kartvelishvili/3.jpg",
+      "talents/dachi-kartvelishvili/4.jpg",
+      "talents/dachi-kartvelishvili/5.jpg",
+      "talents/dachi-kartvelishvili/6.jpg",
+      "talents/dachi-kartvelishvili/7.jpg"
+    ]
+  }
+]

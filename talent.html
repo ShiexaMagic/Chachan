@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ტალანტი - shuQi Production</title>
+    <title>მსახიობი - shuQi Production</title>
+    <meta name="description" content="მსახიობის პორტფოლიო — ფოტოები, შოურილი და CV. Actor profile at shuQi Production.">
     
-    <!-- Open Graph Meta Tags - will be updated dynamically -->
-    <meta property="og:title" content="shuQi Production - Talent">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="shuQi Production - Actor Portfolio">
     <meta property="og:description" content="Actor Profile - shuQi Production">
     <meta property="og:type" content="profile">
-    <meta property="og:image" content="./images/web.png">
+    <meta property="og:image" content="https://www.shuqi.ge/images/web.png">
     <meta property="og:locale" content="ka_GE">
     
     <link rel="icon" type="image/png" href="./images/favicon.png">
@@ -65,6 +66,7 @@
         
         .header-logo img {
             height: 100%;
+            filter: brightness(0);
         }
         
         .header-nav {
@@ -284,7 +286,7 @@
         /* Personal Details & Appearance */
         .details-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 2rem;
         }
         
@@ -384,7 +386,8 @@
         /* Videos/Showreels */
         .videos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 1.5rem;
         }
         
@@ -652,6 +655,115 @@
             color: var(--dark-gray);
         }
         
+        /* Header actions & language switch */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .lang-switch {
+            background: var(--dark-gray);
+            color: var(--pure-white);
+            border: none;
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            border-radius: 50px;
+        }
+        
+        .lang-switch:hover {
+            background: var(--pure-black);
+        }
+        
+        /* Thumbnails & photo buttons */
+        .talent-thumb-btn,
+        .photo-item {
+            padding: 0;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: block;
+            flex-shrink: 0;
+        }
+        
+        .talent-thumb-btn:focus-visible,
+        .photo-item:focus-visible,
+        .contact-btn:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 2px;
+        }
+        
+        .photo-item:focus-visible {
+            outline-color: var(--dark-gray);
+        }
+        
+        /* Overview */
+        .overview-block {
+            margin-top: 2rem;
+        }
+        
+        .overview-block h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .bio-text {
+            color: #424245;
+            line-height: 1.8;
+            white-space: pre-line;
+            max-width: 75ch;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: var(--off-white);
+            border: 1px solid var(--light-gray);
+            padding: 6px 14px;
+            font-size: 0.875rem;
+            border-radius: 50px;
+        }
+        
+        .video-embed video {
+            width: 100%;
+            height: 100%;
+            display: block;
+            background: #000;
+        }
+        
+        /* CV */
+        .cv-text {
+            background: var(--off-white);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cv-text p {
+            white-space: pre-line;
+            line-height: 1.8;
+        }
+        
+        .cv-download {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--dark-gray);
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .cv-download:hover {
+            background: var(--pure-black);
+        }
+        
         /* Responsive */
         @media (max-width: 900px) {
             .talent-hero-content {
@@ -678,6 +790,22 @@
                 display: none;
             }
             
+            .talent-hero {
+                padding: 32px 16px;
+            }
+            
+            .talent-name {
+                font-size: 2rem;
+            }
+            
+            .talent-main {
+                padding: 32px 16px;
+            }
+            
+            .photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .talent-quick-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -693,448 +821,431 @@
     <header class="talent-header">
         <div class="header-container">
             <a href="index.html" class="header-logo">
-                <img src="./images/shuqi-logo.png" alt="shuQi">
+                <img src="./images/shuqi-logo.png" alt="shuQi Production">
             </a>
             <nav class="header-nav">
-                <a href="index.html#home">მთავარი</a>
-                <a href="index.html#talents">ტალანტები</a>
-                <a href="index.html#contact">კონტაქტი</a>
+                <a href="index.html" data-i18n="home">მთავარი</a>
+                <a href="portfolio.html" data-i18n="portfolio">პორტფოლიო</a>
+                <a href="index.html#contact" data-i18n="contact">კონტაქტი</a>
             </nav>
-            <a href="index.html#talents" class="back-btn">← უკან</a>
+            <div class="header-actions">
+                <a href="portfolio.html" class="back-btn">← <span data-i18n="back">პორტფოლიო</span></a>
+                <button class="lang-switch" id="langSwitch" type="button">EN</button>
+            </div>
         </div>
     </header>
-    
+
     <!-- Main Content - Loaded Dynamically -->
     <div id="talentPageContent">
-        <!-- Loading state -->
-        <div class="not-found" id="loadingState">
-            <h1>იტვირთება...</h1>
-            <p>გთხოვთ დაელოდოთ</p>
+        <div class="not-found">
+            <h1 data-i18n="loading">იტვირთება...</h1>
         </div>
     </div>
-    
+
+    <!-- Footer -->
+    <footer class="talent-footer">
+        <p>© <span id="footerYear">2026</span> <a href="index.html">shuQi Production</a>. <span data-i18n="rights">ყველა უფლება დაცულია.</span></p>
+    </footer>
+
     <!-- Photo Lightbox -->
-    <div class="photo-lightbox" id="photoLightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#10094;</button>
+    <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous">&#10094;</button>
         <img src="" alt="" class="lightbox-image" id="lightboxImage">
-        <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#10095;</button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next">&#10095;</button>
     </div>
-    
+
+    <script src="talents/talents.js"></script>
     <script>
-        // Get talent ID from URL
+        const T = window.ShuqiTalents;
+        const esc = T.escapeHtml;
+        let currentLang = T.getLang();
+        let currentTalent = null;
+        let notFound = false;
+        let currentPhotos = [];
+        let currentLightboxIndex = 0;
+
+        document.getElementById('footerYear').textContent = new Date().getFullYear();
+
         function getTalentSlug() {
-            // Check for ?id= parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
+            const id = new URLSearchParams(window.location.search).get('id');
             if (id) return id;
-            
-            // Check for path after talent.html/
-            const path = window.location.pathname;
-            const match = path.match(/\/talent\/([^\/]+)/);
-            if (match) return match[1];
-            
-            // Check hash
-            const hash = window.location.hash;
-            if (hash.startsWith('#')) return hash.substring(1);
-            
-            return null;
+            const match = window.location.pathname.match(/\/talent\/([^\/]+)/);
+            return match ? decodeURIComponent(match[1]) : null;
         }
-        
-        // Create URL-friendly slug from name
-        function createSlug(name) {
-            return name.toLowerCase()
-                .replace(/[აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ]/g, char => {
-                    const map = {
-                        'ა': 'a', 'ბ': 'b', 'გ': 'g', 'დ': 'd', 'ე': 'e', 'ვ': 'v',
-                        'ზ': 'z', 'თ': 't', 'ი': 'i', 'კ': 'k', 'ლ': 'l', 'მ': 'm',
-                        'ნ': 'n', 'ო': 'o', 'პ': 'p', 'ჟ': 'zh', 'რ': 'r', 'ს': 's',
-                        'ტ': 't', 'უ': 'u', 'ფ': 'f', 'ქ': 'q', 'ღ': 'gh', 'ყ': 'y',
-                        'შ': 'sh', 'ჩ': 'ch', 'ც': 'ts', 'ძ': 'dz', 'წ': 'ts', 'ჭ': 'ch',
-                        'ხ': 'kh', 'ჯ': 'j', 'ჰ': 'h'
-                    };
-                    return map[char] || char;
-                })
-                .replace(/\s+/g, '-')
-                .replace(/[^a-z0-9-]/g, '')
-                .replace(/-+/g, '-');
-        }
-        
-        // Get talents from localStorage
-        function getTalents() {
-            const data = localStorage.getItem('shuqi_talents');
-            return data ? JSON.parse(data) : [];
-        }
-        
-        // Find talent by slug or ID
-        function findTalent(slug) {
-            const talents = getTalents();
-            return talents.find(t => {
-                const talentSlug = createSlug(t.name);
-                return t.id === slug || talentSlug === slug || t.slug === slug;
+
+        // ========================================
+        // LANGUAGE
+        // ========================================
+        function updateLanguage(lang) {
+            currentLang = lang;
+            T.setLang(lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                el.textContent = T.str(el.dataset.i18n, lang);
             });
+            const langSwitch = document.getElementById('langSwitch');
+            langSwitch.textContent = lang === 'ka' ? 'EN' : 'ქარ';
+            langSwitch.title = lang === 'ka' ? 'Switch to English' : 'ქართულზე გადართვა';
+            document.getElementById('lightboxClose').setAttribute('aria-label', T.str('close', lang));
+            document.getElementById('lightboxPrev').setAttribute('aria-label', T.str('prev', lang));
+            document.getElementById('lightboxNext').setAttribute('aria-label', T.str('next', lang));
+
+            if (currentTalent) renderTalentPage(currentTalent);
+            else if (notFound) showNotFound();
         }
-        
-        // YouTube URL to embed
-        function getYouTubeEmbedUrl(url) {
-            if (!url) return null;
-            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-            const match = url.match(regExp);
-            if (match && match[2].length === 11) {
-                return 'https://www.youtube.com/embed/' + match[2];
-            }
-            return null;
+
+        document.getElementById('langSwitch').addEventListener('click', () => {
+            updateLanguage(currentLang === 'ka' ? 'en' : 'ka');
+        });
+
+        // ========================================
+        // RENDERING
+        // ========================================
+        function detailRow(labelKey, value) {
+            if (value === '' || value == null) return '';
+            return `
+                <div class="detail-item">
+                    <span class="detail-label">${esc(T.str(labelKey, currentLang))}</span>
+                    <span class="detail-value">${esc(value)}</span>
+                </div>`;
         }
-        
-        // Render talent page
+
+        function quickStat(labelKey, value) {
+            if (value === '' || value == null) return '';
+            return `
+                <div class="quick-stat">
+                    <div class="quick-stat-label">${esc(T.str(labelKey, currentLang))}</div>
+                    <div class="quick-stat-value">${esc(value)}</div>
+                </div>`;
+        }
+
         function renderTalentPage(talent) {
-            const container = document.getElementById('talentPageContent');
-            
-            // Get main photo
-            const photos = talent.photos && talent.photos.length > 0 ? talent.photos : 
-                (talent.photo ? [{ data: talent.photo, isMain: true }] : []);
-            const mainPhoto = photos.find(p => p.isMain) || photos[0] || { data: './images/web.png' };
-            
-            // Get videos
-            const videos = talent.videos && talent.videos.length > 0 ? talent.videos : 
-                (talent.youtube ? [talent.youtube] : []);
-            
-            // Parse skills
-            const skillsArray = talent.skills ? talent.skills.split(',').map(s => s.trim()) : [];
-            
-            // Parse languages if available
-            const languages = talent.languages ? talent.languages.split(',').map(s => s.trim()) : [];
-            
-            // Update page title
-            document.title = talent.name + ' - shuQi Production';
-            
-            container.innerHTML = `
-                <!-- Hero Section -->
+            const lang = currentLang;
+            const s = key => esc(T.str(key, lang));
+            const L = value => T.localized(value, lang);
+
+            const name = L(talent.name);
+            const photos = T.getPhotos(talent);
+            const mainPhoto = photos[0] || T.placeholderPhoto;
+            const videos = T.getVideos(talent);
+            const skills = T.list(talent.skills, lang);
+            const languages = T.list(talent.languages, lang);
+            const age = T.getAge(talent);
+            const ageText = age != null ? `${age} ${T.str('yearsOld', lang)}` : '';
+            const genderText = talent.gender ? T.str(talent.gender === 'male' ? 'male' : 'female', lang) : '';
+            const heightText = talent.height ? `${talent.height} ${T.str('cm', lang)}` : '';
+            const weightText = talent.weight ? `${talent.weight} ${T.str('kg', lang)}` : '';
+            const city = L(talent.city);
+            const bio = L(talent.bio);
+            const education = L(talent.education);
+            const experience = L(talent.experience);
+            const cvUrl = T.safeUrl(talent.cv);
+            const role = L(talent.role) || T.str('actor', lang);
+            const email = talent.email ? String(talent.email).trim() : '';
+            const phone = talent.phone ? String(talent.phone).trim() : '';
+            const hasCv = experience || cvUrl;
+
+            document.title = name + ' - shuQi Production';
+            currentPhotos = photos;
+
+            document.getElementById('talentPageContent').innerHTML = `
                 <section class="talent-hero">
                     <div class="talent-hero-content">
                         <div class="talent-hero-photo">
-                            <img src="${mainPhoto.data}" alt="${talent.name}" class="talent-main-image" id="heroMainPhoto" onerror="this.src='./images/web.png'">
+                            <img src="${esc(mainPhoto)}" alt="${esc(name)}" class="talent-main-image" id="heroMainPhoto" onerror="this.onerror=null;this.src='${T.placeholderPhoto}'">
                             ${photos.length > 1 ? `
                             <div class="talent-photo-gallery">
                                 ${photos.map((photo, i) => `
-                                    <img src="${photo.data}" alt="Photo ${i+1}" class="talent-thumb ${photo.isMain ? 'active' : ''}" 
-                                         onclick="changeHeroPhoto('${photo.data.replace(/'/g, "\\'")}', this)">
+                                    <button type="button" class="talent-thumb-btn" data-thumb="${i}" aria-label="${s('photos')} ${i + 1}">
+                                        <img src="${esc(photo)}" alt="" class="talent-thumb ${i === 0 ? 'active' : ''}" loading="lazy">
+                                    </button>
                                 `).join('')}
                             </div>
                             ` : ''}
                         </div>
                         <div class="talent-hero-info">
-                            <h1 class="talent-name">${talent.name}</h1>
-                            <p class="talent-role">მსახიობი</p>
-                            
+                            <h1 class="talent-name">${esc(name)}</h1>
+                            <p class="talent-role">${esc(role)}</p>
+
                             <div class="talent-quick-stats">
-                                <div class="quick-stat">
-                                    <div class="quick-stat-label">ასაკი</div>
-                                    <div class="quick-stat-value">${talent.age} წლის</div>
-                                </div>
-                                ${talent.height ? `
-                                <div class="quick-stat">
-                                    <div class="quick-stat-label">სიმაღლე</div>
-                                    <div class="quick-stat-value">${talent.height} სმ</div>
-                                </div>
-                                ` : ''}
-                                ${talent.city ? `
-                                <div class="quick-stat">
-                                    <div class="quick-stat-label">მდებარეობა</div>
-                                    <div class="quick-stat-value">${talent.city}</div>
-                                </div>
-                                ` : ''}
-                                <div class="quick-stat">
-                                    <div class="quick-stat-label">სქესი</div>
-                                    <div class="quick-stat-value">${talent.gender === 'male' ? 'მამაკაცი' : 'ქალი'}</div>
-                                </div>
+                                ${quickStat('age', ageText)}
+                                ${quickStat('height', heightText)}
+                                ${quickStat('city', city)}
+                                ${quickStat('gender', genderText)}
                             </div>
-                            
+
                             <div class="talent-contact-buttons">
-                                ${talent.email ? `<a href="mailto:${talent.email}" class="contact-btn contact-btn-primary">📧 დაუკავშირდი</a>` : ''}
-                                ${talent.phone ? `<a href="tel:${talent.phone}" class="contact-btn contact-btn-secondary">📞 ${talent.phone}</a>` : ''}
+                                <a href="#contact" class="contact-btn contact-btn-primary">${s('contactBtn')}</a>
+                                ${videos.length ? `<a href="#showreels" class="contact-btn contact-btn-secondary">▶ ${s('showreel')}</a>` : ''}
+                                ${cvUrl ? `<a href="${esc(cvUrl)}" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener">${s('downloadCv')}</a>` : ''}
                             </div>
                         </div>
                     </div>
                 </section>
-                
-                <!-- Navigation Tabs -->
+
                 <nav class="talent-nav">
                     <div class="talent-nav-container">
-                        <a href="#overview" class="talent-nav-link active">მიმოხილვა</a>
-                        ${photos.length > 1 ? '<a href="#photos" class="talent-nav-link">ფოტოები</a>' : ''}
-                        ${videos.length > 0 ? '<a href="#showreels" class="talent-nav-link">შოურილი</a>' : ''}
-                        ${talent.experience ? '<a href="#cv" class="talent-nav-link">CV</a>' : ''}
-                        <a href="#contact" class="talent-nav-link">კონტაქტი</a>
+                        <a href="#overview" class="talent-nav-link active">${s('overview')}</a>
+                        ${videos.length ? `<a href="#showreels" class="talent-nav-link">${s('showreel')}</a>` : ''}
+                        ${photos.length > 1 ? `<a href="#photos" class="talent-nav-link">${s('photos')}</a>` : ''}
+                        ${hasCv ? `<a href="#cv" class="talent-nav-link">${s('cv')}</a>` : ''}
+                        <a href="#contact" class="talent-nav-link">${s('contact')}</a>
                     </div>
                 </nav>
-                
-                <!-- Main Content -->
+
                 <main class="talent-main">
-                    <!-- Overview Section -->
                     <section class="talent-section" id="overview">
-                        <h2 class="section-title">მიმოხილვა</h2>
+                        <h2 class="section-title">${s('overview')}</h2>
                         <div class="details-grid">
                             <div class="details-card">
-                                <h4>პირადი მონაცემები</h4>
+                                <h4>${s('personal')}</h4>
                                 <div class="details-list">
-                                    <div class="detail-item">
-                                        <span class="detail-label">ასაკი</span>
-                                        <span class="detail-value">${talent.age} წლის</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="detail-label">სქესი</span>
-                                        <span class="detail-value">${talent.gender === 'male' ? 'მამაკაცი' : 'ქალი'}</span>
-                                    </div>
-                                    ${talent.city ? `
-                                    <div class="detail-item">
-                                        <span class="detail-label">ქალაქი</span>
-                                        <span class="detail-value">${talent.city}</span>
-                                    </div>
-                                    ` : ''}
-                                    <div class="detail-item">
-                                        <span class="detail-label">ეროვნება</span>
-                                        <span class="detail-value">საქართველო</span>
-                                    </div>
+                                    ${detailRow('age', ageText)}
+                                    ${detailRow('gender', genderText)}
+                                    ${detailRow('city', city)}
+                                    ${detailRow('languages', languages.join(', '))}
                                 </div>
                             </div>
-                            
+                            ${heightText || weightText || L(talent.eyeColor) || L(talent.hairColor) ? `
                             <div class="details-card">
-                                <h4>გარეგნობა</h4>
+                                <h4>${s('appearance')}</h4>
                                 <div class="details-list">
-                                    ${talent.height ? `
-                                    <div class="detail-item">
-                                        <span class="detail-label">სიმაღლე</span>
-                                        <span class="detail-value">${talent.height} სმ</span>
-                                    </div>
-                                    ` : ''}
-                                    ${talent.weight ? `
-                                    <div class="detail-item">
-                                        <span class="detail-label">წონა</span>
-                                        <span class="detail-value">${talent.weight} კგ</span>
-                                    </div>
-                                    ` : ''}
-                                    ${talent.eyeColor ? `
-                                    <div class="detail-item">
-                                        <span class="detail-label">თვალის ფერი</span>
-                                        <span class="detail-value">${talent.eyeColor}</span>
-                                    </div>
-                                    ` : ''}
-                                    ${talent.hairColor ? `
-                                    <div class="detail-item">
-                                        <span class="detail-label">თმის ფერი</span>
-                                        <span class="detail-value">${talent.hairColor}</span>
-                                    </div>
-                                    ` : ''}
+                                    ${detailRow('height', heightText)}
+                                    ${detailRow('weight', weightText)}
+                                    ${detailRow('eyeColor', L(talent.eyeColor))}
+                                    ${detailRow('hairColor', L(talent.hairColor))}
                                 </div>
                             </div>
+                            ` : ''}
                         </div>
-                        
-                        ${talent.bio ? `
-                        <div style="margin-top: 2rem;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">ბიოგრაფია</h3>
-                            <p style="color: var(--medium-gray); line-height: 1.8;">${talent.bio}</p>
+
+                        ${bio ? `
+                        <div class="overview-block">
+                            <h3>${s('bio')}</h3>
+                            <p class="bio-text">${esc(bio)}</p>
+                        </div>
+                        ` : ''}
+
+                        ${education ? `
+                        <div class="overview-block">
+                            <h3>${s('education')}</h3>
+                            <p class="bio-text">${esc(education)}</p>
                         </div>
                         ` : ''}
                         
-                        ${skillsArray.length > 0 ? `
-                        <div style="margin-top: 2rem;">
-                            <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">უნარები</h3>
-                            <div class="skills-grid">
-                                <div class="skill-category">
-                                    <h4>უნარ-ჩვევები</h4>
-                                    <div class="skill-list">
-                                        ${skillsArray.map(skill => `
-                                        <div class="skill-item">
-                                            <span class="skill-name">${skill}</span>
-                                        </div>
-                                        `).join('')}
-                                    </div>
-                                </div>
+                        ${skills.length ? `
+                        <div class="overview-block">
+                            <h3>${s('skills')}</h3>
+                            <div class="skill-tags">
+                                ${skills.map(skill => `<span class="skill-tag">${esc(skill)}</span>`).join('')}
                             </div>
                         </div>
                         ` : ''}
                     </section>
-                    
-                    ${photos.length > 1 ? `
-                    <!-- Photos Section -->
-                    <section class="talent-section" id="photos">
-                        <h2 class="section-title">ფოტო გალერეა</h2>
-                        <div class="photos-grid">
-                            ${photos.map((photo, i) => `
-                            <div class="photo-item" onclick="openLightbox(${i})">
-                                <img src="${photo.data}" alt="Photo ${i+1}">
-                            </div>
+
+                    ${videos.length ? `
+                    <section class="talent-section" id="showreels">
+                        <h2 class="section-title">${s('showreels')}</h2>
+                        <div class="videos-grid">
+                            ${videos.map(url => `
+                                <div class="video-card">
+                                    <div class="video-embed">${T.videoEmbedHtml(url)}</div>
+                                </div>
                             `).join('')}
                         </div>
                     </section>
                     ` : ''}
-                    
-                    ${videos.length > 0 ? `
-                    <!-- Showreels Section -->
-                    <section class="talent-section" id="showreels">
-                        <h2 class="section-title">შოურილი / ვიდეოები</h2>
-                        <div class="videos-grid">
-                            ${videos.map((url, i) => {
-                                const embedUrl = getYouTubeEmbedUrl(url);
-                                if (!embedUrl) return '';
-                                return `
-                                <div class="video-card">
-                                    <div class="video-embed">
-                                        <iframe src="${embedUrl}" allowfullscreen></iframe>
-                                    </div>
-                                    <div class="video-info">
-                                        <div class="video-title">ვიდეო ${i + 1}</div>
-                                    </div>
-                                </div>
-                                `;
-                            }).join('')}
+
+                    ${photos.length > 1 ? `
+                    <section class="talent-section" id="photos">
+                        <h2 class="section-title">${s('photoGallery')}</h2>
+                        <div class="photos-grid">
+                            ${photos.map((photo, i) => `
+                            <button type="button" class="photo-item" data-lightbox="${i}" aria-label="${s('photos')} ${i + 1}">
+                                <img src="${esc(photo)}" alt="${esc(name)} ${i + 1}" loading="lazy">
+                            </button>
+                            `).join('')}
                         </div>
                     </section>
                     ` : ''}
-                    
-                    ${talent.experience ? `
-                    <!-- CV Section -->
+
+                    ${hasCv ? `
                     <section class="talent-section" id="cv">
-                        <h2 class="section-title">CV / გამოცდილება</h2>
-                        <div style="background: var(--off-white); padding: 2rem;">
-                            <p style="white-space: pre-wrap; line-height: 1.8;">${talent.experience}</p>
+                        <h2 class="section-title">${s('cvTitle')}</h2>
+                        ${experience ? `
+                        <div class="cv-text">
+                            <p>${esc(experience)}</p>
                         </div>
+                        ` : ''}
+                        ${cvUrl ? `<a href="${esc(cvUrl)}" class="cv-download" target="_blank" rel="noopener">⬇ ${s('downloadCv')}</a>` : ''}
                     </section>
                     ` : ''}
-                    
-                    <!-- Contact Section -->
+
                     <section class="talent-section" id="contact">
-                        <h2 class="section-title">კონტაქტი</h2>
+                        <h2 class="section-title">${s('contact')}</h2>
                         <div class="contact-section">
                             <div class="contact-grid">
-                                ${talent.email ? `
+                                ${email ? `
                                 <div class="contact-method">
                                     <div class="contact-icon">📧</div>
                                     <div class="contact-info">
-                                        <h5>ელფოსტა</h5>
-                                        <a href="mailto:${talent.email}">${talent.email}</a>
+                                        <h5>${s('email')}</h5>
+                                        <a href="mailto:${esc(email)}">${esc(email)}</a>
                                     </div>
                                 </div>
                                 ` : ''}
-                                ${talent.phone ? `
+                                ${phone ? `
                                 <div class="contact-method">
                                     <div class="contact-icon">📞</div>
                                     <div class="contact-info">
-                                        <h5>ტელეფონი</h5>
-                                        <a href="tel:${talent.phone}">${talent.phone}</a>
+                                        <h5>${s('phone')}</h5>
+                                        <a href="tel:${esc(phone.replace(/[^\d+]/g, ''))}">${esc(phone)}</a>
                                     </div>
                                 </div>
                                 ` : ''}
                                 <div class="contact-method">
                                     <div class="contact-icon">🎬</div>
                                     <div class="contact-info">
-                                        <h5>წარმომადგენელი</h5>
-                                        <a href="mailto:info@shuqi.ge">shuQi Production</a>
+                                        <h5>${s('agency')}</h5>
+                                        <a href="mailto:info@shuqi.ge?subject=${encodeURIComponent(name)}">shuQi Production · info@shuqi.ge</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </main>
-                
-                <!-- Footer -->
-                <footer class="talent-footer">
-                    <p>© 2026 <a href="index.html">shuQi Production</a>. ყველა უფლება დაცულია.</p>
-                </footer>
             `;
-            
-            // Store photos for lightbox
-            window.currentPhotos = photos;
-            
-            // Setup navigation active state
+
             setupNavigation();
         }
-        
-        // Show not found
+
         function showNotFound() {
-            const container = document.getElementById('talentPageContent');
-            container.innerHTML = `
+            document.title = T.str('notFoundTitle', currentLang) + ' - shuQi Production';
+            document.getElementById('talentPageContent').innerHTML = `
                 <div class="not-found">
-                    <h1>ტალანტი ვერ მოიძებნა</h1>
-                    <p>სამწუხაროდ, მოთხოვნილი გვერდი არ არსებობს.</p>
-                    <a href="index.html#talents">← დაბრუნდი ტალანტების გვერდზე</a>
+                    <h1>${esc(T.str('notFoundTitle', currentLang))}</h1>
+                    <p>${esc(T.str('notFoundText', currentLang))}</p>
+                    <a href="portfolio.html">${esc(T.str('backToPortfolio', currentLang))}</a>
                 </div>
             `;
         }
-        
-        // Change hero photo
-        window.changeHeroPhoto = function(src, thumb) {
-            document.getElementById('heroMainPhoto').src = src;
-            document.querySelectorAll('.talent-thumb').forEach(t => t.classList.remove('active'));
-            thumb.classList.add('active');
-        };
-        
-        // Lightbox functions
-        let currentLightboxIndex = 0;
-        
-        window.openLightbox = function(index) {
+
+        function showLoadError() {
+            document.getElementById('talentPageContent').innerHTML = `
+                <div class="not-found">
+                    <p>${esc(T.str('loadError', currentLang))}</p>
+                    <a href="portfolio.html">${esc(T.str('backToPortfolio', currentLang))}</a>
+                </div>
+            `;
+        }
+
+        // ========================================
+        // PHOTOS & LIGHTBOX
+        // ========================================
+        document.getElementById('talentPageContent').addEventListener('click', (e) => {
+            const thumb = e.target.closest('[data-thumb]');
+            if (thumb) {
+                const index = Number(thumb.dataset.thumb);
+                document.getElementById('heroMainPhoto').src = currentPhotos[index];
+                document.querySelectorAll('.talent-thumb').forEach(t => t.classList.remove('active'));
+                thumb.querySelector('.talent-thumb').classList.add('active');
+                return;
+            }
+            const item = e.target.closest('[data-lightbox]');
+            if (item) openLightbox(Number(item.dataset.lightbox));
+        });
+
+        const lightbox = document.getElementById('photoLightbox');
+        let lastFocused = null;
+
+        function openLightbox(index) {
+            if (!currentPhotos.length) return;
+            lastFocused = document.activeElement;
             currentLightboxIndex = index;
-            const lightbox = document.getElementById('photoLightbox');
-            const img = document.getElementById('lightboxImage');
-            img.src = window.currentPhotos[index].data;
+            document.getElementById('lightboxImage').src = currentPhotos[index];
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-        };
-        
-        window.closeLightbox = function() {
-            document.getElementById('photoLightbox').classList.remove('active');
+            document.getElementById('lightboxClose').focus();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
             document.body.style.overflow = '';
-        };
-        
-        window.navigateLightbox = function(dir) {
-            const photos = window.currentPhotos;
-            currentLightboxIndex = (currentLightboxIndex + dir + photos.length) % photos.length;
-            document.getElementById('lightboxImage').src = photos[currentLightboxIndex].data;
-        };
-        
-        // Close lightbox on escape
+            if (lastFocused) lastFocused.focus();
+        }
+
+        function navigateLightbox(dir) {
+            const n = currentPhotos.length;
+            currentLightboxIndex = (currentLightboxIndex + dir + n) % n;
+            document.getElementById('lightboxImage').src = currentPhotos[currentLightboxIndex];
+        }
+
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxPrev').addEventListener('click', () => navigateLightbox(-1));
+        document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox(1));
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
         document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
             if (e.key === 'ArrowLeft') navigateLightbox(-1);
             if (e.key === 'ArrowRight') navigateLightbox(1);
         });
-        
-        // Setup navigation scroll spy
+
+        // Swipe between photos on phones
+        let touchStartX = null;
+        lightbox.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            if (touchStartX === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(dx) > 50) navigateLightbox(dx < 0 ? 1 : -1);
+            touchStartX = null;
+        });
+
+        // ========================================
+        // SECTION NAV SCROLL SPY
+        // ========================================
+        let scrollSpyBound = false;
         function setupNavigation() {
-            const navLinks = document.querySelectorAll('.talent-nav-link');
-            const sections = document.querySelectorAll('.talent-section');
-            
+            if (scrollSpyBound) return;
+            scrollSpyBound = true;
             window.addEventListener('scroll', () => {
                 let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 150;
-                    if (window.scrollY >= sectionTop) {
-                        current = section.getAttribute('id');
-                    }
+                document.querySelectorAll('.talent-section').forEach(section => {
+                    if (window.scrollY >= section.offsetTop - 150) current = section.id;
                 });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
+                document.querySelectorAll('.talent-nav-link').forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
                 });
-            });
+            }, { passive: true });
         }
-        
-        // Initialize
+
+        // ========================================
+        // INIT
+        // ========================================
+        updateLanguage(currentLang);
+
         const slug = getTalentSlug();
-        if (slug) {
-            const talent = findTalent(slug);
-            if (talent) {
-                renderTalentPage(talent);
-            } else {
-                showNotFound();
-            }
-        } else {
-            showNotFound();
-        }
+        T.loadTalents()
+            .then(talents => {
+                currentTalent = slug ? talents.find(t => t.slug === slug) : null;
+                if (currentTalent) {
+                    renderTalentPage(currentTalent);
+                    if (window.location.hash) {
+                        const target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+                        if (target) target.scrollIntoView();
+                    }
+                } else {
+                    notFound = true;
+                    showNotFound();
+                }
+            })
+            .catch(err => {
+                console.error('Failed to load talents:', err);
+                showLoadError();
+            });
     </script>
 </body>
 </html>
