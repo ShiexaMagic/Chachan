@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>სამსახიობო სკოლა | გადაღების სწავლა, ოპერატორობის სწავლა, მსახიობის კურსები</title>
-    <meta name="description" content="შუქი პროდაქშენი — სამსახიობო სკოლა და კინოს გადაღების სწავლა საქართველოში: მსახიობის კურსები, გადაღების სწავლა, ოპერატორობის სწავლა, მონტაჟი, გრაფიკა და კინოს კურსები.">
+    <meta name="description" content="შუქი პროდაქშენი - სამსახიობო სკოლა და კინოს გადაღების სწავლა საქართველოში: მსახიობის კურსები, გადაღების სწავლა, ოპერატორობის სწავლა, მონტაჟი, გრაფიკა და კინოს კურსები.">
     <meta name="keywords" content="სამსახიობო სკოლა, გადაღების სწავლა, ოპერატორობის სწავლა, მსახიობის კურსები, კინოს გადაღება, გადაღება, მონტაჟი, გრაფიკა, სწავლა, კინოს კურსები, კინო სკოლა, საქართველოს კინოს სკოლა">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://www.shuqi.ge/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="სამსახიობო სკოლა | გადაღების სწავლა, ოპერატორობის სწავლა, მსახიობის კურსები">
-    <meta property="og:description" content="შუქი პროდაქშენი — სამსახიობო სკოლა საქართველოში, გადაღების სწავლა, ოპერატორობის სწავლა, მსახიობის კურსები და კინოს გადაღება.">
+    <meta property="og:description" content="შუქი პროდაქშენი - სამსახიობო სკოლა საქართველოში, გადაღების სწავლა, ოპერატორობის სწავლა, მსახიობის კურსები და კინოს გადაღება.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="./images/web.png">
     <meta property="og:image:width" content="1344">
@@ -24,7 +24,13 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#f3f3f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/shuqi.css">
+    <script>document.documentElement.classList.add('js');</script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
     <script type="application/ld+json">
     {
@@ -104,351 +110,51 @@
         })();
     </script>
     <style>
-        :root {
-            /* Black and White Palette */
-            --pure-black: #000000;
-            --dark-gray: #1d1d1f;
-            --medium-gray: #86868b;
-            --light-gray: #d2d2d7;
-            --off-white: #f5f5f7;
-            --pure-white: #ffffff;
-            
-            /* Mapped colors for design system */
-            --film-black: #000000;
-            --film-dark: #1d1d1f;
-            --primary-accent: #000000;
-            --secondary-accent: #1d1d1f;
-            --tertiary-accent: #86868b;
-            --light-bg: #ffffff;
-            --cream-bg: #f5f5f7;
-            --film-white: #ffffff;
-            --film-silver: #86868b;
-            --film-gradient: linear-gradient(135deg, #000000 0%, #1d1d1f 50%, #000000 100%);
-        }
-        
-        * {
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', 'Segoe UI', 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            overflow-x: hidden;
-            font-size: 17px;
-            line-height: 1.47059;
-            font-weight: 400;
-            letter-spacing: -0.022em;
-        }
-        
-        /* Film Strip Background Pattern */
-        .film-strip-bg {
-            position: relative;
-            background: var(--film-gradient);
-        }
-        
-        .film-strip-bg::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                /* Top film strip holes */
-                radial-gradient(circle at 20px 15px, transparent 8px, var(--film-black) 8px),
-                radial-gradient(circle at 60px 15px, transparent 8px, var(--film-black) 8px),
-                radial-gradient(circle at 100px 15px, transparent 8px, var(--film-black) 8px),
-                /* Bottom film strip holes */
-                radial-gradient(circle at 20px calc(100% - 15px), transparent 8px, var(--film-black) 8px),
-                radial-gradient(circle at 60px calc(100% - 15px), transparent 8px, var(--film-black) 8px),
-                radial-gradient(circle at 100px calc(100% - 15px), transparent 8px, var(--film-black) 8px),
-                /* Film strip borders */
-                linear-gradient(to bottom, var(--film-dark) 0px, var(--film-dark) 30px, transparent 30px, transparent calc(100% - 30px), var(--film-dark) calc(100% - 30px));
-            background-size: 120px 100%, 120px 100%, 120px 100%, 120px 100%, 120px 100%, 120px 100%, 100% 100%;
-            background-repeat: repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, repeat-x, no-repeat;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
-        /* Light Switch Screen - Clean Film Theme */
+        /* Homepage styles. Shared tokens, header, buttons and footer live in assets/shuqi.css. */
+
+        /* ---------- Light switch intro ---------- */
         .light-switch-screen {
-            background: var(--film-black);
-            color: var(--film-white);
-            min-height: 100vh;
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
-            position: relative;
+            gap: 8px;
+            padding: 24px;
+            background: radial-gradient(ellipse at 50% 40%, #1d1d21 0%, #0b0b0d 70%);
+            color: #f1f1ee;
+            text-align: center;
         }
-        
-        .light-switch-screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                /* Paper texture */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .light-switch-screen > * {
-            position: relative;
-            z-index: 1;
-        }
-        
+
         .opening-logo {
-            max-width: 320px;
+            width: min(220px, 52vw);
             height: auto;
-            margin-bottom: 3rem;
             filter: brightness(0) invert(1);
             opacity: 0.9;
         }
-        
-        .title {
-            color: var(--primary-accent);
-            font-size: 5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            text-align: center;
-            letter-spacing: -0.015em;
-            line-height: 1.05;
-        }
-        
-        .subtitle {
-            color: #86868b;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 3rem;
-            letter-spacing: -0.01em;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-        }
-        
-        /* Film Strip Light Switch */
-        .realistic-switch-container {
-            perspective: 1000px;
-            margin: 3rem 0;
-            z-index: 2;
-            position: relative;
-        }
-        
-        .switch-plate {
-            width: 140px;
-            height: 240px;
-            background: var(--film-silver);
-            border-radius: 0;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 3px solid var(--film-dark);
-        }
-        
-        .switch-plate::before {
-            content: '';
-            display: none;
-        }
-        
-        .switch-plate::after {
-            content: '';
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'Orbitron', monospace;
-            font-size: 8px;
-            font-weight: bold;
-            color: var(--film-dark);
-            letter-spacing: 0.5px;
-        }
-        
-        .switch-plate:hover {
-            transform: translateY(-4px);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.9),
-                inset 0 3px 6px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.3),
-                0 0 30px rgba(255, 204, 0, 0.3);
-        }
-        
-        /* Film Frame Style Switch Screws */
-        .switch-screw {
-            width: 12px;
-            height: 12px;
-            background: radial-gradient(circle, var(--film-dark), #333);
-            border-radius: 0;
-            position: absolute;
-            box-shadow: 
-                inset 0 2px 4px rgba(0, 0, 0, 0.6),
-                0 1px 2px rgba(255, 255, 255, 0.3);
-        }
-        
-        .switch-screw::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 8px;
-            height: 1px;
-            background: #666;
-            transform: translate(-50%, -50%);
-            box-shadow: 0 0 1px rgba(255,255,255,0.5);
-        }
-        
-        .switch-screw:nth-child(1) { top: 20px; left: 20px; }
-        .switch-screw:nth-child(2) { top: 20px; right: 20px; }
-        .switch-screw:nth-child(3) { bottom: 20px; left: 20px; }
-        .switch-screw:nth-child(4) { bottom: 20px; right: 20px; }
-        
-        /* Clean Toggle Area */
-        .switch-toggle-area {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 140px;
-            background: var(--film-dark);
-            border-radius: 0;
-            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.4);
-            border: 2px solid var(--film-dark);
-        }
-        
-        .switch-toggle-area::before {
-            content: 'OFF';
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            font-weight: bold;
-            color: var(--film-silver);
-            letter-spacing: 1px;
-            opacity: 0.7;
-        }
-        
-        .switch-toggle-area::after {
-            content: 'ON';
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 10px;
-            font-weight: bold;
-            color: var(--film-silver);
-            letter-spacing: 1px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .switch-toggle-area.revealed::after {
-            opacity: 0.7;
-        }
-        
-        /* Clean Toggle */
-        .switch-toggle {
-            position: absolute;
-            top: 10px; /* OFF position - top */
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 55px;
-            background: var(--film-silver);
-            border-radius: 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--film-dark);
-        }
-        
-        .switch-toggle::before {
-            content: '';
-            display: none;
-        }
-        
-        .switch-toggle.on {
-            top: 75px; /* ON position - bottom */
-            background: var(--secondary-accent);
-            box-shadow: 
-                0 4px 8px rgba(0, 0, 0, 0.3),
-                0 0 15px rgba(255, 204, 0, 0.5);
-        }
-        
-        .switch-toggle.on::before {
-            content: '';
-            display: none;
-        }
-        
-        .switch-button {
-            background-color: #e5e5e5;
-            border: none;
-            padding: 30px 60px;
-            border-radius: 0;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #333;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-            font-family: 'Noto Sans Georgian', sans-serif;
-        }
-        
-        .switch-button:hover {
-            background-color: #d4af37;
-            color: white;
-            transform: translateY(-4px);
-        }
-        
-        /* Realistic Light Switch */
-        .realistic-switch-container {
-            perspective: 1000px;
-            margin: 2rem 0;
-        }
-        
+
+        .realistic-switch-container { perspective: 1000px; margin: 40px 0 8px; }
+
         .switch-plate {
             width: 120px;
             height: 200px;
-            background: linear-gradient(145deg, #f0f0f0, #d8d8d8);
-            border-radius: 0;
+            background: linear-gradient(145deg, #f0f0ee, #d6d6d2);
             position: relative;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 2px 4px rgba(255, 255, 255, 0.6),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
         }
-        
-        .switch-plate:hover {
-            transform: translateY(-2px);
-            box-shadow: 
-                0 12px 36px rgba(0, 0, 0, 0.4),
-                inset 0 2px 4px rgba(255, 255, 255, 0.6),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .switch-plate:active {
-            transform: translateY(0px);
-        }
-        
-        /* Switch screws */
+        .switch-plate:hover { box-shadow: 0 0 0 1px rgba(255, 197, 61, 0.35), 0 30px 70px -20px rgba(255, 197, 61, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.6), inset 0 -2px 4px rgba(0, 0, 0, 0.2); }
+
         .switch-screw {
             width: 8px;
             height: 8px;
             background: radial-gradient(circle, #a0a0a0, #707070);
-            border-radius: 0;
             position: absolute;
             box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
         }
-        
         .switch-screw::before {
             content: '';
             position: absolute;
@@ -459,13 +165,11 @@
             background: #505050;
             transform: translate(-50%, -50%);
         }
-        
         .switch-screw:nth-child(1) { top: 15px; left: 15px; }
         .switch-screw:nth-child(2) { top: 15px; right: 15px; }
         .switch-screw:nth-child(3) { bottom: 15px; left: 15px; }
         .switch-screw:nth-child(4) { bottom: 15px; right: 15px; }
-        
-        /* Switch toggle area */
+
         .switch-toggle-area {
             position: absolute;
             top: 40px;
@@ -473,2267 +177,584 @@
             transform: translateX(-50%);
             width: 60px;
             height: 120px;
-            background: linear-gradient(145deg, #e8e8e8, #c8c8c8);
-            border-radius: 0;
-            box-shadow: 
-                inset 0 2px 6px rgba(0, 0, 0, 0.2),
-                inset 0 -1px 2px rgba(255, 255, 255, 0.8);
+            background: linear-gradient(145deg, #e6e6e2, #c6c6c2);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2), inset 0 -1px 2px rgba(255, 255, 255, 0.8);
         }
-        
-        /* Switch toggle button */
+
         .switch-toggle {
             position: absolute;
-            top: 60px; /* OFF position - bottom half */
+            top: 60px;
             left: 50%;
             transform: translateX(-50%);
             width: 50px;
             height: 50px;
-            background: linear-gradient(145deg, #f8f8f8, #e0e0e0);
-            border-radius: 0;
-            box-shadow: 
-                0 4px 8px rgba(0, 0, 0, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.8),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(145deg, #f8f8f6, #dededa);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.8), inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            transition: top 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
         }
-        
         .switch-toggle.on {
-            top: 10px; /* ON position - top half */
-            background: linear-gradient(145deg, #fff8e1, #f0e68c);
-            box-shadow: 
-                0 2px 4px rgba(0, 0, 0, 0.2),
-                inset 0 1px 2px rgba(255, 255, 255, 0.9),
-                inset 0 -1px 2px rgba(0, 0, 0, 0.1),
-                0 0 10px rgba(212, 175, 55, 0.4);
+            top: 10px;
+            background: linear-gradient(145deg, #fff6d6, #ffd76a);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.9), 0 0 18px rgba(255, 197, 61, 0.55);
         }
-        
-        /* Overexposure flash effect */
+
+        .instruction {
+            margin: 24px 0 0;
+            font-size: 1rem;
+            color: rgba(241, 241, 238, 0.72);
+        }
+
         .flash-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.95);
+            inset: 0;
+            background: rgba(255, 252, 240, 0.97);
             opacity: 0;
             pointer-events: none;
-            z-index: 9999;
+            z-index: 1100;
             transition: opacity 0.1s ease-out;
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
-        
-        .flash-overlay.active {
-            opacity: 1;
-        }
-        
+        .flash-overlay.active { opacity: 1; }
+
         @keyframes mistZoomOut {
-            0% {
-                opacity: 0;
-                filter: blur(30px);
-                transform: scale(1.3) translateZ(0);
-            }
-            40% {
-                opacity: 0.5;
-                filter: blur(0px);
-            }
-            100% {
-                opacity: 0;
-                filter: blur(15px);
-                transform: scale(0.85) translateZ(0);
-            }
+            0% { opacity: 0; filter: blur(30px); transform: scale(1.3); }
+            40% { opacity: 0.5; filter: blur(0); }
+            100% { opacity: 0; filter: blur(15px); transform: scale(0.85); }
         }
-        
+
         .flash-text {
             font-size: 9.5vw;
             font-weight: 300;
-            color: #e0e0e0;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-            text-stroke: 1px rgba(255, 255, 255, 0.3);
-            position: absolute;
-            z-index: 10;
+            color: #e0ddd2;
             white-space: nowrap;
             opacity: 0;
             filter: blur(30px);
-            transform: scale(1.3) translateZ(0);
-            text-shadow: 
-                0 0 60px rgba(255, 255, 255, 0.8),
-                0 0 100px rgba(255, 255, 255, 0.6),
-                0 0 140px rgba(255, 255, 255, 0.4),
-                0 0 200px rgba(255, 255, 255, 0.2);
+            transform: scale(1.3);
+            text-shadow: 0 0 60px rgba(255, 255, 255, 0.8), 0 0 140px rgba(255, 255, 255, 0.4);
             will-change: opacity, filter, transform;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
         }
-        
-        .flash-text.visible {
-            animation: mistZoomOut 1.2s linear forwards;
-        }
-        
-        /* Website simple fade-in */
-        .main-website {
-            opacity: 0;
-            transition: opacity 0.8s ease-out;
-        }
-        
-        .main-website.zoom-in {
-            opacity: 1;
-        }
-        
-        .switch-button:hover {
-            background-color: #d4af37;
-            color: white;
-            transform: translateY(-4px);
-        }
-        
-        .instruction {
-            color: var(--film-silver);
-            font-size: 1.2rem;
-            margin-top: 2.5rem;
-            text-align: center;
-            z-index: 2;
-            position: relative;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Main Website - Light Theme (After Switch) */
-        .main-website {
-            display: none;
-            background: var(--film-white);
-            color: var(--film-black);
-            min-height: 100vh;
-            position: relative;
-        }
-        
-        .main-website::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                /* Paper texture */
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-                /* Subtle gradient for aged look */
-                linear-gradient(180deg, 
-                    rgba(245, 235, 220, 0.3) 0%, 
-                    rgba(255, 253, 248, 0.2) 50%, 
-                    rgba(240, 230, 215, 0.3) 100%);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .main-website > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Clean Film Header - Light Theme */
-        .header {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: saturate(180%) blur(20px);
-            color: #1d1d1f;
-            padding: 0;
-            border-bottom: 1px solid #d2d2d7;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 22px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 48px;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            z-index: 1001;
-        }
-        
-        .header-logo {
-            height: 28px;
-            width: auto;
-            filter: brightness(0);
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            margin: 0;
-            font-weight: 600;
-            color: #1d1d1f;
-            letter-spacing: -0.015em;
-        }
-        
-        .logo::before {
-            content: '';
-            font-size: 2.5rem;
-            filter: none;
-        }
-        
-        /* Hamburger Menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            z-index: 1001;
-            background: none;
-            border: none;
-            padding: 8px;
-        }
-        
-        .menu-toggle span {
-            width: 22px;
-            height: 2px;
-            background: #1d1d1f;
-            transition: all 0.3s ease;
-            display: block;
-        }
-        
-        .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .menu-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-        
-        /* Light Theme Navigation */
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: #1d1d1f;
-            text-decoration: none;
-            padding: 0;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-            font-weight: 400;
-        }
-        
-        @media (min-width: 900px) {
-            .nav-link {
-                white-space: nowrap;
-            }
-        }
-        
-        @media (min-width: 900px) and (max-width: 1100px) {
-            .nav-links {
-                gap: clamp(10px, 2.2vw, 32px);
-            }
-            
-            .nav-link {
-                font-size: 0.8rem;
-            }
-        }
-        
-        .nav-link:hover {
-            color: var(--primary-accent);
-        }
-        
-        /* Language Switch Button */
-        .lang-switch {
-            background: #1d1d1f;
-            color: #fff;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-left: 8px;
-        }
-        
-        .lang-switch:hover {
-            background: #000;
-            transform: scale(1.05);
-        }
+        .flash-text.visible { animation: mistZoomOut 1.2s linear forwards; }
 
-        /* Light Theme Hero Section */
+        .main-website { display: none; opacity: 0; transition: opacity 0.8s var(--ease); }
+        .main-website.zoom-in { opacity: 1; }
+
+        /* ---------- Sections ---------- */
+        .section { padding-block: var(--section-y); }
+        .section + .section { border-top: 1px solid var(--line); }
+        .section-title + .lead, .section-title + .about-name { margin-top: 16px; }
+
+        /* ---------- Hero ---------- */
         .hero {
             position: relative;
-            color: var(--film-white);
-            padding: 5.2rem 2rem;
-            text-align: center;
-            overflow: hidden;
-            min-height: 600px;
+            min-height: 100dvh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #0b0b0d;
+            color: #fff;
+            isolation: isolate;
         }
-        
+
         .hero-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 0;
+            inset: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            z-index: -2;
         }
-        
+
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 62, 80, 0.6);
-            z-index: 1;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(180deg, rgba(8, 8, 10, 0.55) 0%, rgba(8, 8, 10, 0) 22%),
+                linear-gradient(20deg, rgba(8, 8, 10, 0.85) 0%, rgba(8, 8, 10, 0.35) 45%, rgba(8, 8, 10, 0.05) 75%);
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
+
+        .hero-content { padding-block: calc(var(--header-h) + 48px) clamp(56px, 10vh, 112px); }
+
+        .hero-title {
+            color: #fff;
+            font-size: clamp(2.75rem, 1.4rem + 5.6vw, 6.5rem);
+            line-height: 1;
+            max-width: 17ch;
         }
-        
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--film-white);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            letter-spacing: -0.015em;
-            line-height: 1.05;
+
+        .hero-sub {
+            margin: 24px 0 0;
+            max-width: 46ch;
+            font-size: clamp(1.02rem, 0.95rem + 0.35vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.84);
         }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--film-white);
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-            font-weight: 400;
-            letter-spacing: -0.01em;
+
+        .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .main-website.zoom-in .hero-title,
+            .main-website.zoom-in .hero-sub,
+            .main-website.zoom-in .hero-buttons {
+                animation: heroIn 1.1s var(--ease) both;
+            }
+            .main-website.zoom-in .hero-sub { animation-delay: 0.12s; }
+            .main-website.zoom-in .hero-buttons { animation-delay: 0.24s; }
         }
-        
-        /* Film Strip Buttons */
-        .hero-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-        
-        .btn {
-            padding: 1.5rem 3rem;
-            border-radius: 0;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary {
-            background: var(--film-white);
-            color: var(--film-black);
-            border-color: var(--film-white);
-            box-shadow: none;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-        }
-        
-        .btn-secondary {
-            border-color: var(--secondary-accent);
-            color: var(--secondary-accent);
-            background: var(--film-white);
-            box-shadow: none;
-        }
-        
-        .btn-secondary:hover {
-            background: var(--secondary-accent);
-            color: var(--film-black);
-            transform: translateY(-4px);
-        }
-        
-        /* Film Frame Sections */
-        .section {
-            padding: 3.9rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .section h2 {
-            font-size: 3.5rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            color: var(--primary-accent);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            text-shadow: none;
-            letter-spacing: 2px;
-        }
-        
-        /* Film Strip About Section */
+        @keyframes heroIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+        /* ---------- About ---------- */
         .about-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-image {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about-img {
-            width: 100%;
-            height: auto;
-            min-height: 400px;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.4s ease;
-        }
-        
-        .about-image:hover .about-img {
-            filter: grayscale(0%);
-        }
-        
-        .film-frame {
-            position: relative;
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            border: none;
-            box-shadow: none;
-        }
-        
-        .film-frame::before {
-            display: none;
-        }
-        
-        .about-text h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-accent);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-        
-        .about-text p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: var(--film-black);
-        }
-        
-        /* Film Strip Statistics */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .stat {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem 1rem;
-            border-radius: 0;
-            border: 2px solid var(--yellow-orange-400);
-            transition: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .stat:hover {
-            transform: none;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary-accent);
-            display: block;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: none;
-        }
-        
-        .stat-label {
-            color: #666666;
-            font-size: 1rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Film Strip Courses */
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 2rem;
-        }
-        
-        .course-card {
-            background: var(--film-white);
-            border-radius: 0;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: all 0.4s ease;
-            border: 3px solid var(--yellow-orange-700);
-        }
-        
-        .course-card:hover {
-            transform: none;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        
-        .course-content {
-            padding: 2.5rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .course-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--primary-accent);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-        }
-        
-        .course-content p {
-            color: #666666;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .course-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .duration {
-            color: var(--yellow-orange-700);
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .course-btn {
-            background: var(--yellow-orange-700);
-            color: var(--film-black);
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 0;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-        }
-        
-        .course-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+            grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: start;
         }
 
-        .course-btn.coming-soon {
-            background: #ccc;
-            color: #888;
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
+        .about-name { margin: 28px 0 12px; font-size: 1.15rem; font-weight: 600; color: var(--muted); }
+        .about-text p { margin: 0 0 18px; max-width: 60ch; }
 
-        .course-btn.coming-soon:hover {
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Course Details Modal */
-        .course-modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
+        .about-images { position: relative; padding-bottom: 18%; }
+        .about-img { width: 100%; height: auto; object-fit: cover; }
+        .about-img--main { aspect-ratio: 4 / 5; width: 78%; margin-left: auto; }
+        .about-img--offset {
+            position: absolute;
             left: 0;
+            bottom: 0;
+            width: 56%;
+            aspect-ratio: 3 / 2;
+            border: 8px solid var(--bg);
+        }
+
+        .stats {
+            margin-top: clamp(56px, 8vw, 104px);
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border-top: 1px solid var(--line);
+        }
+        .stat { padding: 28px 24px 0 0; display: flex; flex-direction: column; gap: 4px; }
+        .stat-number {
+            font-size: clamp(2.5rem, 1.6rem + 3vw, 4.5rem);
+            font-weight: 700;
+            font-stretch: 75%;
+            line-height: 1;
+            color: var(--ink);
+            font-variant-numeric: tabular-nums;
+        }
+        .stat-label { color: var(--muted); font-size: 15px; }
+
+        /* ---------- What we do: sticky heading + list ---------- */
+        .what-we-do-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: start;
+        }
+        .what-we-do-title { position: sticky; top: calc(var(--header-h) + 32px); }
+        .what-we-do-grid { display: grid; }
+        .what-we-do-item {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+            gap: 12px 40px;
+            padding: 28px 0;
+            border-top: 1px solid var(--line);
+        }
+        .what-we-do-item:first-child { border-top: 0; padding-top: 6px; }
+        .what-we-do-item h3 { font-size: 1.2rem; font-weight: 600; line-height: 1.35; }
+        .what-we-do-item p { margin: 0; color: var(--muted); }
+
+        /* ---------- Courses: image bento ---------- */
+        .courses-grid {
+            margin-top: clamp(32px, 4vw, 56px);
+            display: grid;
+            grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+            grid-template-rows: repeat(2, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .course-card--feature { grid-row: span 2; }
+        .course-card--wide { grid-column: 1 / -1; min-height: 300px; }
+
+        .course-card {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            background: #0b0b0d;
+            color: #fff;
+            isolation: isolate;
+        }
+        .course-img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 10000;
-            overflow-y: auto;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            object-fit: cover;
+            z-index: -2;
+            transition: transform 1.2s var(--ease);
+        }
+        .course-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(0deg, rgba(8, 8, 10, 0.9) 0%, rgba(8, 8, 10, 0.62) 50%, rgba(8, 8, 10, 0.18) 100%);
+        }
+        .course-card:hover .course-img { transform: scale(1.04); }
+
+        .course-content { padding: clamp(24px, 3vw, 40px); max-width: 560px; }
+        .course-content h3 {
+            color: #fff;
+            font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.4rem);
+            font-stretch: 78%;
+            line-height: 1.08;
+        }
+        .course-card--feature .course-content h3 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3.25rem); }
+        .course-tagline { margin: 10px 0 0; color: rgba(255, 255, 255, 0.82); }
+        .course-footer { margin-top: 22px; }
+
+        .course-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 22px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.2s var(--ease);
+        }
+        .course-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+        .course-btn:active { transform: scale(0.98); }
+
+        /* ---------- Actors rail ---------- */
+        .actors-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .actors-head .lead { margin: 16px 0 0; }
+
+        .actors-rail {
+            margin-top: clamp(32px, 4vw, 56px);
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: clamp(220px, 24vw, 320px);
+            gap: 16px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+            scroll-padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+            padding-bottom: 12px;
+            scrollbar-width: thin;
+        }
+        .actor-card { scroll-snap-align: start; text-decoration: none; color: inherit; }
+        .actor-card .actor-photo { overflow: hidden; aspect-ratio: 3 / 4; background: var(--surface-2); }
+        .actor-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+        .actor-card:hover img { transform: scale(1.04); }
+        .actor-card h3 { margin-top: 14px; font-size: 1.1rem; font-weight: 600; }
+        .actor-card p { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+
+        /* ---------- Team ---------- */
+        .team-subtitle { margin: 16px 0 0; }
+        .team-grid {
+            margin-top: clamp(32px, 4vw, 56px);
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 48px 20px;
+        }
+        .team-photo { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--surface-2); }
+        .team-name { margin-top: 16px; font-size: 1.1rem; font-weight: 600; }
+        .team-name a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+        .team-name a:hover { text-decoration: underline; text-underline-offset: 4px; }
+        .imdb-icon, .linkedin-icon {
+            display: inline-block;
+            padding: 1px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: var(--muted);
+            text-decoration: none;
+        }
+        .team-role { margin: 2px 0 0; color: var(--muted); font-size: 15px; }
+
+        /* ---------- Gallery: masonry ---------- */
+        .gallery-subtitle { margin: 16px 0 0; }
+        .gallery-grid { margin-top: clamp(32px, 4vw, 56px); columns: 3; column-gap: 16px; }
+        .gallery-item {
+            display: block;
+            width: 100%;
+            margin: 0 0 16px;
+            padding: 0;
+            border: 0;
+            background: var(--surface-2);
+            cursor: zoom-in;
+            break-inside: avoid;
+            overflow: hidden;
+        }
+        .gallery-item img { width: 100%; height: auto; transition: transform 1s var(--ease), opacity 0.4s var(--ease); }
+        .gallery-item:hover img { transform: scale(1.03); }
+
+        /* ---------- Lightbox ---------- */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 900;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(8, 8, 10, 0.96);
+            color: #fff;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content { max-width: 92vw; max-height: 84vh; }
+        .lightbox-content img { max-width: 92vw; max-height: 84vh; object-fit: contain; }
+        .lightbox-close, .lightbox-nav {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+        .lightbox-close:hover, .lightbox-nav:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
+        .lightbox-close { top: 20px; right: 20px; }
+        .lightbox-nav { top: 50%; transform: translateY(-50%); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-counter { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); font-size: 14px; color: rgba(255, 255, 255, 0.7); font-variant-numeric: tabular-nums; }
+
+        /* ---------- Registration ---------- */
+        .registration-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: start;
+        }
+        .registration-intro .lead { margin: 16px 0 0; }
+        .registration-direct { margin-top: 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+
+        .form-container { background: var(--surface); border: 1px solid var(--line); padding: clamp(24px, 3.5vw, 48px); }
+        #studentForm { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 20px; position: relative; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 14px; font-weight: 600; color: var(--ink); }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            min-height: 50px;
+            padding: 12px 14px;
+            font: inherit;
+            font-size: 16px;
+            color: var(--ink);
+            background: var(--bg);
+            border: 1px solid var(--line-strong);
+            border-radius: 0;
+            transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+        }
+        .form-group input::placeholder { color: var(--muted); opacity: 1; }
+        .form-group input:focus,
+        .form-group select:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 70%, transparent); }
+        .form-submit { grid-column: 1 / -1; justify-content: center; margin-top: 6px; padding-block: 16px; font-size: 16px; }
+        .form-submit:disabled { opacity: 0.6; cursor: progress; }
+        .form-group input[aria-invalid="true"],
+        .form-group select[aria-invalid="true"] { border-color: #c2410c; }
+        .form-status:empty { display: none; }
+        .form-status { grid-column: 1 / -1; margin: 0; font-weight: 600; color: var(--ink); }
+        .form-status[data-type="error"], .form-status[data-type="missing"] { color: #c2410c; }
+        @media (prefers-color-scheme: dark) {
+            .form-group input[aria-invalid="true"], .form-group select[aria-invalid="true"] { border-color: #fb923c; }
+            .form-status[data-type="error"], .form-status[data-type="missing"] { color: #fb923c; }
         }
 
-        .course-modal-overlay.active {
-            display: flex;
+        /* ---------- Contact ---------- */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+            gap: clamp(40px, 6vw, 96px);
+            align-items: stretch;
+        }
+        .contact-heading { margin: 16px 0 0; font-size: 1.15rem; font-weight: 600; color: var(--muted); }
+        .contact-list { margin: 32px 0 0; display: grid; gap: 24px; }
+        .contact-list dt { font-size: 14px; color: var(--muted); }
+        .contact-list dd { margin: 4px 0 0; font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem); font-weight: 600; color: var(--ink); }
+        .contact-list dd a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+        .contact-list dd a:hover { border-color: var(--ink); }
+        .contact-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px !important; }
+        .contact-list .chip { border-bottom: 1px solid var(--line-strong); }
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            color: var(--ink);
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+        }
+        .chip:hover { border-color: var(--ink); }
+        .chip:active { transform: scale(0.98); }
+        .contact-map { min-height: 420px; background: var(--surface-2); }
+        .contact-map iframe { display: block; width: 100%; height: 100%; min-height: 420px; filter: grayscale(1) contrast(1.05); }
+        @media (prefers-color-scheme: dark) { .contact-map iframe { filter: grayscale(1) invert(0.92) contrast(0.9); } }
+
+        /* ---------- Course modals ---------- */
+        .course-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 800;
+            display: none;
             justify-content: center;
             align-items: flex-start;
-            padding: 2rem;
-            opacity: 1;
+            padding: clamp(0px, 4vh, 48px) clamp(0px, 3vw, 32px);
+            background: rgba(8, 8, 10, 0.72);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            overflow-y: auto;
         }
+        .course-modal-overlay.active { display: flex; }
+        .course-modal-overlay.active .course-modal { animation: modalIn 0.5s var(--ease) both; }
+        @keyframes modalIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
         .course-modal {
-            background: #fff;
-            max-width: 900px;
+            position: relative;
             width: 100%;
-            border-radius: 0;
-            position: relative;
-            margin: 2rem auto;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
+            max-width: 820px;
+            background: var(--surface);
+            color: var(--ink-2);
+            box-shadow: var(--shadow);
         }
-
-        .course-modal-overlay.active .course-modal {
-            transform: translateY(0);
-        }
-
         .course-modal-header {
-            background: var(--film-black);
-            color: #fff;
-            padding: 2rem;
-            position: relative;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            padding: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 48px) 20px;
+            padding-right: 84px;
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
         }
-
-        .course-modal-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            margin: 0 0 0.5rem 0;
-            font-weight: 700;
-        }
-
-        .course-modal-header .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
+        .course-modal-header h2 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem); font-stretch: 78%; line-height: 1.05; }
+        .course-modal-header .tagline { margin: 8px 0 0; color: var(--muted); }
         .course-modal-close {
             position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
+            top: 20px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            background: transparent;
+            color: var(--ink);
+            font-size: 24px;
+            line-height: 1;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
+            transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
         }
+        .course-modal-close:hover { border-color: var(--ink); }
+        .course-modal-close:active { transform: scale(0.96); }
 
-        .course-modal-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .course-modal-body {
-            padding: 2.5rem;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-
-        .course-modal-body h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            color: var(--primary-accent);
-            margin: 2rem 0 1rem 0;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #f0f0f0;
-        }
-
-        .course-modal-body h3:first-child {
-            margin-top: 0;
-        }
-
-        .course-modal-body p {
-            color: #333;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .course-modal-body ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .course-modal-body ul li {
-            padding: 0.7rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .course-modal-body ul li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--primary-accent);
-            font-weight: bold;
-        }
+        .course-modal-body { padding: 28px clamp(24px, 4vw, 48px) 40px; }
+        .course-modal-body p { margin: 0 0 16px; max-width: 68ch; }
+        .course-modal-body h3 { margin: 36px 0 14px; font-size: 1.2rem; font-weight: 600; }
+        .course-modal-body ul { margin: 0 0 16px; padding-left: 1.2em; }
+        .course-modal-body li { margin-bottom: 8px; max-width: 66ch; }
+        .course-modal-body li::marker { color: var(--muted); }
+        .course-modal-body strong { color: var(--ink); }
 
         .course-highlight {
-            background: #f8f8f8;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--primary-accent);
-        }
-
-        .course-highlight p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-
-        .course-team-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 0.5rem;
-        }
-
-        .course-team-list li {
-            padding: 0.5rem 0 0.5rem 1.5rem !important;
-        }
-
-        .course-info-box {
-            background: var(--film-black);
-            color: #fff;
-            padding: 2rem;
-            margin-top: 2rem;
-        }
-
-        .course-info-box h4 {
-            font-family: 'Orbitron', sans-serif;
-            margin: 0 0 1.5rem 0;
-            font-size: 1.2rem;
-        }
-
-        .course-info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .course-info-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .course-info-item .label {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-bottom: 0.3rem;
-        }
-
-        .course-info-item .value {
-            font-size: 1.1rem;
+            margin-bottom: 24px;
+            padding: 18px 22px;
+            border-left: 3px solid var(--accent);
+            background: color-mix(in srgb, var(--accent) 14%, var(--surface));
+            color: var(--ink);
             font-weight: 600;
         }
+        .course-highlight p { margin: 0; }
 
-        .course-info-item a {
-            color: #fff;
-            text-decoration: none;
-        }
+        .course-team-list { columns: 2; column-gap: 32px; }
 
-        .course-info-item a:hover {
-            text-decoration: underline;
-        }
+        .course-info-box { margin: 36px 0 0; border-top: 1px solid var(--line); padding-top: 24px; }
+        .course-info-box h4 { font-size: 1rem; font-weight: 600; margin-bottom: 18px; color: var(--ink); }
+        .course-info-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 32px; }
+        .course-info-item { display: flex; flex-direction: column; gap: 2px; }
+        .course-info-item .label { font-size: 13px; color: var(--muted); }
+        .course-info-item .value { font-weight: 600; color: var(--ink); }
+        .course-info-item .value a { color: inherit; }
+        .course-info-item .value s { color: var(--muted); font-weight: 400; }
+        .discount { display: inline-block; margin-left: 6px; padding: 0 8px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: 13px; }
 
         .course-cta {
-            text-align: center;
-            padding: 2rem;
-            background: #f5f5f7;
-        }
-
-        .course-cta p {
-            margin: 0 0 1rem 0;
-            font-weight: 600;
-            color: var(--primary-accent);
-        }
-
-        .course-cta-btn {
-            display: inline-block;
-            background: var(--film-black);
-            color: #fff;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .course-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .course-modal-logo {
-            display: flex;
-            justify-content: flex-end;
-            padding: 1.5rem 2rem;
-            background: #fff;
-            border-top: 1px solid #eee;
-        }
-
-        .course-modal-logo img {
-            height: 60px;
-            width: auto;
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .course-modal-logo img:hover {
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .course-modal-overlay.active {
-                padding: 1rem;
-            }
-
-            .course-modal-header h2 {
-                font-size: 1.4rem;
-            }
-
-            .course-modal-body {
-                padding: 1.5rem;
-            }
-
-            .course-team-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Gallery Section - Modern Masonry Style */
-        .gallery-section {
-            padding: 5rem 2rem;
-            background: #f5f5f7;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gallery-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-                linear-gradient(180deg, 
-                    rgba(245, 235, 220, 0.3) 0%, 
-                    rgba(255, 253, 248, 0.2) 50%, 
-                    rgba(240, 230, 215, 0.3) 100%);
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        .gallery-section h2 {
-            text-align: center;
-            color: var(--primary-accent);
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-subtitle {
-            text-align: center;
-            color: #666666;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-            max-width: 1600px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .gallery-item {
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            aspect-ratio: 4/3;
-            background: #e0e0e0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-item:nth-child(5n+1) {
-            grid-row: span 2;
-            aspect-ratio: auto;
-        }
-
-        .gallery-item:nth-child(7n+3) {
-            grid-column: span 2;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.4s ease;
-            filter: grayscale(30%);
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to bottom,
-                transparent 0%,
-                transparent 60%,
-                rgba(0,0,0,0.8) 100%
-            );
-            z-index: 1;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .gallery-item::after {
-            content: '⊕';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0);
-            font-size: 3rem;
-            color: #fff;
-            z-index: 2;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.1);
-            filter: grayscale(0%);
-        }
-
-        .gallery-item:hover::before {
-            opacity: 1;
-        }
-
-        .gallery-item:hover::after {
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1;
-        }
-
-        /* Lightbox */
-        .lightbox {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.97);
-            z-index: 20000;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .lightbox.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-            animation: lightboxZoom 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            transition: opacity 0.15s ease;
-        }
-
-        @keyframes lightboxZoom {
-            from {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 2rem;
-            cursor: pointer;
+            margin-top: 36px;
+            padding: 24px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .lightbox-nav:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .lightbox-prev {
-            left: 20px;
-        }
-
-        .lightbox-next {
-            right: 20px;
-        }
-
-        .lightbox-counter {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-        }
-
-        @media (max-width: 1024px) {
-            .gallery-item:nth-child(5n+1) {
-                grid-row: span 1;
-            }
-            .gallery-item:nth-child(7n+3) {
-                grid-column: span 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .gallery-section {
-                padding: 3rem 1rem;
-            }
-            
-            .gallery-section h2 {
-                font-size: 2rem;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
-            }
-
-            .gallery-item {
-                aspect-ratio: 1;
-            }
-
-            .lightbox-nav {
-                width: 45px;
-                height: 45px;
-            }
-
-            .lightbox-prev {
-                left: 10px;
-            }
-
-            .lightbox-next {
-                right: 10px;
-            }
-        }
-        
-        /* Light Theme Footer */
-        .footer {
-            background: #f8f8f8;
-            color: var(--film-black);
-            padding: 2.6rem 2rem 1.95rem;
-            text-align: center;
-            border-top: 4px solid var(--secondary-accent);
-        }
-        
-        .footer p {
-            margin: 0;
-            color: #666666;
-            font-size: 1.1rem;
-        }
-        
-        /* Student Registration Form */
-        .registration-section {
-            background: #f5f5f7;
-            padding: 3.9rem 2rem;
-            position: relative;
-        }
-        
-        .registration-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-                linear-gradient(180deg, 
-                    rgba(245, 235, 220, 0.3) 0%, 
-                    rgba(255, 253, 248, 0.2) 50%, 
-                    rgba(240, 230, 215, 0.3) 100%);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .registration-section > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Team Section */
-        .team-section {
-            padding: 3.9rem 2rem;
-            background: white;
-            position: relative;
-        }
-        
-        .team-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-                linear-gradient(180deg, 
-                    rgba(245, 235, 220, 0.3) 0%, 
-                    rgba(255, 253, 248, 0.2) 50%, 
-                    rgba(240, 230, 215, 0.3) 100%);
-            opacity: 0.4;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .team-section > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .team-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #86868b;
-            margin-top: -2.5rem;
-            margin-bottom: 3rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* What We Do Section */
-        .what-we-do-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .what-we-do-item {
-            padding: 2rem;
-            background: #f5f5f7;
-            border: 1px solid #d2d2d7;
-        }
-        
-        .what-we-do-item h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 1rem;
-            letter-spacing: -0.015em;
-        }
-        
-        .what-we-do-item p {
-            font-size: 1rem;
-            color: #1d1d1f;
-            line-height: 1.6;
-            letter-spacing: -0.01em;
-        }
-        
-        /* Course tagline */
-        .course-tagline {
-            font-size: 1.1rem;
-            color: #86868b;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .team-member {
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        
-        .team-member:hover {
-            transform: translateY(-8px);
-        }
-        
-        .team-photo {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            margin-bottom: 1.5rem;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-        
-        .team-member:hover .team-photo {
-            filter: grayscale(0%);
-        }
-        
-        .team-name {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #1d1d1f;
-            letter-spacing: -0.015em;
-        }
-        
-        .team-name a {
-            color: #1d1d1f;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .team-name a:hover {
-            color: #F5C518;
-            text-decoration: none;
-        }
-        
-        /* Talent Database Section */
-        .talent-section {
-            padding: 80px 20px;
-            background: #f5f5f7;
-        }
-        
-        .talent-section h2 {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.015em;
-        }
-        
-        .talent-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .talent-admin-btn {
-            display: block;
-            margin: 0 auto 2rem;
-            padding: 10px 24px;
-            background: #1d1d1f;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 0.875rem;
-            font-family: inherit;
-            transition: background 0.3s ease;
-        }
-        
-        .talent-admin-btn:hover {
-            background: #000;
-        }
-        
-        .talent-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .talent-filter-input {
-            padding: 10px 16px;
-            border: 1px solid #d2d2d7;
-            font-size: 0.875rem;
-            min-width: 150px;
-            font-family: inherit;
-        }
-        
-        .talent-filter-input:focus {
-            outline: none;
-            border-color: #000;
-        }
-        
-        .talent-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .talent-card {
-            background: #fff;
-            border: 1px solid #d2d2d7;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .talent-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .talent-photo-container {
-            position: relative;
-            aspect-ratio: 3/4;
-            overflow: hidden;
-        }
-        
-        .talent-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .talent-card:hover .talent-photo {
-            transform: scale(1.05);
-        }
-        
-        .talent-video-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 6px 10px;
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .talent-video-badge::before {
-            content: '▶';
-            font-size: 0.625rem;
-        }
-        
-        .talent-info {
-            padding: 1.5rem;
-        }
-        
-        .talent-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-        }
-        
-        .talent-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            font-size: 0.875rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-        }
-        
-        .talent-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .talent-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .talent-skill-tag {
-            background: #f5f5f7;
-            color: #1d1d1f;
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            border: 1px solid #d2d2d7;
-        }
-        
-        /* Talent Detail Modal */
-        .talent-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .talent-modal.active {
-            display: flex;
-        }
-        
-        .talent-modal-content {
-            background: #fff;
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-        }
-        
-        .talent-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #1d1d1f;
-            z-index: 10;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .talent-modal-close:hover {
-            color: #000;
-        }
-        
-        .talent-modal-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 0;
-        }
-        
-        .talent-modal-photo {
-            aspect-ratio: 3/4;
-        }
-        
-        .talent-modal-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .talent-modal-details {
-            padding: 2rem;
-        }
-        
-        .talent-modal-name {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 1rem;
-        }
-        
-        .talent-modal-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .talent-stat {
-            background: #f5f5f7;
-            padding: 1rem;
-        }
-        
-        .talent-stat-label {
-            font-size: 0.75rem;
-            color: #86868b;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        
-        .talent-stat-value {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #1d1d1f;
-        }
-        
-        .talent-modal-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .talent-modal-section h4 {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .talent-modal-section p {
-            font-size: 1rem;
-            color: #1d1d1f;
-            line-height: 1.6;
-        }
-        
-        .talent-video-embed {
-            aspect-ratio: 16/9;
-            background: #000;
-            margin-bottom: 1.5rem;
-        }
-        
-        .talent-video-embed iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .talent-contact-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: #1d1d1f;
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: background 0.3s ease;
-        }
-        
-        .talent-contact-btn:hover {
-            background: #000;
-        }
-        
-        /* Admin Panel Modal */
-        .admin-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 10000;
-            display: none;
-            align-items: flex-start;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .admin-modal.active {
-            display: flex;
-        }
-        
-        .admin-modal-content {
-            background: #fff;
-            max-width: 700px;
-            width: 100%;
-            margin: 40px 0;
-            position: relative;
-        }
-        
-        .admin-modal-header {
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #d2d2d7;
-            display: flex;
             justify-content: space-between;
-            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            background: var(--bg);
         }
-        
-        .admin-modal-header h3 {
-            font-size: 1.5rem;
+        .course-cta p { margin: 0; font-weight: 600; color: var(--ink); }
+        .course-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 26px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--on-accent);
             font-weight: 600;
-            color: #1d1d1f;
-            margin: 0;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
         }
-        
-        .admin-modal-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #86868b;
-        }
-        
-        .admin-modal-close:hover {
-            color: #1d1d1f;
-        }
-        
-        .admin-modal-body {
-            padding: 2rem;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .admin-form-group {
-            margin-bottom: 1.25rem;
-        }
-        
-        .admin-form-group label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-        }
-        
-        .admin-form-group input,
-        .admin-form-group select,
-        .admin-form-group textarea {
-            width: 100%;
-            padding: 10px 14px;
-            border: 1px solid #d2d2d7;
-            font-size: 0.875rem;
-            font-family: inherit;
-        }
-        
-        .admin-form-group input:focus,
-        .admin-form-group select:focus,
-        .admin-form-group textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-        
-        .admin-form-group textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        
-        .admin-form-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-        
-        .admin-form-actions {
-            display: flex;
-            gap: 1rem;
-            padding: 1.5rem 2rem;
-            border-top: 1px solid #d2d2d7;
-        }
-        
-        .admin-btn {
-            padding: 12px 24px;
-            font-size: 0.875rem;
-            font-family: inherit;
-            cursor: pointer;
-            border: none;
-            transition: all 0.3s ease;
-        }
-        
-        .admin-btn-primary {
-            background: #1d1d1f;
-            color: #fff;
-        }
-        
-        .admin-btn-primary:hover {
-            background: #000;
-        }
-        
-        .admin-btn-secondary {
-            background: #f5f5f7;
-            color: #1d1d1f;
-            border: 1px solid #d2d2d7;
-        }
-        
-        .admin-btn-secondary:hover {
-            background: #e5e5e5;
-        }
-        
-        .admin-btn-danger {
-            background: #ff3b30;
-            color: #fff;
-        }
-        
-        .admin-btn-danger:hover {
-            background: #d63029;
-        }
-        
-        .admin-talent-list {
-            margin-top: 1.5rem;
-            border-top: 1px solid #d2d2d7;
-            padding-top: 1.5rem;
-        }
-        
-        .admin-talent-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            border: 1px solid #d2d2d7;
-            margin-bottom: 0.75rem;
-        }
-        
-        .admin-talent-item img {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-        }
-        
-        .admin-talent-item-info {
-            flex: 1;
-        }
-        
-        .admin-talent-item-name {
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 4px;
-        }
-        
-        .admin-talent-item-meta {
-            font-size: 0.75rem;
-            color: #86868b;
-        }
-        
-        .admin-talent-item-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .admin-talent-item-actions button {
-            padding: 6px 12px;
-            font-size: 0.75rem;
-        }
-        
-        .no-talents-message {
-            text-align: center;
-            padding: 3rem;
-            color: #86868b;
-            font-size: 1.1rem;
-        }
-        
-        /* Photo Upload Styles */
-        .photo-upload-area {
-            border: 2px dashed #d2d2d7;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-        }
-        
-        .photo-upload-area:hover {
-            border-color: #86868b;
-            background: #f9f9f9;
-        }
-        
-        .photo-upload-area.dragover {
-            border-color: #000;
-            background: #f0f0f0;
-        }
-        
-        .photo-upload-icon {
-            font-size: 2rem;
-            color: #86868b;
-            margin-bottom: 0.5rem;
-        }
-        
-        .photo-upload-text {
-            font-size: 0.875rem;
-            color: #86868b;
-        }
-        
-        .photo-upload-text span {
-            color: #1d1d1f;
-            text-decoration: underline;
-        }
-        
-        .uploaded-photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-        
-        .uploaded-photo-item {
-            position: relative;
-            aspect-ratio: 1;
-            border: 1px solid #d2d2d7;
-            overflow: hidden;
-        }
-        
-        .uploaded-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .uploaded-photo-item.main-photo {
-            border: 2px solid #000;
-        }
-        
-        .uploaded-photo-item.main-photo::after {
-            content: 'მთავარი';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #000;
-            color: #fff;
-            font-size: 0.625rem;
-            padding: 2px;
-            text-align: center;
-        }
-        
-        .photo-remove-btn {
-            position: absolute;
-            top: 4px;
-            right: 4px;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 59, 48, 0.9);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .photo-set-main-btn {
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            width: 20px;
-            height: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .video-links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .video-link-row {
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .video-link-row input {
-            flex: 1;
-        }
-        
-        .video-link-row button {
-            padding: 8px 12px;
-            background: #ff3b30;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-size: 0.875rem;
-        }
-        
-        .add-video-btn {
-            padding: 8px 16px;
-            background: #f5f5f7;
-            border: 1px solid #d2d2d7;
-            cursor: pointer;
-            font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        .add-video-btn:hover {
-            background: #e5e5e5;
-        }
-        
-        /* Photo Gallery in Modal */
-        .talent-photo-gallery {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .talent-main-photo {
-            width: 100%;
-            aspect-ratio: 3/4;
-            object-fit: cover;
-        }
-        
-        .talent-photo-thumbnails {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-        }
-        
-        .talent-photo-thumb {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: border-color 0.3s ease;
-            flex-shrink: 0;
-        }
-        
-        .talent-photo-thumb:hover,
-        .talent-photo-thumb.active {
-            border-color: #000;
-        }
-        
-        /* Video Gallery */
-        .talent-videos-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .talent-videos-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .talent-video-item {
-            aspect-ratio: 16/9;
-            background: #000;
-        }
-        
-        .talent-video-item iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        .course-cta-btn:hover { background: #ffd366; }
+        .course-cta-btn:active { transform: scale(0.98); }
+
+        .course-modal-logo { padding: 0 0 32px; display: flex; justify-content: center; }
+        .course-modal-logo img { height: 28px; width: auto; filter: var(--logo-filter); opacity: 0.6; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1023px) {
+            .what-we-do-layout { grid-template-columns: 1fr; }
+            .what-we-do-title { position: static; }
+            .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
         }
 
-        @media (max-width: 768px) {
-            .talent-modal-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .talent-modal-photo {
-                aspect-ratio: 1;
-            }
-            
-            .admin-form-row {
-                grid-template-columns: 1fr;
-            }
-            
-            .talent-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-        
-        .imdb-icon {
-            width: 20px;
-            height: 20px;
-            background: #F5C518;
-            color: #000;
-            border-radius: 2px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .linkedin-icon {
-            width: 20px;
-            height: 20px;
-            background: #0077B5;
-            color: #fff;
-            border-radius: 2px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8px;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .team-name .social-links {
-            display: flex;
-            gap: 0.3rem;
-            align-items: center;
-        }
-        
-        .team-name a:hover .linkedin-icon {
-            background: #005582;
-        }
-        
-        .team-role {
-            font-size: 1rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .team-bio {
-            font-size: 0.875rem;
-            color: #1d1d1f;
-            line-height: 1.6;
-            letter-spacing: -0.01em;
-        }
-        
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 1.95rem;
-            border: 1px solid #d2d2d7;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: #1d1d1f;
-            letter-spacing: -0.01em;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #d2d2d7;
-            font-size: 1rem;
-            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', sans-serif;
-            transition: border-color 0.3s ease;
-            background: white;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #000;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .form-group select option:disabled {
-            color: #999;
-            background-color: #f5f5f5;
-        }
-        
-        .form-submit {
-            width: 100%;
-            padding: 14px;
-            background: #000;
-            color: #fff;
-            border: none;
-            font-size: 1rem;
-            font-weight: 400;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            letter-spacing: -0.01em;
-        }
-        
-        .form-submit:hover {
-            background: #1d1d1f;
-        }
-        
-        .footer {
-            background: #f5f5f7;
-            color: var(--film-black);
-            padding: 2.6rem 2rem 1.95rem;
-            text-align: center;
-            border-top: 1px solid #d2d2d7;
-        }
-        
-        .footer p {
-            margin: 0;
-            color: #666666;
-            font-size: 1.1rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .title {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Hamburger menu below 900px: the Georgian menu labels need the room */
-        @media (max-width: 899px) {
-            .nav-container {
-                height: 48px;
-            }
-            
-            .menu-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 48px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: saturate(180%) blur(20px);
-                flex-direction: column;
-                gap: 0;
-                padding: 0;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                border-bottom: 1px solid #d2d2d7;
-            }
-            
-            .nav-links.active {
-                max-height: calc(100vh - 48px);
-                overflow-y: auto;
-            }
-            
-            .nav-link {
-                padding: 16px 22px;
-                width: 100%;
-                text-align: left;
-                font-size: 1rem;
-                border-bottom: 1px solid #f5f5f7;
-            }
-            
-            .nav-link:last-of-type {
-                border-bottom: none;
-            }
-            
-            .lang-switch {
-                margin: 16px 22px;
-                width: calc(100% - 44px);
-                display: block;
-            }
+        @media (max-width: 767px) {
+            .about-content,
+            .registration-layout,
+            .contact-layout { grid-template-columns: 1fr; }
+            .about-images { padding-bottom: 22%; }
+            .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .stat { padding-bottom: 20px; }
+            .what-we-do-item { grid-template-columns: 1fr; }
+            .courses-grid { grid-template-columns: 1fr; grid-template-rows: none; }
+            .course-card, .course-card--feature, .course-card--wide { grid-row: auto; grid-column: auto; min-height: 340px; }
+            .course-card--feature { min-height: 440px; }
+            .team-grid { gap: 32px 12px; }
+            .team-name { font-size: 1rem; }
+            .gallery-grid { columns: 2; column-gap: 10px; }
+            .gallery-item { margin-bottom: 10px; }
+            #studentForm { grid-template-columns: 1fr; }
+            .contact-map, .contact-map iframe { min-height: 300px; }
+            .course-team-list { columns: 1; }
+            .course-info-grid { grid-template-columns: 1fr; }
+            .lightbox-nav { top: auto; bottom: 16px; transform: none; }
+            .lightbox-counter { bottom: 30px; }
         }
     </style>
 </head>
@@ -2769,12 +790,12 @@
     <!-- Main Website -->
     <div id="mainWebsite" class="main-website">
         <!-- Header -->
-        <header class="header">
+        <header class="header header--full header--fixed is-overlay" data-overlay-until="#home">
             <div class="nav-container">
-                <div class="logo">
+                <a href="#home" class="logo" aria-label="shuQi Production">
                     <img src="./images/shuqi-logo.png" alt="შუქი" class="header-logo">
-                </div>
-                <button class="menu-toggle" id="menuToggle" aria-label="მენიუ">
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="მენიუ" aria-controls="navLinks">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -2793,190 +814,212 @@
             </div>
         </header>
 
+        <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="./video/Timeline 1.mov" type="video/quicktime">
+            <video autoplay muted loop playsinline class="hero-video" poster="./gallery/web/IMG_6216.jpg" aria-hidden="true">
                 <source src="./video/Timeline 1.mov" type="video/mp4">
+                <source src="./video/Timeline 1.mov" type="video/quicktime">
             </video>
             <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h2>ისწავლე, ითამაშე და გადაიღე</h2>
+            <div class="hero-content container">
+                <h1 class="display hero-title">ისწავლე, ითამაშე და გადაიღე</h1>
+                <p class="hero-sub">კინოსკოლა და პროდაქშენი თბილისში. სამსახიობო და სარეჟისორო კურსები მოქმედ კინოპროფესიონალებთან ერთად.</p>
                 <div class="hero-buttons">
-                    <a href="#registration" class="btn btn-primary">დარეგისტრირდი</a>
-                    <a href="#about" class="btn btn-secondary">გაიგე მეტი</a>
+                    <a href="#registration" class="btn btn-primary"><span>დარეგისტრირდი</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></a>
+                    <a href="#about" class="btn btn-on-media">გაიგე მეტი</a>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section class="section" id="about">
-            <h2>ჩვენ შესახებ</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="./images/web.png" alt="კინოსკოლა" class="about-img">
-                </div>
+        <section class="section about" id="about">
+            <div class="container about-content">
                 <div class="about-text">
-                    <h3>შუქი პროდაქშენი</h3>
-                    <p>შუქი პროდაქშენი ეძღვნება კინოხელოვნების განვითარებას და დემოკრატიზაციას საქართველოში. ჩვენ ვმუშაობთ მეტი შესაძლებლობების შესაქმნელად ახალი თაობის კინო ხელოვანებისთვის.</p>
-                    <p>ჩვენი მისია კინოგანათლების მნიშვნელობის გაზრდა და ცოდნის გავრცელებაა. ეს გულისხმობს ხელმისაწვდომი პრაქტიკული სწავლების შეთავაზებას და კინოწარმოების განვითარებას კრეატიულობის, თანამშრომლობისა და ავთენტურობის პრინციპებზე დაყრდნობით.</p>
-                    
-                    <div class="stats">
-                        <div class="stat">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">სტუდენტი</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">ლექტორი</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">3</span>
-                            <span class="stat-label">კურსი</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">13</span>
-                            <span class="stat-label">კვირა სწავლა</span>
-                        </div>
+                    <h2 class="section-title reveal">ჩვენ შესახებ</h2>
+                    <h3 class="about-name reveal">შუქი პროდაქშენი</h3>
+                    <p class="lead reveal">შუქი პროდაქშენი ეძღვნება კინოხელოვნების განვითარებას და დემოკრატიზაციას საქართველოში. ჩვენ ვმუშაობთ მეტი შესაძლებლობების შესაქმნელად ახალი თაობის კინო ხელოვანებისთვის.</p>
+                    <p class="reveal">ჩვენი მისია კინოგანათლების მნიშვნელობის გაზრდა და ცოდნის გავრცელებაა. ეს გულისხმობს ხელმისაწვდომი პრაქტიკული სწავლების შეთავაზებას და კინოწარმოების განვითარებას კრეატიულობის, თანამშრომლობისა და ავთენტურობის პრინციპებზე დაყრდნობით.</p>
+                </div>
+                <div class="about-images" aria-hidden="true">
+                    <img src="./gallery/web/IMG_9663.jpg" alt="" class="about-img about-img--main reveal" loading="lazy" width="2000" height="1333">
+                    <img src="./gallery/web/F8940001.jpg" alt="" class="about-img about-img--offset reveal" loading="lazy" width="1840" height="1232" style="--i:2">
+                </div>
+            </div>
+            <div class="container">
+                <div class="stats">
+                    <div class="stat reveal">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">სტუდენტი</span>
+                    </div>
+                    <div class="stat reveal" style="--i:1">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">ლექტორი</span>
+                    </div>
+                    <div class="stat reveal" style="--i:2">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">კურსი</span>
+                    </div>
+                    <div class="stat reveal" style="--i:3">
+                        <span class="stat-number">13</span>
+                        <span class="stat-label">კვირა სწავლა</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What We Do Section -->
-        <section class="section" id="what-we-do">
-            <h2>რას ვაკეთებთ</h2>
-            <div class="what-we-do-grid">
-                <div class="what-we-do-item">
-                    <h3>შემოქმედებითი პოტენციალის გამოვლენა</h3>
-                    <p>თითოეულ სტუდენტში ინდივიდუალური ხედვისა და მთხრობელობის თავდაჯერებულობის განვითარება, სინათლისა და კინოს ენის გამოყენებით.</p>
-                </div>
-                <div class="what-we-do-item">
-                    <h3>პრაქტიკული კინემატოგრაფიული განათლება</h3>
-                    <p>ინდივიდუალურ პროექტებზე დაფუძნებული ტრენინგები კინემატოგრაფიაში, მონტაჟში, რეჟისურასა და კინო-წარმოებაში.</p>
-                </div>
-                <div class="what-we-do-item">
-                    <h3>ერთიანი შემოქმედებითი საზოგადოების შექმნა</h3>
-                    <p>თანამშრომლობითი სივრცის ხელშეწყობა, სადაც სტუდენტები და მენტორები ერთად განავითარებენ შემოქმედებით ეკოსისტემას.</p>
-                </div>
-                <div class="what-we-do-item">
-                    <h3>დამოუკიდებელი კინოს ხელშეწყობა</h3>
-                    <p>რეჟისორების ინსპირაცია, რათა გააცოცხლონ ავთენტური ისტორიები, რომლებიც ფესვგადგმულია მათ კულტურაში, გარემოსა და ცხოვრებისეულ გამოცდილებაში.</p>
-                </div>
-                <div class="what-we-do-item">
-                    <h3>მეტი წვდომა რესურსებზე</h3>
-                    <p>ხელმისაწვდომი, ან დაფინანსებული სასწავლო შესაძლებლობების შეთავაზება ნიჭიერი და მონდომებული ახალგაზრდებისთვის.</p>
+        <section class="section what-we-do" id="what-we-do">
+            <div class="container what-we-do-layout">
+                <h2 class="section-title what-we-do-title">რას ვაკეთებთ</h2>
+                <div class="what-we-do-grid">
+                    <div class="what-we-do-item reveal">
+                        <h3>შემოქმედებითი პოტენციალის გამოვლენა</h3>
+                        <p>თითოეულ სტუდენტში ინდივიდუალური ხედვისა და მთხრობელობის თავდაჯერებულობის განვითარება, სინათლისა და კინოს ენის გამოყენებით.</p>
+                    </div>
+                    <div class="what-we-do-item reveal">
+                        <h3>პრაქტიკული კინემატოგრაფიული განათლება</h3>
+                        <p>ინდივიდუალურ პროექტებზე დაფუძნებული ტრენინგები კინემატოგრაფიაში, მონტაჟში, რეჟისურასა და კინო-წარმოებაში.</p>
+                    </div>
+                    <div class="what-we-do-item reveal">
+                        <h3>ერთიანი შემოქმედებითი საზოგადოების შექმნა</h3>
+                        <p>თანამშრომლობითი სივრცის ხელშეწყობა, სადაც სტუდენტები და მენტორები ერთად განავითარებენ შემოქმედებით ეკოსისტემას.</p>
+                    </div>
+                    <div class="what-we-do-item reveal">
+                        <h3>დამოუკიდებელი კინოს ხელშეწყობა</h3>
+                        <p>რეჟისორების ინსპირაცია, რათა გააცოცხლონ ავთენტური ისტორიები, რომლებიც ფესვგადგმულია მათ კულტურაში, გარემოსა და ცხოვრებისეულ გამოცდილებაში.</p>
+                    </div>
+                    <div class="what-we-do-item reveal">
+                        <h3>მეტი წვდომა რესურსებზე</h3>
+                        <p>ხელმისაწვდომი, ან დაფინანსებული სასწავლო შესაძლებლობების შეთავაზება ნიჭიერი და მონდომებული ახალგაზრდებისთვის.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Courses Section -->
-        <section class="section" id="courses">
-            <h2>რას გთავაზობთ</h2>
-            <div class="courses-grid">
-                <div class="course-card">
-                    <div class="course-content">
-                        <h3>კინოსამსახიობო კურსი</h3>
-                        <p class="course-tagline">„პორტფოლიო"</p>
-                        <div class="course-footer">
-                            <button class="course-btn">დეტალები</button>
+        <section class="section courses" id="courses">
+            <div class="container">
+                <h2 class="section-title reveal">რას გთავაზობთ</h2>
+                <div class="courses-grid">
+                    <article class="course-card course-card--feature reveal">
+                        <img src="./gallery/web/IMG_5249.jpg" alt="" class="course-img" loading="lazy">
+                        <div class="course-content">
+                            <h3>კინოსამსახიობო კურსი</h3>
+                            <p class="course-tagline">„პორტფოლიო"</p>
+                            <div class="course-footer">
+                                <button class="course-btn">დეტალები</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="course-card">
-                    <div class="course-content">
-                        <h3>კურსი „კინოსამზარეულო"</h3>
-                        <p class="course-tagline">25 მაისი – 25 ივლისი</p>
-                        <div class="course-footer">
-                            <button class="course-btn">დეტალები</button>
-                        </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="course-card">
-                    <div class="course-content">
-                        <h3>კინოსარეჟისორო კურსი</h3>
-                        <p class="course-tagline">„გადაიღე შენი ფილმი" (MYM)</p>
-                        <div class="course-footer">
-                            <button class="course-btn">დეტალები</button>
+                    <article class="course-card reveal" style="--i:1">
+                        <img src="./gallery/web/IMG_1621.jpg" alt="" class="course-img" loading="lazy">
+                        <div class="course-content">
+                            <h3>კურსი „კინოსამზარეულო"</h3>
+                            <p class="course-tagline">25 მაისი - 25 ივლისი</p>
+                            <div class="course-footer">
+                                <button class="course-btn">დეტალები</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="course-card">
-                    <div class="course-content">
-                        <h3>კინო არდადეგები</h3>
-                        <p class="course-tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს</p>
-                        <div class="course-footer">
-                            <button class="course-btn">დეტალები</button>
+                    <article class="course-card reveal" style="--i:2">
+                        <img src="./gallery/web/F8480025.jpg" alt="" class="course-img" loading="lazy">
+                        <div class="course-content">
+                            <h3>კინოსარეჟისორო კურსი</h3>
+                            <p class="course-tagline">„გადაიღე შენი ფილმი" (MYM)</p>
+                            <div class="course-footer">
+                                <button class="course-btn">დეტალები</button>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="course-card course-card--wide reveal">
+                        <img src="./gallery/web/image00005.jpg" alt="" class="course-img" loading="lazy">
+                        <div class="course-content">
+                            <h3>კინო არდადეგები</h3>
+                            <p class="course-tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს</p>
+                            <div class="course-footer">
+                                <button class="course-btn">დეტალები</button>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <!-- Actors (filled from talents/talents.json, hidden when empty) -->
+        <section class="section actors" id="actors" hidden>
+            <div class="container">
+                <div class="actors-head">
+                    <div>
+                        <h2 class="section-title reveal">ჩვენი მსახიობები</h2>
+                        <p class="lead reveal">ჩვენი კურსდამთავრებულების პორტფოლიოები ქასთინგ-მენეჯერებისა და რეჟისორებისთვის.</p>
+                    </div>
+                    <a href="portfolio.html" class="text-link reveal"><span>ყველა პროფილი</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></a>
+                </div>
+            </div>
+            <div class="actors-rail" id="actorsRail"></div>
+        </section>
+
         <!-- Team Section -->
-        <section class="team-section" id="team">
-            <div class="section">
-                <h2>ვინ ვართ ჩვენ</h2>
-                <p class="team-subtitle">გუნდის წევრები</p>
+        <section class="section team-section" id="team">
+            <div class="container">
+                <h2 class="section-title reveal">ვინ ვართ ჩვენ</h2>
+                <p class="team-subtitle lead reveal">გუნდის წევრები</p>
                 <div class="team-grid">
-                    <div class="team-member">
-                        <img src="./images/Gela.JPG" alt="გელა ჩინჩალაძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm3736543/?ref_=ext_shr_fbm" target="_blank">გელა ჩინჩალაძე <span class="imdb-icon">IMDb</span></a></h3>
+                    <div class="team-member reveal">
+                        <img src="./images/Gela.JPG" alt="გელა ჩინჩალაძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm3736543/?ref_=ext_shr_fbm" target="_blank" rel="noopener">გელა ჩინჩალაძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">ოპერატორი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Giorgi.JPG" alt="გიორგი თავართქილაძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm5938711/?ref_=ext_shr_fbm" target="_blank">გიორგი თავართქილაძე <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal" style="--i:1">
+                        <img src="./images/Giorgi.JPG" alt="გიორგი თავართქილაძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm5938711/?ref_=ext_shr_fbm" target="_blank" rel="noopener">გიორგი თავართქილაძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">რეჟისორი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Vakho.JPG" alt="ვახო ჩაჩანიძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4214893/?ref_=ext_shr_fbm" target="_blank">ვახო ჩაჩანიძე <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal" style="--i:2">
+                        <img src="./images/Vakho.JPG" alt="ვახო ჩაჩანიძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4214893/?ref_=ext_shr_fbm" target="_blank" rel="noopener">ვახო ჩაჩანიძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">მსახიობი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Imeda.JPG" alt="იმედა თეთრაძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm10732370/?ref_=ext_shr_fbm" target="_blank">იმედა თეთრაძე <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal">
+                        <img src="./images/Imeda.JPG" alt="იმედა თეთრაძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm10732370/?ref_=ext_shr_fbm" target="_blank" rel="noopener">იმედა თეთრაძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">ოპერატორი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Teo.JPG" alt="თეო ბარამიძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4141169/?ref_=ext_shr_fbm" target="_blank">თეო ბარამიძე <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal" style="--i:1">
+                        <img src="./images/Teo.JPG" alt="თეო ბარამიძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4141169/?ref_=ext_shr_fbm" target="_blank" rel="noopener">თეო ბარამიძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">კინომხატვარი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Levan.JPG" alt="ლევან კუხაშვილი" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4310594/?ref_=ext_shr_fbm" target="_blank">ლევან კუხაშვილი <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal" style="--i:2">
+                        <img src="./images/Levan.JPG" alt="ლევან კუხაშვილი" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm4310594/?ref_=ext_shr_fbm" target="_blank" rel="noopener">ლევან კუხაშვილი <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">მონტაჟი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Ivane.JPG" alt="ივანე გვარაძე" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm8469360/?ref_=ext_shr_fbm" target="_blank">ივანე გვარაძე <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal">
+                        <img src="./images/Ivane.JPG" alt="ივანე გვარაძე" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm8469360/?ref_=ext_shr_fbm" target="_blank" rel="noopener">ივანე გვარაძე <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">ხმის რეჟისორი</p>
                     </div>
-                    
-                    <div class="team-member">
-                        <img src="./images/Nikoloz.JPG" alt="ნიკოლოზ მდივანი" class="team-photo">
-                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm5142218/?ref_=ext_shr_fbm" target="_blank">ნიკოლოზ მდივანი <span class="imdb-icon">IMDb</span></a></h3>
+
+                    <div class="team-member reveal" style="--i:1">
+                        <img src="./images/Nikoloz.JPG" alt="ნიკოლოზ მდივანი" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://www.imdb.com/name/nm5142218/?ref_=ext_shr_fbm" target="_blank" rel="noopener">ნიკოლოზ მდივანი <span class="imdb-icon">IMDb</span></a></h3>
                         <p class="team-role">სცენარი</p>
                     </div>
-                    
 
-                    
-                    <div class="team-member">
-                        <img src="./images/Shio.JPG" alt="შიო ხიდაშელი" class="team-photo">
-                        <h3 class="team-name">
-                            <a href="https://ge.linkedin.com/in/shio-khidasheli-5b317431b" target="_blank">შიო ხიდაშელი <span class="social-links"><span class="linkedin-icon">in</span></span></a>
-                        </h3>
+                    <div class="team-member reveal" style="--i:2">
+                        <img src="./images/Shio.JPG" alt="შიო ხიდაშელი" class="team-photo" loading="lazy">
+                        <h3 class="team-name"><a href="https://ge.linkedin.com/in/shio-khidasheli-5b317431b" target="_blank" rel="noopener">შიო ხიდაშელი <span class="social-links"><span class="linkedin-icon">in</span></span></a></h3>
                         <p class="team-role">მონტაჟი</p>
                     </div>
                 </div>
@@ -2984,77 +1027,86 @@
         </section>
 
         <!-- Gallery Section -->
-        <section class="gallery-section" id="gallery">
-            <h2>გალერეა</h2>
-            <p class="gallery-subtitle">კადრები გადასაღები მოედნიდან</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="./gallery/F8480025.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/F8940001.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/F8950004.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/F8960013.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/F8960026.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00001.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00002.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00003.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00004.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00005.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00006.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/image00007.jpeg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_1591.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_1621.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_2961.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_5249.jpg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_6216.jpg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_6387.jpg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_6720.jpg" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_9663.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/IMG_9903.JPG" alt="გადაღების კადრი" loading="lazy"></div>
-                <div class="gallery-item"><img src="./gallery/000008.BMP" alt="გადაღების კადრი" loading="lazy"></div>
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <h2 class="section-title reveal">გალერეა</h2>
+                <p class="gallery-subtitle lead reveal">კადრები გადასაღები მოედნიდან</p>
+                <div class="gallery-grid">
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/F8480025.jpg" data-full="./gallery/web/F8480025.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/F8940001.jpg" data-full="./gallery/web/F8940001.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/F8950004.jpg" data-full="./gallery/web/F8950004.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/F8960013.jpg" data-full="./gallery/web/F8960013.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/F8960026.jpg" data-full="./gallery/web/F8960026.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/image00001.jpg" data-full="./gallery/web/image00001.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/image00002.jpg" data-full="./gallery/web/image00002.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/image00003.jpg" data-full="./gallery/web/image00003.jpg" alt="გადაღების კადრი" loading="lazy" width="600" height="900"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/image00004.jpg" data-full="./gallery/web/image00004.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="603"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/image00005.jpg" data-full="./gallery/web/image00005.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/image00006.jpg" data-full="./gallery/web/image00006.jpg" alt="გადაღების კადრი" loading="lazy" width="641" height="554"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/image00007.jpg" data-full="./gallery/web/image00007.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="675"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/IMG_1591.jpg" data-full="./gallery/web/IMG_1591.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="424"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/IMG_1621.jpg" data-full="./gallery/web/IMG_1621.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/IMG_2961.jpg" data-full="./gallery/web/IMG_2961.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="443"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/IMG_5249.jpg" data-full="./gallery/web/IMG_5249.jpg" alt="გადაღების კადრი" loading="lazy" width="600" height="900"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/IMG_6216.jpg" data-full="./gallery/web/IMG_6216.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/IMG_6387.jpg" data-full="./gallery/web/IMG_6387.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="900"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/IMG_6720.jpg" data-full="./gallery/web/IMG_6720.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="506"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:1"><img src="./gallery/thumb/IMG_9663.jpg" data-full="./gallery/web/IMG_9663.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:2"><img src="./gallery/thumb/IMG_9903.jpg" data-full="./gallery/web/IMG_9903.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="600"></button>
+                    <button type="button" class="gallery-item reveal" style="--i:0"><img src="./gallery/thumb/000008.jpg" data-full="./gallery/web/000008.jpg" alt="გადაღების კადრი" loading="lazy" width="900" height="900"></button>
+                </div>
             </div>
         </section>
 
         <!-- Lightbox -->
-        <div class="lightbox" id="lightbox">
-            <button class="lightbox-close" id="lightboxClose">&times;</button>
-            <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#10094;</button>
+        <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-x"/></svg></button>
+            <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-caret-left"/></svg></button>
             <div class="lightbox-content">
                 <img src="" alt="Gallery Image" id="lightboxImg">
             </div>
-            <button class="lightbox-nav lightbox-next" id="lightboxNext">&#10095;</button>
+            <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-caret-right"/></svg></button>
             <div class="lightbox-counter"><span id="lightboxCurrent">1</span> / <span id="lightboxTotal">33</span></div>
         </div>
 
         <!-- Student Registration Form -->
-        <section class="registration-section" id="registration">
-            <div class="section">
-                <h2>სტუდენტის რეგისტრაცია</h2>
-                <div class="form-container">
+        <section class="section registration-section" id="registration">
+            <div class="container registration-layout">
+                <div class="registration-intro">
+                    <h2 class="section-title reveal">სტუდენტის რეგისტრაცია</h2>
+                    <p class="lead reveal">შეავსეთ ფორმა და ჩვენ დაგიკავშირდებით კურსის დეტალების დასაზუსტებლად.</p>
+                    <div class="registration-direct reveal">
+                        <a href="tel:+995511175317" class="text-link"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-phone"/></svg><span>+995 511175317</span></a>
+                        <a href="mailto:info@shuqi.ge" class="text-link"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-envelope-simple"/></svg><span>info@shuqi.ge</span></a>
+                    </div>
+                </div>
+                <div class="form-container reveal">
                     <form id="studentForm" novalidate>
                         <div class="form-group">
                             <label for="fullName">სახელი და გვარი *</label>
-                            <input type="text" id="fullName" name="fullName" required>
+                            <input type="text" id="fullName" name="fullName" autocomplete="name" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">ელფოსტა *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" autocomplete="email" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">ტელეფონი *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="profession">პროფესია</label>
                             <input type="text" id="profession" name="profession" placeholder="თქვენი პროფესია">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="age">ასაკი *</label>
-                            <input type="number" id="age" name="age" required>
+                            <input type="number" id="age" name="age" inputmode="numeric" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="course">არჩეული კურსი *</label>
                             <select id="course" name="course" required>
@@ -3065,52 +1117,54 @@
                                 <option value="კინოსარეჟისორო კურსი - გადაიღე შენი ფილმი">კინოსარეჟისორო კურსი - „გადაიღე შენი ფილმი" (MYM)</option>
                             </select>
                         </div>
-                        
+
                         <!-- Honeypot field to catch bots - hidden from real users -->
-                        <input type="text" name="website" id="honeypot" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off">
-                        
-                        <button type="submit" class="form-submit">რეგისტრაციის გაგზავნა</button>
+                        <input type="text" name="website" id="honeypot" style="position: absolute; left: -9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                        <button type="submit" class="form-submit btn btn-primary">რეგისტრაციის გაგზავნა</button>
+                        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="section" id="contact">
-            <h2>კონტაქტი</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start; max-width: 1000px; margin: 0 auto;">
-                <div style="flex: 1; min-width: 300px;">
+        <section class="section contact" id="contact">
+            <div class="container contact-layout">
+                <div class="contact-info">
+                    <h2 class="section-title reveal">კონტაქტი</h2>
+                    <h3 class="contact-heading reveal">საკონტაქტო ინფორმაცია</h3>
+                    <dl class="contact-list">
+                        <div class="reveal">
+                            <dt>მისამართი:</dt>
+                            <dd>15-ა ლუბლიანას ქუჩა, თბილისი</dd>
+                        </div>
+                        <div class="reveal">
+                            <dt>ტელეფონი:</dt>
+                            <dd><a href="tel:+995511175317">+995 511175317</a></dd>
+                        </div>
+                        <div class="reveal">
+                            <dt>ელფოსტა:</dt>
+                            <dd><a href="mailto:info@shuqi.ge">info@shuqi.ge</a></dd>
+                        </div>
+                        <div class="reveal">
+                            <dt>გამოგვყევით:</dt>
+                            <dd class="contact-social">
+                                <a href="https://www.facebook.com/profile.php?id=61586814920651" target="_blank" rel="noopener" class="chip"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-facebook-logo"/></svg>Facebook</a>
+                                <a href="https://www.instagram.com/shuqiproduction" target="_blank" rel="noopener" class="chip"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-instagram-logo"/></svg>Instagram</a>
+                                <a href="https://tiktok.com/@shuqischool" target="_blank" rel="noopener" class="chip"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-tiktok-logo"/></svg>TikTok</a>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="contact-map reveal">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2976.7234567890123!2d44.78234567890123!3d41.71798765432109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z4YOQ4YOh4YOY4YOa4YOY4YOh4YOY4YOhIOGDpOGDo-GDouGDqeGDkCAxNSwg4YOX4YOR4YOY4YOa4YOY4YOh4YOY!5e0!3m2!1ska!2sge!4v1698765432100!5m2!1ska!2sge"
-                        width="100%" height="250" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-                <div style="flex: 1; min-width: 300px; padding-left: 1rem;">
-                    <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                        <h3 style="color: #1d1d1f; margin-bottom: 1.5rem; font-size: 1.5rem;">საკონტაქტო ინფორმაცია</h3>
-                        <div style="margin-bottom: 1rem;">
-                            <strong style="color: #1d1d1f;">მისამართი:</strong><br>
-                            <span style="color: #666;">15-ა ლუბლიანას ქუჩა, თბილისი</span>
-                        </div>
-                        <div style="margin-bottom: 1rem;">
-                            <strong style="color: #1d1d1f;">ტელეფონი:</strong><br>
-                            <a href="tel:+995511175317" style="color: #000; text-decoration: none;">+995 511175317</a>
-                        </div>
-                        <div style="margin-bottom: 2rem;">
-                            <strong style="color: #1d1d1f;">ელფოსტა:</strong><br>
-                            <a href="mailto:info@shuqi.ge" style="color: #000; text-decoration: none;">info@shuqi.ge</a>
-                        </div>
-                        <div>
-                            <strong style="color: #1d1d1f; display: block; margin-bottom: 1rem;">გამოგვყევით:</strong>
-                            <div style="display: flex; gap: 1rem;">
-                                <a href="https://www.facebook.com/profile.php?id=61586814920651" target="_blank" style="color: #1d1d1f; text-decoration: none; padding: 0.5rem 1rem; background: #f5f5f7; border-radius: 6px; font-size: 0.9rem; transition: background 0.3s ease;">Facebook</a>
-                                <a href="https://www.instagram.com/shuqiproduction" target="_blank" style="color: #1d1d1f; text-decoration: none; padding: 0.5rem 1rem; background: #f5f5f7; border-radius: 6px; font-size: 0.9rem; transition: background 0.3s ease;">Instagram</a>
-                                <a href="https://tiktok.com/@shuqischool" target="_blank" style="color: #1d1d1f; text-decoration: none; padding: 0.5rem 1rem; background: #f5f5f7; border-radius: 6px; font-size: 0.9rem; transition: background 0.3s ease;">TikTok</a>
-                            </div>
-                        </div>
-                    </div>
+                        title="Map" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
+        </main>
 
         <!-- Course Details Modal -->
         <div class="course-modal-overlay" id="portfolioModal">
@@ -3178,13 +1232,13 @@
                     </ul>
 
                     <p><strong>პროექტი ხორციელდება „ნიუ ვიჟენის" უნივერსიტეტის ბაზაზე.</strong></p>
-                    <p><strong>პროექტის ხანგრძლივობა — 13 კვირა.</strong></p>
-                    <p><strong>დღე/საათი:</strong> სამშაბათი, ხუთშაბათი 20:00 – 22:00 საათი, შაბათი - 15:00 – 18:00 საათი</p>
+                    <p><strong>პროექტის ხანგრძლივობა - 13 კვირა.</strong></p>
+                    <p><strong>დღე/საათი:</strong> სამშაბათი, ხუთშაბათი 20:00 - 22:00 საათი, შაბათი - 15:00 - 18:00 საათი</p>
 
                     <ul>
                         <li>იჩქარეთ, რეგისტრაცია კინოსამსახიობო კურსზე „პორტფოლიო" დაიწყო!</li>
                         <li>ადგილების რაოდენობა შეზღუდულია, რეგისტაციის ბოლო ვადა: 07.03.2026</li>
-                        <li>გასაუბრებები: 16.03.2026 – 20.03.2026</li>
+                        <li>გასაუბრებები: 16.03.2026 - 20.03.2026</li>
                         <li>სასწავლო კურსის ხანგრძლივობა: 24.03.2026 - 26.06.2026</li>
                         <li>ნამუშევრების ჩვენება, პორტფოლიოებისა და სერტიფიკატების გადაცემა: 04.07.2026</li>
                     </ul>
@@ -3231,12 +1285,12 @@
             <div class="course-modal">
                 <div class="course-modal-header">
                     <h2>კურსი „კინოსამზარეულო"</h2>
-                    <p class="tagline">25 მაისი – 25 ივლისი</p>
+                    <p class="tagline">25 მაისი - 25 ივლისი</p>
                     <button class="course-modal-close" id="closeKitchenModal">&times;</button>
                 </div>
                 <div class="course-modal-body">
                     <div class="course-highlight">
-                        <p>რეგისტრაციის ბოლო ვადა — 15 მაისი! შემოგვიერთდი დღესვე!</p>
+                        <p>რეგისტრაციის ბოლო ვადა - 15 მაისი! შემოგვიერთდი დღესვე!</p>
                     </div>
 
                     <h3>რას ისწავლი:</h3>
@@ -3310,14 +1364,14 @@
                         <li>აუდიტორია და კონტექსტი</li>
                     </ul>
 
-                    <p><strong>სწავლის დღეები:</strong> ორშაბათი, ხუთშაბათი, 20:00 – 22:00 საათი</p>
+                    <p><strong>სწავლის დღეები:</strong> ორშაბათი, ხუთშაბათი, 20:00 - 22:00 საათი</p>
 
                     <div class="course-info-box">
                         <h4>პროექტის დეტალები</h4>
                         <div class="course-info-grid">
                             <div class="course-info-item">
                                 <span class="label">ხანგრძლივობა</span>
-                                <span class="value">25 მაისი – 25 ივლისი</span>
+                                <span class="value">25 მაისი - 25 ივლისი</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">სწავლის საფასური</span>
@@ -3429,7 +1483,7 @@
                         <h4>კურსის ღირებულება</h4>
                         <div class="course-info-grid">
                             <div class="course-info-item">
-                                <span class="value"><s>950 ლარი</s> 760 ლარი <span style="color: #e74c3c; font-weight: bold;">(-20%)</span></span>
+                                <span class="value"><s>950 ლარი</s> 760 ლარი <span class="discount">-20%</span></span>
                             </div>
                         </div>
                     </div>
@@ -3464,7 +1518,7 @@
                 <div class="course-modal-body">
 
                     <div class="course-highlight">
-                        <p>გინდა გადაიღო შენი საავტორო ფილმი? 2026 წლის სექტემბრიდან „შუქი პროდაქშენი" გაძლევს შანსს, ნულიდან შექმნა შენი კინო — იდეიდან ეკრანამდე.</p>
+                        <p>გინდა გადაიღო შენი საავტორო ფილმი? 2026 წლის სექტემბრიდან „შუქი პროდაქშენი" გაძლევს შანსს, ნულიდან შექმნა შენი კინო - იდეიდან ეკრანამდე.</p>
                     </div>
 
                     <p>MYM არ არის უბრალოდ კინოსარეჟისორო კურსი. ეს არის <strong>რეალური კინოპროდუქცია</strong>, რომელსაც თავად ქმნი.</p>
@@ -3486,7 +1540,7 @@
                         <li><strong>1000 ლარიანი დაფინანსება</strong> თითოეული პროექტისთვის (მსახიობები და სხვა წარმოებითი ხარჯები)</li>
                     </ul>
 
-                    <p>ჯგუფის ხელმძღვანელები იქნებიან რეჟისორები — <strong>დიტო ცინცაძე</strong> და <strong>გიორგი თავართქილაძე</strong>.</p>
+                    <p>ჯგუფის ხელმძღვანელები იქნებიან რეჟისორები - <strong>დიტო ცინცაძე</strong> და <strong>გიორგი თავართქილაძე</strong>.</p>
 
                     <h3>რა შესაძლებლობები იხსნება შენთვის?</h3>
                     <ul>
@@ -3496,49 +1550,49 @@
 
                     <h3>ჩვენი გუნდი</h3>
                     <ul class="course-team-list">
-                        <li>რეჟისორი — დიტო ცინცაძე</li>
-                        <li>რეჟისორი — გიორგი თავართქილაძე</li>
-                        <li>რეჟისორი — მარინა კულუმბეგაშვილი</li>
-                        <li>სცენარისტი — ქეთი დევდარიანი</li>
-                        <li>სცენარისტი — ნიკოლოზ მდივანი</li>
-                        <li>ოპერატორი — არჩილ ახვლედიანი</li>
-                        <li>ოპერატორი — გელა ჩინჩალაძე</li>
-                        <li>ოპერატორი — იმედა თეთრაძე</li>
-                        <li>ხმის რეჟისორი — არჩილ ბურჭულაძე</li>
-                        <li>ხმის რეჟისორი — ივანე გვარაძე</li>
-                        <li>კინო მხატვარი — თეო ბარამიძე</li>
-                        <li>კინო მხატვარი — კოტე ჯაფარიძე</li>
-                        <li>კოსტიუმების მხატვარი — თიკო კვინიკაძე</li>
-                        <li>გამნათებელი — თენგო კასრაძე</li>
-                        <li>პროდიუსერი — ვოვა კაჭარავა</li>
-                        <li>ლაინ პროდიუსერი — დალი ნარიმანიძე</li>
-                        <li>ფოკუსი — გივიკო თუხარელი</li>
-                        <li>გრიმი — ანუკა მურვანიძე</li>
-                        <li>რეკვიზიტი — გია გოგორიკიძე</li>
-                        <li>მონტაჟის რეჟისორი — ლევან კუხაშვილი</li>
-                        <li>მონტაჟი, ფერის კორექცია — ნოდარ ნოზაძე</li>
-                        <li>მონტაჟი, ფერის კორექცია — შიო ხიდაშელი</li>
-                        <li>მონტაჟი, რილსები — მიხეილ დევდარიანი</li>
-                        <li>„კლაპი" — ნიკოლოზ ღოღობერიძე</li>
+                        <li>რეჟისორი - დიტო ცინცაძე</li>
+                        <li>რეჟისორი - გიორგი თავართქილაძე</li>
+                        <li>რეჟისორი - მარინა კულუმბეგაშვილი</li>
+                        <li>სცენარისტი - ქეთი დევდარიანი</li>
+                        <li>სცენარისტი - ნიკოლოზ მდივანი</li>
+                        <li>ოპერატორი - არჩილ ახვლედიანი</li>
+                        <li>ოპერატორი - გელა ჩინჩალაძე</li>
+                        <li>ოპერატორი - იმედა თეთრაძე</li>
+                        <li>ხმის რეჟისორი - არჩილ ბურჭულაძე</li>
+                        <li>ხმის რეჟისორი - ივანე გვარაძე</li>
+                        <li>კინო მხატვარი - თეო ბარამიძე</li>
+                        <li>კინო მხატვარი - კოტე ჯაფარიძე</li>
+                        <li>კოსტიუმების მხატვარი - თიკო კვინიკაძე</li>
+                        <li>გამნათებელი - თენგო კასრაძე</li>
+                        <li>პროდიუსერი - ვოვა კაჭარავა</li>
+                        <li>ლაინ პროდიუსერი - დალი ნარიმანიძე</li>
+                        <li>ფოკუსი - გივიკო თუხარელი</li>
+                        <li>გრიმი - ანუკა მურვანიძე</li>
+                        <li>რეკვიზიტი - გია გოგორიკიძე</li>
+                        <li>მონტაჟის რეჟისორი - ლევან კუხაშვილი</li>
+                        <li>მონტაჟი, ფერის კორექცია - ნოდარ ნოზაძე</li>
+                        <li>მონტაჟი, ფერის კორექცია - შიო ხიდაშელი</li>
+                        <li>მონტაჟი, რილსები - მიხეილ დევდარიანი</li>
+                        <li>„კლაპი" - ნიკოლოზ ღოღობერიძე</li>
                     </ul>
 
                     <h3>მასტერკლასები</h3>
                     <p>მსახიობის ოსტატობა, კინომუსიკა, დოკუმენტური კინო, დრამატურგია, კინოს ისტორია, ზოგადი ლიტერატურა და სხვა.</p>
 
                     <h3>კურსზე მიღების მთავარი კრიტერიუმი</h3>
-                    <p>აპლიკანტმა უნდა წარმოადგინოს საკუთარი მოკლემეტრაჟიანი ფილმის (10–30 წუთი) იდეა 1–2 გვერდიანი სინოფსისის სახით. წარმოდგენილი იდეა საბოლოოდ გახდება ის პროექტი, რომელსაც კურსის ფარგლებში სტუდენტი განავითარებს პროფესიონალების მხარდაჭერით და გადაიღებს საავტორო ფილმს.</p>
+                    <p>აპლიკანტმა უნდა წარმოადგინოს საკუთარი მოკლემეტრაჟიანი ფილმის (10-30 წუთი) იდეა 1-2 გვერდიანი სინოფსისის სახით. წარმოდგენილი იდეა საბოლოოდ გახდება ის პროექტი, რომელსაც კურსის ფარგლებში სტუდენტი განავითარებს პროფესიონალების მხარდაჭერით და გადაიღებს საავტორო ფილმს.</p>
 
-                    <h3>კურსის კონსერვატორიული მოდელი — 11-თვიანი პროგრამა „იდეიდან ეკრანამდე"</h3>
-                    <p>პროგრამა ეფუძნება დასავლური წამყვანი კინოსკოლების (New York Film Academy, Prague Film Institute, European Film College) Conservatory Style პრაქტიკულ მოდელს. მთავარი პრინციპია <strong>„Learning by Doing"</strong> — სტუდენტები უშუალოდ ერთვებიან კინოწარმოების ყველა ეტაპზე, რეალურ კინოსტუდიურ გარემოში.</p>
+                    <h3>კურსის კონსერვატორიული მოდელი - 11-თვიანი პროგრამა „იდეიდან ეკრანამდე"</h3>
+                    <p>პროგრამა ეფუძნება დასავლური წამყვანი კინოსკოლების (New York Film Academy, Prague Film Institute, European Film College) Conservatory Style პრაქტიკულ მოდელს. მთავარი პრინციპია <strong>„Learning by Doing"</strong> - სტუდენტები უშუალოდ ერთვებიან კინოწარმოების ყველა ეტაპზე, რეალურ კინოსტუდიურ გარემოში.</p>
                     <p>სტუდენტური ნაკადი იყოფა ორ შემოქმედებით სახელოსნოდ, რომლებსაც ხელმძღვანელობენ <strong>დიტო ცინცაძე</strong> და <strong>გიორგი თავართქილაძე</strong>.</p>
 
                     <h3>კურსის 5-ფაზიანი არქიტექტურა</h3>
                     <ul>
-                        <li><strong>ფაზა I — შესავალი</strong> (14.09.26–24.10.26): შესავალი კინოენაში, კინოწარმოების ყველა რგოლის გაცნობა.</li>
-                        <li><strong>ფაზა II — სცენარი</strong> (26.10.26–19.12.26): იდეის სტრუქტურირება, ამბის თხრობა, ინტენსიური მუშაობა სცენარისტებთან.</li>
-                        <li><strong>ფაზა III — პრეპროდუქცია და ქასთინგი</strong> (21.12.26–13.02.27): სცენარის სივრცესა და მოქმედებაში გადატანა, Production Book, Pitching.</li>
-                        <li><strong>ფაზა IV — გადაღება</strong> (15.02.27–15.05.27): ინტენსიური პრაქტიკა მოედანზე, Crew Rotation, ყოველკვირეული Dailies.</li>
-                        <li><strong>ფაზა V — პოსტ-პროდაქშენი</strong> (17.05.27–07.08.27): მონტაჟი, ხმა, ფერის კორექცია, მუსიკა, გრაფიკა.</li>
+                        <li><strong>ფაზა I - შესავალი</strong> (14.09.26-24.10.26): შესავალი კინოენაში, კინოწარმოების ყველა რგოლის გაცნობა.</li>
+                        <li><strong>ფაზა II - სცენარი</strong> (26.10.26-19.12.26): იდეის სტრუქტურირება, ამბის თხრობა, ინტენსიური მუშაობა სცენარისტებთან.</li>
+                        <li><strong>ფაზა III - პრეპროდუქცია და ქასთინგი</strong> (21.12.26-13.02.27): სცენარის სივრცესა და მოქმედებაში გადატანა, Production Book, Pitching.</li>
+                        <li><strong>ფაზა IV - გადაღება</strong> (15.02.27-15.05.27): ინტენსიური პრაქტიკა მოედანზე, Crew Rotation, ყოველკვირეული Dailies.</li>
+                        <li><strong>ფაზა V - პოსტ-პროდაქშენი</strong> (17.05.27-07.08.27): მონტაჟი, ხმა, ფერის კორექცია, მუსიკა, გრაფიკა.</li>
                     </ul>
 
                     <h3>პროგრამის მოსალოდნელი შედეგები</h3>
@@ -3546,7 +1600,7 @@
                         <li>დამოუკიდებლად გადაღებული, სრულფასოვანი მოკლემეტრაჟიანი საავტორო ფილმი პროფესიული სტანდარტებით.</li>
                         <li>გამოცდილება გადამღები ჯგუფის სხვადასხვა პოზიციაზე და პროფესიული კავშირები.</li>
                         <li>შემოქმედებითი და ტექნიკური გუნდის მართვის კრიტიკული უნარი.</li>
-                        <li>სრული ინდუსტრიული ციკლის გავლა — მზადყოფნა პროფესიული კინობაზრისთვის.</li>
+                        <li>სრული ინდუსტრიული ციკლის გავლა - მზადყოფნა პროფესიული კინობაზრისთვის.</li>
                     </ul>
 
                     <h3>სწავლის ეთიკური პირობები</h3>
@@ -3563,7 +1617,7 @@
                         <div class="course-info-grid">
                             <div class="course-info-item">
                                 <span class="label">ხანგრძლივობა</span>
-                                <span class="value">11 თვე (სექტემბერი 2026 — აგვისტო 2027)</span>
+                                <span class="value">11 თვე (სექტემბერი 2026 - აგვისტო 2027)</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ღირებულება</span>
@@ -3598,7 +1652,15 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>&copy; 2025 შუქი. ყველა უფლება დაცულია.</p>
+            <div class="container footer-inner">
+                <img src="./images/shuqi-logo.png" alt="shuQi Production" class="header-logo" loading="lazy">
+                <p>&copy; 2026 შუქი. ყველა უფლება დაცულია.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=61586814920651" target="_blank" rel="noopener" class="icon-btn" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-facebook-logo"/></svg></a>
+                    <a href="https://www.instagram.com/shuqiproduction" target="_blank" rel="noopener" class="icon-btn" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-instagram-logo"/></svg></a>
+                    <a href="https://tiktok.com/@shuqischool" target="_blank" rel="noopener" class="icon-btn" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-tiktok-logo"/></svg></a>
+                </div>
+            </div>
         </footer>
     </div>
 
@@ -3932,7 +1994,8 @@
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', function() {
                 currentIndex = index;
-                const imgSrc = this.querySelector('img').src;
+                const img = this.querySelector('img');
+                const imgSrc = img.dataset.full || img.src;
                 lightboxImg.src = imgSrc;
                 lightboxCurrent.textContent = currentIndex + 1;
                 lightbox.classList.add('active');
@@ -3967,7 +2030,8 @@
         });
 
         function updateLightboxImage() {
-            const imgSrc = galleryItems[currentIndex].querySelector('img').src;
+            const img = galleryItems[currentIndex].querySelector('img');
+            const imgSrc = img.dataset.full || img.src;
             lightboxImg.style.opacity = '0';
             setTimeout(() => {
                 lightboxImg.src = imgSrc;
@@ -4033,6 +2097,18 @@
         const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL';
         const SHEETS_SECRET_KEY = 'shuqi_reg_2026'; // Change this to your own secret key
         
+        function showFormStatus(type, detail) {
+            const el = document.getElementById('formStatus');
+            const en = document.documentElement.lang === 'en';
+            const messages = {
+                success: en ? 'Thank you for registering! We will contact you soon.' : 'გმადლობთ რეგისტრაციისთვის! ჩვენ მალე დაგიკავშირდებით.',
+                error: (en ? 'Something went wrong' : 'დაფიქსირდა შეცდომა') + (detail ? ': ' + detail : '') + '. ' + (en ? 'Please try again later or call +995 511175317.' : 'გთხოვთ სცადოთ მოგვიანებით ან დაგვირეკოთ: +995 511175317.'),
+                missing: en ? 'Please fill in all required fields (*).' : 'გთხოვთ შეავსოთ ყველა სავალდებულო ველი (*).'
+            };
+            el.textContent = messages[type];
+            el.dataset.type = type;
+        }
+
         document.getElementById('studentForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
@@ -4044,11 +2120,24 @@
             const honeypot = document.getElementById('honeypot').value;
             if (honeypot) {
                 console.warn('Bot detected via honeypot');
-                alert('გმადლობთ რეგისტრაციისთვის!');
+                showFormStatus('success');
                 form.reset();
                 return;
             }
             
+            // Required fields: name, email, phone, age, course
+            const missing = ['fullName', 'email', 'phone', 'age', 'course']
+                .map(id => document.getElementById(id))
+                .filter(el => !el.value.trim());
+            form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+            if (missing.length) {
+                missing.forEach(el => el.setAttribute('aria-invalid', 'true'));
+                missing[0].focus();
+                showFormStatus('missing');
+                return;
+            }
+            document.getElementById('formStatus').textContent = '';
+
             // Disable button and show loading
             submitBtn.disabled = true;
             submitBtn.textContent = 'იგზავნება...';
@@ -4084,13 +2173,13 @@
                 
                 console.log('Email sent successfully:', response);
                 // Show success message
-                alert('გმადლობთ რეგისტრაციისთვის! ჩვენ მალე დაგიკავშირდებით.');
+                showFormStatus('success');
                 // Reset form
                 form.reset();
             } catch (error) {
                 console.error('EmailJS Error:', error);
                 console.error('Error text:', error.text);
-                alert('დაფიქსირდა შეცდომა: ' + (error.text || error.message || 'უცნობი შეცდომა') + '. გთხოვთ სცადოთ მოგვიანებით.');
+                showFormStatus('error', error.text || error.message);
             } finally {
                 // Re-enable button
                 submitBtn.disabled = false;
@@ -4114,6 +2203,13 @@
             
             // Hero
             'ისწავლე, ითამაშე და გადაიღე': 'Learn, Act and Film',
+            'შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს': 'The shuQi Production film workshop offers a summer acting course',
+            '„გადაიღე შენი ფილმი" (MYM)': '"Make Your Movie" (MYM)',
+            'კინოსკოლა და პროდაქშენი თბილისში. სამსახიობო და სარეჟისორო კურსები მოქმედ კინოპროფესიონალებთან ერთად.': 'A film school and production company in Tbilisi. Acting and directing courses with working film professionals.',
+            'ჩვენი მსახიობები': 'Our actors',
+            'ჩვენი კურსდამთავრებულების პორტფოლიოები ქასთინგ-მენეჯერებისა და რეჟისორებისთვის.': 'Portfolios of our graduates, for casting directors and filmmakers.',
+            'ყველა პროფილი': 'All profiles',
+            'შეავსეთ ფორმა და ჩვენ დაგიკავშირდებით კურსის დეტალების დასაზუსტებლად.': 'Fill in the form and we will get in touch to go over the course details.',
             'დარეგისტრირდი': 'Register',
             'გაიგე მეტი': 'Learn More',
             
@@ -4147,7 +2243,7 @@
             'კურსი „კინოსამზარეულო"': 'Course "Cinema Kitchen"',
             'კურსი ,,კინოსამზარეულო"': 'Course "Cinema Kitchen"',
             'კინო არდადეგები': 'Cinema Holidays',
-            '25 მაისი – 25 ივლისი': 'May 25 – July 25',
+            '25 მაისი - 25 ივლისი': 'May 25 - July 25',
             'დარეგისტრირდი': 'Register',
             'დეტალები': 'Details',
             'მალე': 'Coming Soon',
@@ -4256,7 +2352,7 @@
             // Registration Dates
             'იჩქარეთ, რეგისტრაცია კინოსამსახიობო კურსზე „პორტფოლიო" დაიწყო!': 'Hurry up, registration for the Film Acting Course "Portfolio" has started!',
             'ადგილების რაოდენობა შეზღუდულია, რეგისტაციის ბოლო ვადა: 07.03.2026': 'Places are limited, registration deadline: 07.03.2026',
-            'გასაუბრებები: 16.03.2026 – 20.03.2026': 'Interviews: 16.03.2026 – 20.03.2026',
+            'გასაუბრებები: 16.03.2026 - 20.03.2026': 'Interviews: 16.03.2026 - 20.03.2026',
             'სასწავლო კურსის ხანგრძლივობა: 24.03.2026 - 26.06.2026': 'Course duration: 24.03.2026 - 26.06.2026',
             'ნამუშევრების ჩვენება, პორტფოლიოებისა და სერტიფიკატების გადაცემა: 04.07.2026': 'Showcase of works, portfolio and certificate presentation: 04.07.2026',
             
@@ -4268,7 +2364,7 @@
             'შუქის ასანთებად, დააჭირე ღილაკს!': 'To turn on the light, press the button!',
             'შუქი მოვიდა': 'The light is on',
             'კონტაქტი': 'Contact',
-            '© 2025 შუქი. ყველა უფლება დაცულია.': '© 2025 shuQi. All rights reserved.',
+            '© 2026 შუქი. ყველა უფლება დაცულია.': '© 2026 shuQi. All rights reserved.',
             'გამოგვყევით:': 'Follow Us:',
 
             // Registration form extras
@@ -4278,7 +2374,7 @@
             'კინო არდადეგები': 'Cinema Holidays',
 
             // Cinema Kitchen Modal
-            'რეგისტრაციის ბოლო ვადა — 15 მაისი! შემოგვიერთდი დღესვე!': 'Registration deadline — May 15! Join us today!',
+            'რეგისტრაციის ბოლო ვადა - 15 მაისი! შემოგვიერთდი დღესვე!': 'Registration deadline - May 15! Join us today!',
             'რას ისწავლი:': 'What you will learn:',
             'იდეიდან სცენარამდე': 'From Idea to Script',
             'თემისა და მთავარი გზავნილის პოვნა': 'Finding the theme and main message',
@@ -4327,12 +2423,12 @@
             '15 მაისი': 'May 15',
 
             // Portfolio Modal extras
-            'პროექტის ხანგრძლივობა — 13 კვირა.': 'Project duration — 13 weeks.',
+            'პროექტის ხანგრძლივობა - 13 კვირა.': 'Project duration - 13 weeks.',
             'ღირებულება (განვადება შესაძლებელია)': 'Price (installments available)',
             'სწავლის დღეები:': 'Class days:',
-            'ორშაბათი, ხუთშაბათი, 20:00 – 22:00 საათი': 'Monday, Thursday, 20:00 – 22:00',
+            'ორშაბათი, ხუთშაბათი, 20:00 - 22:00 საათი': 'Monday, Thursday, 20:00 - 22:00',
             'დღე/საათი:': 'Day/Time:',
-            'სამშაბათი, ხუთშაბათი 20:00 – 22:00 საათი, შაბათი - 15:00 – 18:00 საათი': 'Tuesday, Thursday 20:00 – 22:00, Saturday 15:00 – 18:00'
+            'სამშაბათი, ხუთშაბათი 20:00 - 22:00 საათი, შაბათი - 15:00 - 18:00 საათი': 'Tuesday, Thursday 20:00 - 22:00, Saturday 15:00 - 18:00'
         };
         
         // Create reverse translations
@@ -4345,7 +2441,7 @@
             const dict = toLang === 'en' ? translations : reverseTranslations;
             
             // Translate nav links using data attributes
-            document.querySelectorAll('.nav-link[data-ka][data-en]').forEach(el => {
+            document.querySelectorAll('[data-ka][data-en]').forEach(el => {
                 el.textContent = el.getAttribute('data-' + toLang);
             });
             
@@ -4407,12 +2503,52 @@
             document.documentElement.lang = toLang === 'en' ? 'en' : 'ka';
             
             currentLang = toLang;
+            try { localStorage.setItem('shuqi_lang', toLang); } catch (e) { /* storage blocked */ }
         }
         
         langSwitch.addEventListener('click', function() {
             const newLang = currentLang === 'ka' ? 'en' : 'ka';
             translatePage(newLang);
         });
+
+        // Restore the language chosen on any shuQi page.
+        try {
+            if (localStorage.getItem('shuqi_lang') === 'en') translatePage('en');
+        } catch (e) { /* storage blocked */ }
+    </script>
+    <script src="talents/talents.js"></script>
+    <script src="assets/shuqi.js"></script>
+    <script>
+        // "Our actors" rail on the homepage, from talents/talents.json.
+        (function () {
+            const T = window.ShuqiTalents;
+            const section = document.getElementById('actors');
+            const rail = document.getElementById('actorsRail');
+            if (!T || !section || !rail) return;
+            T.loadTalents().then(talents => {
+                if (!talents.length) return;
+                const esc = T.escapeHtml;
+                const lang = document.documentElement.lang === 'en' ? 'en' : 'ka';
+                rail.innerHTML = talents.map((t, i) => {
+                    const photo = T.getPhotos(t)[0] || T.placeholderPhoto;
+                    const age = T.getAge(t);
+                    const roleKa = T.localized(t.role, 'ka') || T.str('actor', 'ka');
+                    const roleEn = T.localized(t.role, 'en') || T.str('actor', 'en');
+                    const nameKa = T.localized(t.name, 'ka');
+                    const nameEn = T.localized(t.name, 'en');
+                    const metaKa = roleKa + (age != null ? ', ' + age + ' ' + T.str('yearsOld', 'ka') : '');
+                    const metaEn = roleEn + (age != null ? ', ' + age + ' ' + T.str('yearsOld', 'en') : '');
+                    return `
+                        <a class="actor-card reveal" style="--i:${i % 4}" href="talent.html?id=${encodeURIComponent(t.slug)}">
+                            <div class="actor-photo"><img src="${esc(photo)}" alt="${esc(nameKa)}" loading="lazy"></div>
+                            <h3 data-ka="${esc(nameKa)}" data-en="${esc(nameEn)}">${esc(lang === 'en' ? nameEn : nameKa)}</h3>
+                            <p data-ka="${esc(metaKa)}" data-en="${esc(metaEn)}">${esc(lang === 'en' ? metaEn : metaKa)}</p>
+                        </a>`;
+                }).join('');
+                section.hidden = false;
+                window.ShuqiUI && window.ShuqiUI.initReveal();
+            }).catch(() => { /* keep the section hidden */ });
+        })();
     </script>
 </body>
 </html>

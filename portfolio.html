@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>პორტფოლიო - shuQi Production</title>
-    <meta name="description" content="shuQi Production-ის მსახიობების პორტფოლიო — ფოტოები, შოურილები და CV. Actor portfolio database of shuQi Production.">
+    <meta name="description" content="shuQi Production-ის მსახიობების პორტფოლიო: ფოტოები, შოურილები და CV. Actor portfolio database of shuQi Production.">
     <link rel="canonical" href="https://www.shuqi.ge/portfolio.html">
 
     <!-- Open Graph Meta Tags -->
@@ -15,448 +15,177 @@
     <meta property="og:image" content="https://www.shuqi.ge/images/web.png">
     <meta property="og:locale" content="ka_GE">
 
+    <meta name="theme-color" content="#f3f3f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" href="./images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/shuqi.css">
+    <script>document.documentElement.classList.add('js');</script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
 
     <style>
-        :root {
-            --pure-black: #000000;
-            --dark-gray: #1d1d1f;
-            --medium-gray: #86868b;
-            --light-gray: #d2d2d7;
-            --off-white: #f5f5f7;
-            --pure-white: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(0, 0, 0, 0.08);
-            --glass-shadow: rgba(0, 0, 0, 0.06);
-            --accent-color: #1d1d1f;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-full: 50px;
-        }
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        main { flex: 1; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        .page-head { padding-block: clamp(48px, 7vw, 104px) clamp(28px, 3vw, 40px); }
+        .page-head .section-title { font-size: clamp(2.75rem, 1.6rem + 4.5vw, 5.5rem); }
+        .page-head .lead { margin: 14px 0 0; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', 'Segoe UI', 'Roboto', sans-serif;
-            background: #f5f5f7;
-            color: var(--dark-gray);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        .toolbar {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)) auto;
+            gap: 12px;
+            align-items: center;
+            padding-block: 20px;
+            border-block: 1px solid var(--line);
         }
+        .field {
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 14px;
+            font: inherit;
+            font-size: 16px;
+            color: var(--ink);
+            background: var(--surface);
+            border: 1px solid var(--line-strong);
+            border-radius: 0;
+        }
+        .field::placeholder { color: var(--muted); opacity: 1; }
+        .field:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 70%, transparent); }
+        .result-count { color: var(--muted); font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; min-width: 3.5em; text-align: right; }
 
-        /* Header */
-        .portfolio-header {
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 4px 30px var(--glass-shadow);
-        }
-        
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .header-logo {
-            height: 40px;
-        }
-        
-        .header-logo img {
-            height: 100%;
-            filter: brightness(0);
-        }
-        
-        .header-nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .header-nav a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .header-nav a:hover {
-            color: var(--pure-black);
-        }
-        
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--medium-gray);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: all 0.3s;
-            padding: 6px 14px;
-            border-radius: var(--radius-full);
-            background: rgba(0, 0, 0, 0.05);
-        }
-        
-        .back-btn:hover {
-            color: var(--dark-gray);
-            background: rgba(0, 0, 0, 0.1);
-        }
-        
-        .back-btn svg {
-            width: 16px;
-            height: 16px;
-            stroke: currentColor;
-            stroke-width: 2;
-            fill: none;
-        }
-        
-        .lang-switch {
-            background: var(--dark-gray);
-            color: var(--pure-white);
-            border: none;
-            padding: 6px 14px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s;
-            border-radius: var(--radius-full);
-        }
-        
-        .lang-switch:hover {
-            background: var(--pure-black);
-            transform: scale(1.05);
-        }
-        
-        /* Main Content */
-        .talent-section {
-            padding: 80px 20px;
-            background: transparent;
-            min-height: calc(100vh - 60px);
-        }
-        
-        .talent-section h2 {
-            text-align: center;
-            font-size: 3rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.015em;
-        }
-        
-        .talent-subtitle {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-        }
-        
-        .talent-filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .talent-filter-input {
-            padding: 12px 18px;
-            border: 1px solid var(--light-gray);
-            font-size: 0.875rem;
-            min-width: 150px;
-            font-family: inherit;
-            border-radius: var(--radius-md);
-            background: #fff;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px var(--glass-shadow);
-        }
-        
-        .talent-filter-input:focus {
-            outline: none;
-            border-color: var(--dark-gray);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
         .talent-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .talent-card {
-            background: #fff;
-            border: 1px solid var(--glass-border);
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 4px 20px var(--glass-shadow);
-        }
-        
-        .talent-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-            border-color: var(--light-gray);
-        }
-        
-        .talent-photo-container {
-            position: relative;
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-        }
-        
-        .talent-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .talent-card:hover .talent-photo {
-            transform: scale(1.05);
-        }
-        
-        .talent-video-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #fff;
-            padding: 8px 12px;
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border-radius: var(--radius-full);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .talent-video-badge svg {
-            width: 12px;
-            height: 12px;
-            fill: currentColor;
-        }
-        
-        .talent-info {
-            padding: 1.5rem;
-        }
-        
-        .talent-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1d1d1f;
-            margin-bottom: 0.5rem;
-        }
-        
-        .talent-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            font-size: 0.875rem;
-            color: #86868b;
-            margin-bottom: 1rem;
-        }
-        
-        .talent-meta span {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        
-        .talent-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .talent-skill-tag {
-            background: var(--off-white);
-            color: #1d1d1f;
-            padding: 6px 14px;
-            font-size: 0.75rem;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius-full);
-            transition: all 0.3s ease;
-        }
-        
-        .talent-skill-tag:hover {
-            background: var(--light-gray);
-            transform: scale(1.05);
-        }
-        
-        .talent-card {
-            display: block;
-            color: inherit;
-            text-decoration: none;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 48px 20px;
+            padding-block: clamp(32px, 4vw, 56px) var(--section-y);
         }
 
-        .talent-card:focus-visible {
-            outline: 3px solid var(--dark-gray);
-            outline-offset: 3px;
-        }
+        .talent-card { display: block; color: inherit; text-decoration: none; }
+        .talent-photo-container { aspect-ratio: 3 / 4; overflow: hidden; background: var(--surface-2); }
+        .talent-photo { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+        .talent-card:hover .talent-photo { transform: scale(1.04); }
+        .talent-name { margin-top: 16px; font-size: 1.15rem; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+        .talent-name .icon { opacity: 0; transform: translate(-4px, 2px); transition: opacity 0.3s var(--ease), transform 0.3s var(--ease); }
+        .talent-card:hover .talent-name .icon, .talent-card:focus-visible .talent-name .icon { opacity: 1; transform: translate(0, 2px); }
+        .talent-meta { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+        .talent-skills { margin: 6px 0 0; color: var(--ink-2); font-size: 14px; }
 
-        .talent-photo-count {
-            left: 12px;
-            right: auto;
-        }
-
-        .talent-section {
-            flex: 1;
-        }
-
-        .no-talents-message {
-            text-align: center;
-            color: var(--medium-gray);
-            font-size: 1rem;
-            padding: 3rem 1rem;
+        .state-message {
             grid-column: 1 / -1;
-            background: #fff;
-            border-radius: var(--radius-lg);
-            box-shadow: 0 4px 20px var(--glass-shadow);
+            padding: clamp(40px, 6vw, 72px) 0;
+            color: var(--muted);
+            font-size: 1.1rem;
         }
 
-        .result-count {
-            text-align: center;
-            color: var(--medium-gray);
-            font-size: 0.875rem;
-            margin: -1rem 0 1.5rem;
-            min-height: 1.4em;
+        /* Skeleton while the JSON loads: same shape as a card. */
+        .skeleton .talent-photo-container,
+        .skeleton .sk-line { background: var(--surface-2); }
+        .skeleton .sk-line { height: 14px; margin-top: 16px; width: 60%; }
+        .skeleton .sk-line + .sk-line { margin-top: 8px; width: 40%; }
+        @media (prefers-reduced-motion: no-preference) {
+            .skeleton .talent-photo-container, .skeleton .sk-line { animation: pulse 1.4s ease-in-out infinite; }
         }
+        @keyframes pulse { 50% { opacity: 0.55; } }
 
-        /* Footer */
-        .portfolio-footer {
-            background: rgba(29, 29, 31, 0.95);
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.875rem;
+        .join {
+            display: grid;
+            grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+            gap: 24px 64px;
+            align-items: end;
+            padding-block: var(--section-y);
+            border-top: 1px solid var(--line);
         }
+        .join h2 { font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3.25rem); }
+        .join p { margin: 16px 0 0; max-width: 54ch; }
+        .join .btn { justify-self: start; }
 
-        .portfolio-footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .talent-card, .talent-photo, .talent-skill-tag {
-                transition: none;
-            }
-            .talent-card:hover, .talent-card:hover .talent-photo {
-                transform: none;
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .talent-section {
-                padding: 48px 16px;
-            }
-
-            .talent-section h2 {
-                font-size: 2rem;
-            }
-
-            .talent-grid {
-                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                gap: 1rem;
-            }
-
-            .talent-info {
-                padding: 1rem;
-            }
-
-            .talent-name {
-                font-size: 1rem;
-            }
-
-            .talent-filter-input {
-                flex: 1 1 140px;
-                min-width: 0;
-            }
-
-            .header-nav {
-                gap: 0.75rem;
-            }
+        @media (max-width: 1100px) { .talent-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+        @media (max-width: 767px) {
+            .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .toolbar .search { grid-column: 1 / -1; }
+            .result-count { grid-column: 1 / -1; text-align: left; }
+            .talent-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
+            .talent-name { font-size: 1rem; }
+            .talent-skills { display: none; }
+            .join { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="portfolio-header">
-        <div class="header-container">
-            <a href="index.html" class="header-logo">
-                <img src="./images/shuqi-logo.png" alt="shuQi Production">
+    <header class="header header--compact">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="shuQi Production">
+                <img src="./images/shuqi-logo.png" alt="shuQi Production" class="header-logo">
             </a>
-            <nav class="header-nav">
-                <a href="index.html" class="back-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span data-i18n="home">მთავარი</span></a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link" data-i18n="home">მთავარი</a>
+                <a href="portfolio.html" class="nav-link" aria-current="page" data-i18n="portfolio">პორტფოლიო</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="contact">კონტაქტი</a>
                 <button class="lang-switch" id="langSwitch" type="button">EN</button>
             </nav>
         </div>
     </header>
 
-    <!-- Talent Database Section -->
-    <main class="talent-section" id="talents">
-        <h2 data-i18n="portfolio">პორტფოლიო</h2>
-        <p class="talent-subtitle" data-i18n="subtitle">მსახიობების მონაცემთა ბაზა</p>
+    <main id="talents">
+        <section class="container page-head">
+            <h1 class="section-title" data-i18n="portfolio">პორტფოლიო</h1>
+            <p class="lead" data-i18n="subtitle">მსახიობების მონაცემთა ბაზა</p>
+        </section>
 
-        <div class="talent-filters">
-            <input type="search" class="talent-filter-input" id="talentSearchName" data-i18n-placeholder="searchPlaceholder" placeholder="სახელით ძებნა..." aria-label="Search">
-            <select class="talent-filter-input" id="talentFilterGender" aria-label="Gender">
-                <option value="" data-i18n="allGenders">ყველა სქესი</option>
-                <option value="male" data-i18n="male">მამრობითი</option>
-                <option value="female" data-i18n="female">მდედრობითი</option>
-            </select>
-            <select class="talent-filter-input" id="talentFilterAge" aria-label="Age">
-                <option value="" data-i18n="allAges">ყველა ასაკი</option>
-                <option value="0-17" data-i18n="under18">18-მდე</option>
-                <option value="18-25">18-25</option>
-                <option value="26-35">26-35</option>
-                <option value="36-45">36-45</option>
-                <option value="46-55">46-55</option>
-                <option value="56-200">56+</option>
-            </select>
-        </div>
+        <div class="container">
+            <div class="toolbar" role="search">
+                <input type="search" class="field search" id="talentSearchName" data-i18n-placeholder="searchPlaceholder" placeholder="სახელით ძებნა..." aria-label="Search">
+                <select class="field" id="talentFilterGender" aria-label="Gender">
+                    <option value="" data-i18n="allGenders">ყველა სქესი</option>
+                    <option value="male" data-i18n="male">მამრობითი</option>
+                    <option value="female" data-i18n="female">მდედრობითი</option>
+                </select>
+                <select class="field" id="talentFilterAge" aria-label="Age">
+                    <option value="" data-i18n="allAges">ყველა ასაკი</option>
+                    <option value="0-17" data-i18n="under18">18-მდე</option>
+                    <option value="18-25">18-25</option>
+                    <option value="26-35">26-35</option>
+                    <option value="36-45">36-45</option>
+                    <option value="46-55">46-55</option>
+                    <option value="56-200">56+</option>
+                </select>
+                <span class="result-count" id="resultCount" aria-live="polite"></span>
+            </div>
 
-        <p class="result-count" id="resultCount" aria-live="polite"></p>
+            <div class="talent-grid" id="talentGrid" aria-busy="true">
+                <div class="talent-card skeleton" aria-hidden="true"><div class="talent-photo-container"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+                <div class="talent-card skeleton" aria-hidden="true"><div class="talent-photo-container"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+                <div class="talent-card skeleton" aria-hidden="true"><div class="talent-photo-container"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+                <div class="talent-card skeleton" aria-hidden="true"><div class="talent-photo-container"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+            </div>
 
-        <div class="talent-grid" id="talentGrid">
-            <div class="no-talents-message" id="noTalentsMessage" data-i18n="loading">იტვირთება...</div>
+            <section class="join">
+                <div>
+                    <h2 class="section-title reveal" data-i18n="joinTitle">გინდა შენი პორტფოლიოც აქ იყოს?</h2>
+                    <p class="reveal" data-i18n="joinText"></p>
+                </div>
+                <a href="index.html#registration" class="btn btn-primary reveal"><span data-i18n="joinCta">დარეგისტრირდი</span><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-right"/></svg></a>
+            </section>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="portfolio-footer">
-        <p>© <span id="footerYear">2026</span> <a href="index.html">shuQi Production</a>. <span data-i18n="rights">ყველა უფლება დაცულია.</span></p>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="index.html" aria-label="shuQi Production"><img src="./images/shuqi-logo.png" alt="shuQi Production" class="header-logo"></a>
+            <p>&copy; <span id="footerYear">2026</span> shuQi Production. <span data-i18n="rights">ყველა უფლება დაცულია.</span></p>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/profile.php?id=61586814920651" target="_blank" rel="noopener" class="icon-btn" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-facebook-logo"/></svg></a>
+                <a href="https://www.instagram.com/shuqiproduction" target="_blank" rel="noopener" class="icon-btn" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-instagram-logo"/></svg></a>
+                <a href="https://tiktok.com/@shuqischool" target="_blank" rel="noopener" class="icon-btn" aria-label="TikTok"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-tiktok-logo"/></svg></a>
+            </div>
+        </div>
     </footer>
 
     <script src="talents/talents.js"></script>
+    <script src="assets/shuqi.js"></script>
     <script>
         const T = window.ShuqiTalents;
         let currentLang = T.getLang();
@@ -515,64 +244,49 @@
             return true;
         }
 
-        function cardHtml(talent) {
+        function cardHtml(talent, index) {
             const esc = T.escapeHtml;
             const lang = currentLang;
             const name = T.localized(talent.name, lang);
             const photos = T.getPhotos(talent);
             const mainPhoto = photos[0] || T.placeholderPhoto;
-            const hasVideos = T.getVideos(talent).length > 0;
             const age = T.getAge(talent);
-            const city = T.localized(talent.city, lang);
-            const skills = T.list(talent.skills, lang).slice(0, 3);
+            const meta = [
+                age != null ? `${age} ${T.str('yearsOld', lang)}` : '',
+                talent.height ? `${talent.height} ${T.str('cm', lang)}` : '',
+                T.getVideos(talent).length ? T.str('withReel', lang) : ''
+            ].filter(Boolean).join(', ');
+            const skills = T.list(talent.skills, lang).slice(0, 3).join(', ');
 
             return `
-                <a class="talent-card" href="talent.html?id=${encodeURIComponent(talent.slug)}">
+                <a class="talent-card reveal" style="--i:${index % 4}" href="talent.html?id=${encodeURIComponent(talent.slug)}">
                     <div class="talent-photo-container">
                         <img src="${esc(mainPhoto)}" alt="${esc(name)}" class="talent-photo" loading="lazy" onerror="this.onerror=null;this.src='${T.placeholderPhoto}'">
-                        ${hasVideos ? `<span class="talent-video-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>${esc(T.str('video', lang))}</span>` : ''}
-                        ${photos.length > 1 ? `<span class="talent-video-badge talent-photo-count"><svg viewBox="0 0 24 24" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>${photos.length}</span>` : ''}
                     </div>
-                    <div class="talent-info">
-                        <h3 class="talent-name">${esc(name)}</h3>
-                        <div class="talent-meta">
-                            ${age != null ? `<span>${age} ${esc(T.str('yearsOld', lang))}</span>` : ''}
-                            ${talent.height ? `<span>${esc(talent.height)} ${esc(T.str('cm', lang))}</span>` : ''}
-                            ${city ? `<span>${esc(city)}</span>` : ''}
-                        </div>
-                        <div class="talent-skills">
-                            ${skills.map(skill => `<span class="talent-skill-tag">${esc(skill)}</span>`).join('')}
-                        </div>
-                    </div>
+                    <h2 class="talent-name">${esc(name)}<svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-up-right"/></svg></h2>
+                    ${meta ? `<p class="talent-meta">${esc(meta)}</p>` : ''}
+                    ${skills ? `<p class="talent-skills">${esc(skills)}</p>` : ''}
                 </a>
             `;
         }
 
         function renderTalentGrid() {
             const grid = document.getElementById('talentGrid');
-            const noTalentsMsg = document.getElementById('noTalentsMessage');
             const resultCount = document.getElementById('resultCount');
-
-            grid.querySelectorAll('.talent-card').forEach(card => card.remove());
+            grid.setAttribute('aria-busy', 'false');
 
             if (loadFailed) {
-                noTalentsMsg.textContent = T.str('loadError', currentLang);
-                noTalentsMsg.style.display = 'block';
+                grid.innerHTML = `<p class="state-message">${T.escapeHtml(T.str('loadError', currentLang))}</p>`;
                 resultCount.textContent = '';
                 return;
             }
 
             const filtered = talents.filter(matchesFilters);
-
-            if (filtered.length === 0) {
-                noTalentsMsg.textContent = T.str(talents.length ? 'noResults' : 'comingSoon', currentLang);
-                noTalentsMsg.style.display = 'block';
-            } else {
-                noTalentsMsg.style.display = 'none';
-                grid.insertAdjacentHTML('beforeend', filtered.map(cardHtml).join(''));
-            }
-
+            grid.innerHTML = filtered.length
+                ? filtered.map(cardHtml).join('')
+                : `<p class="state-message">${T.escapeHtml(T.str(talents.length ? 'noResults' : 'comingSoon', currentLang))}</p>`;
             resultCount.textContent = talents.length ? `${filtered.length} / ${talents.length}` : '';
+            window.ShuqiUI && window.ShuqiUI.initReveal();
         }
 
         document.getElementById('talentSearchName').addEventListener('input', () => talents && renderTalentGrid());

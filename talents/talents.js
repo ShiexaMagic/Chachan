@@ -1,5 +1,5 @@
 // Shared helpers for portfolio.html and talent.html.
-// Profiles live in talents/talents.json — see talents/README.md for the format.
+// Profiles live in talents/talents.json - see talents/README.md for the format.
 (function () {
     const LANG_KEY = 'shuqi_lang';
 
@@ -54,6 +54,12 @@
             notFoundText: 'სამწუხაროდ, მოთხოვნილი გვერდი არ არსებობს.',
             backToPortfolio: '← პორტფოლიოში დაბრუნება',
             rights: 'ყველა უფლება დაცულია.',
+            joinTitle: 'გინდა შენი პორტფოლიოც აქ იყოს?',
+            joinText: 'კინოსამსახიობო კურსი „პორტფოლიო" მთავრდება პროფესიონალური ფოტოებით, გადაღებული სცენით და პროფილით ამ გვერდზე.',
+            joinCta: 'დარეგისტრირდი',
+            withReel: 'შოურილით',
+            photoCount: 'ფოტო',
+            filterLabel: 'ფილტრი',
             close: 'დახურვა',
             prev: 'წინა',
             next: 'შემდეგი'
@@ -108,6 +114,12 @@
             notFoundText: 'Sorry, the page you requested does not exist.',
             backToPortfolio: '← Back to portfolio',
             rights: 'All rights reserved.',
+            joinTitle: 'Want your portfolio here?',
+            joinText: 'The "Portfolio" film acting course ends with professional photos, a filmed scene and a profile on this page.',
+            joinCta: 'Register',
+            withReel: 'with showreel',
+            photoCount: 'photos',
+            filterLabel: 'Filter',
             close: 'Close',
             prev: 'Previous',
             next: 'Next'

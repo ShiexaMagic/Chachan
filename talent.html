@@ -4,861 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>მსახიობი - shuQi Production</title>
-    <meta name="description" content="მსახიობის პორტფოლიო — ფოტოები, შოურილი და CV. Actor profile at shuQi Production.">
-    
+    <meta name="description" content="მსახიობის პორტფოლიო: ფოტოები, შოურილი და CV. Actor profile at shuQi Production.">
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="shuQi Production - Actor Portfolio">
     <meta property="og:description" content="Actor Profile - shuQi Production">
     <meta property="og:type" content="profile">
     <meta property="og:image" content="https://www.shuqi.ge/images/web.png">
     <meta property="og:locale" content="ka_GE">
-    
+
+    <meta name="theme-color" content="#f3f3f1" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f11" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" href="./images/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wdth,wght@62.5..100,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/shuqi.css">
+    <script>document.documentElement.classList.add('js');</script>
     <script defer src="https://va.vercel-scripts.com/v1/script.js"></script>
-    
+
     <style>
-        :root {
-            --pure-black: #000000;
-            --dark-gray: #1d1d1f;
-            --medium-gray: #86868b;
-            --light-gray: #d2d2d7;
-            --off-white: #f5f5f7;
-            --pure-white: #ffffff;
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans Georgian', 'Segoe UI', 'Roboto', sans-serif;
-            background: #fff;
-            color: var(--dark-gray);
-            line-height: 1.6;
-        }
-        
-        /* Header */
-        .talent-header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: saturate(180%) blur(20px);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .header-logo {
-            height: 40px;
-        }
-        
-        .header-logo img {
-            height: 100%;
-            filter: brightness(0);
-        }
-        
-        .header-nav {
-            display: flex;
-            gap: 2rem;
-        }
-        
-        .header-nav a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .header-nav a:hover {
-            color: var(--pure-black);
-        }
-        
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--medium-gray);
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s;
-        }
-        
-        .back-btn:hover {
-            color: var(--dark-gray);
-        }
-        
-        /* Hero Section */
-        .talent-hero {
-            background: linear-gradient(135deg, #1d1d1f 0%, #000 100%);
-            color: white;
-            padding: 60px 20px;
-        }
-        
-        .talent-hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
+        body { min-height: 100vh; display: flex; flex-direction: column; }
+        #talentPageContent { flex: 1; }
+
+        /* ---------- Profile hero ---------- */
+        .profile {
             display: grid;
-            grid-template-columns: 400px 1fr;
-            gap: 3rem;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+            gap: clamp(32px, 6vw, 96px);
+            padding-block: clamp(32px, 5vw, 72px) var(--section-y);
             align-items: start;
         }
-        
-        .talent-hero-photo {
-            position: relative;
-        }
-        
-        .talent-main-image {
+        .profile-photo { position: sticky; top: calc(var(--header-h) + 24px); }
+        .profile-main {
             width: 100%;
-            aspect-ratio: 3/4;
+            aspect-ratio: 3 / 4;
             object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.1);
-        }
-        
-        .talent-photo-gallery {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-        }
-        
-        .talent-thumb {
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-        
-        .talent-thumb:hover,
-        .talent-thumb.active {
-            border-color: white;
-        }
-        
-        .talent-hero-info {
-            padding-top: 1rem;
-        }
-        
-        .talent-name {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-        
-        .talent-role {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.7);
-            margin-bottom: 2rem;
-        }
-        
-        .talent-quick-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .quick-stat {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-left: 3px solid rgba(255,255,255,0.3);
-        }
-        
-        .quick-stat-label {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        
-        .quick-stat-value {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .talent-contact-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-btn {
-            padding: 12px 28px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .contact-btn-primary {
-            background: white;
-            color: var(--dark-gray);
-        }
-        
-        .contact-btn-primary:hover {
-            background: var(--off-white);
-        }
-        
-        .contact-btn-secondary {
-            background: transparent;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-        
-        .contact-btn-secondary:hover {
-            border-color: white;
-        }
-        
-        /* Navigation Tabs */
-        .talent-nav {
-            background: var(--off-white);
-            border-bottom: 1px solid var(--light-gray);
-            position: sticky;
-            top: 60px;
-            z-index: 999;
-        }
-        
-        .talent-nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            gap: 0;
-            overflow-x: auto;
-        }
-        
-        .talent-nav-link {
-            padding: 1rem 1.5rem;
-            color: var(--medium-gray);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            border-bottom: 2px solid transparent;
-            white-space: nowrap;
-            transition: all 0.3s;
-        }
-        
-        .talent-nav-link:hover,
-        .talent-nav-link.active {
-            color: var(--dark-gray);
-            border-bottom-color: var(--dark-gray);
-        }
-        
-        /* Main Content */
-        .talent-main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .talent-section {
-            margin-bottom: 60px;
-            scroll-margin-top: 140px;
-        }
-        
-        .section-title {
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--light-gray);
-        }
-        
-        /* Personal Details & Appearance */
-        .details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
-            gap: 2rem;
-        }
-        
-        .details-card {
-            background: var(--off-white);
-            padding: 1.5rem;
-        }
-        
-        .details-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--dark-gray);
-        }
-        
-        .details-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .detail-label {
-            color: var(--medium-gray);
-            font-size: 0.875rem;
-        }
-        
-        .detail-value {
-            font-weight: 500;
-            text-align: right;
-        }
-        
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .skill-category {
-            background: var(--off-white);
-            padding: 1.5rem;
-        }
-        
-        .skill-category h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .skill-category h4::before {
-            content: '';
-            width: 4px;
-            height: 1rem;
-            background: var(--dark-gray);
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .skill-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.875rem;
-        }
-        
-        .skill-name {
-            color: var(--dark-gray);
-        }
-        
-        .skill-level {
-            color: var(--medium-gray);
-            font-size: 0.75rem;
-        }
-        
-        .skill-level.high {
-            color: #34c759;
-        }
-        
-        .skill-level.medium {
-            color: #ff9500;
-        }
-        
-        /* Videos/Showreels */
-        .videos-grid {
-            display: grid;
-            max-width: 1000px;
-            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-            gap: 1.5rem;
-        }
-        
-        .video-card {
-            background: var(--off-white);
-            overflow: hidden;
-        }
-        
-        .video-embed {
-            aspect-ratio: 16/9;
-            background: #000;
-        }
-        
-        .video-embed iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .video-info {
-            padding: 1rem;
-        }
-        
-        .video-title {
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .video-meta {
-            font-size: 0.75rem;
-            color: var(--medium-gray);
-        }
-        
-        /* CV Section */
-        .cv-tabs {
-            display: flex;
-            gap: 0;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--light-gray);
-            overflow-x: auto;
-        }
-        
-        .cv-tab {
-            padding: 0.75rem 1.5rem;
-            background: none;
-            border: none;
-            color: var(--medium-gray);
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            white-space: nowrap;
-            transition: all 0.3s;
-        }
-        
-        .cv-tab:hover,
-        .cv-tab.active {
-            color: var(--dark-gray);
-            border-bottom-color: var(--dark-gray);
-        }
-        
-        .cv-content {
-            display: none;
-        }
-        
-        .cv-content.active {
-            display: block;
-        }
-        
-        .cv-entry {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            gap: 1.5rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .cv-year {
-            font-weight: 600;
-            color: var(--medium-gray);
-        }
-        
-        .cv-details h5 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-        
-        .cv-details p {
-            color: var(--medium-gray);
-            font-size: 0.875rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .cv-role {
-            display: inline-block;
-            background: var(--dark-gray);
-            color: white;
-            padding: 2px 8px;
-            font-size: 0.75rem;
-            margin-top: 0.5rem;
-        }
-        
-        /* Photo Gallery Section */
-        .photos-section {
-            margin-bottom: 60px;
-        }
-        
-        .photos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-        
-        .photo-item {
-            aspect-ratio: 3/4;
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-        
-        .photo-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: var(--off-white);
-            padding: 2rem;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .contact-icon {
+            background: var(--surface-2);
+            cursor: zoom-in;
+        }
+        .thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; margin-top: 8px; }
+        .thumb-btn { padding: 0; border: 0; background: var(--surface-2); cursor: pointer; aspect-ratio: 1; overflow: hidden; position: relative; }
+        .thumb-btn img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: opacity 0.25s var(--ease); }
+        .thumb-btn:hover img, .thumb-btn.active img { opacity: 1; }
+        .thumb-btn.active::after { content: ''; position: absolute; inset: 0; box-shadow: inset 0 0 0 2px var(--ink); }
+
+        .profile-name { font-size: clamp(2.75rem, 1.5rem + 4.6vw, 5.75rem); }
+        .profile-role { margin: 20px 0 0; font-size: 1.15rem; color: var(--muted); }
+
+        .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: clamp(28px, 4vw, 48px) 0 0; }
+        .facts div { padding: 16px 16px 16px 0; border-top: 1px solid var(--line); }
+        .facts dt { font-size: 13px; color: var(--muted); }
+        .facts dd { margin: 2px 0 0; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+
+        .profile-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+
+        .block { margin-top: clamp(40px, 5vw, 64px); }
+        .block h2 { font-size: 1.35rem; font-weight: 600; margin-bottom: 14px; }
+        .block p { margin: 0; max-width: 62ch; white-space: pre-line; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .chip { display: inline-flex; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-strong); font-size: 15px; color: var(--ink); }
+
+        .timeline { list-style: none; margin: 0; padding: 0; }
+        .timeline li { padding: 14px 0; border-top: 1px solid var(--line); max-width: 62ch; }
+        .timeline li:first-child { border-top: 0; padding-top: 0; }
+
+        /* ---------- Full-width sections ---------- */
+        .profile-section { padding-block: var(--section-y); border-top: 1px solid var(--line); }
+        .profile-section .section-title { margin-bottom: clamp(28px, 3vw, 44px); }
+
+        .videos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: 20px; max-width: 1100px; }
+        .video-embed { aspect-ratio: 16 / 9; background: #0b0b0d; }
+        .video-embed iframe, .video-embed video { width: 100%; height: 100%; border: 0; display: block; }
+
+        .photos-grid { columns: 3; column-gap: 16px; }
+        .photo-item { display: block; width: 100%; margin: 0 0 16px; padding: 0; border: 0; background: var(--surface-2); cursor: zoom-in; break-inside: avoid; overflow: hidden; }
+        .photo-item img { width: 100%; height: auto; transition: transform 1s var(--ease); }
+        .photo-item:hover img { transform: scale(1.03); }
+
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px 48px; }
+        .contact-item { display: flex; gap: 14px; align-items: flex-start; }
+        .contact-item .icon { width: 22px; height: 22px; margin-top: 4px; color: var(--muted); }
+        .contact-item h3 { font-size: 13px; font-weight: 500; color: var(--muted); }
+        .contact-item a { font-size: 1.15rem; font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+        .contact-item a:hover { border-color: var(--ink); }
+
+        /* ---------- States ---------- */
+        .state { padding-block: var(--section-y); }
+        .state h1 { font-size: clamp(2.25rem, 1.5rem + 3vw, 4rem); }
+        .state p { margin: 16px 0 28px; color: var(--muted); }
+        .skeleton-block { background: var(--surface-2); }
+        @media (prefers-reduced-motion: no-preference) { .skeleton-block { animation: pulse 1.4s ease-in-out infinite; } }
+        @keyframes pulse { 50% { opacity: 0.55; } }
+
+        /* ---------- Lightbox ---------- */
+        .photo-lightbox { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; background: rgba(8, 8, 10, 0.96); }
+        .photo-lightbox.active { display: flex; }
+        .lightbox-image { max-width: 92vw; max-height: 86vh; object-fit: contain; }
+        .lb-btn {
+            position: absolute;
             width: 48px;
             height: 48px;
-            background: var(--dark-gray);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-        }
-        
-        .contact-info h5 {
-            font-size: 0.75rem;
-            color: var(--medium-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 4px;
-        }
-        
-        .contact-info a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
-        .talent-footer {
-            background: var(--dark-gray);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .talent-footer p {
-            color: rgba(255,255,255,0.6);
-            font-size: 0.875rem;
-        }
-        
-        .talent-footer a {
-            color: white;
-            text-decoration: none;
-        }
-        
-        /* Lightbox */
-        .photo-lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .photo-lightbox.active {
-            display: flex;
-        }
-        
-        .lightbox-image {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-        }
-        
-        .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        
-        .lightbox-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.1);
-            border: none;
-            color: white;
-            font-size: 2rem;
-            padding: 1rem;
-            cursor: pointer;
-        }
-        
-        .lightbox-prev { left: 20px; }
-        .lightbox-next { right: 20px; }
-        
-        /* Not Found */
-        .not-found {
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .not-found h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .not-found p {
-            color: var(--medium-gray);
-            margin-bottom: 2rem;
-        }
-        
-        .not-found a {
-            color: var(--dark-gray);
-        }
-        
-        /* Header actions & language switch */
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .lang-switch {
-            background: var(--dark-gray);
-            color: var(--pure-white);
-            border: none;
-            padding: 6px 14px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            font-family: inherit;
-            border-radius: 50px;
-        }
-        
-        .lang-switch:hover {
-            background: var(--pure-black);
-        }
-        
-        /* Thumbnails & photo buttons */
-        .talent-thumb-btn,
-        .photo-item {
-            padding: 0;
-            border: none;
-            background: none;
-            cursor: pointer;
-            display: block;
-            flex-shrink: 0;
-        }
-        
-        .talent-thumb-btn:focus-visible,
-        .photo-item:focus-visible,
-        .contact-btn:focus-visible {
-            outline: 3px solid #fff;
-            outline-offset: 2px;
-        }
-        
-        .photo-item:focus-visible {
-            outline-color: var(--dark-gray);
-        }
-        
-        /* Overview */
-        .overview-block {
-            margin-top: 2rem;
-        }
-        
-        .overview-block h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        
-        .bio-text {
-            color: #424245;
-            line-height: 1.8;
-            white-space: pre-line;
-            max-width: 75ch;
-        }
-        
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .skill-tag {
-            background: var(--off-white);
-            border: 1px solid var(--light-gray);
-            padding: 6px 14px;
-            font-size: 0.875rem;
-            border-radius: 50px;
-        }
-        
-        .video-embed video {
-            width: 100%;
-            height: 100%;
-            display: block;
-            background: #000;
-        }
-        
-        /* CV */
-        .cv-text {
-            background: var(--off-white);
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cv-text p {
-            white-space: pre-line;
-            line-height: 1.8;
-        }
-        
-        .cv-download {
-            display: inline-block;
-            padding: 12px 28px;
-            background: var(--dark-gray);
+            display: grid;
+            place-items: center;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.06);
             color: #fff;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
+            cursor: pointer;
         }
-        
-        .cv-download:hover {
-            background: var(--pure-black);
+        .lb-btn:hover { background: rgba(255, 255, 255, 0.14); border-color: #fff; }
+        .lightbox-close { top: 20px; right: 20px; }
+        .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+
+        @media (max-width: 899px) {
+            .profile { grid-template-columns: 1fr; }
+            .profile-photo { position: static; }
         }
-        
-        /* Responsive */
-        @media (max-width: 900px) {
-            .talent-hero-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .talent-hero-photo {
-                max-width: 400px;
-                margin: 0 auto;
-            }
-            
-            .talent-name {
-                font-size: 2.5rem;
-            }
-            
-            .cv-entry {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .header-nav {
-                display: none;
-            }
-            
-            .talent-hero {
-                padding: 32px 16px;
-            }
-            
-            .talent-name {
-                font-size: 2rem;
-            }
-            
-            .talent-main {
-                padding: 32px 16px;
-            }
-            
-            .photos-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .talent-quick-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .videos-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 767px) {
+            .photos-grid { columns: 2; column-gap: 10px; }
+            .photo-item { margin-bottom: 10px; }
+            .lightbox-prev, .lightbox-next { top: auto; bottom: 20px; transform: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="talent-header">
-        <div class="header-container">
-            <a href="index.html" class="header-logo">
-                <img src="./images/shuqi-logo.png" alt="shuQi Production">
+    <header class="header header--compact">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="shuQi Production">
+                <img src="./images/shuqi-logo.png" alt="shuQi Production" class="header-logo">
             </a>
-            <nav class="header-nav">
-                <a href="index.html" data-i18n="home">მთავარი</a>
-                <a href="portfolio.html" data-i18n="portfolio">პორტფოლიო</a>
-                <a href="index.html#contact" data-i18n="contact">კონტაქტი</a>
-            </nav>
-            <div class="header-actions">
-                <a href="portfolio.html" class="back-btn">← <span data-i18n="back">პორტფოლიო</span></a>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link" data-i18n="home">მთავარი</a>
+                <a href="portfolio.html" class="nav-link" data-i18n="portfolio">პორტფოლიო</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="contact">კონტაქტი</a>
                 <button class="lang-switch" id="langSwitch" type="button">EN</button>
-            </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content - Loaded Dynamically -->
-    <div id="talentPageContent">
-        <div class="not-found">
-            <h1 data-i18n="loading">იტვირთება...</h1>
+    <main id="talentPageContent">
+        <div class="container profile" aria-busy="true">
+            <div class="skeleton-block" style="aspect-ratio: 3 / 4;"></div>
+            <div>
+                <div class="skeleton-block" style="height: 72px; width: 70%;"></div>
+                <div class="skeleton-block" style="height: 18px; width: 30%; margin-top: 18px;"></div>
+            </div>
         </div>
-    </div>
+    </main>
 
-    <!-- Footer -->
-    <footer class="talent-footer">
-        <p>© <span id="footerYear">2026</span> <a href="index.html">shuQi Production</a>. <span data-i18n="rights">ყველა უფლება დაცულია.</span></p>
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="index.html" aria-label="shuQi Production"><img src="./images/shuqi-logo.png" alt="shuQi Production" class="header-logo"></a>
+            <p>&copy; <span id="footerYear">2026</span> shuQi Production. <span data-i18n="rights">ყველა უფლება დაცულია.</span></p>
+            <a href="portfolio.html" class="text-link"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-arrow-left"/></svg><span data-i18n="portfolio">პორტფოლიო</span></a>
+        </div>
     </footer>
 
     <!-- Photo Lightbox -->
     <div class="photo-lightbox" id="photoLightbox" role="dialog" aria-modal="true">
-        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close">&times;</button>
-        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous">&#10094;</button>
+        <button class="lb-btn lightbox-close" id="lightboxClose" type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-x"/></svg></button>
+        <button class="lb-btn lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-caret-left"/></svg></button>
         <img src="" alt="" class="lightbox-image" id="lightboxImage">
-        <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Next">&#10095;</button>
+        <button class="lb-btn lightbox-next" id="lightboxNext" type="button" aria-label="Next"><svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-caret-right"/></svg></button>
     </div>
 
     <script src="talents/talents.js"></script>
+    <script src="assets/shuqi.js"></script>
     <script>
         const T = window.ShuqiTalents;
         const esc = T.escapeHtml;
+        const icon = name => `<svg class="icon" aria-hidden="true"><use href="assets/icons.svg#i-${name}"/></svg>`;
         let currentLang = T.getLang();
         let currentTalent = null;
         let notFound = false;
@@ -901,22 +218,13 @@
         // ========================================
         // RENDERING
         // ========================================
-        function detailRow(labelKey, value) {
+        function fact(labelKey, value) {
             if (value === '' || value == null) return '';
-            return `
-                <div class="detail-item">
-                    <span class="detail-label">${esc(T.str(labelKey, currentLang))}</span>
-                    <span class="detail-value">${esc(value)}</span>
-                </div>`;
+            return `<div><dt>${esc(T.str(labelKey, currentLang))}</dt><dd>${esc(value)}</dd></div>`;
         }
 
-        function quickStat(labelKey, value) {
-            if (value === '' || value == null) return '';
-            return `
-                <div class="quick-stat">
-                    <div class="quick-stat-label">${esc(T.str(labelKey, currentLang))}</div>
-                    <div class="quick-stat-value">${esc(value)}</div>
-                </div>`;
+        function lines(text) {
+            return String(text || '').split('\n').map(s => s.trim()).filter(Boolean);
         }
 
         function renderTalentPage(talent) {
@@ -937,204 +245,113 @@
             const weightText = talent.weight ? `${talent.weight} ${T.str('kg', lang)}` : '';
             const city = L(talent.city);
             const bio = L(talent.bio);
-            const education = L(talent.education);
-            const experience = L(talent.experience);
+            const education = lines(L(talent.education));
+            const experience = lines(L(talent.experience));
             const cvUrl = T.safeUrl(talent.cv);
             const role = L(talent.role) || T.str('actor', lang);
             const email = talent.email ? String(talent.email).trim() : '';
             const phone = talent.phone ? String(talent.phone).trim() : '';
-            const hasCv = experience || cvUrl;
 
             document.title = name + ' - shuQi Production';
             currentPhotos = photos;
 
             document.getElementById('talentPageContent').innerHTML = `
-                <section class="talent-hero">
-                    <div class="talent-hero-content">
-                        <div class="talent-hero-photo">
-                            <img src="${esc(mainPhoto)}" alt="${esc(name)}" class="talent-main-image" id="heroMainPhoto" onerror="this.onerror=null;this.src='${T.placeholderPhoto}'">
-                            ${photos.length > 1 ? `
-                            <div class="talent-photo-gallery">
-                                ${photos.map((photo, i) => `
-                                    <button type="button" class="talent-thumb-btn" data-thumb="${i}" aria-label="${s('photos')} ${i + 1}">
-                                        <img src="${esc(photo)}" alt="" class="talent-thumb ${i === 0 ? 'active' : ''}" loading="lazy">
-                                    </button>
-                                `).join('')}
-                            </div>
-                            ` : ''}
+                <div class="container profile">
+                    <div class="profile-photo">
+                        <img src="${esc(mainPhoto)}" alt="${esc(name)}" class="profile-main" id="heroMainPhoto" data-index="0" onerror="this.onerror=null;this.src='${T.placeholderPhoto}'">
+                        ${photos.length > 1 ? `
+                        <div class="thumbs">
+                            ${photos.map((photo, i) => `
+                                <button type="button" class="thumb-btn ${i === 0 ? 'active' : ''}" data-thumb="${i}" aria-label="${s('photos')} ${i + 1}">
+                                    <img src="${esc(photo)}" alt="" loading="lazy">
+                                </button>
+                            `).join('')}
+                        </div>` : ''}
+                    </div>
+
+                    <div class="profile-info">
+                        <h1 class="display profile-name">${esc(name)}</h1>
+                        <p class="profile-role">${esc(role)}</p>
+
+                        <dl class="facts">
+                            ${fact('age', ageText)}
+                            ${fact('height', heightText)}
+                            ${fact('weight', weightText)}
+                            ${fact('gender', genderText)}
+                            ${fact('city', city)}
+                            ${fact('eyeColor', L(talent.eyeColor))}
+                            ${fact('hairColor', L(talent.hairColor))}
+                        </dl>
+
+                        <div class="profile-actions">
+                            <a href="#contact" class="btn btn-primary"><span>${s('contactBtn')}</span>${icon('arrow-right')}</a>
+                            ${videos.length ? `<a href="#showreels" class="btn btn-secondary">${icon('play')}<span>${s('showreel')}</span></a>` : ''}
+                            ${cvUrl ? `<a href="${esc(cvUrl)}" class="btn btn-secondary" target="_blank" rel="noopener">${icon('download-simple')}<span>${s('downloadCv')}</span></a>` : ''}
                         </div>
-                        <div class="talent-hero-info">
-                            <h1 class="talent-name">${esc(name)}</h1>
-                            <p class="talent-role">${esc(role)}</p>
 
-                            <div class="talent-quick-stats">
-                                ${quickStat('age', ageText)}
-                                ${quickStat('height', heightText)}
-                                ${quickStat('city', city)}
-                                ${quickStat('gender', genderText)}
-                            </div>
+                        ${bio ? `<div class="block"><h2>${s('bio')}</h2><p>${esc(bio)}</p></div>` : ''}
+                        ${experience.length ? `<div class="block" id="cv"><h2>${s('cvTitle')}</h2><ul class="timeline">${experience.map(l => `<li>${esc(l)}</li>`).join('')}</ul></div>` : ''}
+                        ${education.length ? `<div class="block"><h2>${s('education')}</h2><ul class="timeline">${education.map(l => `<li>${esc(l)}</li>`).join('')}</ul></div>` : ''}
+                        ${skills.length ? `<div class="block"><h2>${s('skills')}</h2><div class="chips">${skills.map(k => `<span class="chip">${esc(k)}</span>`).join('')}</div></div>` : ''}
+                        ${languages.length ? `<div class="block"><h2>${s('languages')}</h2><div class="chips">${languages.map(k => `<span class="chip">${esc(k)}</span>`).join('')}</div></div>` : ''}
+                    </div>
+                </div>
 
-                            <div class="talent-contact-buttons">
-                                <a href="#contact" class="contact-btn contact-btn-primary">${s('contactBtn')}</a>
-                                ${videos.length ? `<a href="#showreels" class="contact-btn contact-btn-secondary">▶ ${s('showreel')}</a>` : ''}
-                                ${cvUrl ? `<a href="${esc(cvUrl)}" class="contact-btn contact-btn-secondary" target="_blank" rel="noopener">${s('downloadCv')}</a>` : ''}
-                            </div>
+                ${videos.length ? `
+                <section class="profile-section" id="showreels">
+                    <div class="container">
+                        <h2 class="section-title reveal">${s('showreels')}</h2>
+                        <div class="videos-grid">
+                            ${videos.map(url => `<div class="video-embed reveal">${T.videoEmbedHtml(url)}</div>`).join('')}
+                        </div>
+                    </div>
+                </section>` : ''}
+
+                ${photos.length > 1 ? `
+                <section class="profile-section" id="photos">
+                    <div class="container">
+                        <h2 class="section-title reveal">${s('photoGallery')}</h2>
+                        <div class="photos-grid">
+                            ${photos.map((photo, i) => `
+                            <button type="button" class="photo-item reveal" style="--i:${i % 3}" data-lightbox="${i}" aria-label="${s('photos')} ${i + 1}">
+                                <img src="${esc(photo)}" alt="${esc(name)} ${i + 1}" loading="lazy">
+                            </button>`).join('')}
+                        </div>
+                    </div>
+                </section>` : ''}
+
+                <section class="profile-section" id="contact">
+                    <div class="container">
+                        <h2 class="section-title reveal">${s('contact')}</h2>
+                        <div class="contact-grid">
+                            ${email ? `<div class="contact-item reveal">${icon('envelope-simple')}<div><h3>${s('email')}</h3><a href="mailto:${esc(email)}">${esc(email)}</a></div></div>` : ''}
+                            ${phone ? `<div class="contact-item reveal">${icon('phone')}<div><h3>${s('phone')}</h3><a href="tel:${esc(phone.replace(/[^\d+]/g, ''))}">${esc(phone)}</a></div></div>` : ''}
+                            <div class="contact-item reveal">${icon('film-slate')}<div><h3>${s('agency')}</h3><a href="mailto:info@shuqi.ge?subject=${encodeURIComponent(name)}">info@shuqi.ge</a></div></div>
+                            <div class="contact-item reveal">${icon('phone')}<div><h3>shuQi Production</h3><a href="tel:+995511175317">+995 511175317</a></div></div>
                         </div>
                     </div>
                 </section>
-
-                <nav class="talent-nav">
-                    <div class="talent-nav-container">
-                        <a href="#overview" class="talent-nav-link active">${s('overview')}</a>
-                        ${videos.length ? `<a href="#showreels" class="talent-nav-link">${s('showreel')}</a>` : ''}
-                        ${photos.length > 1 ? `<a href="#photos" class="talent-nav-link">${s('photos')}</a>` : ''}
-                        ${hasCv ? `<a href="#cv" class="talent-nav-link">${s('cv')}</a>` : ''}
-                        <a href="#contact" class="talent-nav-link">${s('contact')}</a>
-                    </div>
-                </nav>
-
-                <main class="talent-main">
-                    <section class="talent-section" id="overview">
-                        <h2 class="section-title">${s('overview')}</h2>
-                        <div class="details-grid">
-                            <div class="details-card">
-                                <h4>${s('personal')}</h4>
-                                <div class="details-list">
-                                    ${detailRow('age', ageText)}
-                                    ${detailRow('gender', genderText)}
-                                    ${detailRow('city', city)}
-                                    ${detailRow('languages', languages.join(', '))}
-                                </div>
-                            </div>
-                            ${heightText || weightText || L(talent.eyeColor) || L(talent.hairColor) ? `
-                            <div class="details-card">
-                                <h4>${s('appearance')}</h4>
-                                <div class="details-list">
-                                    ${detailRow('height', heightText)}
-                                    ${detailRow('weight', weightText)}
-                                    ${detailRow('eyeColor', L(talent.eyeColor))}
-                                    ${detailRow('hairColor', L(talent.hairColor))}
-                                </div>
-                            </div>
-                            ` : ''}
-                        </div>
-
-                        ${bio ? `
-                        <div class="overview-block">
-                            <h3>${s('bio')}</h3>
-                            <p class="bio-text">${esc(bio)}</p>
-                        </div>
-                        ` : ''}
-
-                        ${education ? `
-                        <div class="overview-block">
-                            <h3>${s('education')}</h3>
-                            <p class="bio-text">${esc(education)}</p>
-                        </div>
-                        ` : ''}
-                        
-                        ${skills.length ? `
-                        <div class="overview-block">
-                            <h3>${s('skills')}</h3>
-                            <div class="skill-tags">
-                                ${skills.map(skill => `<span class="skill-tag">${esc(skill)}</span>`).join('')}
-                            </div>
-                        </div>
-                        ` : ''}
-                    </section>
-
-                    ${videos.length ? `
-                    <section class="talent-section" id="showreels">
-                        <h2 class="section-title">${s('showreels')}</h2>
-                        <div class="videos-grid">
-                            ${videos.map(url => `
-                                <div class="video-card">
-                                    <div class="video-embed">${T.videoEmbedHtml(url)}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                    ` : ''}
-
-                    ${photos.length > 1 ? `
-                    <section class="talent-section" id="photos">
-                        <h2 class="section-title">${s('photoGallery')}</h2>
-                        <div class="photos-grid">
-                            ${photos.map((photo, i) => `
-                            <button type="button" class="photo-item" data-lightbox="${i}" aria-label="${s('photos')} ${i + 1}">
-                                <img src="${esc(photo)}" alt="${esc(name)} ${i + 1}" loading="lazy">
-                            </button>
-                            `).join('')}
-                        </div>
-                    </section>
-                    ` : ''}
-
-                    ${hasCv ? `
-                    <section class="talent-section" id="cv">
-                        <h2 class="section-title">${s('cvTitle')}</h2>
-                        ${experience ? `
-                        <div class="cv-text">
-                            <p>${esc(experience)}</p>
-                        </div>
-                        ` : ''}
-                        ${cvUrl ? `<a href="${esc(cvUrl)}" class="cv-download" target="_blank" rel="noopener">⬇ ${s('downloadCv')}</a>` : ''}
-                    </section>
-                    ` : ''}
-
-                    <section class="talent-section" id="contact">
-                        <h2 class="section-title">${s('contact')}</h2>
-                        <div class="contact-section">
-                            <div class="contact-grid">
-                                ${email ? `
-                                <div class="contact-method">
-                                    <div class="contact-icon">📧</div>
-                                    <div class="contact-info">
-                                        <h5>${s('email')}</h5>
-                                        <a href="mailto:${esc(email)}">${esc(email)}</a>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                ${phone ? `
-                                <div class="contact-method">
-                                    <div class="contact-icon">📞</div>
-                                    <div class="contact-info">
-                                        <h5>${s('phone')}</h5>
-                                        <a href="tel:${esc(phone.replace(/[^\d+]/g, ''))}">${esc(phone)}</a>
-                                    </div>
-                                </div>
-                                ` : ''}
-                                <div class="contact-method">
-                                    <div class="contact-icon">🎬</div>
-                                    <div class="contact-info">
-                                        <h5>${s('agency')}</h5>
-                                        <a href="mailto:info@shuqi.ge?subject=${encodeURIComponent(name)}">shuQi Production · info@shuqi.ge</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </main>
             `;
 
-            setupNavigation();
+            window.ShuqiUI && window.ShuqiUI.initReveal();
         }
 
         function showNotFound() {
             document.title = T.str('notFoundTitle', currentLang) + ' - shuQi Production';
             document.getElementById('talentPageContent').innerHTML = `
-                <div class="not-found">
-                    <h1>${esc(T.str('notFoundTitle', currentLang))}</h1>
+                <div class="container state">
+                    <h1 class="display">${esc(T.str('notFoundTitle', currentLang))}</h1>
                     <p>${esc(T.str('notFoundText', currentLang))}</p>
-                    <a href="portfolio.html">${esc(T.str('backToPortfolio', currentLang))}</a>
+                    <a href="portfolio.html" class="btn btn-secondary">${icon('arrow-left')}<span>${esc(T.str('portfolio', currentLang))}</span></a>
                 </div>
             `;
         }
 
         function showLoadError() {
             document.getElementById('talentPageContent').innerHTML = `
-                <div class="not-found">
+                <div class="container state">
                     <p>${esc(T.str('loadError', currentLang))}</p>
-                    <a href="portfolio.html">${esc(T.str('backToPortfolio', currentLang))}</a>
+                    <a href="portfolio.html" class="btn btn-secondary">${icon('arrow-left')}<span>${esc(T.str('portfolio', currentLang))}</span></a>
                 </div>
             `;
         }
@@ -1146,9 +363,14 @@
             const thumb = e.target.closest('[data-thumb]');
             if (thumb) {
                 const index = Number(thumb.dataset.thumb);
-                document.getElementById('heroMainPhoto').src = currentPhotos[index];
-                document.querySelectorAll('.talent-thumb').forEach(t => t.classList.remove('active'));
-                thumb.querySelector('.talent-thumb').classList.add('active');
+                const main = document.getElementById('heroMainPhoto');
+                main.src = currentPhotos[index];
+                main.dataset.index = index;
+                document.querySelectorAll('.thumb-btn').forEach(t => t.classList.toggle('active', t === thumb));
+                return;
+            }
+            if (e.target.id === 'heroMainPhoto' && currentPhotos.length) {
+                openLightbox(Number(e.target.dataset.index) || 0);
                 return;
             }
             const item = e.target.closest('[data-lightbox]');
@@ -1203,24 +425,6 @@
             if (Math.abs(dx) > 50) navigateLightbox(dx < 0 ? 1 : -1);
             touchStartX = null;
         });
-
-        // ========================================
-        // SECTION NAV SCROLL SPY
-        // ========================================
-        let scrollSpyBound = false;
-        function setupNavigation() {
-            if (scrollSpyBound) return;
-            scrollSpyBound = true;
-            window.addEventListener('scroll', () => {
-                let current = '';
-                document.querySelectorAll('.talent-section').forEach(section => {
-                    if (window.scrollY >= section.offsetTop - 150) current = section.id;
-                });
-                document.querySelectorAll('.talent-nav-link').forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-                });
-            }, { passive: true });
-        }
 
         // ========================================
         // INIT
