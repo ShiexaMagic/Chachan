@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { LangProvider } from './i18n/LangContext';
 import { AppLayout } from './components/AppLayout';
@@ -9,6 +9,9 @@ import { Locations } from './pages/Locations';
 import { LocationDetail } from './pages/LocationDetail';
 import { Guide } from './pages/Guide';
 
+// Single-file builds (embedded previews) can't rely on server-side URL rewrites.
+const Router = import.meta.env.VITE_ROUTER === 'memory' ? MemoryRouter : BrowserRouter;
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => window.scrollTo(0, 0), [pathname]);
@@ -18,7 +21,7 @@ function ScrollToTop() {
 export function App() {
   return (
     <LangProvider>
-      <BrowserRouter>
+      <Router>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -33,7 +36,7 @@ export function App() {
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </Router>
     </LangProvider>
   );
 }

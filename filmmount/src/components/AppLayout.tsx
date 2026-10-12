@@ -18,6 +18,7 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const { t } = useLang();
   const shoots = useShoots();
   const userCount = shoots.filter((s) => !s.sample).length;
+  const [confirming, setConfirming] = useState(false);
 
   return (
     <div className="flex h-full flex-col bg-navy text-paper">
@@ -67,16 +68,34 @@ function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
             {t('app.exit')}
           </Link>
         </div>
-        {userCount > 0 && (
-          <button
-            type="button"
-            onClick={() => window.confirm(t('app.reset.confirm')) && resetShoots()}
-            className="inline-flex items-center gap-1.5 text-xs text-paper/40 hover:text-amber"
-          >
-            <Icon name="reset" className="h-3.5 w-3.5" />
-            {t('app.reset')}
-          </button>
-        )}
+        {userCount > 0 &&
+          (confirming ? (
+            <div className="flex flex-wrap items-center gap-2 text-xs text-paper/70">
+              <span>{t('app.reset.confirm')}</span>
+              <button
+                type="button"
+                onClick={() => {
+                  resetShoots();
+                  setConfirming(false);
+                }}
+                className="rounded-full bg-amber px-2.5 py-0.5 font-semibold text-navy"
+              >
+                {t('reg.yes')}
+              </button>
+              <button type="button" onClick={() => setConfirming(false)} className="rounded-full px-2.5 py-0.5 ring-1 ring-white/20">
+                {t('reg.no')}
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setConfirming(true)}
+              className="inline-flex items-center gap-1.5 text-xs text-paper/40 hover:text-amber"
+            >
+              <Icon name="reset" className="h-3.5 w-3.5" />
+              {t('app.reset')}
+            </button>
+          ))}
       </div>
     </div>
   );
