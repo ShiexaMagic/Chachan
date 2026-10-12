@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    font-feature-settings: 'kern';
+  }
+  h1, h2, h3 { @apply font-serif text-navy; }
+  ::selection { background: #E2A15F55; }
+  :focus-visible { outline: 2px solid #C9772F; outline-offset: 2px; }
+}
+
+@layer components {
+  .card { @apply rounded-card bg-white shadow-soft ring-1 ring-navy/5; }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-5 py-2.5 text-sm font-semibold text-paper transition hover:bg-navy-600 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-amber {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-amber px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-amber-deep hover:text-paper;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-ink ring-1 ring-navy/15 transition hover:bg-mist;
+  }
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-deep; }
+  .field { @apply block; }
+  .field > span { @apply mb-1.5 block text-sm font-medium text-ink; }
+  .field input, .field select, .field textarea {
+    @apply w-full rounded-xl border border-navy/15 bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-muted/60 transition focus:border-amber focus:outline-none focus:ring-4 focus:ring-amber/20;
+  }
+  .field textarea { @apply resize-y; }
+  .field .err { @apply mt-1 block text-xs font-medium text-[#A8452F]; }
+  .field.invalid input, .field.invalid select { @apply border-[#A8452F]/60; }
+}
+
+@keyframes fm-rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.fm-rise { animation: fm-rise 0.45s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+/* Leaflet */
+.leaflet-container { font-family: inherit; background: #E8EEF0; }
+.leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: 0 10px 30px -10px rgba(20, 33, 43, 0.35); }
+.leaflet-popup-content { margin: 12px 14px; }
+.leaflet-control-attribution { font-size: 10px; }
+.fm-pin {
+  display: block; width: 28px; height: 36px; position: relative;
+  transition: transform 0.2s ease;
+}
+.fm-pin::before {
+  content: ''; position: absolute; left: 4px; top: 2px; width: 20px; height: 20px;
+  background: #14212B; border: 3px solid #E2A15F; border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg); box-shadow: 0 3px 8px rgba(20, 33, 43, 0.35);
+}
+.fm-pin > span {
+  position: absolute; left: 11px; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: #E2A15F;
+}
+.fm-pin--active { transform: scale(1.25) translateY(-3px); }
+.fm-pin--active::before { background: #E2A15F; border-color: #14212B; }
+.fm-pin--active > span { background: #14212B; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fm-rise { animation: none; }
+  * { scroll-behavior: auto !important; }
+}
