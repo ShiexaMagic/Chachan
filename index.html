@@ -811,6 +811,14 @@
             z-index: 2;
         }
         
+        .hero-tagline {
+            margin: 0.25rem 0 0;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: var(--film-white);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
         .hero h2 {
             font-size: 3.5rem;
             margin-bottom: 0.5rem;
@@ -2676,6 +2684,10 @@
             .hero h2 {
                 font-size: 2rem;
             }
+
+            .hero-tagline {
+                font-size: 1.15rem;
+            }
             
             .about-content {
                 grid-template-columns: 1fr;
@@ -2801,7 +2813,8 @@
             </video>
             <div class="hero-overlay"></div>
             <div class="hero-content">
-                <h2>ისწავლე, ითამაშე და გადაიღე</h2>
+                <h2>ისწავლე, ითამაშე, გადაიღე.</h2>
+                <p class="hero-tagline">შუქი, კინოსამყარო ერთ სივრცეში</p>
                 <div class="hero-buttons">
                     <a href="#registration" class="btn btn-primary">დარეგისტრირდი</a>
                     <a href="#about" class="btn btn-secondary">გაიგე მეტი</a>
@@ -2814,7 +2827,7 @@
             <h2>ჩვენ შესახებ</h2>
             <div class="about-content">
                 <div class="about-image">
-                    <img src="./images/web.png" alt="კინოსკოლა" class="about-img">
+                    <img src="./images/web.png" alt="შუქი პროდაქშენი" class="about-img">
                 </div>
                 <div class="about-text">
                     <h3>შუქი პროდაქშენი</h3>
@@ -2887,7 +2900,6 @@
                 <div class="course-card">
                     <div class="course-content">
                         <h3>კურსი „კინოსამზარეულო"</h3>
-                        <p class="course-tagline">25 მაისი – 25 ივლისი</p>
                         <div class="course-footer">
                             <button class="course-btn">დეტალები</button>
                         </div>
@@ -3089,7 +3101,7 @@
                         <h3 style="color: #1d1d1f; margin-bottom: 1.5rem; font-size: 1.5rem;">საკონტაქტო ინფორმაცია</h3>
                         <div style="margin-bottom: 1rem;">
                             <strong style="color: #1d1d1f;">მისამართი:</strong><br>
-                            <span style="color: #666;">15-ა ლუბლიანას ქუჩა, თბილისი</span>
+                            <span style="color: #666;">ზარაფხანა, ლუბლიანას ქუჩა 15-ა, თბილისი</span>
                         </div>
                         <div style="margin-bottom: 1rem;">
                             <strong style="color: #1d1d1f;">ტელეფონი:</strong><br>
@@ -3183,10 +3195,7 @@
 
                     <ul>
                         <li>იჩქარეთ, რეგისტრაცია კინოსამსახიობო კურსზე „პორტფოლიო" დაიწყო!</li>
-                        <li>ადგილების რაოდენობა შეზღუდულია, რეგისტაციის ბოლო ვადა: 07.03.2026</li>
-                        <li>გასაუბრებები: 16.03.2026 – 20.03.2026</li>
-                        <li>სასწავლო კურსის ხანგრძლივობა: 24.03.2026 - 26.06.2026</li>
-                        <li>ნამუშევრების ჩვენება, პორტფოლიოებისა და სერტიფიკატების გადაცემა: 04.07.2026</li>
+                        <li>ადგილების რაოდენობა შეზღუდულია.</li>
                     </ul>
 
                     <div class="course-info-box">
@@ -3197,8 +3206,8 @@
                                 <span class="value">13 კვირა</span>
                             </div>
                             <div class="course-info-item">
-                                <span class="label">ღირებულება (განვადება შესაძლებელია)</span>
-                                <span class="value">2900 ლარი</span>
+                                <span class="label">ღირებულება</span>
+                                <span class="value">2900 ლარი (განვადება შესაძლებელია)</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ტელეფონი</span>
@@ -3210,7 +3219,7 @@
                             </div>
                             <div class="course-info-item">
                                 <span class="label">მისამართი</span>
-                                <span class="value">თბილისი, ლუბლიანას ქუჩა 15-ა</span>
+                                <span class="value">ზარაფხანა, ლუბლიანას ქუჩა 15-ა, თბილისი</span>
                             </div>
                         </div>
                     </div>
@@ -3231,12 +3240,11 @@
             <div class="course-modal">
                 <div class="course-modal-header">
                     <h2>კურსი „კინოსამზარეულო"</h2>
-                    <p class="tagline">25 მაისი – 25 ივლისი</p>
                     <button class="course-modal-close" id="closeKitchenModal">&times;</button>
                 </div>
                 <div class="course-modal-body">
                     <div class="course-highlight">
-                        <p>რეგისტრაციის ბოლო ვადა — 15 მაისი! შემოგვიერთდი დღესვე!</p>
+                        <p>შემოგვიერთდი დღესვე!</p>
                     </div>
 
                     <h3>რას ისწავლი:</h3>
@@ -3317,15 +3325,11 @@
                         <div class="course-info-grid">
                             <div class="course-info-item">
                                 <span class="label">ხანგრძლივობა</span>
-                                <span class="value">25 მაისი – 25 ივლისი</span>
+                                <span class="value">2 თვე</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">სწავლის საფასური</span>
                                 <span class="value">1200 ლარი</span>
-                            </div>
-                            <div class="course-info-item">
-                                <span class="label">რეგისტრაციის ბოლო ვადა</span>
-                                <span class="value">15 მაისი</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ტელეფონი</span>
@@ -3337,7 +3341,7 @@
                             </div>
                             <div class="course-info-item">
                                 <span class="label">მისამართი</span>
-                                <span class="value">თბილისი, ლუბლიანას ქუჩა 15-ა</span>
+                                <span class="value">ზარაფხანა, ლუბლიანას ქუჩა 15-ა, თბილისი</span>
                             </div>
                         </div>
                     </div>
@@ -3464,7 +3468,7 @@
                 <div class="course-modal-body">
 
                     <div class="course-highlight">
-                        <p>გინდა გადაიღო შენი საავტორო ფილმი? 2026 წლის სექტემბრიდან „შუქი პროდაქშენი" გაძლევს შანსს, ნულიდან შექმნა შენი კინო — იდეიდან ეკრანამდე.</p>
+                        <p>გინდა გადაიღო შენი საავტორო ფილმი? „შუქი პროდაქშენი" გაძლევს შანსს, ნულიდან შექმნა შენი კინო — იდეიდან ეკრანამდე.</p>
                     </div>
 
                     <p>MYM არ არის უბრალოდ კინოსარეჟისორო კურსი. ეს არის <strong>რეალური კინოპროდუქცია</strong>, რომელსაც თავად ქმნი.</p>
@@ -3563,15 +3567,11 @@
                         <div class="course-info-grid">
                             <div class="course-info-item">
                                 <span class="label">ხანგრძლივობა</span>
-                                <span class="value">11 თვე (სექტემბერი 2026 — აგვისტო 2027)</span>
+                                <span class="value">11 თვე</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ღირებულება</span>
                                 <span class="value">1,500 ლარი (თვეში 1,500 ₾)</span>
-                            </div>
-                            <div class="course-info-item">
-                                <span class="label">რეგისტრაცია იწყება</span>
-                                <span class="value">8 აგვისტოდან</span>
                             </div>
                             <div class="course-info-item">
                                 <span class="label">ტელეფონი</span>
@@ -4103,6 +4103,12 @@
         const langSwitch = document.getElementById('langSwitch');
         
         const translations = {
+            // Course texts after dates were removed
+            'ადგილების რაოდენობა შეზღუდულია.': 'Places are limited.',
+            'შემოგვიერთდი დღესვე!': 'Join us today!',
+            '2 თვე': '2 months',
+            '11 თვე': '11 months',
+            'გინდა გადაიღო შენი საავტორო ფილმი? „შუქი პროდაქშენი" გაძლევს შანსს, ნულიდან შექმნა შენი კინო — იდეიდან ეკრანამდე.': 'Want to make your own film? shuQi Production gives you the chance to create your film from scratch, from idea to screen.',
             // Navigation
             'მთავარი': 'Home',
             'ჩვენ შესახებ': 'About Us',
@@ -4113,7 +4119,8 @@
             'კონტაქტი': 'Contact',
             
             // Hero
-            'ისწავლე, ითამაშე და გადაიღე': 'Learn, Act and Film',
+            'ისწავლე, ითამაშე, გადაიღე.': 'Learn, act, film.',
+            'შუქი, კინოსამყარო ერთ სივრცეში': 'shuQi: the world of cinema in one place',
             'დარეგისტრირდი': 'Register',
             'გაიგე მეტი': 'Learn More',
             
@@ -4201,7 +4208,7 @@
             'ტელეფონი': 'Phone',
             'ელფოსტა': 'Email',
             'მისამართი': 'Address',
-            'თბილისი, ლუბლიანას ქუჩა 15-ა': '15-a Ljubljana Street, Tbilisi',
+            'ზარაფხანა, ლუბლიანას ქუჩა 15-ა, თბილისი': 'Zarapkhana, 15-a Ljubljana Street, Tbilisi',
             'მონაწილეთა რაოდენობა შეზღუდულია': 'Number of participants is limited',
             'შეავსეთ განაცხადის ფორმა': 'Fill out the application form',
             
@@ -4248,7 +4255,6 @@
             // Contact Section
             'საკონტაქტო ინფორმაცია': 'Contact Information',
             'მისამართი:': 'Address:',
-            '15-ა ლუბლიანას ქუჩა, თბილისი': '15-a Ljubljana Street, Tbilisi',
             'ტელეფონი:': 'Phone:',
             'ელფოსტა:': 'Email:',
             'გამოგვყევით:': 'Follow Us:',
@@ -4328,7 +4334,7 @@
 
             // Portfolio Modal extras
             'პროექტის ხანგრძლივობა — 13 კვირა.': 'Project duration — 13 weeks.',
-            'ღირებულება (განვადება შესაძლებელია)': 'Price (installments available)',
+            '2900 ლარი (განვადება შესაძლებელია)': '2900 GEL (installments available)',
             'სწავლის დღეები:': 'Class days:',
             'ორშაბათი, ხუთშაბათი, 20:00 – 22:00 საათი': 'Monday, Thursday, 20:00 – 22:00',
             'დღე/საათი:': 'Day/Time:',
