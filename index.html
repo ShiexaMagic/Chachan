@@ -938,7 +938,7 @@
                         <img src="./gallery/web/image00005.jpg" alt="" class="course-img" loading="lazy">
                         <div class="course-content">
                             <h3>კინო არდადეგები</h3>
-                            <p class="course-tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს</p>
+                            <p class="course-tagline">შუქი პროდაქშენი გთავაზობთ კინოსამსახიობო კურსს მოზარდებისთვის</p>
                             <div class="course-footer">
                                 <button class="course-btn">დეტალები</button>
                             </div>
@@ -1399,7 +1399,7 @@
             <div class="course-modal">
                 <div class="course-modal-header">
                     <h2>კინო არდადეგები</h2>
-                    <p class="tagline">შუქი პროდაქშენის კინოსახელოსნო გთავაზობთ საზაფხულო სამსახიობო კურსს - “კინოარდადეგები”</p>
+                    <p class="tagline">შუქი პროდაქშენი გთავაზობთ კინოსამსახიობო კურსს მოზარდებისთვის - „კინოარდადეგები"</p>
                     <button class="course-modal-close" id="closeVacationModal">&times;</button>
                 </div>
                 <div class="course-modal-body">
@@ -1421,8 +1421,8 @@
 
                     <h3>ხანგრძლივობა და ფორმატი</h3>
                     <ul>
-                        <li>ხანგრძლივობა: 4 კვირა</li>
-                        <li>სიხშირე: კვირაში 3 დღე: ორშაბათი, ხუთშაბათი - 19:00, შაბათი - 13:00</li>
+                        <li>ხანგრძლივობა: 9 კვირა</li>
+                        <li>სიხშირე: კვირაში 2 დღე: ორშაბათი, ხუთშაბათი - 19:00</li>
                         <li>დღიური სესია: 3 საათი</li>
                     </ul>
 
@@ -1463,14 +1463,14 @@
                     <ul>
                         <li>გადაღებულ სცენებს/მასალას შენი მონაწილეობით (showreel)</li>
                         <li>მონაწილეების მშობლებისთვის და მეგობრებისთვის მოეწყობა გადაღებული მასალის ჩვენება</li>
-                        <li>კურსის დასრულების შემდეგ, გადმოგეცემა “შუქის” და “ნიუ ვიჟენის” ერთობლივი სერტიფიკატი</li>
+                        <li>კურსის დასრულების შემდეგ, გადმოგეცემა „შუქის" და „ნიუ ვიჟენის" ერთობლივი სერტიფიკატი</li>
                     </ul>
 
                     <div class="course-info-box">
                         <h4>კურსის ღირებულება</h4>
                         <div class="course-info-grid">
                             <div class="course-info-item">
-                                <span class="value"><s>950 ლარი</s> 760 ლარი <span class="discount">-20%</span></span>
+                                <span class="value">1000₾</span>
                             </div>
                         </div>
                     </div>
@@ -1488,7 +1488,7 @@
                         <a href="#registration" class="course-cta-btn" onclick="document.getElementById('vacationModal').classList.remove('active'); document.body.style.overflow = '';">დარეგისტრირდი</a>
                     </div>
                 </div>
-                <div class="course-modal-logo">
+<div class="course-modal-logo">
                     <img src="./images/shuqi-logo.png" alt="shuQi Logo">
                 </div>
             </div>
@@ -2175,6 +2175,49 @@
         const langSwitch = document.getElementById('langSwitch');
         
         const translations = {
+            // "კინო არდადეგები" popup
+            'შუქი პროდაქშენი გთავაზობთ კინოსამსახიობო კურსს მოზარდებისთვის - „კინოარდადეგები"': 'shuQi Production offers a film acting course for teenagers: "Kino Ardadegebi"',
+            'შუქი პროდაქშენი გთავაზობთ კინოსამსახიობო კურსს მოზარდებისთვის': 'shuQi Production offers a film acting course for teenagers',
+            'კურსი განკუთვნილია მოზარდებისთვის და ეფუძნება შემოქმედებით, პრაქტიკულ სწავლებას.': 'The course is designed for teenagers and is built on creative, hands-on learning.',
+            'მონაწილეები კინოს სფეროს პროფესიონალების ხელმძღვანელობით შეიძენენ რეალურ კინოსამსახიობო გამოცდილებას, იმუშავებენ გუნდურ გარემოში, განივითარებენ კომუნიკაციისა და თანამშრომლობის უნარებს და ჩაერთვებიან საინტერესო შემოქმედებით პროცესში.': 'Guided by film professionals, participants gain real film acting experience, work as a team, build communication and collaboration skills, and take part in an exciting creative process.',
+            'კურსის განმავლობაში მათ ექნებათ შესაძლებლობა დროებით მოწყდნენ ტელეფონებსა და სხვა გაჯეტებს, მეტი დრო გაატარონ თანატოლებთან ცოცხალ ურთიერთობაში და იმუშაონ მეგობრულ, ჯანსაღ და ინსპირაციულ გარემოში.': 'During the course they can take a break from phones and other gadgets, spend more time with peers in person, and work in a friendly, healthy and inspiring environment.',
+            'კურსის მიზნები': 'Course goals',
+            'კინოსამსახიობო უნარების განვითარება (ემოცია, სხეულის ენა, ხმა)': 'Developing film acting skills (emotion, body language, voice)',
+            'კამერასთან მუშაობის სწავლა': 'Learning to work with the camera',
+            'თვითგამოხატვისა და თავდაჯერებულობის გაზრდა': 'Building self-expression and confidence',
+            'გუნდური მუშაობის უნარების განვითარება': 'Developing teamwork skills',
+            'ხანგრძლივობა და ფორმატი': 'Duration and format',
+            'ხანგრძლივობა: 9 კვირა': 'Duration: 9 weeks',
+            'სიხშირე: კვირაში 2 დღე: ორშაბათი, ხუთშაბათი - 19:00': 'Schedule: 2 days a week: Monday, Thursday - 19:00',
+            'დღიური სესია: 3 საათი': 'Daily session: 3 hours',
+            'სასწავლო პროგრამა': 'Curriculum',
+            'კინოსამსახიობო ოსტატობა': 'Film acting craft',
+            'ემოციური გახსნა და იმპროვიზაცია': 'Emotional openness and improvisation',
+            'ნდობისა და კონცენტრაციის თამაშები': 'Trust and concentration games',
+            'თვითშეფასების ამაღლება': 'Building self-esteem',
+            'კამერასთან მუშაობა': 'Working with the camera',
+            'ბუნებრივი თამაში კამერის წინ: გადაღება, მასალის განხილვა და განმეორებით გადაღება': 'Acting naturally on camera: shooting, reviewing the footage and shooting again',
+            'კამერის სხვადასხვა ხედების და ობიექტივების შესწავლა': 'Learning camera angles and lenses',
+            'საკუთარი თავის გაცნობა ეკრანზე': 'Getting to know yourself on screen',
+            'სცენების გადაღება მცირე ჯგუფებში': 'Shooting scenes in small groups',
+            'ხმა და მეტყველება': 'Voice and speech',
+            'დიქცია და არტიკულაცია': 'Diction and articulation',
+            'ტექსტის სწორად გადმოცემა': 'Delivering text well',
+            'ემოცია ხმაში': 'Emotion in the voice',
+            'იმპროვიზაცია და თამაშები': 'Improvisation and games',
+            'სწრაფი რეაგირება': 'Quick reactions',
+            'კრეატიულობა': 'Creativity',
+            'ჯგუფური სცენების შექმნა': 'Creating group scenes',
+            'რას მიიღებ კურსის ბოლოს': 'What you get at the end of the course',
+            'გადაღებულ სცენებს/მასალას შენი მონაწილეობით (showreel)': 'Filmed scenes/footage featuring you (showreel)',
+            'მონაწილეების მშობლებისთვის და მეგობრებისთვის მოეწყობა გადაღებული მასალის ჩვენება': 'A screening of the footage for participants\' parents and friends',
+            'კურსის დასრულების შემდეგ, გადმოგეცემა „შუქის" და „ნიუ ვიჟენის" ერთობლივი სერტიფიკატი': 'A joint shuQi and New Vision certificate after completing the course',
+            'კურსის ღირებულება': 'Course price',
+            'მნიშვნელოვანი დეტალები': 'Important details',
+            'უსაფრთხო და მხარდაჭერებზე დაფუძნებული გარემო': 'A safe and supportive environment',
+            'მეტი პრაქტიკა, ნაკლები ლექცია': 'More practice, fewer lectures',
+            'მენტორების მხრიდან ინდივიდუალური უკუკავშირი თითოეულ მონაწილესთან': 'Individual feedback from mentors for every participant',
+            'შესაძლებლობა ისწავლო შენთვის საყვარელ მსახიობებთან': 'A chance to learn from actors you love',
             // Course texts after dates were removed
             'ადგილების რაოდენობა შეზღუდულია.': 'Places are limited.',
             'შემოგვიერთდი დღესვე!': 'Join us today!',
