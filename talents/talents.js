@@ -235,6 +235,6 @@
     window.ShuqiTalents = {
         STRINGS, getLang, setLang, str, localized, list, escapeHtml, safeUrl,
         getAge, videoEmbedHtml, getPhotos, getVideos, getSlug, loadTalents,
-        placeholderPhoto: './images/web.png'
+        placeholderPhoto: './images/web.jpg'
     };
 })();
