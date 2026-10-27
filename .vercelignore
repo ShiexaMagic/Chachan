@@ -1,0 +1,14 @@
+# Keep these in the repository, but don't publish them on the website.
+# Originals are huge camera files; the site uses gallery/web and gallery/thumb copies.
+gallery/*.BMP
+gallery/*.bmp
+gallery/*.JPG
+gallery/*.jpg
+gallery/*.jpeg
+gallery/*.docx
+video/*.mov
+images/web.png
+index_old.html
+GOOGLE_SHEETS_SETUP.js
+.claude
+talents/README.md
